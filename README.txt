@@ -1,12 +1,19 @@
-Z TYCOON PREMIUM V3 FIXED
-- Menü ve şirket sekmeleri çalışan Full V1 tabanından yeniden kuruldu.
-- JavaScript sözdizimi yayın öncesi doğrulandı.
-- Premium logo ve SVG ikon seti.
-- Raporlar menüsü: ciro, net kâr, vergi, maaş, stok, borç, şirket performansı ve varlık dağılımı.
-- Banka: ticari kredi + şirket kredi kartı.
-- Kredi kartı: şirket bazlı limit, kullanılabilir limit, borç, kullanım ve borç ödeme.
-- Kart limiti kredi notu + şirket seviyesi + şirket değerine göre büyür.
-- Ödenmeyen kart borcuna ay sonunda %2,4 faiz işler.
+Z TYCOON PREMIUM V4 — OFİS İLERLEME
 
-GitHub: ZIP içindeki tüm dosyaları repo köküne yükleyip eskilerin üzerine yaz.
-PWA eski cache'i gösterirse Safari'de yenile; gerekirse ana ekran ikonunu silip tekrar ekle.
+Ofis sıralaması:
+1. Standart Ofis — başlangıç / şirket seviyesi 1-2
+2. Modern Ofis — şirket seviyesi 3-4
+3. Premium Ofis — şirket seviyesi 5-6
+4. Yönetim Merkezi — şirket seviyesi 7+ (Ltd. aşaması)
+5. A.Ş. Genel Merkezi — şirket A.Ş. olunca
+6. Holding Merkezi — 3 adet A.Ş. + ₺25.000.000 net varlık
+
+Özellikler:
+- Onaylanan 6 HD ofis görseli uygulamaya eklendi.
+- Şirket büyüyünce ofis otomatik değişir.
+- Duvardaki şirket adı ve Ltd./A.Ş. unvanı dinamik kalır.
+- Premium V3'teki çalışan menüler, banka, şirket kredi kartı ve raporlar korunur.
+- iPhone PWA ve düşük güç yapısı korunur.
+
+GitHub:
+ZIP içindeki bütün dosyaları repo köküne yükle, eskilerin üzerine yaz.
