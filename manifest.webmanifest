@@ -2,9 +2,10 @@
   "name": "Z Tycoon — İş İmparatorluğu",
   "short_name": "Z Tycoon",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#06101a",
-  "theme_color": "#091522",
+  "theme_color": "#08131f",
   "orientation": "portrait-primary",
   "icons": [
     {
@@ -17,14 +18,5 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "display_override": [
-    "standalone",
-    "minimal-ui"
-  ],
-  "description": "Pil dostu mobil şirket ve holding simülasyonu.",
-  "categories": [
-    "games",
-    "business"
   ]
 }
