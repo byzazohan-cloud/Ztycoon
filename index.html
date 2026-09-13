@@ -1,5 +1,5 @@
 <!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#07131f"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Z Tycoon"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-192.png"><title>Z Tycoon</title><style>
-:root{--bg:#06101a;--panel:#0c1d2c;--line:#294861;--text:#f5f8fb;--muted:#9db0c3;--gold:#efbd58;--blue:#177bea;--green:#1da760;--red:#ce514a;--orange:#e48028;--purple:#8150d7}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;background:linear-gradient(145deg,#040a10,#091725);color:var(--text);font-family:Inter,system-ui,-apple-system,'Segoe UI',Arial,sans-serif}body{min-height:100dvh;padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right);padding-bottom:env(safe-area-inset-bottom)}button,input,select{font:inherit}button{cursor:pointer}.app{max-width:1160px;margin:auto;padding:7px 7px 90px}.top{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;position:sticky;top:max(5px,env(safe-area-inset-top));z-index:20;background:#08131fee;border:1px solid #2c4358;border-radius:16px;padding:5px}.t{min-height:50px;display:flex;align-items:center;justify-content:center;gap:6px;border-right:1px solid #203247}.t:last-child{border:0}.t i{font-style:normal;font-size:21px}.t b{display:block;font-size:15px}.t span{display:block;font-size:8px;color:var(--muted)}.hero{height:min(48vh,500px);min-height:330px;margin-top:7px;border-radius:16px;position:relative;overflow:hidden;border:1px solid #2a465e;background:#111 url('office.jpg') center/cover no-repeat;box-shadow:0 18px 44px #0008}.hero:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,#02070c7d);pointer-events:none}.brand{position:absolute;left:24%;top:7%;width:44%;height:32%;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}.brand svg{width:56px;height:56px}.brandName{font-weight:950;font-size:21px;color:#e7bb66;text-shadow:0 2px 5px #000}.brandSub{font-size:8px;letter-spacing:1.8px;color:#ead7aa;margin-top:5px}.strip{position:absolute;left:8px;right:8px;bottom:8px;z-index:4;background:#07131fea;border:1px solid #304961;border-radius:14px;padding:9px 10px;display:grid;grid-template-columns:1fr auto;gap:7px;align-items:center}.strip b{font-size:14px}.strip small{display:block;color:#c3cfdb;margin-top:3px}.primary{border:0;background:#176ee7;color:#fff;border-radius:10px;padding:9px 12px;font-weight:900}.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:7px}.quick button{border:0;border-radius:12px;color:#fff;min-height:67px;font-weight:900}.q1{background:linear-gradient(135deg,#197bec,#0c4cbf)}.q2{background:linear-gradient(135deg,#20a960,#11723f)}.q3{background:linear-gradient(135deg,#e9872c,#bd5417)}.q4{background:linear-gradient(135deg,#8950dc,#5822ae)}.box{background:linear-gradient(180deg,#0e2132,#091824);border:1px solid #2a465f;border-radius:14px;padding:11px;margin-top:8px}.box h3{margin:0 0 9px;font-size:14px}.muted{font-size:10px;color:var(--muted)}.row{display:flex;justify-content:space-between;border-top:1px solid #20364a;padding:7px 0;font-size:11px}.row:first-child{border-top:0}.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.company{background:#edf2f6;color:#102033;border-radius:10px;padding:9px;min-height:132px;position:relative}.company h4{margin:0 0 3px}.company small{color:#647587}.company button{position:absolute;left:7px;right:7px;bottom:7px;border:0;background:#183f63;color:#fff;border-radius:7px;padding:7px;font-weight:800}.bottom{position:fixed;left:7px;right:7px;bottom:max(7px,env(safe-area-inset-bottom));max-width:1146px;margin:auto;display:grid;grid-template-columns:repeat(5,1fr);background:#08131ff5;border:1px solid #2e4458;border-radius:16px;padding:6px;z-index:30}.bottom button{border:0;background:transparent;color:#c6d1dd;padding:6px 2px;border-radius:9px;font-size:9px}.bottom i{display:block;font-style:normal;font-size:21px}.bottom .active{color:#3f92ff;background:#11283d}.modalbg{position:fixed;inset:0;background:#000c;display:none;align-items:flex-end;justify-content:center;z-index:100}.modal{width:min(790px,100%);max-height:94dvh;overflow:auto;background:linear-gradient(#122a40,#0a1927);border:1px solid #3a5872;border-radius:20px 20px 0 0;padding:15px 13px calc(18px + env(safe-area-inset-bottom))}.modal h2{margin:0 0 11px}.tabs{display:flex;gap:5px;overflow:auto;padding-bottom:3px}.tabs button{border:1px solid #35516a;background:#081823;color:#d1dce7;border-radius:8px;padding:8px 9px;white-space:nowrap;font-weight:800}.tabs .active{background:#177dea}.field{margin:9px 0}.field label{display:block;font-size:10px;color:#afc0d0;margin-bottom:4px}.field input,.field select{width:100%;padding:10px;background:#071521;color:#fff;border:1px solid #35516a;border-radius:9px}.actions{display:flex;gap:6px;margin-top:7px}.actions button{flex:1;border:0;border-radius:8px;padding:8px;font-weight:800;color:#fff}.green{background:#1a9d59}.red{background:#c94e47}.blue{background:#176fe0}.orange{background:#de7b24}.gray{background:#415467}.purple{background:#7b49cf}.card{background:#eaf0f5;color:#102033;border-radius:10px;padding:9px;margin-top:7px}.card h4{margin:0 0 3px}.card small{color:#657586}.visual{height:100px;border-radius:8px;background:#dbe5ec;display:flex;align-items:center;justify-content:center;font-size:49px}.catalog{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.sector{border:1px solid #35516c;background:#091824;color:#fff;border-radius:12px;padding:8px;text-align:left}.sector.sel{outline:2px solid var(--gold);background:#12334b}.sector .visual{height:75px;background:linear-gradient(135deg,#132d44,#07131e)}.sector b{display:block}.sector small{color:#b7c4d0}.logos{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.logo{background:#081722;border:1px solid #35516a;border-radius:9px;padding:8px;text-align:center;font-size:25px}.logo.sel{outline:2px solid var(--gold)}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}.stat{background:#081722;border-radius:9px;padding:8px;text-align:center}.stat b{display:block;font-size:16px}.stat span{font-size:8px;color:#a7b6c6}.progress{height:8px;background:#06121c;border-radius:99px;overflow:hidden;margin:7px 0}.progress>div{height:100%;background:linear-gradient(90deg,#20c476,#2d8fff)}.tbl{width:100%;border-collapse:collapse;font-size:11px}.tbl td{padding:7px 0;border-top:1px solid #21374a}.tbl tr:first-child td{border-top:0}.tbl td:last-child{text-align:right;font-weight:800}.toast{position:fixed;left:50%;bottom:94px;transform:translateX(-50%);background:#122a40;border:1px solid #3b5d78;border-radius:11px;padding:9px 13px;display:none;z-index:150;max-width:90%;text-align:center}.badge{display:inline-block;padding:3px 6px;border-radius:99px;font-size:9px;background:#17324a;color:#d9e5ef}.good{background:#153c2a;color:#8ff0b7}@media(max-width:520px){.app{padding:6px 6px 87px}.t{min-height:44px}.t b{font-size:12px}.t i{font-size:17px}.hero{height:43vh;min-height:315px}.brand{left:22%;width:46%;top:6%}.brandName{font-size:17px}.quick{grid-template-columns:1fr 1fr}.grid2,.catalog{grid-template-columns:1fr 1fr}}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+:root{--bg:#06101a;--panel:#0c1d2c;--line:#294861;--text:#f5f8fb;--muted:#9db0c3;--gold:#efbd58;--blue:#177bea;--green:#1da760;--red:#ce514a;--orange:#e48028;--purple:#8150d7}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;background:linear-gradient(145deg,#040a10,#091725);color:var(--text);font-family:Inter,system-ui,-apple-system,'Segoe UI',Arial,sans-serif}body{min-height:100dvh;padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right);padding-bottom:env(safe-area-inset-bottom)}button,input,select{font:inherit}button{cursor:pointer}.app{max-width:1160px;margin:auto;padding:7px 7px 90px}.top{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;position:sticky;top:max(5px,env(safe-area-inset-top));z-index:20;background:#08131fee;border:1px solid #2c4358;border-radius:16px;padding:5px}.t{min-height:50px;display:flex;align-items:center;justify-content:center;gap:6px;border-right:1px solid #203247}.t:last-child{border:0}.t i{font-style:normal;font-size:21px}.t b{display:block;font-size:15px}.t span{display:block;font-size:8px;color:var(--muted)}.hero{height:min(48vh,500px);min-height:330px;margin-top:7px;border-radius:16px;position:relative;overflow:hidden;border:1px solid #2a465e;background:#111 url('office.jpg') center/cover no-repeat;box-shadow:0 18px 44px #0008}.hero:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,#02070c7d);pointer-events:none}.brand{position:absolute;left:24%;top:7%;width:44%;height:32%;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}.brand svg{width:56px;height:56px}.brandName{font-weight:950;font-size:21px;color:inherit;text-shadow:0 2px 5px #000}.brandSub{font-size:8px;letter-spacing:1.8px;color:#ead7aa;margin-top:5px}.strip{position:absolute;left:8px;right:8px;bottom:8px;z-index:4;background:#07131fea;border:1px solid #304961;border-radius:14px;padding:9px 10px;display:grid;grid-template-columns:1fr auto;gap:7px;align-items:center}.strip b{font-size:14px}.strip small{display:block;color:#c3cfdb;margin-top:3px}.primary{border:0;background:#176ee7;color:#fff;border-radius:10px;padding:9px 12px;font-weight:900}.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:7px}.quick button{border:0;border-radius:12px;color:#fff;min-height:67px;font-weight:900}.q1{background:linear-gradient(135deg,#197bec,#0c4cbf)}.q2{background:linear-gradient(135deg,#20a960,#11723f)}.q3{background:linear-gradient(135deg,#e9872c,#bd5417)}.q4{background:linear-gradient(135deg,#8950dc,#5822ae)}.box{background:linear-gradient(180deg,#0e2132,#091824);border:1px solid #2a465f;border-radius:14px;padding:11px;margin-top:8px}.box h3{margin:0 0 9px;font-size:14px}.muted{font-size:10px;color:var(--muted)}.row{display:flex;justify-content:space-between;border-top:1px solid #20364a;padding:7px 0;font-size:11px}.row:first-child{border-top:0}.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.company{background:#edf2f6;color:#102033;border-radius:10px;padding:9px;min-height:132px;position:relative}.company h4{margin:0 0 3px}.company small{color:#647587}.company button{position:absolute;left:7px;right:7px;bottom:7px;border:0;background:#183f63;color:#fff;border-radius:7px;padding:7px;font-weight:800}.bottom{position:fixed;left:7px;right:7px;bottom:max(7px,env(safe-area-inset-bottom));max-width:1146px;margin:auto;display:grid;grid-template-columns:repeat(5,1fr);background:#08131ff5;border:1px solid #2e4458;border-radius:16px;padding:6px;z-index:30}.bottom button{border:0;background:transparent;color:#c6d1dd;padding:6px 2px;border-radius:9px;font-size:9px}.bottom i{display:block;font-style:normal;font-size:21px}.bottom .active{color:#3f92ff;background:#11283d}.modalbg{position:fixed;inset:0;background:#000c;display:none;align-items:flex-end;justify-content:center;z-index:100}.modal{width:min(790px,100%);max-height:94dvh;overflow:auto;background:linear-gradient(#122a40,#0a1927);border:1px solid #3a5872;border-radius:20px 20px 0 0;padding:15px 13px calc(18px + env(safe-area-inset-bottom))}.modal h2{margin:0 0 11px}.tabs{display:flex;gap:5px;overflow:auto;padding-bottom:3px}.tabs button{border:1px solid #35516a;background:#081823;color:#d1dce7;border-radius:8px;padding:8px 9px;white-space:nowrap;font-weight:800}.tabs .active{background:#177dea}.field{margin:9px 0}.field label{display:block;font-size:10px;color:#afc0d0;margin-bottom:4px}.field input,.field select{width:100%;padding:10px;background:#071521;color:#fff;border:1px solid #35516a;border-radius:9px}.actions{display:flex;gap:6px;margin-top:7px}.actions button{flex:1;border:0;border-radius:8px;padding:8px;font-weight:800;color:#fff}.green{background:#1a9d59}.red{background:#c94e47}.blue{background:#176fe0}.orange{background:#de7b24}.gray{background:#415467}.purple{background:#7b49cf}.card{background:#eaf0f5;color:#102033;border-radius:10px;padding:9px;margin-top:7px}.card h4{margin:0 0 3px}.card small{color:#657586}.visual{height:100px;border-radius:8px;background:#dbe5ec;display:flex;align-items:center;justify-content:center;font-size:49px}.catalog{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.sector{border:1px solid #35516c;background:#091824;color:#fff;border-radius:12px;padding:8px;text-align:left}.sector.sel{outline:2px solid var(--gold);background:#12334b}.sector .visual{height:75px;background:linear-gradient(135deg,#132d44,#07131e)}.sector b{display:block}.sector small{color:#b7c4d0}.logos{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.logo{background:#081722;border:1px solid #35516a;border-radius:9px;padding:8px;text-align:center;font-size:25px}.logo.sel{outline:2px solid var(--gold)}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}.stat{background:#081722;border-radius:9px;padding:8px;text-align:center}.stat b{display:block;font-size:16px}.stat span{font-size:8px;color:#a7b6c6}.progress{height:8px;background:#06121c;border-radius:99px;overflow:hidden;margin:7px 0}.progress>div{height:100%;background:linear-gradient(90deg,#20c476,#2d8fff)}.tbl{width:100%;border-collapse:collapse;font-size:11px}.tbl td{padding:7px 0;border-top:1px solid #21374a}.tbl tr:first-child td{border-top:0}.tbl td:last-child{text-align:right;font-weight:800}.toast{position:fixed;left:50%;bottom:94px;transform:translateX(-50%);background:#122a40;border:1px solid #3b5d78;border-radius:11px;padding:9px 13px;display:none;z-index:150;max-width:90%;text-align:center}.badge{display:inline-block;padding:3px 6px;border-radius:99px;font-size:9px;background:#17324a;color:#d9e5ef}.good{background:#153c2a;color:#8ff0b7}@media(max-width:520px){.app{padding:6px 6px 87px}.t{min-height:44px}.t b{font-size:12px}.t i{font-size:17px}.hero{height:43vh;min-height:315px}.brand{left:22%;width:46%;top:6%}.brandName{font-size:17px}.quick{grid-template-columns:1fr 1fr}.grid2,.catalog{grid-template-columns:1fr 1fr}}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
 /* PREMIUM V3 */
 :root{--gold2:#ffd77a;--cyan:#58c9ff}
@@ -17,7 +17,169 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
 .officeTierBadge{position:absolute;right:12px;top:12px;z-index:6;background:linear-gradient(135deg,rgba(7,19,31,.93),rgba(18,42,63,.93));border:1px solid rgba(239,189,88,.50);border-radius:11px;padding:8px 10px;text-align:right;box-shadow:0 8px 22px rgba(0,0,0,.28)}
 .officeTierBadge b{display:block;color:#f2c76b;font-size:12px}.officeTierBadge span{display:block;color:#c0ceda;font-size:9px;margin-top:2px}
 .officeProgressInfo{margin-top:8px;background:#081722;border:1px solid #294861;border-radius:10px;padding:9px}
-</style></head><body><div class="app"><div class="top"><div class="t"><i>🪙</i><div><b id="topCash">₺500.000</b><span>Toplam Nakit</span></div></div><div class="t"><i>📅</i><div><b id="date">Ocak 2025</b><span id="monthNo">1. Ay</span></div></div><div class="t"><i>🏆</i><div><b id="holding">Holding Sv. 1</b><span id="economy">Normal</span></div></div></div><section class="hero"><div class="officeTierBadge"><b id="officeTierName">Standart Ofis</b><span id="officeTierMeta">Ofis Seviyesi 1</span></div><div class="brand"><div id="wallLogo"></div><div class="brandName" id="wallName">ŞİRKETİNİ KUR</div><div class="brandSub" id="wallSub">MARKAN BURADA GÖRÜNECEK</div></div><div class="strip"><div><b id="activeTitle">Aktif Şirket: Yok</b><small id="activeMeta">İlk Ltd. Şti.'ni kur.</small></div><button class="primary" onclick="openCompany()">Yönet</button></div></section><div class="quick"><button class="q1" onclick="openCreate()"><span id="qIconCreate"></span><br>Şirket Kur</button><button class="q2" onclick="openCompany()"><span id="qIconManage"></span><br>Yönet</button><button class="q3" onclick="openBank()"><span id="qIconBank"></span><br>Banka</button><button class="q4" onclick="endMonth()"><span id="qIconMonth"></span><br>Ayı Bitir</button></div><section class="box"><h3>🏢 Şirketlerim</h3><div id="companyGrid" class="grid2"></div></section><section class="box"><h3>👤 Patron & Holding</h3><div class="row"><span>Kişisel Para</span><b id="personalCash">₺150.000</b></div><div class="row"><span>Toplam Varlık</span><b id="worth">₺0</b></div><div class="row"><span>Banka Borcu</span><b id="debt">₺0</b></div><div class="row"><span>Prestij</span><b id="prestige">0</b></div><div class="progress"><div id="holdBar"></div></div><div class="muted">Güçlü A.Ş.'leri büyüt, sonra holding çatısı altında topla.</div></section></div><nav class="bottom">
+
+/* PREMIUM BANK V5 */
+.bankHero{height:210px;border-radius:16px;background:#07131f url('bank_hd.jpg') center 27%/cover no-repeat;border:1px solid #7b6133;position:relative;overflow:hidden;margin-bottom:10px}.bankHero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(2,8,14,.78))}.bankHeroTitle{position:absolute;left:16px;bottom:14px;z-index:2}.bankHeroTitle b{display:block;font-size:22px;color:#f1c66c}.bankHeroTitle span{font-size:10px;color:#d5dee7}.bankSummary{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:8px 0}.bankSummary>div{background:#071722;border:1px solid #294861;border-radius:10px;padding:9px;text-align:center}.bankSummary span{display:block;font-size:8px;color:#9db0c3}.bankSummary b{display:block;font-size:14px;margin-top:3px}.logoPremium svg *{transition:none}
+
+/* ===== PREMIUM V6 FINANCE ===== */
+.moneyMark{display:inline-flex;align-items:center;gap:7px}
+.moneyCoin{width:25px;height:25px;border-radius:50%;display:inline-grid;place-items:center;
+background:radial-gradient(circle at 35% 30%,#ffe79c,#d99a1c 62%,#72500e);
+border:1px solid #f4cf69;box-shadow:0 0 12px rgba(239,189,88,.28);font-size:13px;color:#16202b;font-weight:950}
+.levelBadge{display:inline-flex;align-items:center;gap:7px}
+.levelMedal{width:27px;height:27px;display:inline-grid;place-items:center;clip-path:polygon(50% 0,88% 20%,100% 60%,74% 100%,26% 100%,0 60%,12% 20%);
+background:linear-gradient(145deg,#f2d07a,#9d6b1f);color:#101820;font-weight:950;font-size:12px;box-shadow:0 0 13px rgba(239,189,88,.28)}
+.bankInvestTabs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:8px 0}
+.bankInvestTabs button{border:1px solid #35516a;background:#081823;color:#d3dce6;border-radius:9px;padding:9px 6px;font-weight:850;font-size:10px}
+.bankInvestTabs button.active{background:#176fe0;color:#fff}
+.investGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.investCard{background:linear-gradient(145deg,#091824,#10293d);border:1px solid #2e4d67;border-radius:12px;padding:10px}
+.investCard h4{margin:0 0 3px}.investCard .price{font-size:18px;font-weight:950;margin:4px 0}.investCard small{color:#9fb1c3}
+.assetIcon{font-size:34px;margin-bottom:5px}
+.assetActions{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+.assetActions button{border:0;border-radius:8px;padding:8px;color:#fff;font-weight:850}
+.depositBox{background:linear-gradient(145deg,#0b1b2a,#12324a);border:1px solid #315979;border-radius:12px;padding:12px}
+.depositRate{font-size:25px;font-weight:950;color:#69dfa4}
+.portfolioRow{display:flex;justify-content:space-between;padding:7px 0;border-top:1px solid #20384d;font-size:11px}
+.portfolioRow:first-child{border-top:0}
+@media(max-width:520px){.investGrid{grid-template-columns:1fr}.bankInvestTabs{grid-template-columns:1fr 1fr 1fr}}
+
+
+/* ===== PREMIUM V7 LUXURY + LOW POWER ===== */
+:root{
+  --lux-bg:#050b11;
+  --lux-panel:#091520;
+  --lux-panel2:#0d2030;
+  --lux-line:#2c4356;
+  --lux-gold:#e7bb62;
+  --lux-gold2:#f5d78a;
+  --lux-ivory:#f6f2e8;
+  --lux-muted:#9baaba;
+}
+html,body{background:
+radial-gradient(circle at 15% 0%,rgba(30,80,120,.09),transparent 34%),
+linear-gradient(145deg,#03080d,#08131d 58%,#07111a);
+color:var(--lux-ivory)}
+.app{max-width:1220px}
+.top{
+  background:linear-gradient(180deg,rgba(8,18,28,.98),rgba(6,14,22,.98));
+  border:1px solid rgba(231,187,98,.22);
+  box-shadow:0 8px 24px rgba(0,0,0,.30)
+}
+.topItem{border-right:1px solid rgba(231,187,98,.13)}
+.topItem b{letter-spacing:.15px}
+.hero{
+  border:1px solid rgba(231,187,98,.27);
+  box-shadow:0 18px 44px rgba(0,0,0,.44);
+  background-position:center;
+}
+.hero:after{
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.02),transparent 44%,rgba(2,7,12,.54)),
+    linear-gradient(90deg,rgba(2,6,10,.18),transparent 24%,transparent 76%,rgba(2,6,10,.12))
+}
+.brandName{color:var(--lux-gold2);font-weight:950;letter-spacing:.8px}
+.brandSub{color:#ead8ad}
+.activeStrip{
+  background:linear-gradient(90deg,rgba(5,14,22,.97),rgba(7,19,30,.94));
+  border:1px solid rgba(231,187,98,.25);
+  box-shadow:0 12px 28px rgba(0,0,0,.30)
+}
+.primaryBtn{
+  background:linear-gradient(135deg,#d9aa4e,#9c681f);
+  color:#0a1118;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.36);
+}
+.quick{gap:9px}
+.quick button{
+  min-height:82px;border:1px solid rgba(255,255,255,.08);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 7px 16px rgba(0,0,0,.20);
+  letter-spacing:.15px
+}
+.q1{background:linear-gradient(135deg,#145ebd,#0b3878)}
+.q2{background:linear-gradient(135deg,#177448,#0c4a31)}
+.q3{background:linear-gradient(135deg,#a96d1d,#69420d)}
+.q4{background:linear-gradient(135deg,#6940aa,#3c2468)}
+.section,.box{
+  background:linear-gradient(180deg,rgba(12,28,42,.98),rgba(7,18,28,.98));
+  border:1px solid rgba(231,187,98,.16);
+  box-shadow:0 10px 26px rgba(0,0,0,.20)
+}
+.section h3,.box h3{color:#f1d58f;letter-spacing:.15px}
+.companyCard,.productCard,.assetCard,.shopCard,.vehicleCard,.listCard,.buyer{
+  background:linear-gradient(180deg,#eef2f4,#dfe7ec);
+  border:1px solid rgba(255,255,255,.75);
+  box-shadow:0 8px 18px rgba(0,0,0,.13)
+}
+.companyCard h4,.productCard h4,.assetCard h4,.shopCard h4,.vehicleCard h4,.listCard h4{color:#102131}
+.modal{
+  background:linear-gradient(180deg,#10263a,#07141f 78%);
+  border:1px solid rgba(231,187,98,.30);
+  box-shadow:0 -16px 44px rgba(0,0,0,.55)
+}
+.tabs button,.bankInvestTabs button{
+  background:#071621;border:1px solid #2f4a60;color:#cbd6df
+}
+.tabs button.active,.bankInvestTabs button.active{
+  background:linear-gradient(135deg,#dcb154,#9f6c21);
+  color:#10161c;border-color:#efc96b
+}
+.bottom{
+  background:rgba(5,14,22,.98);
+  border:1px solid rgba(231,187,98,.24);
+  box-shadow:0 10px 28px rgba(0,0,0,.40)
+}
+.bottom button.active,.menuBtn.activeNav{
+  color:#f1cf7a;
+  background:linear-gradient(180deg,rgba(231,187,98,.16),rgba(231,187,98,.06));
+  box-shadow:inset 0 0 0 1px rgba(231,187,98,.20)
+}
+.creditCardVisual{
+  background:
+  radial-gradient(circle at 82% 15%,rgba(231,187,98,.17),transparent 28%),
+  linear-gradient(135deg,#111820,#182a39 62%,#755116);
+  border:1px solid rgba(239,200,108,.62)
+}
+.investCard,.depositBox,.reportMetric{
+  background:linear-gradient(145deg,#081722,#102a3f);
+  border-color:#2f4d65
+}
+.moneyCoin{
+  background:radial-gradient(circle at 35% 30%,#ffe7a4,#d89b22 64%,#6f4c0d);
+  box-shadow:0 0 8px rgba(239,189,88,.22)
+}
+.levelMedal{
+  background:linear-gradient(145deg,#f1cf78,#98671d);
+  box-shadow:none
+}
+.officeTierBadge{
+  border-color:rgba(231,187,98,.45);
+  background:rgba(7,18,28,.94);
+  box-shadow:0 6px 18px rgba(0,0,0,.25)
+}
+.toast{background:#0d2638;border-color:#3a5b72}
+
+/* --- Low-power rules --- */
+*{
+  animation-duration:.001ms !important;
+  animation-iteration-count:1 !important;
+  scroll-behavior:auto !important;
+}
+.hero,.section,.box,.modal,.top,.bottom,.quick button,.companyCard,.productCard,.assetCard,.shopCard,.vehicleCard{
+  transition:none !important;
+}
+@media(max-width:760px){
+  .top,.bottom,.modalbg,.activeStrip{backdrop-filter:none !important;-webkit-backdrop-filter:none !important}
+  .hero{box-shadow:0 10px 24px rgba(0,0,0,.32)}
+  .section,.box,.quick button,.companyCard,.productCard,.assetCard,.shopCard,.vehicleCard,.listCard{
+    box-shadow:none !important
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important}
+}
+
+</style></head><body><div class="app"><div class="top"><div class="t"><i>🪙</i><div><b id="topCash">₺500.000</b><span>Toplam Nakit</span></div></div><div class="t"><i>📅</i><div><b id="date">Ocak 2025</b><span id="monthNo">1. Ay</span></div></div><div class="t"><i>🏆</i><div><b id="holding">Holding Sv. 1</b><span id="economy">Normal</span></div></div></div><section class="hero"><div style="position:absolute;left:12px;top:12px;z-index:6;padding:7px 10px;border-radius:10px;background:rgba(5,14,22,.90);border:1px solid rgba(231,187,98,.28);font-size:9px;letter-spacing:1.7px;color:#e7bb62">Z TYCOON • EXECUTIVE</div><div class="officeTierBadge"><b id="officeTierName">Standart Ofis</b><span id="officeTierMeta">Ofis Seviyesi 1</span></div><div class="brand"><div id="wallLogo"></div><div class="brandName" id="wallName">ŞİRKETİNİ KUR</div><div class="brandSub" id="wallSub">MARKAN BURADA GÖRÜNECEK</div></div><div class="strip"><div><b id="activeTitle">Aktif Şirket: Yok</b><small id="activeMeta">İlk Ltd. Şti.'ni kur.</small></div><button class="primary" onclick="openCompany()">Yönet</button></div></section><div class="quick"><button class="q1" onclick="openCreate()"><span id="qIconCreate"></span><br>Şirket Kur</button><button class="q2" onclick="openCompany()"><span id="qIconManage"></span><br>Yönet</button><button class="q3" onclick="openBank()"><span id="qIconBank"></span><br>Banka</button><button class="q4" onclick="endMonth()"><span id="qIconMonth"></span><br>Ayı Bitir</button></div><section class="box"><h3>🏢 Şirketlerim</h3><div id="companyGrid" class="grid2"></div></section><section class="box"><h3>👤 Patron & Holding</h3><div class="row"><span>Kişisel Para</span><b id="personalCash">₺150.000</b></div><div class="row"><span>Toplam Varlık</span><b id="worth">₺0</b></div><div class="row"><span>Banka Borcu</span><b id="debt">₺0</b></div><div class="row"><span>Prestij</span><b id="prestige">0</b></div><div class="progress"><div id="holdBar"></div></div><div class="muted">Güçlü A.Ş.'leri büyüt, sonra holding çatısı altında topla.</div></section></div><nav class="bottom">
 <button id="navOffice" class="active menuBtn" onclick="goOffice()"><span id="navIcoOffice"></span>Ofis</button>
 <button id="navCompanies" class="menuBtn" onclick="goCompanies()"><span id="navIcoCompanies"></span>Şirketler</button>
 <button id="navBank" class="menuBtn" onclick="openBank()"><span id="navIcoBank"></span>Banka</button>
@@ -26,8 +188,8 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
 </nav>
 <div class="modalbg" id="createM"><div class="modal"><h2>Yeni Şirket Kur</h2><div class="field"><label>Şirket adı</label><input id="newName" placeholder="Örn. Atlas Tekstil"></div><div class="field"><label>Sektör</label><div class="catalog" id="sectorGrid"></div></div><div class="field"><label>Logo</label><div class="logos" id="logoGrid"></div></div><div class="actions"><button class="gray" onclick="closeM('createM')">Vazgeç</button><button class="blue" onclick="createCompany()">Ltd. Şti. Kur</button></div></div></div>
 <div class="modalbg" id="bankM"><div class="modal">
-<h2>🏦 Kurumsal Bankacılık</h2>
-<div class="bankTabs"><button id="bankLoanTab" class="active" onclick="showBankTab('loan')">Ticari Kredi</button><button id="bankCardTab" onclick="showBankTab('card')">Şirket Kredi Kartı</button></div>
+<div class="bankHero"><div class="bankHeroTitle"><b>Z BANK</b><span>Şirketinizin büyüme ve finans merkezi</span></div></div><h2>Kurumsal Bankacılık</h2><div class="bankSummary"><div><span>KREDİ NOTU</span><b id="bankScoreHero">C</b></div><div><span>TOPLAM LİMİT</span><b id="bankLimitHero">₺0</b></div><div><span>TOPLAM BORÇ</span><b id="bankTotalDebtHero">₺0</b></div></div>
+<div class="bankInvestTabs"><button id="bankLoanTab" class="active" onclick="showBankTab('loan')">Ticari Kredi</button><button id="bankCardTab" onclick="showBankTab('card')">Şirket Kredi Kartı</button><button id="bankInvestTab" onclick="showBankTab('invest')">Mevduat & Yatırım</button></div>
 <div id="bankLoanPanel">
 <div class="row"><span>Kredi Notu</span><b id="scoreTxt">C</b></div><div class="row"><span>Kredi Limiti</span><b id="limitTxt">₺0</b></div><div class="row"><span>Mevcut Banka Borcu</span><b id="bankDebtTxt">₺0</b></div>
 <div class="field"><label>Kredi tutarı</label><input id="loan" type="number" value="100000" min="10000" step="10000"></div>
@@ -40,6 +202,28 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
 <div id="cardNotIssued"><div class="muted" style="margin-top:8px">Aktif şirkete kredi notuna göre kurumsal kart verilir.</div><div class="actions"><button class="blue" onclick="issueCompanyCard()">Şirkete Kart Ver</button></div></div>
 <div id="cardIssuedActions" style="display:none"><div class="field"><label>Kullanım / ödeme tutarı</label><input id="cardSpendAmount" type="number" min="1000" step="1000" value="25000"></div><div class="actions"><button class="orange" onclick="useCompanyCard()">Kartı Kullan</button><button class="green" onclick="payCompanyCard()">Borç Öde</button></div><div class="muted">Kullanılan tutar aktif şirket kasasına geçer. Ödenmeyen karta ay sonunda %2,4 faiz işler.</div></div>
 <div class="actions"><button class="gray" onclick="closeM('bankM')">Kapat</button></div>
+
+<div id="bankInvestPanel" style="display:none">
+<div class="depositBox">
+<h3 style="margin-top:0">🏦 Vadeli Mevduat</h3>
+<div class="row"><span>Mevduat Bakiyesi</span><b id="depositBalanceTxt">₺0</b></div>
+<div class="row"><span>Aylık Faiz</span><b class="depositRate">%1,25</b></div>
+<div class="field"><label>Yatır / Çek tutarı</label><input id="depositAmount" type="number" min="1000" step="1000" value="50000"></div>
+<div class="actions"><button class="blue" onclick="depositMoney()">Mevduata Yatır</button><button class="green" onclick="withdrawDeposit()">Mevduattan Çek</button></div>
+<div class="muted">Faiz her ay sonunda otomatik olarak mevduat bakiyesine eklenir.</div>
+</div>
+
+<h3 style="margin-top:13px">📈 Yatırım Piyasası</h3>
+<div class="muted">Fiyatlar oyun içi piyasa simülasyonuna göre her ay değişir.</div>
+<div id="investGrid" class="investGrid" style="margin-top:8px"></div>
+
+<div class="box" style="margin-top:10px">
+<h3>Portföyüm</h3>
+<div id="portfolioList"></div>
+<div class="row"><span>Portföy Değeri</span><b id="portfolioValueTxt">₺0</b></div>
+</div>
+<div class="actions"><button class="gray" onclick="closeM('bankM')">Kapat</button></div>
+</div>
 </div></div></div>
 <div class="modalbg" id="personalM"><div class="modal"><h2>👤 Kişisel Varlıklar</h2><div class="row"><span>Kişisel Para</span><b id="pCash">₺0</b></div><div class="row"><span>Prestij</span><b id="pPrestige">0</b></div><div id="personalGrid" class="catalog"></div><div class="actions"><button class="gray" onclick="closeM('personalM')">Kapat</button></div></div></div>
 <div class="modalbg" id="companyM"><div class="modal"><div style="display:grid;grid-template-columns:1fr auto;gap:7px;align-items:center"><div><h2 id="ctitle">Şirket</h2><div class="muted" id="csub"></div></div><button class="gray" style="border:0;border-radius:8px;padding:8px;color:#fff" onclick="closeM('companyM')">✕</button></div><div class="tabs"><button class="active" id="tg" onclick="tab('general')">Genel</button><button id="tt" onclick="tab('trade')">Al-Sat</button><button id="ts" onclick="tab('shops')">Mağaza</button><button id="te" onclick="tab('employees')">Çalışan</button><button id="tf" onclick="tab('factory')">Fabrika</button><button id="tv" onclick="tab('vehicles')">Araçlar</button><button id="tb" onclick="tab('balance')">Bilanço</button></div>
@@ -60,15 +244,23 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
 <div class="toast" id="toast"></div><script>
 const M=n=>'₺'+Math.round(n).toLocaleString('tr-TR'),months=['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
 const logos=[
-['AURORA',`<svg viewBox="0 0 100 100"><path d="M18 77 50 18l32 59-20-10-12-22-12 22Z" fill="none" stroke="#efbd58" stroke-width="7"/><path d="m50 44 12 23H38Z" fill="#efbd58"/></svg>`],
-['NOVA',`<svg viewBox="0 0 100 100"><path d="M18 76h15V57H18zm25 0h16V39H43zm26 0h14V21H69z" fill="#efbd58"/><path d="m21 48 24-17 17 8 21-19" fill="none" stroke="#dce7ef" stroke-width="5"/></svg>`],
-['ZENITH',`<svg viewBox="0 0 100 100"><path d="M19 27h63L57 48h23L34 79H16l29-25H22Z" fill="#efbd58"/></svg>`],
-['CROWN',`<svg viewBox="0 0 100 100"><path d="m18 35 18 17 14-28 15 28 18-17-9 43H27Z" fill="none" stroke="#efbd58" stroke-width="7"/><path d="M28 78h45" stroke="#dce7ef" stroke-width="6"/></svg>`],
-['NEXUS',`<svg viewBox="0 0 100 100"><path d="M24 23 50 50 76 23M24 77 50 50l26 27" fill="none" stroke="#efbd58" stroke-width="9"/><circle cx="50" cy="50" r="10" fill="#dce7ef"/></svg>`],
-['ATLAS',`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="33" fill="none" stroke="#dce7ef" stroke-width="6"/><path d="m50 19 15 40-15 22-15-22Z" fill="#efbd58"/></svg>`],
-['MONARCH',`<svg viewBox="0 0 100 100"><path d="M20 71V32l30 28 30-28v39" fill="none" stroke="#efbd58" stroke-width="8"/><path d="M20 77h60" stroke="#dce7ef" stroke-width="5"/></svg>`],
-['ORBIT',`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="13" fill="#efbd58"/><ellipse cx="50" cy="50" rx="39" ry="20" fill="none" stroke="#dce7ef" stroke-width="5" transform="rotate(-25 50 50)"/><circle cx="81" cy="32" r="6" fill="#efbd58"/></svg>`]
-];
+['AURORA',`<svg viewBox="0 0 100 100"><path d="M18 77 50 18l32 59-20-10-12-22-12 22Z" fill="none" stroke="currentColor" stroke-width="7"/><path d="m50 44 12 23H38Z" fill="currentColor"/></svg>`],
+['NOVA',`<svg viewBox="0 0 100 100"><path d="M18 76h15V57H18zm25 0h16V39H43zm26 0h14V21H69z" fill="currentColor"/><path d="m21 48 24-17 17 8 21-19" fill="none" stroke="currentColor" stroke-width="5"/></svg>`],
+['ZENITH',`<svg viewBox="0 0 100 100"><path d="M19 27h63L57 48h23L34 79H16l29-25H22Z" fill="currentColor"/></svg>`],
+['CROWN',`<svg viewBox="0 0 100 100"><path d="m18 35 18 17 14-28 15 28 18-17-9 43H27Z" fill="none" stroke="currentColor" stroke-width="7"/><path d="M28 78h45" stroke="currentColor" stroke-width="6"/></svg>`],
+['NEXUS',`<svg viewBox="0 0 100 100"><path d="M24 23 50 50 76 23M24 77 50 50l26 27" fill="none" stroke="currentColor" stroke-width="9"/><circle cx="50" cy="50" r="10" fill="currentColor"/></svg>`],
+['ATLAS',`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="33" fill="none" stroke="currentColor" stroke-width="6"/><path d="m50 19 15 40-15 22-15-22Z" fill="currentColor"/></svg>`],
+['MONARCH',`<svg viewBox="0 0 100 100"><path d="M20 71V32l30 28 30-28v39" fill="none" stroke="currentColor" stroke-width="8"/><path d="M20 77h60" stroke="currentColor" stroke-width="5"/></svg>`],
+['ORBIT',`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="13" fill="currentColor"/><ellipse cx="50" cy="50" rx="39" ry="20" fill="none" stroke="currentColor" stroke-width="5" transform="rotate(-25 50 50)"/></svg>`],
+['APEX',`<svg viewBox="0 0 100 100"><path d="M17 76 50 20l33 56H68L50 47 32 76Z" fill="currentColor"/><path d="M37 66h26" stroke="#07131f" stroke-width="6"/></svg>`],
+['VECTOR',`<svg viewBox="0 0 100 100"><path d="M18 22 50 79 82 22 50 49Z" fill="none" stroke="currentColor" stroke-width="8"/></svg>`],
+['FORTIS',`<svg viewBox="0 0 100 100"><path d="M24 20h52v16H43v13h28v15H43v18H24Z" fill="currentColor"/></svg>`],
+['PRIME',`<svg viewBox="0 0 100 100"><path d="M28 79V20h29c17 0 25 10 25 23s-8 23-25 23H45v13Z" fill="none" stroke="currentColor" stroke-width="8"/></svg>`],
+['VOLT',`<svg viewBox="0 0 100 100"><path d="M56 12 24 57h23l-4 31 33-47H54Z" fill="currentColor"/></svg>`],
+['HELIOS',`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="20" fill="currentColor"/><g stroke="currentColor" stroke-width="6"><path d="M50 10v13M50 77v13M10 50h13M77 50h13M22 22l9 9M69 69l9 9M78 22l-9 9M31 69l-9 9"/></g></svg>`],
+['TITAN',`<svg viewBox="0 0 100 100"><path d="M17 21h66v17H59v43H41V38H17Z" fill="currentColor"/></svg>`],
+['QUANTUM',`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="29" fill="none" stroke="currentColor" stroke-width="7"/><path d="m63 66 20 18" stroke="currentColor" stroke-width="8"/><circle cx="50" cy="50" r="8" fill="currentColor"/></svg>`]
+]
 const sectors={
 textile:{name:'Tekstil',emoji:'👕',cost:120000,over:12000,unlock:1,factory:'🏭',roles:[['Satış Elemanı',16000],['Mağaza Müdürü',24000],['Depo Elemanı',17000],['Üretim Ustası',22000],['Tasarımcı',25000]],products:[['tshirt','T-Shirt','👕',85,135,1],['sweat','Sweatshirt','🧥',160,250,2],['jeans','Kot Pantolon','👖',220,340,4],['shoe','Spor Ayakkabı','👟',300,470,6],['suit','Takım Elbise','🤵',650,980,9]],vehicles:['van','truck']},
 food:{name:'Gıda',emoji:'🥫',cost:150000,over:15000,unlock:1,factory:'🏭',roles:[['Kasiyer',15000],['Mağaza Müdürü',23000],['Depo Elemanı',17000],['Üretim Operatörü',20000],['Gıda Mühendisi',30000]],products:[['juice','Meyve Suyu','🧃',18,29,1],['pasta','Makarna','🍝',14,24,1],['biscuit','Bisküvi','🍪',11,20,3],['milk','Süt Ürünü','🥛',22,38,5],['premium','Premium Gıda','🍫',45,79,8]],vehicles:['van','truck','cold']},
@@ -84,8 +276,17 @@ let S={cash:350000,personal:150000,debt:0,rep:0,prestige:0,month:1,economy:'Norm
 function emptyB(){return{revenue:0,cogs:0,payroll:0,rent:0,factory:0,vehicle:0,interest:0,tax:0,net:0}}
 function hashCode(s){let h=0;for(let i=0;i<String(s).length;i++){h=((h<<5)-h)+String(s).charCodeAt(i);h|=0}return h}
 S.companies=(S.companies||[]).map(c=>({...c,type:c.type||'Ltd. Şti.',level:c.level||1,cash:c.cash||0,employees:c.employees||[],inv:c.inv||{},shops:c.shops||[],factory:c.factory||0,vehicles:c.vehicles||[],balance:c.balance||emptyB(),sold:c.sold||0,value:c.value||sectors[c.sector].cost,repv:c.repv||50000,cardIssued:c.cardIssued||false,cardDebt:c.cardDebt||0,cardLast4:c.cardLast4||String((Math.abs(hashCode(c.id||c.name))+1000)%10000).padStart(4,'0')}));
-function save(){S.last=Date.now();localStorage.setItem('zfull1',JSON.stringify(S))}function toast(x){let t=document.getElementById('toast');t.textContent=x;t.style.display='block';setTimeout(()=>t.style.display='none',2200)}function closeM(id){document.getElementById(id).style.display='none'}function C(){return S.companies.find(x=>x.id===active)||S.companies[0]||null}function stock(c){return Object.values(c.inv).reduce((a,b)=>a+b,0)}function worth(){return S.cash+S.personal+S.companies.reduce((a,c)=>a+c.value+c.cash,0)+S.assets.reduce((a,x)=>a+x.value,0)-S.debt}function score(){let r=S.debt/Math.max(1,worth());return S.rep>35&&r<.25?'A':S.rep>20&&r<.4?'B':r<.65?'C':'D'}function limit(){return {A:5000000,B:2000000,C:600000,D:250000}[score()]+S.companies.reduce((a,c)=>a+c.level*150000,0)}
-function logoSvg(i){let x=logos[i]||logos[0];return x[1].replace('<svg ','<svg class="brandLogo" ')}
+S.deposit=S.deposit||0;
+S.portfolio=S.portfolio||{stock:0,crypto:0,gold:0,silver:0};
+S.market=S.market||{
+ stock:{name:'ZTX Holding Endeksi',icon:'📈',price:1250,change:0},
+ crypto:{name:'Z-Coin',icon:'₿',price:4200,change:0},
+ gold:{name:'Altın',icon:'🪙',price:2750,change:0},
+ silver:{name:'Gümüş',icon:'◉',price:34,change:0}
+};
+
+function save(){S.last=Date.now();localStorage.setItem('zfull1',JSON.stringify(S))}function toast(x){let t=document.getElementById('toast');t.textContent=x;t.style.display='block';setTimeout(()=>t.style.display='none',2200)}function closeM(id){document.getElementById(id).style.display='none'}function C(){return S.companies.find(x=>x.id===active)||S.companies[0]||null}function stock(c){return Object.values(c.inv).reduce((a,b)=>a+b,0)}function worth(){return S.cash+S.personal+S.companies.reduce((a,c)=>a+c.value+c.cash,0)+S.assets.reduce((a,x)=>a+x.value,0)-S.debt}function score(){let r=S.debt/Math.max(1,worth());return S.rep>35&&r<.25?'A':S.rep>20&&r<.4?'B':r<.65?'C':'D'}function limit(){return {A:15000000,B:7000000,C:2500000,D:1000000}[score()]+S.companies.reduce((a,c)=>a+c.level*150000,0)}
+function logoSvg(i){let x=logos[i]||logos[0];return x[1].replace('<svg ','<svg class="brandLogo" style="color:inherit" ')}
 function product(s,p){return{id:p[0],name:p[1],emoji:p[2],buy:p[3],sell:p[4],unlock:p[5]}}function unlocked(c){return sectors[c.sector].products.map(p=>product(c.sector,p)).filter(p=>p.unlock<=c.level)}
 function taxRate(c){let r=c.level<=3?.05:c.level<=6?.075:.10;if(c.factory)r-=.015;if(c.employees.length>=5)r-=.01;if(c.level>=8)r-=.01;return Math.max(.03,r)}
 function req(l){return{value:l<=3?l*450000:l<=6?1500000+(l-3)*1300000:5500000+(l-6)*5000000,sold:l<=3?l*100:l<=6?500+(l-3)*600:2500+(l-6)*2500}}
@@ -120,6 +321,8 @@ function officeNextRule(o){
 }
 function applyOfficeVisual(c){
  const o=officeTierFor(c),hero=document.querySelector('.hero');
+ const palettes=['#b58b4b','#d7dce2','#d2a44e','#e8c56f','#d9e2e8','#f0c967'];
+ const brand=document.querySelector('.brand');if(brand){brand.style.color=palettes[o.tier-1];brand.style.left=o.tier<=2?'20%':'18%';brand.style.top=o.tier<=2?'9%':'7%';brand.style.width=o.tier>=5?'34%':'38%';brand.style.alignItems='flex-start';brand.style.textAlign='left'}
  if(hero)hero.style.backgroundImage=`url('${o.file}')`;
  if(typeof officeTierName!=='undefined')officeTierName.textContent=o.name;
  if(typeof officeTierMeta!=='undefined')officeTierMeta.textContent='Ofis Seviyesi '+o.tier;
@@ -140,16 +343,68 @@ function factoryCost(c){let s=sectors[c.sector];return c.factory===0?s.cost*2.2:
 function vehicleAllowed(c,k){if((k==='cargoPlane'||k==='passPlane')&&c.level<10)return false;if(k==='bus'&&c.level<5)return false;if((k==='excavator'||k==='loader')&&c.level<4)return false;return true}function vehicleCard(k){let v=vehicles[k];return `<div class="card"><div class="visual">${v[1]}</div><h4>${v[0]}</h4><small>${v[4]} • ${v[5]} • ${v[6].toLocaleString('tr-TR')} km • ${v[7]}<br>Satın al ${M(v[2])} • Kira ${M(v[3])}/ay</small><div class="actions"><button class="orange" onclick="rentVehicle('${k}')">Kirala</button><button class="blue" onclick="buyVehicle('${k}')">Satın Al</button></div></div>`}function buyVehicle(k){let c=C(),v=vehicles[k];if(c.cash<v[2])return toast('Kasa yetersiz.');c.cash-=v[2];c.vehicles.push({key:k,name:v[0],emoji:v[1],owned:true,rent:0,year:v[4],color:v[5],km:v[6],capacity:v[7],market:v[2]*.92});levelUp(c);render();renderCompany()}function rentVehicle(k){let c=C(),v=vehicles[k];if(c.cash<v[3])return toast('Kasa yetersiz.');c.cash-=v[3];c.vehicles.push({key:k,name:v[0],emoji:v[1],owned:false,rent:v[3],year:v[4],color:v[5],km:v[6],capacity:v[7],market:0});render();renderCompany()}function sellVehicle(i){let c=C(),v=c.vehicles[i];c.cash+=v.market;c.vehicles.splice(i,1);levelUp(c);render();renderCompany()}function returnVehicle(i){C().vehicles.splice(i,1);render();renderCompany()}
 function companyCardLimit(c){if(!c)return 0;let m={A:1,B:.65,C:.38,D:.2}[score()]||.2;return Math.max(50000,Math.round((150000+c.level*125000+c.value*.06)*m))}
 function openBank(){bankM.style.display='flex';showBankTab('loan');refreshBank()}
-function refreshBank(){let c=C();scoreTxt.textContent=score();limitTxt.textContent=M(limit());bankDebtTxt.textContent=M(S.debt);cardScoreLabel.textContent='NOT: '+score();if(c){let lim=companyCardLimit(c);cardCompanyName.textContent=(c.name+' BUSINESS').toUpperCase();cardLast4.textContent=c.cardLast4||'0000';cardLimitTxt.textContent=M(lim);cardDebtTxt.textContent=M(c.cardDebt||0);cardAvailableTxt.textContent=M(Math.max(0,lim-(c.cardDebt||0)));cardNotIssued.style.display=c.cardIssued?'none':'block';cardIssuedActions.style.display=c.cardIssued?'block':'none'}else{cardCompanyName.textContent='ÖNCE ŞİRKET KUR';cardLimitTxt.textContent=M(0);cardDebtTxt.textContent=M(0);cardAvailableTxt.textContent=M(0);cardNotIssued.style.display='block';cardIssuedActions.style.display='none'}}
-function showBankTab(t){bankLoanPanel.style.display=t==='loan'?'block':'none';bankCardPanel.style.display=t==='card'?'block':'none';bankLoanTab.classList.toggle('active',t==='loan');bankCardTab.classList.toggle('active',t==='card');refreshBank()}
+function refreshBank(){let c=C();scoreTxt.textContent=score();limitTxt.textContent=M(limit());bankDebtTxt.textContent=M(S.debt);bankScoreHero.textContent=score();bankLimitHero.textContent=M(limit());bankTotalDebtHero.textContent=M(S.debt+S.companies.reduce((a,x)=>a+(x.cardDebt||0),0));cardScoreLabel.textContent='NOT: '+score();if(c){let lim=companyCardLimit(c);cardCompanyName.textContent=(c.name+' BUSINESS').toUpperCase();cardLast4.textContent=c.cardLast4||'0000';cardLimitTxt.textContent=M(lim);cardDebtTxt.textContent=M(c.cardDebt||0);cardAvailableTxt.textContent=M(Math.max(0,lim-(c.cardDebt||0)));cardNotIssued.style.display=c.cardIssued?'none':'block';cardIssuedActions.style.display=c.cardIssued?'block':'none'}else{cardCompanyName.textContent='ÖNCE ŞİRKET KUR';cardLimitTxt.textContent=M(0);cardDebtTxt.textContent=M(0);cardAvailableTxt.textContent=M(0);cardNotIssued.style.display='block';cardIssuedActions.style.display='none'}}
+function showBankTab(t){bankLoanPanel.style.display=t==='loan'?'block':'none';bankCardPanel.style.display=t==='card'?'block':'none';bankInvestPanel.style.display=t==='invest'?'block':'none';bankLoanTab.classList.toggle('active',t==='loan');bankCardTab.classList.toggle('active',t==='card');bankInvestTab.classList.toggle('active',t==='invest');refreshBank();if(t==='invest')renderInvestments()}
 function takeLoan(){let a=+loan.value||0;if(a<10000)return toast('En az ₺10.000.');if(S.debt+a>limit())return toast('Kredi limitini aşıyorsun.');S.debt+=a;S.cash+=a;render();refreshBank();toast(M(a)+' ticari kredi kullanıldı.')}
 function issueCompanyCard(){let c=C();if(!c)return toast('Önce bir şirket kur.');if(c.cardIssued)return toast('Bu şirketin zaten kartı var.');c.cardIssued=true;save();refreshBank();toast(c.name+' için şirket kredi kartı açıldı.')}
 function useCompanyCard(){let c=C();if(!c||!c.cardIssued)return toast('Aktif şirkete kart tanımlanmalı.');let a=Math.max(0,+cardSpendAmount.value||0),lim=companyCardLimit(c),avail=lim-(c.cardDebt||0);if(a<1000)return toast('En az ₺1.000 kullanabilirsin.');if(a>avail)return toast('Kullanılabilir kart limitini aşıyorsun.');c.cardDebt=(c.cardDebt||0)+a;c.cash+=a;render();refreshBank();toast(M(a)+' şirket kasasına geçti.')}
 function payCompanyCard(){let c=C();if(!c||!c.cardIssued)return toast('Aktif şirkete kart tanımlanmalı.');let a=Math.max(0,+cardSpendAmount.value||0);if(a<1000)return toast('Ödeme en az ₺1.000.');a=Math.min(a,c.cardDebt||0);if(c.cash<a)return toast('Şirket kasası yetersiz.');c.cash-=a;c.cardDebt=Math.max(0,(c.cardDebt||0)-a);render();refreshBank();toast(M(a)+' kart borcu ödendi.')}
 function openPersonal(){personalM.style.display='flex';pCash.textContent=M(S.personal);pPrestige.textContent=S.prestige;personalGrid.innerHTML=assets.map(a=>`<div class="card"><div class="visual">${a[2]}</div><h4>${a[1]}</h4><small>${M(a[3])} • Prestij +${a[4]} • Aylık gider ${M(a[5])}</small><div class="actions">${S.assets.find(x=>x.id===a[0])?'<button class="gray">Sahipsin</button>':`<button class="blue" onclick="buyAsset('${a[0]}')">Satın Al</button>`}</div></div>`).join('')}function buyAsset(id){let a=assets.find(x=>x[0]===id);if(S.personal<a[3])return toast('Kişisel paran yetersiz.');S.personal-=a[3];S.prestige+=a[4];S.assets.push({id:a[0],name:a[1],value:a[3]*.9,upkeep:a[5]});render();openPersonal()}function profitShare(){let c=C();if(c.cash<100000)return toast('Şirket kasası yetersiz.');let a=Math.round(c.cash*.1);c.cash-=a;S.personal+=a;render();renderCompany();toast(M(a)+' kâr payı aldın.')}
 function monthCompany(c,fraction=1){let s=sectors[c.sector],b=emptyB(),pay=c.employees.reduce((a,e)=>a+e.salary,0)*fraction,rent=c.shops.filter(x=>!x.owned).reduce((a,x)=>a+x.rent,0)*fraction,fac=(c.factory? (c.factory===1?s.cost*.025:s.cost*.06):0)*fraction,veh=c.vehicles.reduce((a,v)=>a+(v.owned?Math.max(3000,v.market*.003):v.rent),0)*fraction,interest=(S.debt/Math.max(1,S.companies.length))*.022*fraction;b.payroll=pay;b.rent=rent;b.factory=fac;b.vehicle=veh;b.interest=interest;let sales=c.employees.filter(e=>/Satış|Kasiyer|Danışmanı/.test(e.role)).length,mgr=c.shops.some(x=>x.manager),traffic=c.shops.reduce((a,x)=>a+x.traffic,0);if(c.shops.length&&sales){Object.entries(c.inv).forEach(([id,q])=>{if(q<=0)return;let p=sectors[c.sector].products.map(x=>product(c.sector,x)).find(x=>x.id===id),base=Math.max(1,Math.round((sales*12+(mgr?18:0))*traffic*(S.economy==='Büyüme'?1.15:S.economy==='Durgunluk'?.82:1)*fraction)),sq=Math.min(q,Math.max(0,Math.round(base*(.75+Math.random()*.5))));if(sq){c.inv[id]-=sq;let rev=sq*p.sell;b.revenue+=rev;c.cash+=rev;c.sold+=sq;c.repv+=rev*.01}})}if(mgr){unlocked(c).forEach(p=>{let q=c.inv[p.id]||0;if(q<20&&c.cash>p.buy*100){let cost=p.buy*100;c.cash-=cost;c.inv[p.id]=(c.inv[p.id]||0)+100;b.cogs+=cost}})}let pretax=b.revenue-b.cogs-pay-rent-fac-veh-interest-s.over*fraction,tax=pretax>0?pretax*taxRate(c):0;b.tax=tax;b.net=pretax-tax;c.cash-=pay+rent+fac+veh+interest+s.over*fraction+tax;c.vehicles.forEach(v=>{v.km+=v.key.includes('Plane')?0:1200*fraction;if(v.owned)v.market*=Math.pow(.985,fraction)});if(fraction===1)c.balance=b;levelUp(c);return b.revenue}
-function endMonth(){S.economy=['Normal','Büyüme','Durgunluk'][Math.floor(Math.random()*3)];S.companies.forEach(c=>{monthCompany(c,1);if(c.cardIssued&&c.cardDebt>0){let ci=c.cardDebt*.024;c.cardDebt+=ci;c.balance.interest=(c.balance.interest||0)+ci;c.balance.net=(c.balance.net||0)-ci}});S.personal-=S.assets.reduce((a,x)=>a+x.upkeep,0);S.month++;if(S.companies.some(c=>c.balance.net>0))S.rep++;render();if(companyM.style.display==='flex')renderCompany();toast('Ay kapandı. Bilançolar ve kart faizleri güncellendi.')}
+function endMonth(){S.economy=['Normal','Büyüme','Durgunluk'][Math.floor(Math.random()*3)];S.companies.forEach(c=>{monthCompany(c,1);if(c.cardIssued&&c.cardDebt>0){let ci=c.cardDebt*.024;c.cardDebt+=ci;c.balance.interest=(c.balance.interest||0)+ci;c.balance.net=(c.balance.net||0)-ci}});if(S.deposit>0)S.deposit*=1.0125;simulateMarkets();S.personal-=S.assets.reduce((a,x)=>a+x.upkeep,0);S.month++;if(S.companies.some(c=>c.balance.net>0))S.rep++;render();if(companyM.style.display==='flex')renderCompany();if(bankM.style.display==='flex')refreshBank();toast('Ay kapandı. Mevduat faizi ve yatırım fiyatları güncellendi.')}
 function offline(){let h=Math.max(0,(Date.now()-(S.last||Date.now()))/3600000);if(h<1)return;let cap=Math.min(h,72),f=cap/(24*30),rev=0;S.companies.forEach(c=>rev+=monthCompany(c,f));S.last=Date.now();if(rev>0)setTimeout(()=>toast(cap.toFixed(1)+' saat uzaktaydın • '+M(rev)+' ciro oluştu.'),500)}
+
+
+function renderInvestments(){
+ if(typeof depositBalanceTxt==='undefined')return;
+ depositBalanceTxt.textContent=M(S.deposit||0);
+ const keys=['stock','crypto','gold','silver'];
+ investGrid.innerHTML=keys.map(k=>{
+   const a=S.market[k],qty=S.portfolio[k]||0,chg=a.change||0;
+   return `<div class="investCard">
+     <div class="assetIcon">${a.icon}</div>
+     <h4>${a.name}</h4>
+     <div class="price">${M(a.price)}</div>
+     <small class="${chg>=0?'positive':'negative'}">${chg>=0?'▲':'▼'} %${Math.abs(chg).toFixed(2)}</small>
+     <div class="field"><input id="qty_${k}" type="number" min="1" step="1" value="1"></div>
+     <div class="assetActions"><button class="blue" onclick="buyAsset('${k}')">Al</button><button class="orange" onclick="sellAsset('${k}')">Sat</button></div>
+   </div>`;
+ }).join('');
+ let total=0;
+ portfolioList.innerHTML=keys.map(k=>{
+   let a=S.market[k],q=S.portfolio[k]||0,v=q*a.price;total+=v;
+   return `<div class="portfolioRow"><span>${a.icon} ${a.name} × ${q}</span><b>${M(v)}</b></div>`;
+ }).join('');
+ portfolioValueTxt.textContent=M(total);
+}
+function depositMoney(){
+ let c=C(),a=Math.max(0,+depositAmount.value||0);
+ if(a<1000)return toast('En az ₺1.000 yatırabilirsin.');
+ if(c){if(c.cash<a)return toast('Aktif şirket kasası yetersiz.');c.cash-=a}else{if(S.cash<a)return toast('Nakit yetersiz.');S.cash-=a}
+ S.deposit=(S.deposit||0)+a;render();renderInvestments();toast(M(a)+' mevduata yatırıldı.');
+}
+function withdrawDeposit(){
+ let c=C(),a=Math.max(0,+depositAmount.value||0);a=Math.min(a,S.deposit||0);
+ if(a<1000)return toast('Çekilebilir mevduat yetersiz.');
+ S.deposit-=a;if(c)c.cash+=a;else S.cash+=a;render();renderInvestments();toast(M(a)+' mevduattan çekildi.');
+}
+function buyAsset(k){
+ let c=C(),a=S.market[k],q=Math.max(1,Math.floor(+document.getElementById('qty_'+k).value||1)),cost=a.price*q;
+ if(c){if(c.cash<cost)return toast('Şirket kasası yetersiz.');c.cash-=cost}else{if(S.cash<cost)return toast('Nakit yetersiz.');S.cash-=cost}
+ S.portfolio[k]=(S.portfolio[k]||0)+q;render();renderInvestments();toast(q+' adet '+a.name+' alındı.');
+}
+function sellAsset(k){
+ let c=C(),a=S.market[k],q=Math.max(1,Math.floor(+document.getElementById('qty_'+k).value||1));
+ if((S.portfolio[k]||0)<q)return toast('Portföyde yeterli miktar yok.');
+ let val=a.price*q;S.portfolio[k]-=q;if(c)c.cash+=val;else S.cash+=val;render();renderInvestments();toast(q+' adet '+a.name+' satıldı.');
+}
+function simulateMarkets(){
+ const ranges={stock:.08,crypto:.18,gold:.06,silver:.09};
+ Object.keys(S.market).forEach(k=>{
+   let a=S.market[k],r=(Math.random()*2-1)*ranges[k];
+   a.change=r*100;a.price=Math.max(1,Math.round(a.price*(1+r)));
+ });
+}
 
 const PICON={office:`<svg class="pIcon" viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>`,companies:`<svg class="pIcon" viewBox="0 0 24 24"><path d="M4 21V6h10v15M14 10h6v11M7 9h3M7 13h3M7 17h3M17 13h1M17 17h1"/></svg>`,bank:`<svg class="pIcon" viewBox="0 0 24 24"><path d="M3 9h18M5 9v9M9 9v9M15 9v9M19 9v9M3 18h18M2 21h20M12 3 3 7h18Z"/></svg>`,report:`<svg class="pIcon" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>`,person:`<svg class="pIcon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-5 4-7 8-7s7 2 8 7"/></svg>`,plus:`<svg class="pIcon lg" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>`,manage:`<svg class="pIcon lg" viewBox="0 0 24 24"><path d="M6 4h12v7H6zM4 21v-6h16v6M8 15v6M16 15v6"/></svg>`,calendar:`<svg class="pIcon lg" viewBox="0 0 24 24"><path d="M4 5h16v16H4zM8 3v4M16 3v4M4 10h16M9 15l2 2 4-4"/></svg>`};
 function mountIcons(){navIcoOffice.innerHTML=PICON.office;navIcoCompanies.innerHTML=PICON.companies;navIcoBank.innerHTML=PICON.bank;navIcoReports.innerHTML=PICON.report;navIcoPersonal.innerHTML=PICON.person;qIconCreate.innerHTML=PICON.plus;qIconManage.innerHTML=PICON.manage;qIconBank.innerHTML=PICON.bank.replace('class="pIcon"','class="pIcon lg"');qIconMonth.innerHTML=PICON.calendar}
@@ -157,10 +412,18 @@ function setNav(id){document.querySelectorAll('.menuBtn').forEach(x=>x.classList
 function goOffice(){setNav('navOffice');window.scrollTo({top:0,behavior:'smooth'})}
 function goCompanies(){setNav('navCompanies');document.getElementById('companyGrid').scrollIntoView({behavior:'smooth',block:'start'})}
 function openReports(){setNav('navReports');reportsM.style.display='flex';renderReports()}
-function renderReports(){let revenue=0,net=0,tax=0,payroll=0,st=0,cc=0,cv=0,emp=0,sh=0,vh=0,fa=0;S.companies.forEach(c=>{let b=c.balance||emptyB();revenue+=b.revenue||0;net+=b.net||0;tax+=b.tax||0;payroll+=b.payroll||0;st+=stock(c);cc+=c.cash||0;cv+=c.value||0;emp+=(c.employees||[]).length;sh+=(c.shops||[]).length;vh+=(c.vehicles||[]).length;if(c.factory)fa++});let av=(S.assets||[]).reduce((a,x)=>a+(x.value||0),0),cd=S.companies.reduce((a,c)=>a+(c.cardDebt||0),0);rRevenue.textContent=M(revenue);rNet.textContent=M(net);rNet.className=net>=0?'positive':'negative';rTax.textContent=M(tax);rPayroll.textContent=M(payroll);rStock.textContent=st;rDebt.textContent=M(S.debt+cd);rCompanyCash.textContent=M(cc);rPersonalCash.textContent=M(S.personal);rCompanyValue.textContent=M(cv);rAssetValue.textContent=M(av);rWorth.textContent=M(worth()-cd);rEmployees.textContent=emp;rShops.textContent=sh;rVehicles.textContent=vh;rFactories.textContent=fa;reportCompanies.innerHTML=S.companies.length?S.companies.map(c=>{let b=c.balance||emptyB();return `<tr><td><b>${c.name}</b><br><span class="muted">${sectors[c.sector].name}</span></td><td>${c.type}</td><td>${M(b.revenue||0)}</td><td class="${(b.net||0)>=0?'positive':'negative'}">${M(b.net||0)}</td></tr>`}).join(''):'<tr><td colspan="4" class="muted">Henüz şirket yok.</td></tr>'}
+function renderReports(){let revenue=0,net=0,tax=0,payroll=0,st=0,cc=0,cv=0,emp=0,sh=0,vh=0,fa=0;S.companies.forEach(c=>{let b=c.balance||emptyB();revenue+=b.revenue||0;net+=b.net||0;tax+=b.tax||0;payroll+=b.payroll||0;st+=stock(c);cc+=c.cash||0;cv+=c.value||0;emp+=(c.employees||[]).length;sh+=(c.shops||[]).length;vh+=(c.vehicles||[]).length;if(c.factory)fa++});let av=(S.assets||[]).reduce((a,x)=>a+(x.value||0),0),cd=S.companies.reduce((a,c)=>a+(c.cardDebt||0),0),pv=Object.keys(S.market||{}).reduce((a,k)=>a+((S.portfolio?.[k]||0)*(S.market[k].price||0)),0),dep=S.deposit||0;rRevenue.textContent=M(revenue);rNet.textContent=M(net);rNet.className=net>=0?'positive':'negative';rTax.textContent=M(tax);rPayroll.textContent=M(payroll);rStock.textContent=st;rDebt.textContent=M(S.debt+cd);rCompanyCash.textContent=M(cc);rPersonalCash.textContent=M(S.personal);rCompanyValue.textContent=M(cv);rAssetValue.textContent=M(av);rWorth.textContent=M(worth()-cd+pv+dep);rEmployees.textContent=emp;rShops.textContent=sh;rVehicles.textContent=vh;rFactories.textContent=fa;reportCompanies.innerHTML=S.companies.length?S.companies.map(c=>{let b=c.balance||emptyB();return `<tr><td><b>${c.name}</b><br><span class="muted">${sectors[c.sector].name}</span></td><td>${c.type}</td><td>${M(b.revenue||0)}</td><td class="${(b.net||0)>=0?'positive':'negative'}">${M(b.net||0)}</td></tr>`}).join(''):'<tr><td colspan="4" class="muted">Henüz şirket yok.</td></tr>'}
 const originalOpenBank=openBank;openBank=function(){setNav('navBank');originalOpenBank()}
 const originalOpenPersonal=openPersonal;openPersonal=function(){setNav('navPersonal');originalOpenPersonal()}
 mountIcons();
+
+
+let APP_VISIBLE=true;
+document.addEventListener('visibilitychange',()=>{
+  APP_VISIBLE=!document.hidden;
+  if(document.hidden){try{save()}catch(e){}}
+});
+window.addEventListener('pagehide',()=>{try{save()}catch(e){}});
 
 offline();render();document.addEventListener('visibilitychange',()=>{if(document.hidden)save()});window.addEventListener('pagehide',save);if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script></body></html>

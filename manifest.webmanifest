@@ -1,10 +1,10 @@
 {
-  "name": "Z Tycoon Premium — İş İmparatorluğu",
+  "name": "Z Tycoon Premium — Business Empire",
   "short_name": "Z Tycoon",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#06101a",
+  "background_color": "#050b11",
   "theme_color": "#07131f",
   "orientation": "portrait-primary",
   "icons": [
