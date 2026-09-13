@@ -1,0 +1,15 @@
+Z TYCOON — iPhone Kurulum
+
+1. Bu klasörü GitHub Pages / Netlify / Cloudflare Pages gibi HTTPS bir adreste yayınla.
+2. iPhone'da bağlantıyı SAFARI ile aç.
+3. Paylaş simgesine dokun.
+4. "Ana Ekrana Ekle" seç.
+5. Ana ekrandaki Z Tycoon ikonundan aç.
+
+Pil optimizasyonları:
+- Sürekli animasyon / oyun döngüsü yok.
+- Arka planda hesaplama yok.
+- Oyun yalnızca butona bastığında hesap yapar.
+- HD ofis görseli iPhone için optimize edilmiştir.
+- Dosyalar ilk açılıştan sonra çevrimdışı cache'lenir.
+- Oyun arka plana geçince kayıt alınır, işlem durur.
