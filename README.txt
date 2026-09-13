@@ -1,24 +1,12 @@
-Z TYCOON PREMIUM V2
+Z TYCOON PREMIUM V3 FIXED
+- Menü ve şirket sekmeleri çalışan Full V1 tabanından yeniden kuruldu.
+- JavaScript sözdizimi yayın öncesi doğrulandı.
+- Premium logo ve SVG ikon seti.
+- Raporlar menüsü: ciro, net kâr, vergi, maaş, stok, borç, şirket performansı ve varlık dağılımı.
+- Banka: ticari kredi + şirket kredi kartı.
+- Kredi kartı: şirket bazlı limit, kullanılabilir limit, borç, kullanım ve borç ödeme.
+- Kart limiti kredi notu + şirket seviyesi + şirket değerine göre büyür.
+- Ödenmeyen kart borcuna ay sonunda %2,4 faiz işler.
 
-YENİ:
-- Premium uygulama ikonu
-- 8 adet özgün kurumsal SVG logo
-- Alt menüde özel vektör ikonlar
-- Tüm alt menüler çalışır: Ofis, Şirketler, Banka, Raporlar, Kişisel
-- Raporlar ekranı:
-  * Toplam ciro
-  * Net kâr
-  * Vergi
-  * Maaş
-  * Stok
-  * Borç
-  * Şirket bazlı sonuçlar
-  * Varlık dağılımı
-  * Çalışan / mağaza / araç / fabrika sayıları
-- Şirket içindeki Bilanço ekranı korunmuştur.
-- Önceki şirket, mağaza, fabrika, araç, vergi ve kişisel varlık sistemleri korunmuştur.
-
-GITHUB:
-ZIP içindeki TÜM dosyaları Ztycoon reposunun köküne yükle ve eskilerin üzerine yaz.
-GitHub Pages adresin değişmez.
-iPhone'da güncelleme görünmezse Safari sayfasını yenile; gerekirse Ana Ekrandaki eski PWA'yı kaldırıp yeniden Ana Ekrana Ekle.
+GitHub: ZIP içindeki tüm dosyaları repo köküne yükleyip eskilerin üzerine yaz.
+PWA eski cache'i gösterirse Safari'de yenile; gerekirse ana ekran ikonunu silip tekrar ekle.
