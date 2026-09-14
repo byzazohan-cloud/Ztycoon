@@ -211,6 +211,37 @@ html,body{font-size:16px}.app{max-width:430px!important;width:100%!important;pad
 .difficultyBadge{display:inline-block;padding:4px 7px;border-radius:8px;background:#102536;border:1px solid #31536a;font-size:7px;color:#f0ce7b}
 @media(max-width:390px){.logoToolGrid{grid-template-columns:1fr}}
 
+
+/* ===== V21 CUSTOM PRODUCT QUANTITY ===== */
+.qtyBuy{display:grid;grid-template-columns:78px 1fr;gap:6px;align-items:center;margin-top:7px}
+.qtyBuy input{width:100%;min-width:0;padding:8px;border-radius:8px;border:1px solid #31536b;background:#06131e;color:#fff;text-align:center;font-weight:900}
+.qtyBuy button{width:100%}
+
+
+/* ===== V22 HD8K + LOGO OVERFLOW FIX ===== */
+.heroPoster,.premiumHeroCard,.visualHero,.shopVisual,.warehouseVisual,.factoryVisual,.marketVisual{
+ background-size:cover!important;background-position:center center!important;background-repeat:no-repeat!important;
+}
+.premiumHeroCard,.visualHero{aspect-ratio:16/9!important;min-height:0!important;height:auto!important;overflow:hidden!important}
+.companyLogo,.companyLogoBox,.logoBox,.companyMiniLogo,.logoPreview,.logoPreviewStage{
+ overflow:hidden!important;contain:paint;
+}
+.companyLogo svg,.companyLogoBox svg,.logoBox svg,.companyMiniLogo svg,.logoPreview svg{
+ max-width:100%!important;max-height:100%!important;width:100%!important;height:100%!important;
+}
+.logoEditable{
+ max-width:88%!important;max-height:88%!important;box-sizing:border-box!important;
+ transform-origin:center center!important;
+}
+.logoEditable svg{max-width:100%!important;max-height:100%!important;width:86px!important;height:86px!important}
+.companyCard .logoEditable,.companyMiniLogo .logoEditable{transform:none!important;width:54px!important;height:54px!important;display:grid!important;place-items:center!important}
+.companyCard .logoEditable svg,.companyMiniLogo .logoEditable svg{width:42px!important;height:42px!important}
+@media(max-width:430px){
+ .companyCard .logoEditable,.companyMiniLogo .logoEditable{width:46px!important;height:46px!important}
+ .companyCard .logoEditable svg,.companyMiniLogo .logoEditable svg{width:36px!important;height:36px!important}
+ .logoPreviewStage .logoEditable{max-width:76%!important;max-height:76%!important}
+}
+
 </style>
 </head>
 <body>
@@ -603,7 +634,7 @@ function renderCompanyPanel(){
    html=`<div class="grid3"><div class="card"><div class="row"><span>Şirket Kasası</span><b>${M(c.cash)}</b></div><div class="row"><span>Şirket Değeri</span><b>${M(c.value)}</b></div></div><div class="card"><div class="row"><span>Durum</span><b>${status}</b></div><div class="row"><span>Satış Modu</span><b>${MODES[c.salesMode].name}</b></div></div><div class="card"><div class="row"><span>Depo</span><b>${stock(c)} / ${whCap(c)}</b></div><div class="row"><span>Fabrika</span><b>${c.factory?'Var':'Yok'}</b></div></div></div>
    <div class="card" style="margin-top:8px"><h4>Satış Modu</h4><div class="modeButtons">${Object.entries(MODES).map(([k,m])=>`<button class="${c.salesMode===k?'active':''}" onclick="setMode('${k}')">${m.name}<br><small>${k==='fast'?'Sık / az adet':k==='balanced'?'Normal':'Seyrek / toplu'}</small></button>`).join('')}</div></div>`;
  }else if(currentCompanyTab==='trade'){
-   html=paymentSelector()+`<div class="notice">Aldığın ürünler şirket deposuna gider. Depo kapasitesi aşılmaz.</div><div class="grid2" style="margin-top:8px">${productList(c).map(p=>`<div class="card product"><div><h4>${p.name}</h4><p>Alış ${M(p.buy)} • Hedef satış ${M(p.sell)} • Stok ${c.inv[p.id]||0}</p></div><div><button class="btn blue" onclick="buyWholesale('${p.id}',10)">10 Al</button> <button class="btn" onclick="buyWholesale('${p.id}',50)">50 Al</button></div></div>`).join('')}</div>`;
+   html=paymentSelector()+`<div class="notice">Aldığın ürünler şirket deposuna gider. Depo kapasitesi aşılmaz.</div><div class="grid2" style="margin-top:8px">${productList(c).map(p=>`<div class="card product"><div><h4>${p.name}</h4><p>Alış ${M(p.buy)} • Hedef satış ${M(p.sell)} • Stok ${c.inv[p.id]||0}</p></div><div class="qtyBuy"><input id="qty_trade_${p.id}" type="number" min="1" step="1" value="10" inputmode="numeric"><button class="btn gold" onclick="buyWholesaleInput('${p.id}','qty_trade_${p.id}')">Satın Al</button></div></div>`).join('')}</div>`;
  }else if(currentCompanyTab==='shops'){
    html=paymentSelector()+`<div class="visualHero premiumHeroCard shopVisual" style="background-image:url('shop_mobile.jpg')"><div class="label">Mağaza Yönetimi</div></div><div class="grid3" style="margin-top:8px">${STORE_TYPES.map((s,i)=>`<div class="card"><h4>${s.name}</h4><div class="row"><span>Kurulum</span><b>${M(s.cost)}</b></div><div class="row"><span>Aylık kira</span><b>${M(s.rent)}</b></div><button class="btn gold" style="width:100%" onclick="openStore(${i})">Aç / Kirala</button></div>`).join('')}</div><div class="sectionHead" style="margin-top:10px"><h3>Aktif Mağazalar</h3></div>${c.shops.length?c.shops.map((s,i)=>`<div class="card"><div class="row"><span>${s.name}</span><b>Aktif</b></div><div class="row"><span>Aylık kira</span><b>${M(s.rent)}</b></div></div>`).join(''):'<div class="notice">Mağaza yok.</div>'}`;
  }else if(currentCompanyTab==='staff'){
@@ -620,6 +651,16 @@ function renderCompanyPanel(){
  companyPanel.innerHTML=html;save();
 }
 function setMode(m){C().salesMode=m;save();renderCompanyPanel();toast('Satış modu: '+MODES[m].name)}
+
+function buyWholesaleInput(id,inputId){
+ let el=document.getElementById(inputId);
+ let q=Math.floor(Number(el?.value||0));
+ if(!Number.isFinite(q)||q<1)return toast('Ürün adedi en az 1 olmalı.');
+ let c=C(),free=whCap(c)-stock(c);
+ if(q>free)return toast('Depoda yalnızca '+free+' ürünlük boş alan var.');
+ buyWholesale(id,q);
+}
+
 function buyWholesale(id,q){let c=C(),p=productList(c).find(x=>x.id===id),free=whCap(c)-stock(c);if(free<q)return toast('Depo kapasitesi yetersiz. Boş alan: '+free);let cost=Math.round(p.buy*q*difficultyProfile(c).cost);if(!payCompany(cost,'Toptan ürün alımı'))return;c.inv[id]=(c.inv[id]||0)+q;c.balance.cogs+=cost;save();render();renderCompanyPanel()}
 function openStore(i){let c=C(),s=STORE_TYPES[i],openCost=Math.round(s.cost*difficultyProfile(c).cost);if(!payCompany(openCost,'Mağaza açılışı'))return;c.shops.push({...s,id:'s'+Date.now()});c.value+=s.cost*.7;save();render();renderCompanyPanel();toast(s.name+' açıldı.')}
 function hireStaff(i){let c=C(),s=STAFF[i],hireCost=Math.round(s.salary*difficultyProfile(c).wage);if(!payCompany(hireCost,'İlk maaş'))return;c.employees.push({...s,id:'e'+Date.now()});save();render();renderCompanyPanel()}
@@ -694,7 +735,7 @@ function renderOfficeLevels(){
 function openMarket(){marketO.classList.add('open');renderMarket()}
 function renderMarket(){
  let c=C();if(!c){marketPanel.innerHTML='<div class="notice">Pazarı kullanmak için önce şirket kur.</div>';return}
- marketPanel.innerHTML=`<div class="grid2">${productList(c).map(p=>`<div class="card product"><div><h4>${p.name}</h4><p>Sektör: ${SECTORS[c.sector].name}</p><div class="row"><span>Alış</span><b>${M(p.buy)}</b></div><div class="row"><span>Hedef Satış</span><b>${M(p.sell)}</b></div></div><button class="btn gold" onclick="buyWholesale('${p.id}',10)">10 Adet Satın Al</button></div>`).join('')}</div>`;
+ marketPanel.innerHTML=`<div class="grid2">${productList(c).map(p=>`<div class="card product"><div><h4>${p.name}</h4><p>Sektör: ${SECTORS[c.sector].name}</p><div class="row"><span>Alış</span><b>${M(p.buy)}</b></div><div class="row"><span>Hedef Satış</span><b>${M(p.sell)}</b></div></div><div class="qtyBuy"><input id="qty_market_${p.id}" type="number" min="1" step="1" value="10" inputmode="numeric"><button class="btn gold" onclick="buyWholesaleInput('${p.id}','qty_market_${p.id}')">Satın Al</button></div></div>`).join('')}</div>`;
 }
 function openCity(){cityO.classList.add('open')}
 function openAchievements(){achievementsO.classList.add('open');renderAchievements()}
