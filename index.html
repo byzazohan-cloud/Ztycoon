@@ -46,6 +46,57 @@ button,input,select{font:inherit}button{cursor:pointer}
 @media(max-width:760px){
  .app{padding:7px 7px 84px}.topbar{grid-template-columns:1fr 1fr;position:relative}.brand{grid-column:1/3}.kpi{border-left:0;border-top:1px solid #20374a}.heroGrid{grid-template-columns:1fr}.quick{grid-template-columns:1fr 1fr}.wallets{grid-template-columns:1fr}.grid2,.grid3{grid-template-columns:1fr}.companyRow{grid-template-columns:46px 1fr auto}.metrics{gap:9px}.sheet{height:96vh}.logoChoices{grid-template-columns:repeat(3,1fr)}
 }
+
+/* ===== V16 FULL CONCEPT UI ===== */
+.heroPoster{margin-top:10px;border-radius:14px;padding:18px;background:
+linear-gradient(180deg,rgba(3,8,13,.18),rgba(3,8,13,.82)),
+radial-gradient(circle at 65% 15%,rgba(226,180,84,.22),transparent 28%),
+linear-gradient(135deg,#102b40,#06121c);border:1px solid rgba(226,180,84,.24);min-height:180px;display:flex;align-items:flex-end}
+.heroPoster h1{font-size:34px;margin:0;letter-spacing:1px}.heroPoster p{margin:4px 0 0;color:#c6d0d8}
+.featureGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.featureBtn{padding:10px;border-radius:10px;background:#091b29;border:1px solid #2d4b61;color:#fff;text-align:left}
+.featureBtn b{display:block;color:#f0cb73;margin-bottom:3px}.featureBtn small{color:#91a5b6;font-size:8px}
+.officeLevelGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.officeLevelCard{aspect-ratio:16/9;border-radius:10px;border:1px solid rgba(226,180,84,.22);background:linear-gradient(135deg,#11283a,#08141f);position:relative;overflow:hidden}
+.officeLevelCard:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(0,0,0,.35))}
+.officeLevelCard .officeInner{position:absolute;inset:0;padding:12px;display:flex;flex-direction:column;justify-content:space-between}
+.officeLevelCard .officeScene{height:65%;border-radius:8px;background:
+linear-gradient(180deg,#c79d63 0 7%,#594633 7% 9%,#202a30 9% 100%);
+box-shadow:inset 0 0 0 1px #0008;position:relative}
+.officeLevelCard .officeScene:before{content:"";position:absolute;left:20%;right:20%;top:18%;height:18%;background:#111b22;border:1px solid #c8943a;border-radius:3px}
+.officeLevelCard .officeScene:after{content:"";position:absolute;left:24%;right:24%;bottom:10%;height:12%;background:#3c2c22;border-top:3px solid #d2a55d}
+.officeMeta{display:flex;justify-content:space-between;align-items:end}.officeMeta b{color:#f0ca73;font-size:10px}.officeMeta span{font-size:8px;color:#c7d1da}
+.mapWrap{position:relative;min-height:420px;border-radius:14px;background:
+radial-gradient(circle at 30% 30%,#28485c 0 2%,transparent 3%),
+linear-gradient(135deg,#173348,#0d2535 60%,#112a3c);overflow:hidden;border:1px solid #2d526b}
+.mapRoad{position:absolute;background:#344e61;border:2px solid #506d81;border-radius:20px;opacity:.65}
+.mapRoad.r1{left:5%;right:8%;top:42%;height:18px;transform:rotate(-9deg)}
+.mapRoad.r2{top:5%;bottom:7%;left:47%;width:18px;transform:rotate(8deg)}
+.mapRoad.r3{left:10%;right:15%;bottom:18%;height:16px;transform:rotate(13deg)}
+.mapNode{position:absolute;min-width:82px;padding:8px;border-radius:9px;background:#07131f;border:1px solid #d0a24a;color:#ffe19a;text-align:center;font-size:9px;font-weight:900}
+.achievement{display:grid;grid-template-columns:42px 1fr auto;gap:9px;align-items:center;padding:10px;border:1px solid #29485e;background:#071722;border-radius:10px;margin:6px 0}
+.achievement .ico{width:42px;height:42px;border-radius:10px;background:#0b2232;display:grid;place-items:center;font-size:22px}
+.achievement progress{width:130px}
+.settingsGrid{display:grid;gap:8px}
+.settingRow{display:flex;justify-content:space-between;gap:12px;padding:10px;border:1px solid #29475d;background:#071722;border-radius:10px}
+.toggle{width:42px;height:22px;border-radius:20px;background:#25394a;position:relative}
+.toggle.on{background:#bf852e}.toggle:after{content:"";position:absolute;width:18px;height:18px;top:2px;left:2px;border-radius:50%;background:white}
+.toggle.on:after{left:22px}
+.marketTabs{display:flex;gap:6px;overflow:auto;margin-bottom:8px}.marketTabs button{padding:8px 10px;border-radius:8px;border:1px solid #2f4b61;background:#07131f;color:#d5dee5;font-size:8px}.marketTabs button.active{background:#6d4b19;color:#ffe09a;border-color:#cf9a38}
+.chartBox{height:220px;border:1px solid #29475d;border-radius:10px;background:
+linear-gradient(180deg,rgba(27,87,125,.16),transparent),
+repeating-linear-gradient(0deg,transparent 0 39px,#163044 40px),
+repeating-linear-gradient(90deg,transparent 0 59px,#163044 60px);position:relative;overflow:hidden}
+.chartLine{position:absolute;left:5%;right:5%;bottom:15%;height:65%;clip-path:polygon(0 88%,8% 76%,17% 80%,25% 59%,35% 65%,45% 45%,54% 51%,63% 31%,72% 39%,81% 18%,90% 28%,100% 8%,100% 12%,90% 32%,81% 22%,72% 43%,63% 35%,54% 55%,45% 49%,35% 69%,25% 63%,17% 84%,8% 80%,0 92%);background:#34d58c}
+.chartLine.red{transform:translateY(18px);background:#e65656;opacity:.85}
+.logoStudioV16{display:grid;grid-template-columns:1.1fr .9fr;gap:10px}
+.logoBig{min-height:260px;display:grid;place-items:center;border:1px solid #2d4b61;border-radius:12px;background:radial-gradient(circle at 50% 20%,rgba(226,180,84,.12),transparent 36%),#06121c}
+.logoBig svg{width:130px;height:130px}
+.logoTool{padding:10px;border-radius:10px;border:1px solid #29475d;background:#071722}
+@media(max-width:760px){
+ .featureGrid{grid-template-columns:1fr 1fr}.officeLevelGrid{grid-template-columns:1fr 1fr}.logoStudioV16{grid-template-columns:1fr}.heroPoster h1{font-size:28px}
+}
+
 </style>
 </head>
 <body>
@@ -56,6 +107,13 @@ button,input,select{font:inherit}button{cursor:pointer}
     <div class="kpi"><span>Aktif Şirket Kasası</span><b id="companyCash">₺0</b><small id="companyCashName">Şirket yok</small></div>
     <div class="kpi"><span>Holding Seviyesi</span><b id="holdingLevel">Seviye 1</b><small id="economyTxt">Normal</small></div>
   </header>
+  <section class="heroPoster"><div><h1>ZAZO TYCOON</h1><p>Küçük adımlardan büyük imparatorluklara.</p></div></section>
+  <section class="section"><div class="featureGrid">
+    <button class="featureBtn" onclick="openMarket()"><b>Pazar</b><small>Ürün, hammadde ve yatırım piyasası</small></button>
+    <button class="featureBtn" onclick="openCity()"><b>Şehir Haritası</b><small>Ofis, banka, AVM ve sanayi bölgeleri</small></button>
+    <button class="featureBtn" onclick="openAchievements()"><b>Başarılar</b><small>Hedefler ve ödüller</small></button>
+    <button class="featureBtn" onclick="openSettings()"><b>Ayarlar</b><small>Otomatik satış ve oyun tercihleri</small></button>
+  </div></section>
 
   <section class="hero">
     <div class="heroGrid">
@@ -85,6 +143,11 @@ button,input,select{font:inherit}button{cursor:pointer}
   </section>
 
   <section class="section">
+  <div class="sectionHead"><h3>Ofis Seviyeleri</h3><span class="muted">Şirket büyüdükçe ofisin de yükselir</span></div>
+  <div id="officeLevels" class="officeLevelGrid"></div>
+</section>
+
+<section class="section">
     <div class="sectionHead"><h3>Holding Özeti</h3><span class="muted">Para akışı artık ayrı kasalarda</span></div>
     <div class="grid3">
       <div class="card"><div class="row"><span>Şirket Sayısı</span><b id="sumCompanies">0</b></div><div class="row"><span>Toplam Çalışan</span><b id="sumEmployees">0</b></div></div>
@@ -128,7 +191,7 @@ button,input,select{font:inherit}button{cursor:pointer}
    <button onclick="companyTab('staff',this)">Çalışan</button>
    <button onclick="companyTab('warehouse',this)">Depo</button>
    <button onclick="companyTab('factory',this)">Fabrika</button>
-   <button onclick="companyTab('finance',this)">Finans</button>
+   <button onclick="companyTab('finance',this)">Finans</button><button onclick="openLogoStudio()">Logo</button>
  </div>
  <div id="companyPanel"></div>
 </div></div>
@@ -155,6 +218,49 @@ button,input,select{font:inherit}button{cursor:pointer}
 <div class="overlay" id="personalO"><div class="sheet">
  <div class="sheetTop"><h2>Kişisel</h2><button class="btn" onclick="closeO('personalO')">Kapat</button></div>
  <div id="personalPanel"></div>
+</div></div>
+
+
+<div class="overlay" id="marketO"><div class="sheet">
+ <div class="sheetTop"><h2>Pazar</h2><button class="btn" onclick="closeO('marketO')">Kapat</button></div>
+ <div class="marketTabs"><button class="active">Ürün Al</button><button>Ürün Sat</button><button>Hammadde</button><button>Fırsatlar</button></div>
+ <div id="marketPanel"></div>
+</div></div>
+
+<div class="overlay" id="cityO"><div class="sheet">
+ <div class="sheetTop"><h2>Şehir Haritası</h2><button class="btn" onclick="closeO('cityO')">Kapat</button></div>
+ <div class="mapWrap">
+   <div class="mapRoad r1"></div><div class="mapRoad r2"></div><div class="mapRoad r3"></div>
+   <button class="mapNode" style="left:10%;top:12%" onclick="openCompany()">Ofis</button>
+   <button class="mapNode" style="right:12%;top:15%" onclick="openBank()">Banka</button>
+   <button class="mapNode" style="left:35%;top:48%" onclick="openMarket()">AVM / Pazar</button>
+   <button class="mapNode" style="right:14%;bottom:18%" onclick="openCompany()">Lojistik</button>
+   <button class="mapNode" style="left:12%;bottom:16%" onclick="openCompany()">Sanayi</button>
+   <button class="mapNode" style="left:46%;bottom:7%" onclick="openReports()">Borsa</button>
+ </div>
+</div></div>
+
+<div class="overlay" id="achievementsO"><div class="sheet">
+ <div class="sheetTop"><h2>Başarılar</h2><button class="btn" onclick="closeO('achievementsO')">Kapat</button></div>
+ <div id="achievementsPanel"></div>
+</div></div>
+
+<div class="overlay" id="settingsO"><div class="sheet">
+ <div class="sheetTop"><h2>Ayarlar</h2><button class="btn" onclick="closeO('settingsO')">Kapat</button></div>
+ <div id="settingsPanel"></div>
+</div></div>
+
+<div class="overlay" id="logoStudioO"><div class="sheet">
+ <div class="sheetTop"><h2>Logo Tasarımı</h2><button class="btn" onclick="closeO('logoStudioO')">Kapat</button></div>
+ <div class="logoStudioV16">
+   <div class="logoBig" id="logoBigPreview"></div>
+   <div class="logoTool">
+     <div class="field"><label>Logo tipi</label><select id="logoSectorSelect" onchange="renderLogoStudioV16()"></select></div>
+     <div class="field"><label>Renk</label><select id="logoColorSelect" onchange="renderLogoStudioV16()"><option value="#efbd58">Altın</option><option value="#ffffff">Beyaz</option><option value="#2f9cff">Mavi</option><option value="#22c879">Yeşil</option><option value="#d65353">Kırmızı</option></select></div>
+     <div class="field"><label>Harf Logosu</label><input id="logoLetters" maxlength="3" value="Z" oninput="renderLogoStudioV16()"></div>
+     <button class="btn gold" onclick="applyLogoStudio()">Aktif Şirkete Uygula</button>
+   </div>
+ </div>
 </div></div>
 
 <div id="toast" class="toast"></div>
@@ -284,7 +390,7 @@ function render(){
  holdingLevel.textContent='Seviye '+holdingLevel();economyTxt.textContent=S.economy;
  walletHolding.textContent=M(S.cash);walletPersonal.textContent=M(S.personal);walletDebt.textContent=M(S.debt);
  activeCompanyBox.innerHTML=c?`<div class="logoBox">${logoSvg(c)}</div><div><b>${c.name} ${c.type}</b><div class="muted">${SECTORS[c.sector].name} • Seviye ${c.level}/50 • ${c.salesMode?MODES[c.salesMode].name:'Dengeli'} satış</div></div><button class="btn gold" onclick="openCompany()">Yönet</button>`:`<div class="logoBox">${ICONS.building}</div><div><b>Henüz şirket yok</b><div class="muted">İlk şirketini kurarak başla.</div></div><button class="btn gold" onclick="openCreate()">Şirket Kur</button>`;
- renderCompanies();
+ renderCompanies();renderOfficeLevels();
  let all=S.companies;
  sumCompanies.textContent=all.length;sumEmployees.textContent=all.reduce((a,c)=>a+c.employees.length,0);sumShops.textContent=all.reduce((a,c)=>a+c.shops.length,0);sumStock.textContent=all.reduce((a,c)=>a+stock(c),0);
  sumRevenue.textContent=M(all.reduce((a,c)=>a+(c.balance?.revenue||0),0));sumNet.textContent=M(all.reduce((a,c)=>a+(c.balance?.net||0),0));
@@ -364,7 +470,7 @@ function withdrawDeposit(){let a=Math.max(0,+depAmount.value||0);a=Math.min(a,S.
 function buyInvest(k){let q=Math.max(1,Math.floor(+document.getElementById('inv_'+k).value||1)),a=S.market[k],cost=a.price*q;if(S.cash<cost)return toast('Holding kasası yetersiz.');S.cash-=cost;S.portfolio[k]=(S.portfolio[k]||0)+q;save();render();renderBank()}
 function sellInvest(k){let q=Math.max(1,Math.floor(+document.getElementById('inv_'+k).value||1)),a=S.market[k];if((S.portfolio[k]||0)<q)return toast('Yeterli varlık yok.');S.portfolio[k]-=q;S.cash+=a.price*q;save();render();renderBank()}
 
-function openReports(){reportsO.classList.add('open');renderReports();navReports.classList.add('active')}
+function openReports(){reportsO.classList.add('open');renderRichReports();navReports.classList.add('active')}
 function renderReports(){let revenue=S.companies.reduce((a,c)=>a+(c.balance?.revenue||0),0),net=S.companies.reduce((a,c)=>a+(c.balance?.net||0),0),pay=S.companies.reduce((a,c)=>a+c.employees.reduce((x,e)=>x+e.salary,0),0),rent=S.companies.reduce((a,c)=>a+c.shops.reduce((x,s)=>x+s.rent,0),0);reportsPanel.innerHTML=`<div class="grid3"><div class="card"><h4>Finans</h4><div class="row"><span>Toplam Ciro</span><b>${M(revenue)}</b></div><div class="row"><span>Net Kâr</span><b class="${net>=0?'pos':'neg'}">${M(net)}</b></div></div><div class="card"><h4>Gider</h4><div class="row"><span>Maaş</span><b>${M(pay)}</b></div><div class="row"><span>Kira</span><b>${M(rent)}</b></div></div><div class="card"><h4>Varlık</h4><div class="row"><span>Net Varlık</span><b>${M(totalWorth())}</b></div><div class="row"><span>Borç</span><b>${M(S.debt)}</b></div></div></div><table class="table" style="margin-top:10px"><thead><tr><th>Şirket</th><th>Kasa</th><th>Ciro</th><th>Net</th></tr></thead><tbody>${S.companies.map(c=>`<tr><td>${c.name}</td><td>${M(c.cash)}</td><td>${M(c.balance?.revenue||0)}</td><td class="${companyNet(c)>=0?'pos':'neg'}">${M(companyNet(c))}</td></tr>`).join('')}</tbody></table>`}
 function openPersonal(){personalO.classList.add('open');renderPersonal();navPersonal.classList.add('active')}
 function renderPersonal(){personalPanel.innerHTML=`<div class="grid2"><div class="card"><h4>Patron</h4><div class="row"><span>Kişisel Para</span><b>${M(S.personal)}</b></div><div class="row"><span>Holding Seviyesi</span><b>${holdingLevel()}/100</b></div></div><div class="card"><h4>Kâr Çek</h4><div class="notice">Şirket kasasından kişisel paraya doğrudan harcama yok. Önce holding kasasına transfer et, sonra temettü çek.</div><div class="field"><label>Temettü</label><input id="dividendAmount" type="number" value="25000"></div><button class="btn gold" onclick="takeDividend()">Holding → Kişisel</button></div></div>`}
@@ -387,6 +493,53 @@ function endMonth(){
 }
 document.addEventListener('visibilitychange',()=>{if(!document.hidden){render()}else save()});
 setInterval(()=>{if(!document.hidden){runOfflineSales();render()}},60000);
+
+const OFFICE_LEVEL_NAMES=['Standart Ofis','Gelişen Ofis','Modern Ofis','Prestijli Ofis','Yönetici Ofisi','Üst Düzey Ofis','CEO Ofisi','Holding Merkezi','Penthouse Ofis'];
+S.settings=S.settings||{sound:true,music:false,notifications:true,autoSales:true,theme:'Koyu'};
+
+function renderOfficeLevels(){
+ if(typeof officeLevels==='undefined')return;
+ officeLevels.innerHTML=OFFICE_LEVEL_NAMES.map((n,i)=>`<div class="officeLevelCard"><div class="officeInner"><div class="officeScene"></div><div class="officeMeta"><b>SEVİYE ${i+1}</b><span>${n}</span></div></div></div>`).join('');
+}
+function openMarket(){marketO.classList.add('open');renderMarket()}
+function renderMarket(){
+ let c=C();if(!c){marketPanel.innerHTML='<div class="notice">Pazarı kullanmak için önce şirket kur.</div>';return}
+ marketPanel.innerHTML=`<div class="grid2">${productList(c).map(p=>`<div class="card product"><div><h4>${p.name}</h4><p>Sektör: ${SECTORS[c.sector].name}</p><div class="row"><span>Alış</span><b>${M(p.buy)}</b></div><div class="row"><span>Hedef Satış</span><b>${M(p.sell)}</b></div></div><button class="btn gold" onclick="buyWholesale('${p.id}',10)">10 Adet Satın Al</button></div>`).join('')}</div>`;
+}
+function openCity(){cityO.classList.add('open')}
+function openAchievements(){achievementsO.classList.add('open');renderAchievements()}
+function renderAchievements(){
+ let rev=S.companies.reduce((a,c)=>a+(c.balance?.revenue||0),0),shops=S.companies.reduce((a,c)=>a+c.shops.length,0);
+ let ach=[
+  ['🏆','İlk Şirket','İlk şirketini kur.',S.companies.length>=1,Math.min(1,S.companies.length),1],
+  ['📈','1 Milyon Ciro','Toplam 1 milyon ciro yap.',rev>=1000000,Math.min(rev,1000000),1000000],
+  ['👑','Holding','Holding seviyeni 10 yap.',holdingLevel()>=10,Math.min(holdingLevel(),10),10],
+  ['🏪','10 Mağaza','Toplam 10 mağaza aç.',shops>=10,Math.min(shops,10),10]
+ ];
+ achievementsPanel.innerHTML=ach.map(a=>`<div class="achievement"><div class="ico">${a[0]}</div><div><b>${a[1]}</b><div class="muted">${a[2]}</div><progress max="${a[5]}" value="${a[4]}"></progress></div><div>${a[3]?'✅':'⏳'}</div></div>`).join('');
+}
+function openSettings(){settingsO.classList.add('open');renderSettings()}
+function renderSettings(){
+ let rows=[['Ses Efektleri','sound'],['Müzik','music'],['Bildirimler','notifications'],['Otomatik Satış','autoSales']];
+ settingsPanel.innerHTML=`<div class="settingsGrid">${rows.map(([n,k])=>`<div class="settingRow"><span>${n}</span><button class="toggle ${S.settings[k]?'on':''}" onclick="toggleSetting('${k}')"></button></div>`).join('')}<div class="settingRow"><span>Tema</span><b>${S.settings.theme}</b></div><div class="settingRow"><span>Dil</span><b>Türkçe</b></div><div class="settingRow"><span>Oyun Hakkında</span><b>ZAZO TYCOON V16</b></div></div>`;
+}
+function toggleSetting(k){S.settings[k]=!S.settings[k];save();renderSettings()}
+function openLogoStudio(){
+ let c=C();if(!c)return toast('Aktif şirket yok.');
+ logoSectorSelect.innerHTML=Object.keys(ICONS).filter(k=>SECTORS[k]).map(k=>`<option value="${k}" ${k===c.sector?'selected':''}>${SECTORS[k].name}</option>`).join('');
+ logoLetters.value=(c.logoLetters||c.name.slice(0,1)).toUpperCase();
+ logoStudioO.classList.add('open');renderLogoStudioV16();
+}
+function renderLogoStudioV16(){
+ let sector=logoSectorSelect.value||C()?.sector||'textile',color=logoColorSelect.value,letters=(logoLetters.value||'Z').slice(0,3).toUpperCase();
+ logoBigPreview.innerHTML=`<div style="text-align:center;color:${color}"><div style="transform:scale(2.3);margin-bottom:35px">${ICONS[sector]||ICONS.textile}</div><div style="font-size:42px;font-weight:1000;letter-spacing:4px">${letters}</div><small style="letter-spacing:3px">ŞİRKET MARKASI</small></div>`;
+}
+function applyLogoStudio(){let c=C();c.logoLetters=(logoLetters.value||'Z').slice(0,3).toUpperCase();c.logoColor=logoColorSelect.value;save();closeO('logoStudioO');render();toast('Logo ayarları kaydedildi.')}
+function renderRichReports(){
+ let revenue=S.companies.reduce((a,c)=>a+(c.balance?.revenue||0),0),net=S.companies.reduce((a,c)=>a+(c.balance?.net||0),0);
+ reportsPanel.innerHTML=`<div class="grid3"><div class="card"><h4>Toplam Gelir</h4><b style="font-size:18px">${M(revenue)}</b></div><div class="card"><h4>Net Kâr</h4><b style="font-size:18px">${M(net)}</b></div><div class="card"><h4>Net Varlık</h4><b style="font-size:18px">${M(totalWorth())}</b></div></div><div class="chartBox" style="margin-top:10px"><div class="chartLine"></div><div class="chartLine red"></div></div><div class="muted" style="margin-top:6px">Yeşil: gelir eğilimi • Kırmızı: gider eğilimi</div>`;
+}
+
 render();
 if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js').then(r=>r.update()).catch(()=>{});
 </script>
