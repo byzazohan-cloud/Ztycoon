@@ -1,0 +1,12 @@
+ZAZO TYCOON V20 — LUXURY EVOLUTION
+- Premium renkli logo kütüphanesi (12 sembol)
+- Ultra detaylı logo editörü: renk, boyut, 360° dönüş, X/Y, saydamlık, monogram, çerçeve, ışıklı/metal efekt
+- Mağaza, depo, fabrika, pazar görselleri yeniden işlendi
+- Banka/ofis/hero yüksek kalite bağımsız görseller
+- 7680x4320 8K master + telefonda 1920x1080 optimize görsel
+- Tek premium kart: Z BANK BLACK SIGNATURE
+- Esnek Hesap: limit, kullanım, geri ödeme
+- Ana hero alanına görsel ve yeni lüks ZAZO TYCOON logosu
+- Şehir haritası kaldırıldı
+- Ana sayfa Pazar/Başarılar/Ofisler küçük buton, büyük ikon/yazı
+- Zorluk kademeli: 1-3 çok kolay, 4-8 kolay, 9-20 normal, 21-35 zor, 36-50 çok zor
