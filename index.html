@@ -242,6 +242,119 @@ html,body{font-size:16px}.app{max-width:430px!important;width:100%!important;pad
  .logoPreviewStage .logoEditable{max-width:76%!important;max-height:76%!important}
 }
 
+
+/* ===== V23 LOGO FULL VISIBILITY FIX ===== */
+.logoBox{
+ overflow:hidden!important;
+ display:flex!important;
+ align-items:center!important;
+ justify-content:center!important;
+ padding:4px!important;
+}
+.logoThumbWrap{
+ width:100%!important;
+ height:100%!important;
+ display:flex!important;
+ align-items:center!important;
+ justify-content:center!important;
+ overflow:hidden!important;
+ transform:none!important;
+ position:relative!important;
+}
+.logoThumbSvg{
+ width:100%!important;
+ height:100%!important;
+ display:flex!important;
+ align-items:center!important;
+ justify-content:center!important;
+ overflow:hidden!important;
+ transform:none!important;
+}
+.logoThumbSvg svg{
+ width:82%!important;
+ height:82%!important;
+ max-width:82%!important;
+ max-height:82%!important;
+ display:block!important;
+ overflow:visible!important;
+ transform:none!important;
+}
+.logoThumbText{
+ width:100%!important;
+ text-align:center!important;
+ font-size:22px!important;
+ line-height:1!important;
+ font-weight:1000!important;
+ letter-spacing:0!important;
+ white-space:nowrap!important;
+ overflow:hidden!important;
+ text-overflow:clip!important;
+ transform:none!important;
+}
+.companyRow .logoBox,
+.activeCompany .logoBox{
+ width:48px!important;
+ height:48px!important;
+ min-width:48px!important;
+ min-height:48px!important;
+}
+@media(max-width:430px){
+ .companyRow .logoBox,
+ .activeCompany .logoBox{
+   width:46px!important;
+   height:46px!important;
+   min-width:46px!important;
+   min-height:46px!important;
+ }
+ .logoThumbSvg svg{width:78%!important;height:78%!important;max-width:78%!important;max-height:78%!important}
+ .logoThumbText{font-size:19px!important}
+}
+
+
+/* ===== V24 VISUAL REBUILD ===== */
+.heroPoster{
+ background-image:linear-gradient(180deg,rgba(2,7,11,.16),rgba(2,7,11,.88)),url("hero_mobile.jpg")!important;
+ background-size:cover!important;
+ background-position:center!important;
+}
+.gameLuxLogo{align-items:center!important}
+.gameLuxMark{
+ width:72px!important;height:72px!important;
+ padding:0!important;background:none!important;overflow:hidden!important;
+ border:1px solid rgba(241,199,106,.45)!important;
+ border-radius:16px!important;
+ box-shadow:0 0 28px rgba(241,199,106,.22)!important;
+}
+.gameLuxMark img{width:100%!important;height:100%!important;object-fit:cover!important;display:block!important}
+.visualHero,.premiumHeroCard,.shopVisual,.warehouseVisual,.factoryVisual,.marketVisual{
+ aspect-ratio:16/9!important;
+ background-size:cover!important;
+ background-position:center center!important;
+ background-repeat:no-repeat!important;
+ image-rendering:auto!important;
+}
+.logoBox,.logoThumbWrap,.logoThumbSvg{
+ overflow:hidden!important;
+ display:flex!important;align-items:center!important;justify-content:center!important;
+}
+.logoThumbSvg svg{
+ width:72%!important;height:72%!important;max-width:72%!important;max-height:72%!important;
+ overflow:visible!important;display:block!important;
+}
+.companyRow .logoBox,.activeCompany .logoBox{
+ width:50px!important;height:50px!important;min-width:50px!important;min-height:50px!important;
+ padding:5px!important;
+}
+.logoPreviewStage{overflow:hidden!important}
+.logoPreviewStage .logoEditable{
+ max-width:70%!important;max-height:70%!important;
+}
+.logoPreviewStage .logoEditable svg{width:92px!important;height:92px!important}
+@media(max-width:430px){
+ .companyRow .logoBox,.activeCompany .logoBox{width:46px!important;height:46px!important;min-width:46px!important;min-height:46px!important}
+ .logoThumbSvg svg{width:68%!important;height:68%!important;max-width:68%!important;max-height:68%!important}
+}
+
 </style>
 </head>
 <body>
@@ -253,7 +366,7 @@ html,body{font-size:16px}.app{max-width:430px!important;width:100%!important;pad
     <div class="kpi"><span>Holding Seviyesi</span><b id="holdingLevel">Seviye 1</b><small id="economyTxt">Normal</small></div>
   </header>
   <section class="heroPoster premiumTile"><div>
-<div class="gameLuxLogo"><div class="gameLuxMark"><svg viewBox="0 0 64 64"><defs><linearGradient id="zg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0ad"/><stop offset=".55" stop-color="#d49a2f"/><stop offset="1" stop-color="#7e4d0b"/></linearGradient></defs><path d="M12 12h42L23 49h29" fill="none" stroke="url(#zg)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="gameLuxText"><b>ZAZO TYCOON</b><small>BUSINESS EMPIRE</small></div></div>
+<div class="gameLuxLogo"><div class="gameLuxMark"><img src="icon-512.png" alt="ZAZO TYCOON"></div><div class="gameLuxText"><b>ZAZO TYCOON</b><small>BUSINESS EMPIRE</small></div></div>
 <div style="margin-top:72px;color:#f4d37d;font-size:10px;font-weight:900">KÜÇÜK ADIMLAR, BÜYÜK İMPARATORLUKLAR</div>
 </div></section>
   <section class="section"><div class="featureGrid">
@@ -595,7 +708,12 @@ const LUX_LOGOS={
 const LUX_LOGO_KEYS=Object.keys(LUX_LOGOS);
 function ensureLogoDesign(c){c.logoDesign=c.logoDesign||{key:'phoenix',color:c.logoColor||'#efbd58',scale:100,rot:0,x:0,y:0,frame:'none',glow:true,opacity:100,monogram:c.logoLetters||'',letterSize:32};return c.logoDesign}
 function logoDesignHtml(d){let inner=d.monogram?`<div style="font-size:${d.letterSize||32}px;font-weight:1000">${d.monogram}</div>`:(LUX_LOGOS[d.key]||LUX_LOGOS.phoenix);let frame=d.frame&&d.frame!=='none'?`logoFrame${d.frame[0].toUpperCase()+d.frame.slice(1)}`:'';return `<div class="logoEditable ${frame} ${d.glow?'logoGlow':'logoMetal'}" style="color:${d.color};opacity:${(d.opacity||100)/100};transform:translate(${d.x||0}px,${d.y||0}px) rotate(${d.rot||0}deg) scale(${(d.scale||100)/100})">${inner}</div>`}
-function companyPremiumLogo(c){return logoDesignHtml(ensureLogoDesign(c))}
+function companyPremiumLogo(c){
+ let d=ensureLogoDesign(c), inner=d.monogram
+   ? `<div class="logoThumbText" style="color:${d.color}">${d.monogram}</div>`
+   : `<div class="logoThumbSvg" style="color:${d.color}">${LUX_LOGOS[d.key]||LUX_LOGOS.phoenix}</div>`;
+ return `<div class="logoThumbWrap">${inner}</div>`;
+}
 function difficultyProfile(c){let l=c?.level||1;if(l<=3)return{name:'Başlangıç • Çok Kolay',cost:.78,sales:1.55,wage:.8,rent:.8};if(l<=8)return{name:'Gelişme • Kolay',cost:.9,sales:1.28,wage:.9,rent:.9};if(l<=20)return{name:'Büyüme • Normal',cost:1,sales:1,wage:1,rent:1};if(l<=35)return{name:'Kurumsal • Zor',cost:1.12,sales:.9,wage:1.12,rent:1.1};return{name:'İmparatorluk • Çok Zor',cost:1.25,sales:.8,wage:1.25,rent:1.18}}
 
 function render(){

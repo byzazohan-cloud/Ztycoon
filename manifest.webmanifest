@@ -1,5 +1,5 @@
 {
-  "name": "ZAZO TYCOON V22 — HD8K Fixed",
+  "name": "ZAZO TYCOON V24 — Visual Rebuild",
   "short_name": "ZAZO TYCOON",
   "start_url": "./",
   "display": "standalone",
@@ -9,12 +9,14 @@
     {
       "src": "icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "icon-1024.png",
