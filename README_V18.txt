@@ -1,0 +1,13 @@
+ZAZO TYCOON V18 ULTRA MOBILE
+- Onaylanan premium mobil görsel referansa göre düzenlendi.
+- Ofis seviyeleri ana sayfadan kaldırıldı, ayrı Ofisler ekranına taşındı.
+- Bankaya premium görsel eklendi.
+- Şirket kredi kartı sistemi eklendi (Classic / Gold / Platinum / Black).
+- Şirket harcamalarında Şirket Kasası veya Kredi Kartı seçilebilir.
+- Kart limiti, kart borcu, borç ödeme sistemi var.
+- Logo Studio: kullanıcı istediği sektör sembolünü istediği şirket için kullanabilir.
+- Logo renkleri premium ve renkli.
+- Mağaza / Depo / Fabrika / Pazar / Şehir ekranlarına görsel eklendi.
+- Her görselin 7680x4320 8K master dosyası pakette bulunur.
+- Telefonda pil tüketimini azaltmak için runtime'da 1600x900 mobil sürüm kullanılır.
+- 8K masterlar yalnızca arşiv/masaüstü kalite kaynağıdır; mobilde sürekli decode edilmez.

@@ -136,6 +136,35 @@ linear-gradient(135deg,#173a50,#0a2131 58%,#122d3e)}
 .mobileTitleBand{display:flex;justify-content:space-between;align-items:center;margin:5px 0 8px;padding:7px 8px;border:1px solid #29485e;border-radius:9px;background:#071722}.mobileTitleBand b{color:#f2ce78;font-size:9px}.mobileTitleBand span{font-size:7px;color:#8fa6b7}
 .premiumTile{border:1px solid rgba(229,180,81,.28);box-shadow:inset 0 0 20px rgba(229,180,81,.03),0 6px 20px #0003}
 
+
+/* ===== V18 ULTRA MOBILE ===== */
+:root{
+ --gold:#e7b954;--gold2:#ffe092;--cyan:#35b7ff;--green:#35cf86;--red:#ef5d55;--purple:#8d64ff;
+}
+body{background:radial-gradient(circle at 50% -10%,rgba(36,107,148,.17),transparent 28%),linear-gradient(180deg,#02080e,#06121b 55%,#02080e)}
+.app{max-width:430px!important;width:100%!important}
+.premiumHeroCard{border:1px solid rgba(231,185,84,.33);box-shadow:0 10px 30px #0008,inset 0 0 32px rgba(231,185,84,.025)}
+.glass{background:linear-gradient(180deg,rgba(10,30,44,.98),rgba(5,17,26,.98));backdrop-filter:blur(8px)}
+.visualHero{height:190px;border-radius:13px;background-position:center;background-size:cover;border:1px solid rgba(231,185,84,.28);position:relative;overflow:hidden}
+.visualHero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(2,8,12,.82))}
+.visualHero .label{position:absolute;left:12px;bottom:10px;z-index:2;font-size:13px;font-weight:950;color:#ffe39b;letter-spacing:.4px}
+.premiumIconGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.premiumIconBtn{border:1px solid #29495f;background:linear-gradient(180deg,#0c283a,#071722);border-radius:10px;padding:8px 4px;color:#eef5f8;text-align:center}
+.premiumIconBtn .ico{width:42px;height:42px;margin:auto;border-radius:10px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.09);background:#07141e}
+.premiumIconBtn svg{width:29px;height:29px}.premiumIconBtn small{display:block;font-size:7px;margin-top:4px}
+.luxLogoGold{color:#efbd58}.luxLogoGreen{color:#3bd488}.luxLogoBlue{color:#39a9ff}.luxLogoRed{color:#f05a51}.luxLogoPurple{color:#a376ff}.luxLogoOrange{color:#f39545}
+.officeTabBtn{min-height:58px}
+.creditCard{aspect-ratio:1.6/1;border-radius:16px;padding:15px;background:
+radial-gradient(circle at 20% 20%,rgba(255,255,255,.15),transparent 24%),
+linear-gradient(135deg,#1b2d4a,#0e1530 48%,#3d235a);border:1px solid rgba(255,215,128,.4);box-shadow:0 12px 30px #0008;position:relative;overflow:hidden}
+.creditCard.gold{background:linear-gradient(135deg,#6c4b16,#c59432 45%,#4b3210)}.creditCard.black{background:linear-gradient(135deg,#080808,#252525 48%,#080808)}.creditCard.platinum{background:linear-gradient(135deg,#59626c,#d2d5d8 44%,#444d56);color:#08131d}
+.creditCard .ccBrand{font-weight:1000;letter-spacing:1px}.creditCard .ccNum{font-size:15px;letter-spacing:3px;margin-top:28px}.creditCard .ccFoot{display:flex;justify-content:space-between;margin-top:20px;font-size:8px}
+.payMethod{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:8px 0}.payMethod button{padding:9px;border:1px solid #31536b;border-radius:9px;background:#081722;color:#dfe8ef;font-size:8px}.payMethod button.active{background:#674817;color:#ffe39a;border-color:#d5a447}
+.companyBrand{display:flex;align-items:center;gap:9px}.companyBrand .logoBox{width:48px;height:48px}
+.logoPalette{display:flex;gap:6px;flex-wrap:wrap}.logoPalette button{width:28px;height:28px;border-radius:50%;border:2px solid #465d70}.logoPalette button.sel{outline:2px solid #efbd58}
+.officeScreenGrid{display:grid;grid-template-columns:1fr 1fr;gap:7px}.officeScreenCard{border:1px solid #29495f;border-radius:10px;overflow:hidden;background:#071722}.officeScreenCard img{width:100%;aspect-ratio:16/9;object-fit:cover}.officeScreenCard .meta{padding:7px}.officeScreenCard .meta b{font-size:8px;color:#f0cb74}.officeScreenCard .meta small{display:block;font-size:7px;color:#94a9b8;margin-top:2px}
+@media(max-width:380px){.premiumIconGrid{grid-template-columns:repeat(3,1fr)}}
+
 </style>
 </head>
 <body>
@@ -151,7 +180,7 @@ linear-gradient(135deg,#173a50,#0a2131 58%,#122d3e)}
     <button class="featureBtn" onclick="openMarket()"><b>🛒 Pazar</b><small>Pazar</small></button>
     <button class="featureBtn" onclick="openCity()"><b>📍 Şehir</b><small>Şehir</small></button>
     <button class="featureBtn" onclick="openAchievements()"><b>🏆 Başarılar</b><small>Başarılar</small></button>
-    <button class="featureBtn" onclick="openSettings()"><b>⚙ Ayarlar</b><small>Ayarlar</small></button>
+    <button class="featureBtn" onclick="openSettings()"><b>⚙ Ayarlar</b><small>Ayarlar</small></button><button class="featureBtn officeTabBtn" onclick="openOfficeLevels()"><b>🏢 Ofisler</b><small>Ofis Seviyeleri</small></button>
   </div></section>
 
   <section class="hero">
@@ -181,10 +210,7 @@ linear-gradient(135deg,#173a50,#0a2131 58%,#122d3e)}
     <div id="companyList" class="companyList"></div>
   </section>
 
-  <section class="section">
-  <div class="sectionHead"><h3>Ofis Seviyeleri</h3><span class="muted">1 Standart • 2 Gelişen • 3 Modern • 4 Prestijli • 5 Yönetici • 6 Üst Düzey • 7 CEO • 8 Holding • 9 Penthouse</span></div>
-  <div id="officeLevels" class="officeLevelGrid"></div>
-</section>
+  
 
 <section class="section">
     <div class="sectionHead"><h3>Holding Özeti</h3><span class="muted">Para akışı artık ayrı kasalarda</span></div>
@@ -263,13 +289,13 @@ linear-gradient(135deg,#173a50,#0a2131 58%,#122d3e)}
 
 <div class="overlay" id="marketO"><div class="sheet">
  <div class="mobileTitleBand"><b>PAZAR</b><span>Ürün Al • Ürün Sat • Hammadde • Fırsatlar</span></div><div class="sheetTop"><h2>Pazar</h2><button class="btn" onclick="closeO('marketO')">Kapat</button></div>
- <div class="marketTabs"><button class="active">Ürün Al</button><button>Ürün Sat</button><button>Hammadde</button><button>Fırsatlar</button></div>
+ <div class="visualHero premiumHeroCard" style="background-image:url('market_mobile.jpg')"><div class="label">Pazar</div></div><div class="marketTabs" style="margin-top:8px"><button class="active">Ürün Al</button><button>Ürün Sat</button><button>Hammadde</button><button>Fırsatlar</button></div>
  <div id="marketPanel"></div>
 </div></div>
 
 <div class="overlay" id="cityO"><div class="sheet">
  <div class="mobileTitleBand"><b>ŞEHİR HARİTASI</b><span>Ofis • AVM • Banka • Sanayi • Borsa</span></div><div class="sheetTop"><h2>Şehir Haritası</h2><button class="btn" onclick="closeO('cityO')">Kapat</button></div>
- <div class="mapWrap">
+ <div class="visualHero premiumHeroCard" style="background-image:url('city_mobile.jpg')"><div class="label">ZAZO CITY</div></div><div class="mapWrap" style="margin-top:8px">
    <div class="mapRoad r1"></div><div class="mapRoad r2"></div><div class="mapRoad r3"></div>
    <button class="mapNode" style="left:10%;top:12%" onclick="openCompany()">Ofis</button>
    <button class="mapNode" style="right:12%;top:15%" onclick="openBank()">Banka</button>
@@ -296,11 +322,19 @@ linear-gradient(135deg,#173a50,#0a2131 58%,#122d3e)}
    <div class="logoBig" id="logoBigPreview"></div>
    <div class="logoTool">
      <div class="field"><label>Logo tipi</label><select id="logoSectorSelect" onchange="renderLogoStudioV16()"></select></div>
-     <div class="field"><label>Renk</label><select id="logoColorSelect" onchange="renderLogoStudioV16()"><option value="#efbd58">Altın</option><option value="#ffffff">Beyaz</option><option value="#2f9cff">Mavi</option><option value="#22c879">Yeşil</option><option value="#d65353">Kırmızı</option></select></div>
+     <div class="field"><label>Renk</label><div id="logoPalette" class="logoPalette"></div><select id="logoColorSelect" onchange="renderLogoStudioV16()"><option value="#efbd58">Altın</option><option value="#ffffff">Beyaz</option><option value="#2f9cff">Mavi</option><option value="#22c879">Yeşil</option><option value="#d65353">Kırmızı</option></select></div>
      <div class="field"><label>Harf Logosu</label><input id="logoLetters" maxlength="3" value="Z" oninput="renderLogoStudioV16()"></div>
      <button class="btn gold" onclick="applyLogoStudio()">Aktif Şirkete Uygula</button>
    </div>
  </div>
+</div></div>
+
+
+<div class="overlay" id="officeLevelsO"><div class="sheet">
+ <div class="mobileTitleBand"><b>OFİS SEVİYELERİ</b><span>Standart → Penthouse</span></div>
+ <div class="sheetTop"><h2>Ofis Seviyeleri</h2><button class="btn" onclick="closeO('officeLevelsO')">Kapat</button></div>
+ <div class="visualHero premiumHeroCard" style="background-image:url('office_mobile.jpg')"><div class="label">Şirket büyüdükçe ofisin de büyür.</div></div>
+ <div id="officeLevelCards" class="officeScreenGrid" style="margin-top:8px"></div>
 </div></div>
 
 <div id="toast" class="toast"></div>
@@ -422,6 +456,42 @@ function sellFromElapsed(c){
 function runOfflineSales(){let sum=0;S.companies.forEach(c=>sum+=sellFromElapsed(c));if(sum>0)save()}
 function levelCompany(c){let target=Math.min(50,1+Math.floor((c.value-SECTORS[c.sector].cost)/Math.max(50000,SECTORS[c.sector].cost*.45)));if(target>c.level)c.level=target;if(c.level>=12&&c.type==='Ltd. Şti.')c.type='A.Ş.'}
 
+
+const LUX_LOGO_COLORS=['#efbd58','#39d488','#35a8ff','#ef5d55','#9f74ff','#f39a45','#ffffff'];
+const CARD_STYLES=[
+ {name:'Classic',cls:''},{name:'Gold',cls:'gold'},{name:'Platinum',cls:'platinum'},{name:'Black',cls:'black'}
+];
+S.cards=S.cards||[];
+S.paymentMethod=S.paymentMethod||'cash';
+
+function openOfficeLevels(){officeLevelsO.classList.add('open');renderOfficeLevelsScreen()}
+function renderOfficeLevelsScreen(){
+ let names=['Standart Ofis','Gelişen Ofis','Modern Ofis','Prestijli Ofis','Yönetici Ofisi','Üst Düzey Ofis','CEO Ofisi','Holding Merkezi','Penthouse Ofis'];
+ officeLevelCards.innerHTML=names.map((n,i)=>`<div class="officeScreenCard"><img src="office_mobile.jpg"><div class="meta"><b>SEVİYE ${i+1}</b><small>${n}</small></div></div>`).join('');
+}
+function companyPremiumLogo(c){
+ let color=c.logoColor||LUX_LOGO_COLORS[(Math.abs(c.name.length+c.sector.length))%LUX_LOGO_COLORS.length];
+ return `<div style="color:${color}">${ICONS[c.logoSector||c.sector]||ICONS.textile}</div>`;
+}
+function issueCard(style=0){
+ let c=C();if(!c)return toast('Aktif şirket yok.');
+ if(S.cards.some(x=>x.companyId===c.id))return toast('Bu şirketin zaten kartı var.');
+ let limit=Math.max(100000,Math.round(loanLimit()*.18));
+ S.cards.push({id:'card'+Date.now(),companyId:c.id,style,limit,debt:0,last4:String(Math.floor(1000+Math.random()*9000))});
+ save();renderBank();toast('Şirket kredi kartı oluşturuldu.');
+}
+function cardFor(c){return S.cards.find(x=>x.companyId===c?.id)}
+function payCompany(cost,desc='İşlem'){
+ let c=C();if(!c)return false;
+ if(S.paymentMethod==='card'){
+   let card=cardFor(c);if(!card){toast('Aktif şirketin kredi kartı yok.');return false}
+   if(card.debt+cost>card.limit){toast('Kart limiti yetersiz.');return false}
+   card.debt+=cost;toast(desc+' şirket kartıyla ödendi.');return true
+ }
+ if(c.cash<cost){toast('Şirket kasası yetersiz. Kartı seçebilir veya para aktarabilirsin.');return false}
+ c.cash-=cost;return true
+}
+
 function render(){
  runOfflineSales();
  let c=C(),now=new Date();
@@ -429,14 +499,14 @@ function render(){
  todayTxt.textContent=now.toLocaleDateString('tr-TR',{day:'2-digit',month:'long',year:'numeric'});
  holdingLevel.textContent='Seviye '+holdingLevel();economyTxt.textContent=S.economy;
  walletHolding.textContent=M(S.cash);walletPersonal.textContent=M(S.personal);walletDebt.textContent=M(S.debt);
- activeCompanyBox.innerHTML=c?`<div class="logoBox">${logoSvg(c)}</div><div><b>${c.name} ${c.type}</b><div class="muted">${SECTORS[c.sector].name} • Seviye ${c.level}/50 • ${c.salesMode?MODES[c.salesMode].name:'Dengeli'} satış</div></div><button class="btn gold" onclick="openCompany()">Yönet</button>`:`<div class="logoBox">${ICONS.building}</div><div><b>Henüz şirket yok</b><div class="muted">İlk şirketini kurarak başla.</div></div><button class="btn gold" onclick="openCreate()">Şirket Kur</button>`;
+ activeCompanyBox.innerHTML=c?`<div class="logoBox">${companyPremiumLogo(c)}</div><div><b>${c.name} ${c.type}</b><div class="muted">${SECTORS[c.sector].name} • Seviye ${c.level}/50 • ${c.salesMode?MODES[c.salesMode].name:'Dengeli'} satış</div></div><button class="btn gold" onclick="openCompany()">Yönet</button>`:`<div class="logoBox">${ICONS.building}</div><div><b>Henüz şirket yok</b><div class="muted">İlk şirketini kurarak başla.</div></div><button class="btn gold" onclick="openCreate()">Şirket Kur</button>`;
  renderCompanies();renderOfficeLevels();
  let all=S.companies;
  sumCompanies.textContent=all.length;sumEmployees.textContent=all.reduce((a,c)=>a+c.employees.length,0);sumShops.textContent=all.reduce((a,c)=>a+c.shops.length,0);sumStock.textContent=all.reduce((a,c)=>a+stock(c),0);
  sumRevenue.textContent=M(all.reduce((a,c)=>a+(c.balance?.revenue||0),0));sumNet.textContent=M(all.reduce((a,c)=>a+(c.balance?.net||0),0));
  save();
 }
-function companyRow(c){return `<div class="companyRow"><div class="logoBox">${logoSvg(c)}</div><div><div style="display:flex;gap:7px;align-items:center"><h4>${c.name}</h4><span class="levelPill">Sv.${c.level}</span></div><small>${SECTORS[c.sector].name} • ${c.type}</small><div class="metrics"><div class="metric"><span>Ciro</span><b>${M(c.balance?.revenue||0)}</b></div><div class="metric"><span>Çalışan</span><b>${c.employees.length}</b></div><div class="metric"><span>Mağaza</span><b>${c.shops.length}</b></div><div class="metric"><span>Kasa</span><b>${M(c.cash)}</b></div></div></div><button class="btn gold" onclick="selectCompany('${c.id}')">Detay</button></div>`}
+function companyRow(c){return `<div class="companyRow"><div class="logoBox">${companyPremiumLogo(c)}</div><div><div style="display:flex;gap:7px;align-items:center"><h4>${c.name}</h4><span class="levelPill">Sv.${c.level}</span></div><small>${SECTORS[c.sector].name} • ${c.type}</small><div class="metrics"><div class="metric"><span>Ciro</span><b>${M(c.balance?.revenue||0)}</b></div><div class="metric"><span>Çalışan</span><b>${c.employees.length}</b></div><div class="metric"><span>Mağaza</span><b>${c.shops.length}</b></div><div class="metric"><span>Kasa</span><b>${M(c.cash)}</b></div></div></div><button class="btn gold" onclick="selectCompany('${c.id}')">Detay</button></div>`}
 function renderCompanies(){companyList.innerHTML=S.companies.length?S.companies.slice(0,3).map(companyRow).join(''):'<div class="notice">Henüz şirketin yok. Şirket Kur ile başlayabilirsin.</div>';companiesFull.innerHTML=S.companies.length?S.companies.map(companyRow).join(''):'<div class="notice">Henüz şirket yok.</div>'}
 function selectCompany(id){S.active=id;render();openCompany()}
 
@@ -452,6 +522,12 @@ function createCompany(){
 let currentCompanyTab='overview';
 function openCompany(){let c=C();if(!c)return toast('Önce şirket kur.');companyTitle.textContent=c.name+' '+c.type;companySubtitle.textContent=SECTORS[c.sector].name+' • Seviye '+c.level+'/50';companyO.classList.add('open');companyTab(currentCompanyTab,companyTabs.querySelector('.active'))}
 function companyTab(t,btn){currentCompanyTab=t;document.querySelectorAll('#companyTabs button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');renderCompanyPanel()}
+
+function paymentSelector(){
+ let c=C(),card=cardFor(c);
+ return `<div class="card" style="margin-bottom:8px"><h4>Ödeme Yöntemi</h4><div class="payMethod"><button class="${S.paymentMethod==='cash'?'active':''}" onclick="S.paymentMethod='cash';save();renderCompanyPanel()">Şirket Kasası<br><small>${M(c.cash)}</small></button><button class="${S.paymentMethod==='card'?'active':''}" onclick="S.paymentMethod='card';save();renderCompanyPanel()">Şirket Kredi Kartı<br><small>${card?M(card.limit-card.debt)+' kullanılabilir':'Kart yok'}</small></button></div></div>`;
+}
+
 function renderCompanyPanel(){
  let c=C();if(!c)return;runOfflineSales();normalizeBalance(c);let html='';
  if(currentCompanyTab==='overview'){
@@ -459,30 +535,30 @@ function renderCompanyPanel(){
    html=`<div class="grid3"><div class="card"><div class="row"><span>Şirket Kasası</span><b>${M(c.cash)}</b></div><div class="row"><span>Şirket Değeri</span><b>${M(c.value)}</b></div></div><div class="card"><div class="row"><span>Durum</span><b>${status}</b></div><div class="row"><span>Satış Modu</span><b>${MODES[c.salesMode].name}</b></div></div><div class="card"><div class="row"><span>Depo</span><b>${stock(c)} / ${whCap(c)}</b></div><div class="row"><span>Fabrika</span><b>${c.factory?'Var':'Yok'}</b></div></div></div>
    <div class="card" style="margin-top:8px"><h4>Satış Modu</h4><div class="modeButtons">${Object.entries(MODES).map(([k,m])=>`<button class="${c.salesMode===k?'active':''}" onclick="setMode('${k}')">${m.name}<br><small>${k==='fast'?'Sık / az adet':k==='balanced'?'Normal':'Seyrek / toplu'}</small></button>`).join('')}</div></div>`;
  }else if(currentCompanyTab==='trade'){
-   html=`<div class="notice">Aldığın ürünler şirket deposuna gider. Depo kapasitesi aşılmaz.</div><div class="grid2" style="margin-top:8px">${productList(c).map(p=>`<div class="card product"><div><h4>${p.name}</h4><p>Alış ${M(p.buy)} • Hedef satış ${M(p.sell)} • Stok ${c.inv[p.id]||0}</p></div><div><button class="btn blue" onclick="buyWholesale('${p.id}',10)">10 Al</button> <button class="btn" onclick="buyWholesale('${p.id}',50)">50 Al</button></div></div>`).join('')}</div>`;
+   html=paymentSelector()+`<div class="notice">Aldığın ürünler şirket deposuna gider. Depo kapasitesi aşılmaz.</div><div class="grid2" style="margin-top:8px">${productList(c).map(p=>`<div class="card product"><div><h4>${p.name}</h4><p>Alış ${M(p.buy)} • Hedef satış ${M(p.sell)} • Stok ${c.inv[p.id]||0}</p></div><div><button class="btn blue" onclick="buyWholesale('${p.id}',10)">10 Al</button> <button class="btn" onclick="buyWholesale('${p.id}',50)">50 Al</button></div></div>`).join('')}</div>`;
  }else if(currentCompanyTab==='shops'){
-   html=`<div class="grid3">${STORE_TYPES.map((s,i)=>`<div class="card"><h4>${s.name}</h4><div class="row"><span>Kurulum</span><b>${M(s.cost)}</b></div><div class="row"><span>Aylık kira</span><b>${M(s.rent)}</b></div><button class="btn gold" style="width:100%" onclick="openStore(${i})">Aç / Kirala</button></div>`).join('')}</div><div class="sectionHead" style="margin-top:10px"><h3>Aktif Mağazalar</h3></div>${c.shops.length?c.shops.map((s,i)=>`<div class="card"><div class="row"><span>${s.name}</span><b>Aktif</b></div><div class="row"><span>Aylık kira</span><b>${M(s.rent)}</b></div></div>`).join(''):'<div class="notice">Mağaza yok.</div>'}`;
+   html=paymentSelector()+`<div class="visualHero premiumHeroCard" style="background-image:url('shop_mobile.jpg')"><div class="label">Mağaza Yönetimi</div></div><div class="grid3" style="margin-top:8px">${STORE_TYPES.map((s,i)=>`<div class="card"><h4>${s.name}</h4><div class="row"><span>Kurulum</span><b>${M(s.cost)}</b></div><div class="row"><span>Aylık kira</span><b>${M(s.rent)}</b></div><button class="btn gold" style="width:100%" onclick="openStore(${i})">Aç / Kirala</button></div>`).join('')}</div><div class="sectionHead" style="margin-top:10px"><h3>Aktif Mağazalar</h3></div>${c.shops.length?c.shops.map((s,i)=>`<div class="card"><div class="row"><span>${s.name}</span><b>Aktif</b></div><div class="row"><span>Aylık kira</span><b>${M(s.rent)}</b></div></div>`).join(''):'<div class="notice">Mağaza yok.</div>'}`;
  }else if(currentCompanyTab==='staff'){
-   html=`<div class="grid3">${STAFF.map((s,i)=>`<div class="card"><h4>${s.role}</h4><div class="row"><span>Maaş</span><b>${M(s.salary)}</b></div><button class="btn green" style="width:100%" onclick="hireStaff(${i})">İşe Al</button></div>`).join('')}</div><div style="margin-top:8px">${c.employees.map((e,i)=>`<div class="card"><div class="row"><span>${e.role}</span><b>${M(e.salary)}/ay</b></div><button class="btn red" onclick="fireStaff(${i})">İşten Çıkar</button></div>`).join('')||'<div class="notice">Çalışan yok.</div>'}</div>`;
+   html=paymentSelector()+`<div class="grid3">${STAFF.map((s,i)=>`<div class="card"><h4>${s.role}</h4><div class="row"><span>Maaş</span><b>${M(s.salary)}</b></div><button class="btn green" style="width:100%" onclick="hireStaff(${i})">İşe Al</button></div>`).join('')}</div><div style="margin-top:8px">${c.employees.map((e,i)=>`<div class="card"><div class="row"><span>${e.role}</span><b>${M(e.salary)}/ay</b></div><button class="btn red" onclick="fireStaff(${i})">İşten Çıkar</button></div>`).join('')||'<div class="notice">Çalışan yok.</div>'}</div>`;
  }else if(currentCompanyTab==='warehouse'){
    let used=stock(c),cap=whCap(c),pct=Math.min(100,used/cap*100),lv=c.warehouseLevel;
-   html=`<div class="card"><h4>Merkez Depo • Seviye ${lv}/10</h4><div class="row"><span>Doluluk</span><b>${used} / ${cap}</b></div><div class="progress"><div style="width:${pct}%"></div></div><div class="row"><span>Sonraki Seviye</span><b>${lv<10?WAREHOUSE[lv+1]:'Maksimum'}</b></div><button class="btn gold" onclick="upgradeWarehouse()">${lv<10?'Yükselt '+M(WARE_COST[lv+1]):'Maksimum seviye'}</button></div>`;
+   html=paymentSelector()+`<div class="visualHero premiumHeroCard" style="background-image:url('warehouse_mobile.jpg')"><div class="label">Merkez Depo</div></div><div class="card" style="margin-top:8px"><h4>Merkez Depo • Seviye ${lv}/10</h4><div class="row"><span>Doluluk</span><b>${used} / ${cap}</b></div><div class="progress"><div style="width:${pct}%"></div></div><div class="row"><span>Sonraki Seviye</span><b>${lv<10?WAREHOUSE[lv+1]:'Maksimum'}</b></div><button class="btn gold" onclick="upgradeWarehouse()">${lv<10?'Yükselt '+M(WARE_COST[lv+1]):'Maksimum seviye'}</button></div>`;
  }else if(currentCompanyTab==='factory'){
    let cost=SECTORS[c.sector].cost*2.2;
-   html=c.factory?`<div class="card"><h4>Fabrika Aktif</h4><div class="notice">Fabrika üretimde alış maliyetini %30 düşürür.</div><div class="grid2" style="margin-top:8px">${productList(c).map(p=>`<div class="card product"><div><h4>${p.name}</h4><p>Üretim maliyeti ${M(p.buy*.7)}</p></div><button class="btn green" onclick="produce('${p.id}',20)">20 Üret</button></div>`).join('')}</div></div>`:`<div class="card"><h4>Fabrika Kur</h4><div class="row"><span>Kurulum maliyeti</span><b>${M(cost)}</b></div><button class="btn gold" onclick="buildFactory()">Fabrika Kur</button></div>`;
+   html=paymentSelector()+`<div class="visualHero premiumHeroCard" style="background-image:url('factory_mobile.jpg')"><div class="label">Fabrika</div></div>`+(c.factory?`<div class="card" style="margin-top:8px"><h4>Fabrika Aktif</h4><div class="notice">Fabrika üretimde alış maliyetini %30 düşürür.</div><div class="grid2" style="margin-top:8px">${productList(c).map(p=>`<div class="card product"><div><h4>${p.name}</h4><p>Üretim maliyeti ${M(p.buy*.7)}</p></div><button class="btn green" onclick="produce('${p.id}',20)">20 Üret</button></div>`).join('')}</div></div>`:`<div class="card"><h4>Fabrika Kur</h4><div class="row"><span>Kurulum maliyeti</span><b>${M(cost)}</b></div><button class="btn gold" onclick="buildFactory()">Fabrika Kur</button></div>`);
  }else if(currentCompanyTab==='finance'){
    html=`<div class="grid2"><div class="card"><h4>Aylık Bilanço</h4><div class="row"><span>Ciro</span><b>${M(c.balance.revenue)}</b></div><div class="row"><span>Ürün maliyeti</span><b>${M(c.balance.cogs)}</b></div><div class="row"><span>Maaş</span><b>${M(c.balance.payroll)}</b></div><div class="row"><span>Kira</span><b>${M(c.balance.rent)}</b></div><div class="row"><span>Vergi</span><b>${M(c.balance.tax)}</b></div><div class="row"><span>Net</span><b class="${c.balance.net>=0?'pos':'neg'}">${M(c.balance.net)}</b></div></div><div class="card"><h4>Kasa Transferi</h4><div class="field"><label>Tutar</label><input id="companyTransfer" type="number" value="50000"></div><button class="btn blue" onclick="holdingToCompany()">Holding → Şirket</button> <button class="btn" onclick="companyToHolding()">Şirket → Holding</button></div></div>`;
  }
  companyPanel.innerHTML=html;save();
 }
 function setMode(m){C().salesMode=m;save();renderCompanyPanel();toast('Satış modu: '+MODES[m].name)}
-function buyWholesale(id,q){let c=C(),p=productList(c).find(x=>x.id===id),free=whCap(c)-stock(c);if(free<q)return toast('Depo kapasitesi yetersiz. Boş alan: '+free);let cost=p.buy*q;if(c.cash<cost)return toast('Şirket kasası yetersiz. Banka veya transfer kullan.');c.cash-=cost;c.inv[id]=(c.inv[id]||0)+q;c.balance.cogs+=cost;save();render();renderCompanyPanel()}
-function openStore(i){let c=C(),s=STORE_TYPES[i];if(c.cash<s.cost)return toast('Şirket kasası yetersiz.');c.cash-=s.cost;c.shops.push({...s,id:'s'+Date.now()});c.value+=s.cost*.7;save();render();renderCompanyPanel();toast(s.name+' açıldı.')}
-function hireStaff(i){let c=C(),s=STAFF[i];if(c.cash<s.salary)return toast('İlk maaş için şirket kasası yetersiz.');c.employees.push({...s,id:'e'+Date.now()});save();render();renderCompanyPanel()}
+function buyWholesale(id,q){let c=C(),p=productList(c).find(x=>x.id===id),free=whCap(c)-stock(c);if(free<q)return toast('Depo kapasitesi yetersiz. Boş alan: '+free);let cost=p.buy*q;if(!payCompany(cost,'Toptan ürün alımı'))return;c.inv[id]=(c.inv[id]||0)+q;c.balance.cogs+=cost;save();render();renderCompanyPanel()}
+function openStore(i){let c=C(),s=STORE_TYPES[i];if(!payCompany(s.cost,'Mağaza açılışı'))return;c.shops.push({...s,id:'s'+Date.now()});c.value+=s.cost*.7;save();render();renderCompanyPanel();toast(s.name+' açıldı.')}
+function hireStaff(i){let c=C(),s=STAFF[i];if(!payCompany(s.salary,'İlk maaş'))return;c.employees.push({...s,id:'e'+Date.now()});save();render();renderCompanyPanel()}
 function fireStaff(i){C().employees.splice(i,1);save();render();renderCompanyPanel()}
-function upgradeWarehouse(){let c=C(),lv=c.warehouseLevel;if(lv>=10)return toast('Depo maksimum.');let cost=WARE_COST[lv+1];if(c.cash<cost)return toast('Şirket kasası yetersiz.');c.cash-=cost;c.warehouseLevel++;c.value+=cost*.5;save();render();renderCompanyPanel()}
-function buildFactory(){let c=C(),cost=SECTORS[c.sector].cost*2.2;if(c.cash<cost)return toast('Şirket kasası yetersiz.');c.cash-=cost;c.factory=1;c.value+=cost*.8;save();render();renderCompanyPanel()}
-function produce(id,q){let c=C(),p=productList(c).find(x=>x.id===id);if(whCap(c)-stock(c)<q)return toast('Depo kapasitesi yetersiz.');let cost=p.buy*.7*q;if(c.cash<cost)return toast('Şirket kasası yetersiz.');c.cash-=cost;c.inv[id]=(c.inv[id]||0)+q;c.balance.cogs+=cost;save();render();renderCompanyPanel()}
+function upgradeWarehouse(){let c=C(),lv=c.warehouseLevel;if(lv>=10)return toast('Depo maksimum.');let cost=WARE_COST[lv+1];if(!payCompany(cost,'Depo yükseltme'))return;c.warehouseLevel++;c.value+=cost*.5;save();render();renderCompanyPanel()}
+function buildFactory(){let c=C(),cost=SECTORS[c.sector].cost*2.2;if(!payCompany(cost,'Fabrika kurulumu'))return;c.factory=1;c.value+=cost*.8;save();render();renderCompanyPanel()}
+function produce(id,q){let c=C(),p=productList(c).find(x=>x.id===id);if(whCap(c)-stock(c)<q)return toast('Depo kapasitesi yetersiz.');let cost=p.buy*.7*q;if(!payCompany(cost,'Üretim'))return;c.inv[id]=(c.inv[id]||0)+q;c.balance.cogs+=cost;save();render();renderCompanyPanel()}
 function holdingToCompany(){let c=C(),a=Math.max(0,+companyTransfer.value||0);if(S.cash<a)return toast('Holding kasası yetersiz.');S.cash-=a;c.cash+=a;save();render();renderCompanyPanel()}
 function companyToHolding(){let c=C(),a=Math.max(0,+companyTransfer.value||0);if(c.cash<a)return toast('Şirket kasası yetersiz.');c.cash-=a;S.cash+=a;save();render();renderCompanyPanel()}
 
@@ -492,9 +568,16 @@ function bankTab(t,btn){currentBankTab=t;document.querySelectorAll('#bankO .tabs
 function renderBank(){
  let c=C(),html='';
  if(currentBankTab==='loan'){
-   html=`<div class="grid2"><div class="card"><h4>Kredi Durumu</h4><div class="row"><span>Kredi Notu</span><b>${score()}</b></div><div class="row"><span>Toplam Limit</span><b>${M(loanLimit())}</b></div><div class="row"><span>Mevcut Borç</span><b>${M(S.debt)}</b></div></div><div class="card"><h4>Kredi Kullan</h4><div class="field"><label>Paranın gideceği kasa</label><select id="loanTarget"><option value="holding">Holding Kasası</option>${c?'<option value="company">Aktif Şirket Kasası</option>':''}</select></div><div class="field"><label>Tutar</label><input id="loanAmount" type="number" value="250000"></div><button class="btn gold" onclick="takeLoan()">Kredi Çek</button></div></div>`;
+   let c=C(),card=cardFor(c);
+   html=`<div class="visualHero premiumHeroCard" style="background-image:url('bank_mobile.jpg')"><div class="label">Z BANK • Güvenle daha ileriye</div></div>
+   <div class="tabs" style="margin-top:8px"><button onclick="bankTab('loan',this)" class="active">Krediler</button><button onclick="bankTab('cards',this)">Kartlar</button><button onclick="bankTab('deposit',this)">Mevduat</button><button onclick="bankTab('invest',this)">Yatırım</button></div>
+   <div class="grid2"><div class="card"><h4>Kredi Durumu</h4><div class="row"><span>Kredi Notu</span><b>${score()}</b></div><div class="row"><span>Toplam Limit</span><b>${M(loanLimit())}</b></div><div class="row"><span>Mevcut Borç</span><b>${M(S.debt)}</b></div></div><div class="card"><h4>Kredi Kullan</h4><div class="field"><label>Paranın gideceği kasa</label><select id="loanTarget"><option value="holding">Holding Kasası</option>${c?'<option value="company">Aktif Şirket Kasası</option>':''}</select></div><div class="field"><label>Tutar</label><input id="loanAmount" type="number" value="250000"></div><button class="btn gold" onclick="takeLoan()">Kredi Çek</button></div></div>`;
  }else if(currentBankTab==='transfer'){
    html=`<div class="grid2"><div class="card"><h4>Kasalar</h4><div class="row"><span>Holding</span><b>${M(S.cash)}</b></div><div class="row"><span>${c?c.name:'Şirket yok'}</span><b>${c?M(c.cash):'—'}</b></div></div><div class="card"><h4>Transfer</h4><div class="field"><label>Tutar</label><input id="bankTransferAmount" type="number" value="50000"></div><button class="btn blue" onclick="bankHoldingToCompany()">Holding → Şirket</button> <button class="btn" onclick="bankCompanyToHolding()">Şirket → Holding</button></div></div>`;
+ }else if(currentBankTab==='cards'){
+   let c=C(),card=cardFor(c);
+   html=`<div class="visualHero premiumHeroCard" style="background-image:url('bank_mobile.jpg')"><div class="label">Z BANK • Şirket Kartları</div></div>
+   <div style="margin-top:8px">${card?`<div class="creditCard ${CARD_STYLES[card.style]?.cls||''}"><div class="ccBrand">Z BANK BUSINESS</div><div class="ccNum">•••• •••• •••• ${card.last4}</div><div class="ccFoot"><span>${c?.name||'ŞİRKET'}</span><span>${M(card.limit-card.debt)} kullanılabilir</span></div></div><div class="card" style="margin-top:8px"><div class="row"><span>Kart Limiti</span><b>${M(card.limit)}</b></div><div class="row"><span>Kart Borcu</span><b>${M(card.debt)}</b></div><button class="btn gold" onclick="payCardDebt()">Kart Borcu Öde</button></div>`:`<div class="card"><h4>Şirket Kredi Kartı</h4><div class="notice">Şirket alışverişlerinde kullanmak için kart oluştur.</div><div class="premiumIconGrid" style="margin-top:8px">${CARD_STYLES.map((x,i)=>`<button class="premiumIconBtn" onclick="issueCard(${i})"><div class="ico">💳</div><small>${x.name}</small></button>`).join('')}</div></div>`}</div>`;
  }else if(currentBankTab==='deposit'){
    html=`<div class="card"><h4>Vadeli Mevduat</h4><div class="row"><span>Mevduat</span><b>${M(S.deposit)}</b></div><div class="row"><span>Aylık faiz</span><b>%1,25</b></div><div class="field"><label>Tutar</label><input id="depAmount" type="number" value="50000"></div><button class="btn blue" onclick="depositMoney()">Yatır</button> <button class="btn" onclick="withdrawDeposit()">Çek</button></div>`;
  }else{
@@ -566,18 +649,25 @@ function renderSettings(){
 function toggleSetting(k){S.settings[k]=!S.settings[k];save();renderSettings()}
 function openLogoStudio(){
  let c=C();if(!c)return toast('Aktif şirket yok.');
- logoSectorSelect.innerHTML=Object.keys(ICONS).filter(k=>SECTORS[k]).map(k=>`<option value="${k}" ${k===c.sector?'selected':''}>${SECTORS[k].name}</option>`).join('');
+ logoSectorSelect.innerHTML=Object.keys(ICONS).filter(k=>SECTORS[k]).map(k=>`<option value="${k}">${SECTORS[k].name}</option>`).join('');logoSectorSelect.value=c.logoSector||c.sector;
  logoLetters.value=(c.logoLetters||c.name.slice(0,1)).toUpperCase();
  logoStudioO.classList.add('open');renderLogoStudioV16();
 }
 function renderLogoStudioV16(){
  let sector=logoSectorSelect.value||C()?.sector||'textile',color=logoColorSelect.value,letters=(logoLetters.value||'Z').slice(0,3).toUpperCase();
- logoBigPreview.innerHTML=`<div style="text-align:center;color:${color}"><div style="transform:scale(2.3);margin-bottom:35px">${ICONS[sector]||ICONS.textile}</div><div style="font-size:42px;font-weight:1000;letter-spacing:4px">${letters}</div><small style="letter-spacing:3px">ŞİRKET MARKASI</small></div>`;
+ logoPalette.innerHTML=LUX_LOGO_COLORS.map(x=>`<button style="background:${x}" class="${x===color?'sel':''}" onclick="logoColorSelect.value='${x}';renderLogoStudioV16()"></button>`).join('');logoBigPreview.innerHTML=`<div style="text-align:center;color:${color}"><div style="transform:scale(2.3);margin-bottom:35px">${ICONS[sector]||ICONS.textile}</div><div style="font-size:42px;font-weight:1000;letter-spacing:4px">${letters}</div><small style="letter-spacing:3px">ŞİRKET MARKASI</small></div>`;
 }
-function applyLogoStudio(){let c=C();c.logoLetters=(logoLetters.value||'Z').slice(0,3).toUpperCase();c.logoColor=logoColorSelect.value;save();closeO('logoStudioO');render();toast('Logo ayarları kaydedildi.')}
+function applyLogoStudio(){let c=C();c.logoLetters=(logoLetters.value||'Z').slice(0,3).toUpperCase();c.logoColor=logoColorSelect.value;c.logoSector=logoSectorSelect.value;save();closeO('logoStudioO');render();toast('Logo ayarları kaydedildi.')}
 function renderRichReports(){
  let revenue=S.companies.reduce((a,c)=>a+(c.balance?.revenue||0),0),net=S.companies.reduce((a,c)=>a+(c.balance?.net||0),0);
  reportsPanel.innerHTML=`<div class="grid3"><div class="card"><h4>Toplam Gelir</h4><b style="font-size:18px">${M(revenue)}</b></div><div class="card"><h4>Net Kâr</h4><b style="font-size:18px">${M(net)}</b></div><div class="card"><h4>Net Varlık</h4><b style="font-size:18px">${M(totalWorth())}</b></div></div><div class="chartBox" style="margin-top:10px"><div class="chartLine"></div><div class="chartLine red"></div></div><div class="muted" style="margin-top:6px">Yeşil: gelir eğilimi • Kırmızı: gider eğilimi</div>`;
+}
+
+
+function payCardDebt(){
+ let c=C(),card=cardFor(c);if(!card||card.debt<=0)return toast('Kart borcu yok.');
+ let a=Math.min(card.debt,c.cash);if(a<=0)return toast('Şirket kasasında para yok.');
+ c.cash-=a;card.debt-=a;save();render();renderBank();toast(M(a)+' kart borcu ödendi.');
 }
 
 render();
