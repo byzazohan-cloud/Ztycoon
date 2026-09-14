@@ -1,12 +1,10 @@
 {
   "name": "ZAZO TYCOON — Business Empire",
   "short_name": "ZAZO TYCOON",
-  "start_url": "./index.html",
-  "scope": "./",
+  "start_url": "./",
   "display": "standalone",
-  "background_color": "#050b11",
+  "background_color": "#050b12",
   "theme_color": "#07131f",
-  "orientation": "portrait-primary",
   "icons": [
     {
       "src": "icon-192.png",
