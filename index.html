@@ -858,7 +858,7 @@ function selectLogoPresetV19(k){createDraft.logoSector=k;renderCreateV19()}
 function selectLogoColorV19(c){createDraft.color=c;renderCreateV19()}
 function previewCreateV19(){createDraft.monogram=(typeof createMonogram!=='undefined'?createMonogram.value:'')||'';let sector=createDraft.logoSector||createDraft.sector;let mono=createDraft.monogram.trim().toUpperCase();createLogoBig.innerHTML=mono?`<div style="font-size:70px;font-weight:1000;color:${createDraft.color};letter-spacing:1px">${mono}</div>`:`<div style="color:${createDraft.color}">${ICONS[sector]}</div>`;createLogoName.textContent=(typeof newName!=='undefined'&&newName.value.trim()?newName.value.trim():'ŞİRKET ADI').toUpperCase()}
 function renderCreateSummaryV19(){let name=newName.value.trim()||'Şirket Adı',s=SECTORS[createDraft.sector],mono=createDraft.monogram.trim().toUpperCase();createSummaryV19.innerHTML=`<div class="companyBrand"><div class="logoBox">${mono?`<div style="font-size:24px;font-weight:1000;color:${createDraft.color}">${mono}</div>`:`<div style="color:${createDraft.color}">${LUX_LOGOS[createDraft.logoKey]||LUX_LOGOS.phoenix}</div>`}</div><div><h4>${name}</h4><div class="muted">${s.name} • Ltd. Şti.</div></div></div><div class="row"><span>Kuruluş Maliyeti</span><b>${M(s.cost)}</b></div><div class="row"><span>Holding Kasası</span><b>${M(S.cash)}</b></div>`}
-function createCompanyV19(){let name=newName.value.trim(),sector=createDraft.sector,sc=SECTORS[sector];if(!name)return toast('Şirket adını yaz.');if(S.cash<sc.cost)return toast('Holding kasasında '+M(sc.cost)+' gerekli.');S.cash-=sc.cost;let c={id:'c'+Date.now(),name,sector,type:'Ltd. Şti.',level:1,cash:Math.round(sc.cost*.4),employees:[],shops:[],inv:{},factory:0,warehouseLevel:1,salesMode:'balanced',balance:{revenue:0,cogs:0,payroll:0,rent:0,interest:0,tax:0,net:0},lastSalesAt:Date.now(),value:sc.cost,logo:0,logoSector:createDraft.logoSector,logoColor:createDraft.color,logoLetters:createDraft.monogram.trim().toUpperCase(),logoDesign:{key:createDraft.logoKey,color:createDraft.color,scale:100,rot:0,x:0,y:0,frame:'none',glow:true,opacity:100,monogram:createDraft.monogram.trim().toUpperCase(),letterSize:32}};S.companies.push(c);S.active=c.id;newName.value='';closeO('createO');save();render();toast(name+' Ltd. Şti. kuruldu.')}
+function createCompanyV19(){let name=newName.value.trim(),sector=createDraft.sector,sc=SECTORS[sector];if(!name)return toast('Şirket adını yaz.');if(S.companies.some(x=>x.sector===sector))return toast(SECTORS[sector].name+' şirketi zaten kurulu.');if(S.cash<sc.cost)return toast('Holding kasasında '+M(sc.cost)+' gerekli.');S.cash-=sc.cost;let c={id:'c'+Date.now(),name,sector,type:'Ltd. Şti.',level:1,cash:Math.round(sc.cost*.4),employees:[],shops:[],inv:{},factory:0,warehouseLevel:1,salesMode:'balanced',balance:{revenue:0,cogs:0,payroll:0,rent:0,interest:0,tax:0,net:0},lastSalesAt:Date.now(),value:sc.cost,logo:0,logoSector:createDraft.logoSector,logoColor:createDraft.color,logoLetters:createDraft.monogram.trim().toUpperCase(),logoDesign:{key:createDraft.logoKey,color:createDraft.color,scale:100,rot:0,x:0,y:0,frame:'none',glow:true,opacity:100,monogram:createDraft.monogram.trim().toUpperCase(),letterSize:32}};S.companies.push(c);S.active=c.id;newName.value='';closeO('createO');save();render();renderWorldMap();toast(name+' Ltd. Şti. kuruldu.');setTimeout(openCompany,80)}
 
 
 const LUX_LOGOS={
@@ -892,9 +892,16 @@ const WORLD_SPOTS={
 };
 const WORLD_COMMON={holding:{x:50,y:52,w:15,h:19,fn:'openReports'},bank:{x:64,y:58,w:13,h:16,fn:'openBank'},market:{x:46,y:65,w:15,h:15,fn:'openMarket'}};
 function openWorldSector(sector){
- let c=S.companies.find(x=>x.sector===sector);
- if(!c){createDraft.sector=sector;openCreate();toast(SECTORS[sector].name+' henüz kurulmadı • Kurulum ekranı açıldı.');return;}
- S.active=c.id;save();render();openCompany();
+ const c=S.companies.find(x=>x.sector===sector);
+ if(c){S.active=c.id;save();render();setTimeout(openCompany,0);return;}
+ createDraft.sector=sector;
+ createDraft.logoSector=sector;
+ openCreate();
+ createDraft.sector=sector;
+ createDraft.logoSector=sector;
+ renderCreateV19();
+ setCreateStep(1);
+ toast(SECTORS[sector].name+' • Şirket kurulumunu tamamla.');
 }
 function renderWorldMap(){
  let el=document.getElementById('worldMapNodes');if(!el)return;
@@ -1236,7 +1243,7 @@ html,body{margin:0!important;background:#02070d!important}
 
 <script id="v306CleanLogic">
 (function(){
- document.title='ZAZO TYCOON V30.6 CLEAN MAP';
+ document.title='ZAZO TYCOON V30.7 WORKING MAP';
  // Exact hit zones for the approved 16:9 map. Bank area deliberately enlarged.
  Object.assign(WORLD_SPOTS,{logistics:{x:19,y:20,w:17,h:18},auto:{x:37,y:20,w:17,h:18},tech:{x:51,y:16,w:17,h:18},space:{x:70,y:17,w:15,h:19},mining:{x:89,y:17,w:17,h:19},textile:{x:21,y:40,w:18,h:19},food:{x:36,y:47,w:18,h:19},construction:{x:69,y:41,w:18,h:20},energy:{x:90,y:35,w:17,h:20},tourism:{x:88,y:58,w:18,h:21}});
  Object.assign(WORLD_COMMON,{holding:{x:51,y:50,w:18,h:20,fn:'openReports'},bank:{x:66,y:57,w:20,h:20,fn:'openBank'},market:{x:48,y:65,w:19,h:18,fn:'openMarket'}});
@@ -1245,6 +1252,29 @@ html,body{margin:0!important;background:#02070d!important}
  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
  window.addEventListener('orientationchange',()=>setTimeout(renderWorldMap,150));
  window.addEventListener('resize',()=>setTimeout(renderWorldMap,80));
+ // Reliable map interaction for mouse + touch. Do not depend only on inline onclick.
+ const map=document.getElementById('worldMapNodes');
+ if(map){
+   map.style.pointerEvents='auto';
+   map.addEventListener('pointerup',function(e){
+     const b=e.target.closest('.mapHit'); if(!b)return;
+     e.preventDefault(); e.stopPropagation();
+     const sector=b.dataset.sector;
+     const common=b.dataset.common;
+     if(sector) openWorldSector(sector);
+     else if(common==='bank') openBank();
+     else if(common==='market') openMarket();
+     else if(common==='holding') openReports();
+   },true);
+ }
+ // Rebuild buttons with explicit data targets so taps remain reliable after scaling.
+ const originalRenderWorldMap=renderWorldMap;
+ renderWorldMap=function(){
+   const el=document.getElementById('worldMapNodes'); if(!el)return;
+   const sectors=Object.keys(WORLD_SPOTS).map(k=>{const p=WORLD_SPOTS[k],c=S.companies.find(x=>x.sector===k),active=!!c;return `<button type="button" data-sector="${k}" aria-label="${SECTORS[k].name}" class="mapHit ${active?'active':'locked'}" style="left:${p.x-p.w/2}%;top:${p.y-p.h/2}%;width:${p.w}%;height:${p.h}%"><span>${active?'AKTİF':'KUR'}</span></button>`}).join('');
+   const common=Object.entries(WORLD_COMMON).map(([k,p])=>`<button type="button" data-common="${k}" aria-label="${k}" class="mapHit common" style="left:${p.x-p.w/2}%;top:${p.y-p.h/2}%;width:${p.w}%;height:${p.h}%"><span>${k.toUpperCase()}</span></button>`).join('');
+   el.innerHTML=sectors+common;
+ };
  setTimeout(()=>{renderWorldMap();try{requestLandscape()}catch(e){}},100);
 })();
 </script></body>
