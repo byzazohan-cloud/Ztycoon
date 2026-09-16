@@ -426,6 +426,16 @@ border:1px solid color-mix(in srgb,var(--ic) 58%,transparent);box-shadow:inset 0
 
 /* V30 LIVE TYCOON ENGINE */
 .liveStrip{margin:8px 0;padding:9px 10px;border:1px solid #31516a;border-radius:12px;background:linear-gradient(135deg,#071b29,#0b2637);font-size:8px}.liveStrip b{color:#f0ca72}.salesLog{padding:9px;border-bottom:1px solid #1f394c}.salesLog:last-child{border-bottom:0}.salesLogTop{display:flex;justify-content:space-between;gap:8px}.salesLogGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:6px}.salesLogGrid div{padding:5px;background:#081c29;border-radius:7px}.salesLogGrid span{display:block;color:#8196a7;font-size:6px}.salesLogGrid b{font-size:8px}.offlineReport{position:fixed;inset:0;z-index:9999;background:#020a10dd;display:none;align-items:center;justify-content:center;padding:16px}.offlineReport.open{display:flex}.offlineCard{width:min(390px,100%);background:linear-gradient(160deg,#0d2637,#06131d);border:1px solid #d5a94d;border-radius:18px;padding:16px;box-shadow:0 20px 70px #000}.offlineGrid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:10px 0}.offlineGrid>div{background:#081b28;border-radius:10px;padding:9px}.offlineGrid span{display:block;font-size:7px;color:#8fa4b4}.offlineGrid b{font-size:11px}.gameClock{font-weight:900;color:#f0ca72}.bottom button{min-width:0}
+
+/* V30.3 WORLD MAP */
+.worldMap{position:relative;width:100%;aspect-ratio:16/9;min-height:0;border:1px solid #9b7330;border-radius:14px;overflow:hidden;background:#07111b url('zazo_world_map.png') center/cover no-repeat;box-shadow:inset 0 0 50px #0009,0 12px 34px #0008}
+.worldHotspot{position:absolute;transform:translate(-50%,-50%);min-width:88px;max-width:130px;padding:7px 9px;border-radius:12px;border:1px solid #e4b95a;background:#07121ee8;color:#ffe6a2;font-size:9px;font-weight:1000;box-shadow:0 5px 18px #000b;backdrop-filter:blur(5px);z-index:4}
+.worldHotspot.active{background:linear-gradient(180deg,#17324eea,#07121ef2);border-color:#ffd66e;box-shadow:0 0 0 2px #e6b94c33,0 5px 18px #000b}
+.worldHotspot.locked{filter:grayscale(.8);opacity:.72;border-color:#68717b;color:#c2c8ce}
+.worldHotspot.common{background:linear-gradient(180deg,#493611ef,#171107ef);border-color:#f0c65c}
+.worldHotspot small{display:block;font-size:7px;font-weight:700;margin-top:2px;color:#b9c7d6}
+.worldMapLegend{position:absolute;left:1.5%;bottom:2%;z-index:5;padding:6px 9px;border-radius:9px;background:#030914dd;border:1px solid #8d6c32;color:#d8e2ed;font-size:8px}
+@media(max-width:700px){.worldHotspot{min-width:64px;padding:5px 6px;font-size:7px}.worldHotspot small{font-size:6px}.worldMapLegend{font-size:6px}.worldMap{border-radius:8px}}
 </style>
 
 <style id="v302gameui">
@@ -438,7 +448,7 @@ body{background:#02070d!important;overflow-x:hidden}.app{max-width:none!importan
 .app>.section:nth-of-type(n+5){display:none!important}
 .bottom{display:flex!important;position:fixed!important;left:0!important;top:0!important;bottom:0!important;transform:none!important;width:112px!important;height:100vh!important;padding:78px 8px 12px!important;background:linear-gradient(90deg,#06121d,#02080d)!important;border:0!important;border-right:1px solid #8c6824!important;border-radius:0!important;z-index:80!important;gap:8px!important}.bottom:before{content:'Z\A TYCOON';white-space:pre;position:absolute;top:15px;left:0;right:0;text-align:center;color:#f0ca72;font-size:14px;font-weight:1000;line-height:15px}.bottom button{flex:0 0 62px!important;width:100%!important;border:1px solid #294458!important;border-radius:9px!important;background:linear-gradient(145deg,#0a1c29,#04101a)!important;color:#b9c8d4!important;font-size:8px!important}.bottom button.active{border-color:#c79a3b!important;color:#ffe09a!important;background:linear-gradient(145deg,#3b2b13,#0c1720)!important}.bottom button span,.bottom button svg{font-size:21px!important;width:22px!important;height:22px!important;margin:auto!important;display:block!important}
 body:before{content:'HOLDİNG YÖNETİMİ';position:fixed;right:0;top:0;width:294px;height:42px;z-index:82;background:linear-gradient(180deg,#122638,#06121d);border-left:1px solid #8c6824;border-bottom:1px solid #8c6824;color:#f2cd6d;font-size:13px;font-weight:1000;display:grid;place-items:center;letter-spacing:1px}
-body:after{content:'V30.2 GAME UI  •  LIVE TYCOON ENGINE';position:fixed;right:10px;bottom:7px;z-index:99;font-size:8px;color:#e9c96d;opacity:.7}
+body:after{content:'V30.3 GAME UI  •  LIVE TYCOON ENGINE';position:fixed;right:10px;bottom:7px;z-index:99;font-size:8px;color:#e9c96d;opacity:.7}
 #v302Right{display:block!important;position:fixed;right:0;top:42px;bottom:0;width:294px;z-index:65;padding:9px;background:linear-gradient(180deg,#06131f,#02080d);border-left:1px solid #8c6824;overflow:auto}.v302card{border:1px solid #2d4b60;border-radius:9px;background:linear-gradient(145deg,#0b1d2a,#04101a);padding:10px;margin-bottom:8px;box-shadow:inset 0 1px #ffffff08}.v302card h3{font-size:10px;color:#f2ce72;margin:0 0 8px}.v302stat{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #1c3344;font-size:8px}.v302stat:last-child{border:0}.v302stat b{color:#f4d27b}.v302actions{display:grid;grid-template-columns:1fr 1fr;gap:6px}.v302actions button{border:1px solid #755a25;background:#0a1b27;color:#f0d37d;border-radius:7px;padding:8px 4px;font-size:8px;font-weight:900}.v302event{font-size:7px;color:#b7c6d1;padding:6px 0;border-bottom:1px solid #1c3344}.v302event b{color:#f0ca72}.overlay{z-index:120!important}.sheet{max-width:1100px!important}
 }
 @media not all and (orientation:landscape), (max-width:699px){#v302Right{display:none!important}}
@@ -587,14 +597,9 @@ body:after{content:'V30.2 GAME UI  •  LIVE TYCOON ENGINE';position:fixed;right
  <div id="marketPanel"></div>
 </div></div>
 
-<div class="mapWrap" style="margin-top:8px">
-   <div class="mapRoad r1"></div><div class="mapRoad r2"></div><div class="mapRoad r3"></div>
-   <button class="mapNode" style="left:10%;top:12%" onclick="openCompany()">Ofis</button>
-   <button class="mapNode" style="right:12%;top:15%" onclick="openBank()">Banka</button>
-   <button class="mapNode" style="left:35%;top:48%" onclick="openMarket()">AVM / Pazar</button>
-   <button class="mapNode" style="right:14%;bottom:18%" onclick="openCompany()">Lojistik</button>
-   <button class="mapNode" style="left:12%;bottom:16%" onclick="openCompany()">Sanayi</button>
-   <button class="mapNode" style="left:46%;bottom:7%" onclick="openReports()">Borsa</button>
+<div class="worldMap" id="worldMap" style="margin-top:8px">
+  <div id="worldMapNodes"></div>
+  <div class="worldMapLegend">🏢 Kurulu şirket = aktif &nbsp; 🔒 Kurulmamış = kilitli &nbsp; ⭐ Ortak merkez = tüm şirketlere açık</div>
  </div>
 </div></div>
 
@@ -604,7 +609,7 @@ body:after{content:'V30.2 GAME UI  •  LIVE TYCOON ENGINE';position:fixed;right
 </div></div>
 
 <div class="overlay" id="settingsO"><div class="sheet">
- <div class="mobileTitleBand"><b>AYARLAR</b><span>ZAZO TYCOON V17</span></div><div class="sheetTop"><h2>Ayarlar</h2><button class="btn" onclick="closeO('settingsO')">Kapat</button></div>
+ <div class="mobileTitleBand"><b>AYARLAR</b><span>ZAZO TYCOON V30.3</span></div><div class="sheetTop"><h2>Ayarlar</h2><button class="btn" onclick="closeO('settingsO')">Kapat</button></div>
  <div id="settingsPanel"></div>
 </div></div>
 
@@ -650,7 +655,10 @@ const ICONS={
  auto:`<svg viewBox="0 0 40 40"><path d="M8 25h24l-3-9H13zM10 25v4M30 25v4M13 29h14"/><circle cx="14" cy="25" r="2"/><circle cx="26" cy="25" r="2"/></svg>`,
  construction:`<svg viewBox="0 0 40 40"><path d="M8 33h24M11 33V15h8v18M21 33V8h8v25M14 19h2M14 23h2M24 13h2M24 18h2M24 23h2"/></svg>`,
  logistics:`<svg viewBox="0 0 40 40"><path d="M6 12h19v16H6zM25 18h6l4 5v5H25z"/><circle cx="13" cy="30" r="3"/><circle cx="30" cy="30" r="3"/></svg>`,
- space:`<svg viewBox="0 0 40 40"><path d="M20 6c6 4 9 10 8 18l-8 8-8-8c-1-8 2-14 8-18Z"/><circle cx="20" cy="17" r="3"/><path d="M12 23 7 28l7 1M28 23l5 5-7 1M17 32l3 4 3-4"/></svg>`
+ space:`<svg viewBox="0 0 40 40"><path d="M20 6c6 4 9 10 8 18l-8 8-8-8c-1-8 2-14 8-18Z"/><circle cx="20" cy="17" r="3"/><path d="M12 23 7 28l7 1M28 23l5 5-7 1M17 32l3 4 3-4"/></svg>`,
+ energy:`<svg viewBox="0 0 40 40"><path d="M23 4 10 23h9l-2 13 13-20h-9z"/></svg>`,
+ mining:`<svg viewBox="0 0 40 40"><path d="M8 31 30 9M12 9l19 19M7 33h26"/></svg>`,
+ tourism:`<svg viewBox="0 0 40 40"><path d="M7 30h26M10 30V17h20v13M14 17v-5h12v5M15 22h3M22 22h3"/></svg>`
 };
 iq1.innerHTML=ICONS.building;iq2.innerHTML=ICONS.manage;iq3.innerHTML=ICONS.bank;iq4.innerHTML=ICONS.calendar;
 in1.innerHTML=ICONS.home;in2.innerHTML=ICONS.building;in3.innerHTML=ICONS.bank;in4.innerHTML=ICONS.report;in5.innerHTML=ICONS.person;
@@ -662,7 +670,10 @@ const SECTORS={
  auto:{name:'Otomotiv',cost:900000,products:[['Şehir Aracı',520000,610000],['SUV',930000,1090000],['Premium Sedan',1350000,1580000]]},
  construction:{name:'İnşaat',cost:700000,products:[['Küçük Proje',170000,225000],['Villa Projesi',480000,650000],['Site Projesi',1450000,1920000]]},
  logistics:{name:'Lojistik',cost:500000,products:[['Şehir İçi Yük',12000,18500],['Uzun Yol',29000,45000],['Kurumsal Hat',75000,118000]]},
- space:{name:'Uzay',cost:8000000,products:[['Uydu Bileşeni',240000,370000],['Uydu',1800000,2600000],['Fırlatma Hizmeti',6200000,8900000]]}
+ space:{name:'Uzay',cost:8000000,products:[['Uydu Bileşeni',240000,370000],['Uydu',1800000,2600000],['Fırlatma Hizmeti',6200000,8900000]]},
+ energy:{name:'Enerji',cost:1200000,products:[['Güneş Enerjisi Paketi',45000,69000],['Rüzgar Enerjisi',110000,168000],['Sanayi Enerji Sözleşmesi',280000,430000]]},
+ mining:{name:'Madencilik',cost:1500000,products:[['Demir Cevheri',28000,44000],['Bakır',62000,96000],['Altın Cevheri',180000,285000]]},
+ tourism:{name:'Turizm',cost:900000,products:[['Oda Paketi',12000,19000],['Tatil Paketi',38000,59000],['Lüks Resort Paketi',95000,148000]]}
 };
 const MODES={
  fast:{name:'Hızlı',wait:30,min:1,max:3,margin:.92},
@@ -732,7 +743,10 @@ const STORE_THEMES={
  auto:{names:['Oto Galeri','Showroom','Premium Showroom','Otomotiv Plaza'],icon:'car',accent:'#ff765f'},
  construction:{names:['Yapı Market','Yapı Satış Merkezi','Proje Merkezi','Mega Yapı Merkezi'],icon:'build',accent:'#e3b36d'},
  logistics:{names:['Kargo Şubesi','Lojistik Merkezi','Dağıtım Merkezi','Global Lojistik Hub'],icon:'truck',accent:'#61b9ff'},
- space:{names:['Ar-Ge Satış Ofisi','Uzay Teknoloji Merkezi','İleri Teknoloji Merkezi','Orbital Flagship'],icon:'rocket',accent:'#c18cff'}
+ space:{names:['Ar-Ge Satış Ofisi','Uzay Teknoloji Merkezi','İleri Teknoloji Merkezi','Orbital Flagship'],icon:'rocket',accent:'#c18cff'},
+ energy:{names:['Enerji Ofisi','Enerji Merkezi','Bölgesel Santral','Global Enerji Kampüsü'],icon:'energy',accent:'#ffd45d'},
+ mining:{names:['Maden Ofisi','Maden Sahası','Endüstriyel Maden Merkezi','Mega Maden Kompleksi'],icon:'mining',accent:'#d6a56a'},
+ tourism:{names:['Butik Otel','Şehir Oteli','Lüks Otel','Mega Resort'],icon:'tourism',accent:'#63d8c7'}
 };
 function storeTier(shop){return Math.max(1,Math.min(4,Number(shop.tier)||1))}
 function storeTheme(c){return STORE_THEMES[c.sector]||STORE_THEMES.textile}
@@ -897,7 +911,22 @@ function companyPremiumLogo(c){
 }
 function difficultyProfile(c){let l=c?.level||1;if(l<=3)return{name:'Başlangıç • Çok Kolay',cost:.78,sales:1.55,wage:.8,rent:.8};if(l<=8)return{name:'Gelişme • Kolay',cost:.9,sales:1.28,wage:.9,rent:.9};if(l<=20)return{name:'Büyüme • Normal',cost:1,sales:1,wage:1,rent:1};if(l<=35)return{name:'Kurumsal • Zor',cost:1.12,sales:.9,wage:1.12,rent:1.1};return{name:'İmparatorluk • Çok Zor',cost:1.25,sales:.8,wage:1.25,rent:1.18}}
 
+const WORLD_SPOTS={
+ textile:{x:58,y:57}, construction:{x:52,y:38}, food:{x:63,y:70}, auto:{x:41,y:65}, tech:{x:68,y:48}, logistics:{x:80,y:63}, space:{x:74,y:29}, energy:{x:34,y:78}, mining:{x:26,y:66}, tourism:{x:47,y:79}
+};
+function openWorldSector(sector){
+ let c=S.companies.find(x=>x.sector===sector);
+ if(!c){toast(SECTORS[sector].name+' henüz kurulmadı. Şirket Kur bölümünden kurabilirsin.');return;}
+ S.active=c.id;save();render();openCompany();
+}
+function renderWorldMap(){
+ let el=document.getElementById('worldMapNodes');if(!el)return;
+ let sectors=Object.keys(WORLD_SPOTS).map(k=>{let p=WORLD_SPOTS[k],c=S.companies.find(x=>x.sector===k),active=!!c;return `<button class="worldHotspot ${active?'active':'locked'}" style="left:${p.x}%;top:${p.y}%" onclick="openWorldSector('${k}')">${active?'🏢':'🔒'} ${SECTORS[k].name}<small>${active?(c.name+' • Seviye '+(c.level||1)):'Henüz Kurulmadı'}</small></button>`}).join('');
+ let common=`<button class="worldHotspot common" style="left:45%;top:48%" onclick="openReports()">👑 HOLDİNG<small>Finans Merkezi</small></button><button class="worldHotspot common" style="left:37%;top:43%" onclick="openBank()">🏦 BANKA<small>Tüm şirket hesapları</small></button><button class="worldHotspot common" style="left:31%;top:53%" onclick="openMarket()">🛒 PAZAR<small>Ortak ticaret merkezi</small></button><button class="worldHotspot common" style="left:55%;top:48%" onclick="openSalesCenter()">📊 SATIŞ<small>Tüm şirketler</small></button>`;
+ el.innerHTML=sectors+common;
+}
 function render(){
+ renderWorldMap();
  runOfflineSales();
  let c=C(),now=new Date();
  holdingCash.textContent=M(S.cash);companyCash.textContent=c?M(c.cash):'₺0';companyCashName.textContent=c?c.name:'Şirket yok';
@@ -1127,7 +1156,7 @@ function removeLogoLayer(){let c=C();if(logoEdit.layer==null)return;c.logoLayers
 
 function renderSettings(){
  let rows=[['Ses Efektleri','sound'],['Müzik','music'],['Bildirimler','notifications'],['Otomatik Satış (Arka Planda)','autoSales']];
- settingsPanel.innerHTML=`<div class="settingsGrid">${rows.map(([n,k])=>`<div class="settingRow"><span>${n}</span><button class="toggle ${S.settings[k]?'on':''}" onclick="toggleSetting('${k}')"></button></div>`).join('')}<div class="settingRow"><span>Tema</span><b>${S.settings.theme}</b></div><div class="settingRow"><span>Dil</span><b>Türkçe</b></div><div class="settingRow"><span>Oyun Hakkında</span><b>ZAZO TYCOON V30.2 GAME UI</b></div><div class="card premiumAssetLegend" style="margin-bottom:10px;min-height:150px"><h4>Premium Icon Pack V1.0</h4><div class="muted">Ürün • sektör • banka • araç • fabrika • çalışan görsel dili aktif.</div></div><div class="settingRow"><span>Yedekleme</span><div><button class="btn" onclick="exportBackup()">Yedek Al</button> <label class="btn" style="display:inline-block">Yükle<input type="file" accept=".json" onchange="importBackup(this)" style="display:none"></label></div></div></div>`;
+ settingsPanel.innerHTML=`<div class="settingsGrid">${rows.map(([n,k])=>`<div class="settingRow"><span>${n}</span><button class="toggle ${S.settings[k]?'on':''}" onclick="toggleSetting('${k}')"></button></div>`).join('')}<div class="settingRow"><span>Tema</span><b>${S.settings.theme}</b></div><div class="settingRow"><span>Dil</span><b>Türkçe</b></div><div class="settingRow"><span>Oyun Hakkında</span><b>ZAZO TYCOON V30.3 GAME UI</b></div><div class="card premiumAssetLegend" style="margin-bottom:10px;min-height:150px"><h4>Premium Icon Pack V1.0</h4><div class="muted">Ürün • sektör • banka • araç • fabrika • çalışan görsel dili aktif.</div></div><div class="settingRow"><span>Yedekleme</span><div><button class="btn" onclick="exportBackup()">Yedek Al</button> <label class="btn" style="display:inline-block">Yükle<input type="file" accept=".json" onchange="importBackup(this)" style="display:none"></label></div></div></div>`;
 }
 function exportBackup(){let blob=new Blob([JSON.stringify(S,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='ZAZO_TYCOON_V25_YEDEK_'+new Date().toISOString().slice(0,10)+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
 function importBackup(inp){let f=inp.files?.[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let x=JSON.parse(r.result);if(!x||!Array.isArray(x.companies))throw 0;S=x;save();location.reload()}catch(e){toast('Yedek dosyası geçersiz.')}};r.readAsText(f)}
@@ -1182,7 +1211,7 @@ function payFlex(){let a=Math.min(Math.max(0,+flexAmount.value||0),S.flex.used||
 render();
 if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js').then(r=>r.update()).catch(()=>{});
 </script>
-<div style="position:fixed;right:8px;bottom:74px;z-index:3;font-size:9px;opacity:.35;pointer-events:none">V30.2 GAME UI LIVE TYCOON</div>
+<div style="position:fixed;right:8px;bottom:74px;z-index:3;font-size:9px;opacity:.35;pointer-events:none">V30.3 GAME UI LIVE TYCOON</div>
 <div class="offlineReport" id="offlineReport"><div class="offlineCard"><h2>Tekrar Hoş Geldin</h2><div class="muted" id="offlineTime">Çevrimdışı ilerleme</div><div class="offlineGrid" id="offlineGrid"></div><button class="btn gold" style="width:100%" onclick="document.getElementById('offlineReport').classList.remove('open')">Devam Et</button></div></div>
 
 <script>
@@ -1198,7 +1227,7 @@ function renderV302GameHUD(){
 }
 const _v302render=render; render=function(){_v302render();renderV302GameHUD()};
 setInterval(renderV302GameHUD,4000);
-document.title='ZAZO TYCOON V30.2 GAME UI';
+document.title='ZAZO TYCOON V30.3 GAME UI';
 </script>
 </body>
 </html><style id="v30LandscapeGame">
@@ -1217,5 +1246,5 @@ body:before{content:'HOLDİNG FİNANS MERKEZİ\A\A Toplam Grup Varlığı\A Şir
 @media (orientation:portrait),(max-width:699px){.app{max-width:430px!important}.heroPoster{background-image:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.55)),url('hero_mobile.jpg')!important}}
 </style>
 <script>
-(()=>{const old=document.title;document.title='ZAZO TYCOON V30.2 GAME UI';})();
+(()=>{const old=document.title;document.title='ZAZO TYCOON V30.3 GAME UI';})();
 </script>
