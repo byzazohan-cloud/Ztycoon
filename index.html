@@ -1222,7 +1222,56 @@ html,body{margin:0!important;background:#02070d!important}
 
 </body>
 </html><style id="v30LandscapeGame">
-@media (orientation:landscape) and (min-width:700px){
+@media (orien
+<style id="v305FinalMapRebuild">
+html,body{width:100%;height:100%;margin:0!important;overflow:hidden!important;background:#02070d!important}
+body{overscroll-behavior:none}
+.app{position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;max-width:none!important;min-height:0!important;padding:0!important;margin:0!important;overflow:hidden!important;background:#02070d!important}
+.topbar,.bottom,.worldActions,.worldMapLegend,#v302Right,.hero,.heroPoster,.featureGrid,.quick,body:before,body:after{display:none!important;content:none!important}
+.worldHome{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;min-height:0!important;margin:0!important;padding:0!important;display:block!important;overflow:hidden!important}
+.worldMap{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;min-height:0!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;overflow:hidden!important;background-color:#02070d!important;background-image:url('zazo_world_map.png')!important;background-repeat:no-repeat!important;background-position:center!important;background-size:contain!important}
+#worldMapNodes{position:absolute!important;left:50%!important;top:50%!important;right:auto!important;bottom:auto!important;width:min(100vw,177.7777778vh)!important;height:min(100vh,56.25vw)!important;margin:0!important;transform:translate(-50%,-50%)!important;pointer-events:none!important;z-index:30!important}
+.mapHit{position:absolute!important;display:block!important;z-index:31!important;margin:0!important;padding:0!important;border:0!important;border-radius:14px!important;background:rgba(255,205,84,.015)!important;color:transparent!important;pointer-events:auto!important;cursor:pointer!important;touch-action:manipulation!important;-webkit-tap-highlight-color:transparent!important}
+.mapHit:hover,.mapHit:focus-visible{outline:2px solid #f0c65c!important;background:rgba(240,198,92,.12)!important}
+.mapHit.common{background:rgba(255,205,84,.025)!important}
+.mapHit span{display:none!important}
+#gameMenuBtn{position:fixed!important;left:max(10px,env(safe-area-inset-left))!important;top:max(10px,env(safe-area-inset-top))!important;z-index:2000!important;width:48px!important;height:48px!important;border:1px solid #d5a746!important;border-radius:14px!important;background:#06131eef!important;color:#f7d36d!important;font-size:24px!important;line-height:1!important;box-shadow:0 8px 24px #000a!important}
+#gameMenu{position:fixed!important;left:max(10px,env(safe-area-inset-left))!important;top:66px!important;bottom:10px!important;z-index:1999!important;width:min(220px,42vw)!important;max-height:calc(100vh - 76px)!important;overflow-y:auto!important;overscroll-behavior:contain!important;padding:9px!important;box-sizing:border-box!important;border:1px solid #9f7830!important;border-radius:14px!important;background:#04101af5!important;box-shadow:0 18px 50px #000c!important;display:none!important;gap:6px!important}
+.menuOpen #gameMenu{display:grid!important;align-content:start!important}
+#gameMenu button{min-height:42px!important;padding:9px 10px!important;border:1px solid #29485d!important;border-radius:9px!important;background:#0a1c29!important;color:#e6edf2!important;text-align:left!important;font-weight:850!important;font-size:12px!important;white-space:normal!important}
+.overlay{z-index:3000!important;padding:3vh 3vw!important;box-sizing:border-box!important}
+.overlay .sheet{width:min(1120px,94vw)!important;max-width:1120px!important;max-height:92vh!important;margin:auto!important;overflow:auto!important}
+#portraitGate{z-index:5000!important}
+@media (orientation:portrait){#portraitGate{display:flex!important}.app{visibility:hidden!important}}
+@media (orientation:landscape){#portraitGate{display:none!important}.app{visibility:visible!important}}
+</style>
+<script id="v305FinalLogic">
+(function(){
+ document.title='ZAZO TYCOON V30.5 MAP REBUILD';
+ // Larger, forgiving hit areas matched to the approved 16:9 world-map artwork.
+ WORLD_SPOTS.logistics={x:18,y:22,w:18,h:19};
+ WORLD_SPOTS.auto={x:35,y:22,w:18,h:19};
+ WORLD_SPOTS.tech={x:50,y:18,w:18,h:19};
+ WORLD_SPOTS.space={x:69,y:18,w:16,h:20};
+ WORLD_SPOTS.mining={x:88,y:18,w:17,h:20};
+ WORLD_SPOTS.textile={x:20,y:41,w:19,h:20};
+ WORLD_SPOTS.food={x:35,y:47,w:19,h:20};
+ WORLD_SPOTS.construction={x:68,y:42,w:19,h:21};
+ WORLD_SPOTS.energy={x:90,y:36,w:17,h:21};
+ WORLD_SPOTS.tourism={x:87,y:58,w:18,h:22};
+ WORLD_COMMON.holding={x:50,y:49,w:18,h:22,fn:'openReports'};
+ WORLD_COMMON.bank={x:65,y:58,w:17,h:19,fn:'openBank'};
+ WORLD_COMMON.market={x:47,y:66,w:18,h:18,fn:'openMarket'};
+ function closeMenu(){document.body.classList.remove('menuOpen')}
+ document.addEventListener('pointerdown',function(e){if(document.body.classList.contains('menuOpen')&&!e.target.closest('#gameMenu')&&!e.target.closest('#gameMenuBtn')) closeMenu();});
+ document.addEventListener('keydown',function(e){if(e.key==='Escape') closeMenu();});
+ const oldRenderWorldMap=renderWorldMap;
+ renderWorldMap=function(){oldRenderWorldMap();};
+ setTimeout(renderWorldMap,50);
+ try{requestLandscape()}catch(e){}
+})();
+</script>
+tation:landscape) and (min-width:700px){
 html,body{overflow-x:hidden}.app{max-width:none!important;width:100%!important;padding:10px 260px 78px 108px!important;min-height:100vh;background:#03101a}
 .topbar{position:sticky;top:0;z-index:15;display:grid!important;grid-template-columns:1.3fr repeat(3,1fr);gap:8px;background:rgba(3,12,20,.94);backdrop-filter:blur(14px);border:1px solid #8c6824;border-radius:14px;padding:8px}
 .heroPoster{height:52vh!important;min-height:360px!important;border-radius:18px!important;background-image:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.5)),url('v30_landscape_city.jpg')!important;background-size:cover!important;background-position:center!important;box-shadow:0 18px 50px #0008}
