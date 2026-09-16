@@ -389,7 +389,7 @@ border:1px solid color-mix(in srgb,var(--ic) 58%,transparent);box-shadow:inset 0
 .ztIcon svg{width:31px;height:31px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.55))}
 .ztIcon svg *{stroke:var(--ic);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .ztIcon.product{width:50px;height:50px}.ztIcon.product svg{width:34px;height:34px}
-.premiumAssetLegend{background-image:linear-gradient(rgba(3,8,13,.72),rgba(3,8,13,.9)),url('assets/zazo_premium_icon_pack_v1.png');background-size:cover;background-position:center;border:1px solid rgba(217,170,69,.38)}
+.premiumAssetLegend{background-image:linear-gradient(rgba(3,8,13,.72),rgba(3,8,13,.9)),url('assets/zazo_premium_icon_pack_v1.jpg');background-size:cover;background-position:center;border:1px solid rgba(217,170,69,.38)}
 
 
 /* V28 sector stores */
@@ -423,6 +423,25 @@ border:1px solid color-mix(in srgb,var(--ic) 58%,transparent);box-shadow:inset 0
  .companyRow .metric b,.companyRow .metric span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 }
 
+
+/* V30 LIVE TYCOON ENGINE */
+.liveStrip{margin:8px 0;padding:9px 10px;border:1px solid #31516a;border-radius:12px;background:linear-gradient(135deg,#071b29,#0b2637);font-size:8px}.liveStrip b{color:#f0ca72}.salesLog{padding:9px;border-bottom:1px solid #1f394c}.salesLog:last-child{border-bottom:0}.salesLogTop{display:flex;justify-content:space-between;gap:8px}.salesLogGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:6px}.salesLogGrid div{padding:5px;background:#081c29;border-radius:7px}.salesLogGrid span{display:block;color:#8196a7;font-size:6px}.salesLogGrid b{font-size:8px}.offlineReport{position:fixed;inset:0;z-index:9999;background:#020a10dd;display:none;align-items:center;justify-content:center;padding:16px}.offlineReport.open{display:flex}.offlineCard{width:min(390px,100%);background:linear-gradient(160deg,#0d2637,#06131d);border:1px solid #d5a94d;border-radius:18px;padding:16px;box-shadow:0 20px 70px #000}.offlineGrid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:10px 0}.offlineGrid>div{background:#081b28;border-radius:10px;padding:9px}.offlineGrid span{display:block;font-size:7px;color:#8fa4b4}.offlineGrid b{font-size:11px}.gameClock{font-weight:900;color:#f0ca72}.bottom button{min-width:0}
+</style>
+
+<style id="v302gameui">
+@media (orientation:landscape) and (min-width:700px){
+body{background:#02070d!important;overflow-x:hidden}.app{max-width:none!important;width:100%!important;padding:76px 310px 82px 126px!important;min-height:100vh!important}
+.topbar{position:fixed!important;z-index:70!important;left:112px!important;right:0!important;top:0!important;height:68px!important;border-radius:0!important;background:linear-gradient(180deg,#07141f,#030a10)!important;border-bottom:1px solid #8b6827!important;box-shadow:0 8px 30px #0009!important}.topbar .brand{display:none!important}.topbar .kpi{min-width:180px!important;border-left:1px solid #253d50!important;padding:7px 20px!important}.topbar .kpi span{font-size:9px!important}.topbar .kpi b{font-size:16px!important;color:#f3cf70!important}
+.heroPoster{height:calc(100vh - 172px)!important;min-height:520px!important;margin:0!important;border:1px solid #9b762d!important;border-radius:10px!important;background-image:linear-gradient(180deg,rgba(2,8,14,.02),rgba(2,8,14,.18)),url('v30_2_city_dashboard.jpg')!important;background-size:cover!important;background-position:center!important;box-shadow:0 18px 50px #000b!important;position:relative!important}.heroPoster>div{display:none!important}
+.heroPoster:after{content:'ZAZO TYCOON  •  BUSINESS EMPIRE';position:absolute;left:18px;bottom:16px;padding:8px 13px;border-radius:8px;background:#03101bd9;border:1px solid #aa8232;color:#f4d177;font-weight:1000;letter-spacing:1.4px;font-size:11px}
+.section:has(.featureGrid),.hero,.quick{display:none!important}.liveStrip{position:fixed!important;left:126px!important;right:310px!important;bottom:12px!important;margin:0!important;z-index:60!important;height:54px!important;display:flex!important;align-items:center!important;justify-content:center!important;border-color:#9c772d!important;background:linear-gradient(180deg,#071b29,#03101a)!important;box-shadow:0 8px 28px #000b!important;font-size:10px!important}.liveStrip b{margin-right:7px!important}
+.app>.section:nth-of-type(n+5){display:none!important}
+.bottom{display:flex!important;position:fixed!important;left:0!important;top:0!important;bottom:0!important;transform:none!important;width:112px!important;height:100vh!important;padding:78px 8px 12px!important;background:linear-gradient(90deg,#06121d,#02080d)!important;border:0!important;border-right:1px solid #8c6824!important;border-radius:0!important;z-index:80!important;gap:8px!important}.bottom:before{content:'Z\A TYCOON';white-space:pre;position:absolute;top:15px;left:0;right:0;text-align:center;color:#f0ca72;font-size:14px;font-weight:1000;line-height:15px}.bottom button{flex:0 0 62px!important;width:100%!important;border:1px solid #294458!important;border-radius:9px!important;background:linear-gradient(145deg,#0a1c29,#04101a)!important;color:#b9c8d4!important;font-size:8px!important}.bottom button.active{border-color:#c79a3b!important;color:#ffe09a!important;background:linear-gradient(145deg,#3b2b13,#0c1720)!important}.bottom button span,.bottom button svg{font-size:21px!important;width:22px!important;height:22px!important;margin:auto!important;display:block!important}
+body:before{content:'HOLDİNG YÖNETİMİ';position:fixed;right:0;top:0;width:294px;height:42px;z-index:82;background:linear-gradient(180deg,#122638,#06121d);border-left:1px solid #8c6824;border-bottom:1px solid #8c6824;color:#f2cd6d;font-size:13px;font-weight:1000;display:grid;place-items:center;letter-spacing:1px}
+body:after{content:'V30.2 GAME UI  •  LIVE TYCOON ENGINE';position:fixed;right:10px;bottom:7px;z-index:99;font-size:8px;color:#e9c96d;opacity:.7}
+#v302Right{display:block!important;position:fixed;right:0;top:42px;bottom:0;width:294px;z-index:65;padding:9px;background:linear-gradient(180deg,#06131f,#02080d);border-left:1px solid #8c6824;overflow:auto}.v302card{border:1px solid #2d4b60;border-radius:9px;background:linear-gradient(145deg,#0b1d2a,#04101a);padding:10px;margin-bottom:8px;box-shadow:inset 0 1px #ffffff08}.v302card h3{font-size:10px;color:#f2ce72;margin:0 0 8px}.v302stat{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #1c3344;font-size:8px}.v302stat:last-child{border:0}.v302stat b{color:#f4d27b}.v302actions{display:grid;grid-template-columns:1fr 1fr;gap:6px}.v302actions button{border:1px solid #755a25;background:#0a1b27;color:#f0d37d;border-radius:7px;padding:8px 4px;font-size:8px;font-weight:900}.v302event{font-size:7px;color:#b7c6d1;padding:6px 0;border-bottom:1px solid #1c3344}.v302event b{color:#f0ca72}.overlay{z-index:120!important}.sheet{max-width:1100px!important}
+}
+@media not all and (orientation:landscape), (max-width:699px){#v302Right{display:none!important}}
 </style>
 </head>
 <body>
@@ -464,6 +483,7 @@ border:1px solid color-mix(in srgb,var(--ic) 58%,transparent);box-shadow:inset 0
     <button class="q3" onclick="openBank()"><span id="iq3"></span>Banka</button>
     <button class="q4" onclick="endMonth()"><span id="iq4"></span>Ayı Bitir</button>
   </div>
+<div class="liveStrip"><b>CANLI EKONOMİ</b> • Oyun Saati <span id="gameClock" class="gameClock">08:00</span> • <span id="liveStatus">Şirketler otomatik çalışıyor</span></div>
 
   <section class="section">
     <div class="sectionHead"><h3>Şirketlerim</h3><button class="btn ghost" onclick="showView('companies')">Tümünü Gör</button></div>
@@ -482,9 +502,18 @@ border:1px solid color-mix(in srgb,var(--ic) 58%,transparent);box-shadow:inset 0
   </section>
 </div>
 
+
+<aside id="v302Right" style="display:none">
+ <div class="v302card"><h3>HOLDİNG FİNANS</h3><div class="v302stat"><span>Toplam Grup Varlığı</span><b id="v302Worth">₺0</b></div><div class="v302stat"><span>Holding Sermayesi</span><b id="v302Holding">₺0</b></div><div class="v302stat"><span>Toplam Ciro</span><b id="v302Revenue">₺0</b></div><div class="v302stat"><span>Net Kâr</span><b id="v302Net">₺0</b></div></div>
+ <div class="v302card"><h3>CANLI ŞİRKET</h3><div id="v302Company"></div><div class="v302actions" style="margin-top:8px"><button onclick="openCompany()">YÖNET</button><button onclick="openSalesCenter()">SATIŞLAR</button><button onclick="openBank()">BANKA</button><button onclick="openReports()">RAPORLAR</button></div></div>
+ <div class="v302card"><h3>SON HAREKETLER</h3><div id="v302Events"><div class="v302event">Canlı ekonomi başlatılıyor…</div></div></div>
+ <div class="v302card"><h3>HIZLI İŞLEMLER</h3><div class="v302actions"><button onclick="openCreate()">ŞİRKET KUR</button><button onclick="openMarket()">PAZAR</button><button onclick="openAchievements()">BAŞARILAR</button><button onclick="endMonth()">AYI BİTİR</button></div></div>
+</aside>
+
 <nav class="bottom">
  <button id="navHome" class="active" onclick="showView('home')"><span id="in1"></span>Ana</button>
  <button id="navCompanies" onclick="showView('companies')"><span id="in2"></span>Şirketler</button>
+ <button id="navSales" onclick="openSalesCenter()"><span>📈</span>Satış</button>
  <button id="navBank" onclick="openBank()"><span id="in3"></span>Banka</button>
  <button id="navReports" onclick="openReports()"><span id="in4"></span>Raporlar</button>
  <button id="navPersonal" onclick="openSettings()"><span id="in5"></span>Ayarlar</button>
@@ -529,6 +558,14 @@ border:1px solid color-mix(in srgb,var(--ic) 58%,transparent);box-shadow:inset 0
    <button class="active" onclick="bankTab('loan',this)">Hesaplar</button><button onclick="bankTab('cards',this)">Kartlar</button><button onclick="bankTab('deposit',this)">Mevduat</button><button onclick="bankTab('invest',this)">Yatırım</button>
  </div>
  <div id="bankPanel"></div>
+</div></div>
+
+
+<!-- V30 SALES CENTER -->
+<div class="overlay" id="salesO"><div class="sheet">
+ <div class="mobileTitleBand"><b>SATIŞ MERKEZİ</b><span>Tüm şirketlerin canlı satış kayıtları</span></div>
+ <div class="sheetTop"><h2>Satış Merkezi</h2><button class="btn" onclick="closeO('salesO')">Kapat</button></div>
+ <div id="salesPanel"></div>
 </div></div>
 
 <!-- REPORTS -->
@@ -675,7 +712,7 @@ S.companies=(S.companies||[]).map((c,i)=>({
  lastSalesAt:c.lastSalesAt||Date.now(),value:c.value||SECTORS[c.sector||'textile'].cost,logo:c.logo||0
 }));
 S.active=S.active||S.companies[0]?.id||null;
-S.qtyDrafts=S.qtyDrafts||{};S.loans=S.loans||[];S.vehicles=S.vehicles||[];S.properties=S.properties||[];S.managerLogs=S.managerLogs||[];S.bankLogs=S.bankLogs||[];
+S.qtyDrafts=S.qtyDrafts||{};S.loans=S.loans||[];S.vehicles=S.vehicles||[];S.properties=S.properties||[];S.managerLogs=S.managerLogs||[];S.bankLogs=S.bankLogs||[];S.salesLogs=S.salesLogs||[];S.holdingLogs=S.holdingLogs||[];S.gameMinutes=Number(S.gameMinutes)||480;S.lastRealAt=Number(S.lastRealAt)||Date.now();
 S.companies.forEach(c=>{c.factoryInv=c.factoryInv||{};c.factoryCapacity=c.factoryCapacity||Math.max(100,c.warehouseLevel*150);c.productionQueue=c.productionQueue||[];c.brand=Number(c.brand)||1;c.prestige=Number(c.prestige)||1;c.missedPayments=Number(c.missedPayments)||0;});S.properties=S.properties||[];S.vehicles=S.vehicles||[];S.companies.forEach(c=>{c.logoLayers=c.logoLayers||[];c.supplier=c.supplier||'standard';c.marketShare=Number(c.marketShare)||1;c.customerScore=Number(c.customerScore)||70;});S.companies.forEach(c=>c.shops.forEach(s=>{s.tier=storeTier(s);s.salesBoost=Number(s.salesBoost)||1;s.inv=s.inv||{};s.capacity=Number(s.capacity)||100;}));
 
 function save(){S.last=Date.now();localStorage.setItem('zfull1',JSON.stringify(S))}
@@ -776,15 +813,19 @@ function logoSvg(c){return ICONS[c.sector]||ICONS.textile}
 function normalizeBalance(c){c.balance=c.balance||{};['revenue','cogs','payroll','rent','interest','tax','net'].forEach(k=>c.balance[k]=Number(c.balance[k])||0)}
 function staffSalesPower(c){return c.employees.filter(e=>e.role==='Satış Danışmanı'||e.role==='Kasiyer').reduce((a,e)=>a+(e.effect||1),0)}
 function managerCount(c){return c.employees.filter(e=>e.role==='Müdür').length}
-function sellFromElapsed(c){
- let now=Date.now(),elapsed=Math.max(0,(now-(c.lastSalesAt||now))/1000);c.lastSalesAt=now;
- if(!c.shops.length||staffSalesPower(c)<=0)return 0;
- let mode=MODES[c.salesMode]||MODES.balanced,cycles=Math.min(180,Math.floor(elapsed/Math.max(8,mode.sec||30)));if(cycles<1)return 0;
- let revenue=0,products=productList(c),staff=Math.max(1,staffSalesPower(c)),diff=difficultyProfile(c);
- for(let shop of c.shops){shop.inv=shop.inv||{};let boost=(shop.traffic||1)*(shop.salesBoost||1);for(let n=0;n<cycles;n++){let available=products.filter(p=>(shop.inv[p.id]||0)>0);if(!available.length)break;let p=available[n%available.length],qty=Math.min(shop.inv[p.id]||0,Math.max(1,Math.round((mode.qty||1)*staff*boost*.35)));if(qty<1)continue;let sale=Math.round(p.sell*qty*diff.sales);shop.inv[p.id]-=qty;c.cash+=sale;c.balance.revenue+=sale;c.balance.net+=sale;revenue+=sale;}}
- return revenue;
+function logSale(c,shop,p,qty,unitSell,unitCost,offline=false){
+ let revenue=Math.round(unitSell*qty),cost=Math.round(unitCost*qty),gross=Math.max(0,revenue-cost),holding=0,companyProfit=gross;
+ c.cash+=revenue;c.balance.revenue+=revenue;c.balance.cogs+=cost;c.balance.net+=companyProfit;
+ S.salesLogs.unshift({id:'SL'+Date.now()+Math.random(),ts:Date.now(),gameMinute:S.gameMinutes,companyId:c.id,company:c.name,sector:c.sector,shop:storeName(c,shop),product:p.name,qty,buy:unitCost,sell:unitSell,revenue,cost,profit:gross,holding,companyProfit,offline});
+ if(holding>0){S.holdingLogs.unshift({ts:Date.now(),type:'Kâr Payı',detail:c.name+' • '+p.name,amount:holding});S.bankLogs.unshift({ts:Date.now(),type:'Holding kâr payı',detail:c.name+' • '+p.name,amount:holding});}
+ return {revenue,profit:gross,holding};
 }
-function runOfflineSales(){let sum=0,now=Date.now();S.companies.forEach(c=>{let elapsed=Math.max(0,(now-(c.lastProductionAt||c.lastSalesAt||now))/1000);sum+=sellFromElapsed(c);runOfflineProduction(c,elapsed);c.lastProductionAt=now;});if(sum>0||S.companies.some(c=>c.factory))save()}
+function managerTransfer(c,shop,p,need,offline=false){shop.inv=shop.inv||{};let have=c.inv[p.id]||0,q=Math.min(have,need);if(q<=0)return 0;c.inv[p.id]-=q;shop.inv[p.id]=(shop.inv[p.id]||0)+q;S.managerLogs.unshift({id:'MT'+Date.now()+Math.random(),ts:Date.now(),companyId:c.id,company:c.name,manager:managerName(c),product:p.name,qty:q,unit:0,total:0,dest:'Merkez Depo → '+storeName(c,shop),before:have,after:c.inv[p.id],kind:'transfer',offline,month:S.month});return q}
+function managerFillStores(c,offline=false){if(managerCount(c)<1)return;for(let shop of c.shops){shop.inv=shop.inv||{};let ps=productList(c),target=Math.max(1,Math.floor((shop.capacity||100)*.8/Math.max(1,ps.length)));for(let p of ps){let cur=shop.inv[p.id]||0;if(cur<target*.35)managerTransfer(c,shop,p,target-cur,offline)}}}
+function managerFillWarehouse(c,offline=false){if(managerCount(c)<1)return;let cap=whCap(c),free=cap-stock(c);if(free<1||c.cash<100)return;let ps=productList(c),targetEach=Math.floor(cap/Math.max(1,ps.length));for(let p of ps){if(free<1||c.cash<100)break;let cur=c.inv[p.id]||0,need=Math.max(0,targetEach-cur);if(!need)continue;let unit=Math.max(1,Math.round(p.buy*difficultyProfile(c).cost));let reserve=Math.max(5000,c.cash*.15),spendable=Math.max(0,c.cash-reserve),q=Math.min(need,free,Math.floor(spendable/unit));if(q<1)continue;let total=q*unit,before=cur;c.cash-=total;c.inv[p.id]=cur+q;addManagerLog(c,p,q,unit,total,'Merkez Depo',before,c.inv[p.id]);free-=q;}}
+function liveCompanyStep(c,gameMins=1,offline=false){normalizeBalance(c);if(!c.shops.length)return {sales:0,qty:0,profit:0,holding:0};managerFillStores(c,offline);managerFillWarehouse(c,offline);managerFillStores(c,offline);let out={sales:0,qty:0,profit:0,holding:0},ps=productList(c),staff=Math.max(1,staffSalesPower(c)),mode=MODES[c.salesMode]||MODES.balanced,diff=difficultyProfile(c);for(let shop of c.shops){shop.inv=shop.inv||{};let chance=Math.min(.98,.28*gameMins*(shop.traffic||1)*(shop.salesBoost||1)*(staffSalesPower(c)>0?1.35:.65));if(Math.random()>chance)continue;let avail=ps.filter(p=>(shop.inv[p.id]||0)>0);if(!avail.length)continue;let p=avail[Math.floor(Math.random()*avail.length)],qty=Math.min(shop.inv[p.id],Math.max(1,Math.round((mode.qty||1)*(1+staff*.18)*(shop.salesBoost||1))));shop.inv[p.id]-=qty;let r=logSale(c,shop,p,qty,Math.round(p.sell*diff.sales),Math.round(p.buy*diff.cost),offline);out.sales+=r.revenue;out.qty+=qty;out.profit+=r.profit;out.holding+=r.holding;}return out}
+function runLiveEngine(gameMins=1,offline=false){let out={sales:0,qty:0,profit:0,holding:0};for(let c of S.companies){let r=liveCompanyStep(c,gameMins,offline);for(let k in out)out[k]+=r[k];}S.gameMinutes=(S.gameMinutes+gameMins)%(24*60);return out}
+function runOfflineSales(){return runLiveEngine(1,false)}
 function levelCompany(c){let target=Math.min(50,1+Math.floor((c.value-SECTORS[c.sector].cost)/Math.max(50000,SECTORS[c.sector].cost*.45)));if(target>c.level)c.level=target;if(c.level>=12&&c.type==='Ltd. Şti.')c.type='A.Ş.'}
 
 
@@ -874,7 +915,7 @@ function companyRow(c){return `<div class="companyRow"><div class="logoBox">${co
 function renderCompanies(){companyList.innerHTML=S.companies.length?S.companies.slice(0,3).map(companyRow).join(''):'<div class="notice">Henüz şirketin yok. Şirket Kur ile başlayabilirsin.</div>';companiesFull.innerHTML=S.companies.length?S.companies.map(companyRow).join(''):'<div class="notice">Henüz şirket yok.</div>'}
 function selectCompany(id){S.active=id;render();openCompany()}
 
-function showView(v){['navHome','navCompanies','navBank','navReports','navPersonal'].forEach(x=>document.getElementById(x).classList.remove('active'));if(v==='companies'){navCompanies.classList.add('active');companiesO.classList.add('open')}else{navHome.classList.add('active')}}
+function showView(v){['navHome','navCompanies','navSales','navBank','navReports','navPersonal'].forEach(x=>document.getElementById(x).classList.remove('active'));if(v==='companies'){navCompanies.classList.add('active');companiesO.classList.add('open')}else{navHome.classList.add('active')}}
 function closeO(id){document.getElementById(id).classList.remove('open')}
 let currentCompanyTab='overview';
 function openCompany(){let c=C();if(!c)return toast('Önce şirket kur.');companyTitle.textContent=c.name+' '+c.type;companySubtitle.textContent=SECTORS[c.sector].name+' • Seviye '+c.level+'/50';companyO.classList.add('open');companyTab(currentCompanyTab,companyTabs.querySelector('.active'))}
@@ -923,20 +964,10 @@ function setMode(m){C().salesMode=m;save();renderCompanyPanel();toast('Satış m
 
 function fmtDT(ts){return new Date(ts).toLocaleString('tr-TR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'})}
 function managerName(c){let m=c.employees.find(e=>e.role==='Müdür');return m?(m.name||('Müdür #'+String(m.id||'').slice(-4))):'Müdür'}
-function addManagerLog(c,p,q,unit,total,dest,before,after){S.managerLogs.unshift({id:'ML'+Date.now()+Math.random(),ts:Date.now(),companyId:c.id,company:c.name,manager:managerName(c),product:p.name,qty:q,unit,total,dest,before,after,month:S.month});S.managerLogs=S.managerLogs.slice(0,250)}
-function managerAutoBuy(c){if(managerCount(c)<1)return;let free=whCap(c)-stock(c);if(free<1||c.cash<100)return;let ps=productList(c),p=ps[Math.floor(Math.random()*ps.length)],unit=Math.round(p.buy*difficultyProfile(c).cost),q=Math.min(free,Math.max(1,Math.floor(Math.min(c.cash*.12,unit*25)/Math.max(1,unit))));if(q<1)return;let total=unit*q,before=c.inv[p.id]||0;if(c.cash<total)return;c.cash-=total;c.inv[p.id]=before+q;c.balance.cogs+=total;addManagerLog(c,p,q,unit,total,'Merkez Depo',before,c.inv[p.id]);S.bankLogs.unshift({ts:Date.now(),type:'Müdür ürün alımı',detail:c.name+' • '+p.name+' • '+q+' adet',amount:-total});}
-function managerReportHtml(c){let logs=S.managerLogs.filter(x=>x.companyId===c.id),month=logs.filter(x=>x.month===S.month),qty=month.reduce((a,x)=>a+x.qty,0),spent=month.reduce((a,x)=>a+x.total,0);return `<div class="managerSummary"><div><span>BU AY ALINAN</span><b>${qty} adet</b></div><div><span>BU AY HARCANAN</span><b>${M(spent)}</b></div><div><span>İŞLEM</span><b>${month.length}</b></div></div>${logs.length?logs.map(x=>`<div class="managerLog"><div class="managerLogHead"><b>${x.manager} • ${x.product}</b><span>${fmtDT(x.ts)}</span></div><div class="managerLogGrid"><div><span>ŞİRKET</span><b>${x.company}</b></div><div><span>HEDEF</span><b>${x.dest}</b></div><div><span>ADET</span><b>${x.qty}</b></div><div><span>BİRİM ALIŞ</span><b>${M(x.unit)}</b></div><div><span>TOPLAM MALİYET</span><b>${M(x.total)}</b></div><div><span>STOK SONRASI</span><b>${x.after} adet</b></div></div></div>`).join(''):'<div class="notice">Müdür henüz otomatik ürün alımı yapmadı. Ay kapandığında müdür stok ve bütçeye göre alım yapar.</div>'}`}
-function addBankLog(type,detail,amount){S.bankLogs.unshift({ts:Date.now(),type,detail,amount});S.bankLogs=S.bankLogs.slice(0,250)}
-function buyWholesaleInput(id,inputId){
- let el=document.getElementById(inputId);
- let q=Math.floor(Number(el?.value||0));
- if(!Number.isFinite(q)||q<1)return toast('Ürün adedi en az 1 olmalı.');
- let c=C(),free=whCap(c)-stock(c);
- if(q>free)return toast('Depoda yalnızca '+free+' ürünlük boş alan var.');
- buyWholesale(id,q);
-}
+function addManagerLog(c,p,q,unit,total,dest,before,after){S.managerLogs.unshift({id:'ML'+Date.now()+Math.random(),ts:Date.now(),companyId:c.id,company:c.name,manager:managerName(c),product:p.name,qty:q,unit,total,dest,before,after,month:S.month});void 0}
+function managerAutoBuy(c){managerFillWarehouse(c,false);managerFillStores(c,false)}
 
-function buyWholesale(id,q){let c=C(),p=productList(c).find(x=>x.id===id),free=whCap(c)-stock(c);if(free<q)return toast('Depo kapasitesi yetersiz. Boş alan: '+free);let cost=Math.round(p.buy*q*difficultyProfile(c).cost);if(!payCompany(cost,'Toptan ürün alımı'))return;c.inv[id]=(c.inv[id]||0)+q;c.balance.cogs+=cost;save();render();renderCompanyPanel()}
+function buyWholesale(id,q){let c=C(),p=productList(c).find(x=>x.id===id),free=whCap(c)-stock(c);if(free<q)return toast('Depo kapasitesi yetersiz. Boş alan: '+free);let cost=Math.round(p.buy*q*difficultyProfile(c).cost);if(!payCompany(cost,'Toptan ürün alımı'))return;c.inv[id]=(c.inv[id]||0)+q;save();render();renderCompanyPanel()}
 function openStore(i){let c=C(),s=STORE_TYPES[i],openCost=Math.round(s.cost*difficultyProfile(c).cost);if(!payCompany(openCost,'Mağaza açılışı'))return;c.shops.push({tier:1,salesBoost:1,inv:{},capacity:100,...s,id:'s'+Date.now()});c.value+=s.cost*.7;save();render();renderCompanyPanel();toast(s.name+' açıldı.')}
 function transferToStore(i,id,inputId){let c=C(),s=c.shops[i],p=productList(c).find(x=>x.id===id),el=document.getElementById(inputId);let q=Math.floor(Number(el?.value||0));if(!s||!p||q<1)return toast('Geçerli ürün adedi gir.');s.inv=s.inv||{};let free=Math.max(0,(s.capacity||100)-storeStock(s)),have=c.inv[id]||0,n=Math.min(q,free,have);if(n<1)return toast(have<1?'Merkez depoda bu ürün yok.':'Mağaza kapasitesi dolu.');c.inv[id]-=n;s.inv[id]=(s.inv[id]||0)+n;save();render();renderCompanyPanel();toast(n+' adet '+p.name+' mağazaya gönderildi.')}
 function produceInput(id,inputId){let el=document.getElementById(inputId),q=Math.floor(Number(el?.value||0));if(!Number.isFinite(q)||q<1)return toast('Üretim adedi en az 1 olmalı.');produce(id,q)}
@@ -947,13 +978,13 @@ function buildFactory(){let c=C(),cost=Math.round(SECTORS[c.sector].cost*2.2*dif
 function factoryStock(c){return Object.values(c.factoryInv||{}).reduce((a,b)=>a+(+b||0),0)}
 function factoryWorkers(c){return c.employees.filter(e=>e.role==='Fabrika İşçisi').length}
 function factoryManagers(c){return c.employees.filter(e=>e.role==='Fabrika Müdürü').length}
-function produce(id,q){let c=C(),p=productList(c).find(x=>x.id===id);if(!c.factory)return toast('Önce fabrika kur.');let free=(c.factoryCapacity||300)-factoryStock(c);q=Math.min(q,free);if(q<1)return toast('Fabrika deposu dolu.');let cost=Math.round(p.buy*.7*q*difficultyProfile(c).cost);if(!payCompany(cost,'Üretim'))return;c.factoryInv[id]=(c.factoryInv[id]||0)+q;c.balance.cogs+=cost;save();render();renderCompanyPanel()}
+function produce(id,q){let c=C(),p=productList(c).find(x=>x.id===id);if(!c.factory)return toast('Önce fabrika kur.');let free=(c.factoryCapacity||300)-factoryStock(c);q=Math.min(q,free);if(q<1)return toast('Fabrika deposu dolu.');let cost=Math.round(p.buy*.7*q*difficultyProfile(c).cost);if(!payCompany(cost,'Üretim'))return;c.factoryInv[id]=(c.factoryInv[id]||0)+q;save();render();renderCompanyPanel()}
 function transferFactoryStock(id,q=999999){let c=C(),free=whCap(c)-stock(c),have=c.factoryInv[id]||0,n=Math.min(q,free,have);if(n<=0)return toast('Taşınacak ürün veya merkez depoda yer yok.');c.factoryInv[id]-=n;c.inv[id]=(c.inv[id]||0)+n;save();render();renderCompanyPanel();toast(n+' ürün mağaza/merkez deposuna gönderildi.')}
 function runOfflineProduction(c,elapsedSec){
  if(!c.factory||factoryManagers(c)<1||factoryWorkers(c)<1)return 0;
  let cycles=Math.min(120,Math.floor(elapsedSec/120)),made=0;if(cycles<1)return 0;
  let products=productList(c),speed=Math.max(1,factoryWorkers(c))*Math.max(1,factoryManagers(c));
- for(let i=0;i<cycles;i++){let p=products[i%products.length],free=(c.factoryCapacity||300)-factoryStock(c);if(free<=0)break;let q=Math.min(free,Math.max(1,Math.round(speed*1.5)));let cost=Math.round(p.buy*.7*q);if(c.cash<cost)break;c.cash-=cost;c.factoryInv[p.id]=(c.factoryInv[p.id]||0)+q;c.balance.cogs+=cost;made+=q;}
+ for(let i=0;i<cycles;i++){let p=products[i%products.length],free=(c.factoryCapacity||300)-factoryStock(c);if(free<=0)break;let q=Math.min(free,Math.max(1,Math.round(speed*1.5)));let cost=Math.round(p.buy*.7*q);if(c.cash<cost)break;c.cash-=cost;c.factoryInv[p.id]=(c.factoryInv[p.id]||0)+q;made+=q;}
  if(made&&managerCount(c)>0){for(let p of products)transferFactoryStockSilent(c,p.id)}
  return made;
 }
@@ -996,6 +1027,11 @@ function withdrawDeposit(){let a=Math.max(0,+depAmount.value||0);a=Math.min(a,S.
 function buyInvest(k){let q=Math.max(1,Math.floor(+document.getElementById('inv_'+k).value||1)),a=S.market[k],cost=a.price*q;if(S.cash<cost)return toast('Holding kasası yetersiz.');S.cash-=cost;S.portfolio[k]=(S.portfolio[k]||0)+q;save();render();renderBank()}
 function sellInvest(k){let q=Math.max(1,Math.floor(+document.getElementById('inv_'+k).value||1)),a=S.market[k];if((S.portfolio[k]||0)<q)return toast('Yeterli varlık yok.');S.portfolio[k]-=q;S.cash+=a.price*q;save();render();renderBank()}
 
+function fmtGameMinute(m){m=Math.floor(m||0)%(24*60);return String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0')}
+function openSalesCenter(){salesO.classList.add('open');renderSalesCenter();document.querySelectorAll('.bottom button').forEach(x=>x.classList.remove('active'));if(typeof navSales!=='undefined')navSales.classList.add('active')}
+function renderSalesCenter(){let logs=S.salesLogs||[],rev=logs.reduce((a,x)=>a+x.revenue,0),profit=logs.reduce((a,x)=>a+x.profit,0),hold=logs.reduce((a,x)=>a+x.holding,0),qty=logs.reduce((a,x)=>a+x.qty,0);salesPanel.innerHTML=`<div class="grid2"><div class="card"><div class="row"><span>Toplam Ciro</span><b>${M(rev)}</b></div><div class="row"><span>Satılan Ürün</span><b>${qty} adet</b></div></div><div class="card"><div class="row"><span>Brüt Kâr</span><b class="pos">${M(profit)}</b></div><div class="row"><span>Holding Payı</span><b>Ay sonunda net kârdan %20</b></div></div></div><div class="card" style="margin-top:8px"><h4>Tüm Şirket Satışları</h4>${logs.length?logs.slice(0,250).map(x=>`<div class="salesLog"><div class="salesLogTop"><b>${x.company} • ${x.product}</b><span>${x.offline?'🌙 Çevrimdışı':'🟢 Canlı'} • ${fmtGameMinute(x.gameMinute)}</span></div><div class="salesLogGrid"><div><span>MAĞAZA</span><b>${x.shop}</b></div><div><span>ADET</span><b>${x.qty}</b></div><div><span>ALIŞ</span><b>${M(x.buy)}</b></div><div><span>SATIŞ</span><b>${M(x.sell)}</b></div><div><span>KÂR</span><b>${M(x.profit)}</b></div><div><span>HOLDİNG</span><b>Ay sonu net kâr %20</b></div></div></div>`).join(''):'<div class="notice">Henüz satış kaydı yok. V30 canlı motoru mağazaları otomatik çalıştırır.</div>'}</div>`}
+function updateGameClock(){let e=document.getElementById('gameClock');if(e)e.textContent=fmtGameMinute(S.gameMinutes)}
+function processOfflineOnBoot(){let now=Date.now(),last=Number(S.lastRealAt)||now,realMs=Math.max(0,Math.min(now-last,12*3600*1000));if(realMs<60000){S.lastRealAt=now;return}let realMinutes=Math.floor(realMs/60000),gameMinutes=Math.min(10800,realMinutes*15),agg={sales:0,qty:0,profit:0,holding:0};for(let i=0;i<gameMinutes;i++){let r=runLiveEngine(1,true);for(let k in agg)agg[k]+=r[k]}S.lastRealAt=now;save();if(agg.sales>0||S.companies.length){offlineTime.textContent=Math.floor(realMinutes/60)+' sa '+(realMinutes%60)+' dk çevrimdışı kaldın';offlineGrid.innerHTML=`<div><span>Satılan Ürün</span><b>${agg.qty} adet</b></div><div><span>Toplam Ciro</span><b>${M(agg.sales)}</b></div><div><span>Brüt Kâr</span><b>${M(agg.profit)}</b></div><div><span>Holding Payı</span><b>Ay sonunda net kârdan %20</b></div>`;offlineReport.classList.add('open')}}
 function openReports(){reportsO.classList.add('open');renderRichReports();navReports.classList.add('active')}
 function renderReports(){let revenue=S.companies.reduce((a,c)=>a+(c.balance?.revenue||0),0),net=S.companies.reduce((a,c)=>a+(c.balance?.net||0),0),pay=S.companies.reduce((a,c)=>a+c.employees.reduce((x,e)=>x+e.salary,0),0),rent=S.companies.reduce((a,c)=>a+c.shops.reduce((x,s)=>x+s.rent,0),0);reportsPanel.innerHTML=`<div class="grid3"><div class="card"><h4>Finans</h4><div class="row"><span>Toplam Ciro</span><b>${M(revenue)}</b></div><div class="row"><span>Net Kâr</span><b class="${net>=0?'pos':'neg'}">${M(net)}</b></div></div><div class="card"><h4>Gider</h4><div class="row"><span>Maaş</span><b>${M(pay)}</b></div><div class="row"><span>Kira</span><b>${M(rent)}</b></div></div><div class="card"><h4>Varlık</h4><div class="row"><span>Net Varlık</span><b>${M(totalWorth())}</b></div><div class="row"><span>Borç</span><b>${M(S.debt)}</b></div></div></div><table class="table" style="margin-top:10px"><thead><tr><th>Şirket</th><th>Kasa</th><th>Ciro</th><th>Net</th></tr></thead><tbody>${S.companies.map(c=>`<tr><td>${c.name}</td><td>${M(c.cash)}</td><td>${M(c.balance?.revenue||0)}</td><td class="${companyNet(c)>=0?'pos':'neg'}">${M(companyNet(c))}</td></tr>`).join('')}</tbody></table>`}
 function openPersonal(){personalO.classList.add('open');renderPersonal();navPersonal.classList.add('active')}
@@ -1011,6 +1047,7 @@ function endMonth(){
    let diff=difficultyProfile(c),payroll=Math.round(c.employees.reduce((a,e)=>a+e.salary,0)*diff.wage),rent=Math.round(c.shops.reduce((a,s)=>a+s.rent,0)*diff.rent);
    c.cash-=payroll+rent;c.balance.payroll+=payroll;c.balance.rent+=rent;c.balance.net-=payroll+rent;
    let tax=Math.max(0,c.balance.net)*.08;c.cash-=tax;c.balance.tax+=tax;c.balance.net-=tax;
+   let holdingShare=Math.max(0,Math.round(c.balance.net*.20));if(holdingShare>0){c.cash-=holdingShare;S.cash+=holdingShare;S.holdingLogs.unshift({ts:Date.now(),type:'Net Kâr Payı',detail:c.name+' • Ay '+S.month,amount:holdingShare});S.bankLogs.unshift({ts:Date.now(),type:'Holding net kâr payı',detail:c.name+' • Ay '+S.month,amount:holdingShare});c.balance.net-=holdingShare;}
    c.balance={revenue:0,cogs:0,payroll:0,rent:0,interest:0,tax:0,net:0};
  });
  if(S.deposit>0)S.deposit*=1.0125;
@@ -1018,8 +1055,8 @@ function endMonth(){
  simulateMarket();S.month++;S.economy=['Normal','Büyüme','Durgunluk'][Math.floor(Math.random()*3)];
  save();render();toast('Ay kapandı. Maaş, kira, vergi, faiz ve mevduat işlendi.');
 }
-document.addEventListener('visibilitychange',()=>{if(!document.hidden){render()}else save()});
-setInterval(()=>{if(!document.hidden){runOfflineSales();render()}},60000);
+document.addEventListener('visibilitychange',()=>{if(document.hidden){S.lastRealAt=Date.now();save()}else{processOfflineOnBoot();render();updateGameClock()}});
+setInterval(()=>{if(!document.hidden){let r=runLiveEngine(1,false);S.lastRealAt=Date.now();save();updateGameClock();if(r.sales>0)render()}},4000);
 
 const OFFICE_LEVEL_NAMES=['Standart Ofis','Gelişen Ofis','Modern Ofis','Prestijli Ofis','Yönetici Ofisi','Üst Düzey Ofis','CEO Ofisi','Holding Merkezi','Penthouse Ofis'];
 S.settings=S.settings||{sound:true,music:false,notifications:true,autoSales:true,theme:'Koyu'};
@@ -1090,7 +1127,7 @@ function removeLogoLayer(){let c=C();if(logoEdit.layer==null)return;c.logoLayers
 
 function renderSettings(){
  let rows=[['Ses Efektleri','sound'],['Müzik','music'],['Bildirimler','notifications'],['Otomatik Satış (Arka Planda)','autoSales']];
- settingsPanel.innerHTML=`<div class="settingsGrid">${rows.map(([n,k])=>`<div class="settingRow"><span>${n}</span><button class="toggle ${S.settings[k]?'on':''}" onclick="toggleSetting('${k}')"></button></div>`).join('')}<div class="settingRow"><span>Tema</span><b>${S.settings.theme}</b></div><div class="settingRow"><span>Dil</span><b>Türkçe</b></div><div class="settingRow"><span>Oyun Hakkında</span><b>ZAZO TYCOON V29.6</b></div><div class="card premiumAssetLegend" style="margin-bottom:10px;min-height:150px"><h4>Premium Icon Pack V1.0</h4><div class="muted">Ürün • sektör • banka • araç • fabrika • çalışan görsel dili aktif.</div></div><div class="settingRow"><span>Yedekleme</span><div><button class="btn" onclick="exportBackup()">Yedek Al</button> <label class="btn" style="display:inline-block">Yükle<input type="file" accept=".json" onchange="importBackup(this)" style="display:none"></label></div></div></div>`;
+ settingsPanel.innerHTML=`<div class="settingsGrid">${rows.map(([n,k])=>`<div class="settingRow"><span>${n}</span><button class="toggle ${S.settings[k]?'on':''}" onclick="toggleSetting('${k}')"></button></div>`).join('')}<div class="settingRow"><span>Tema</span><b>${S.settings.theme}</b></div><div class="settingRow"><span>Dil</span><b>Türkçe</b></div><div class="settingRow"><span>Oyun Hakkında</span><b>ZAZO TYCOON V30.2 GAME UI</b></div><div class="card premiumAssetLegend" style="margin-bottom:10px;min-height:150px"><h4>Premium Icon Pack V1.0</h4><div class="muted">Ürün • sektör • banka • araç • fabrika • çalışan görsel dili aktif.</div></div><div class="settingRow"><span>Yedekleme</span><div><button class="btn" onclick="exportBackup()">Yedek Al</button> <label class="btn" style="display:inline-block">Yükle<input type="file" accept=".json" onchange="importBackup(this)" style="display:none"></label></div></div></div>`;
 }
 function exportBackup(){let blob=new Blob([JSON.stringify(S,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='ZAZO_TYCOON_V25_YEDEK_'+new Date().toISOString().slice(0,10)+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
 function importBackup(inp){let f=inp.files?.[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let x=JSON.parse(r.result);if(!x||!Array.isArray(x.companies))throw 0;S=x;save();location.reload()}catch(e){toast('Yedek dosyası geçersiz.')}};r.readAsText(f)}
@@ -1145,5 +1182,40 @@ function payFlex(){let a=Math.min(Math.max(0,+flexAmount.value||0),S.flex.used||
 render();
 if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js').then(r=>r.update()).catch(()=>{});
 </script>
-<div style="position:fixed;right:8px;bottom:74px;z-index:3;font-size:9px;opacity:.35;pointer-events:none">V29.6 SECTOR STORE VISUALS</div></body>
-</html>
+<div style="position:fixed;right:8px;bottom:74px;z-index:3;font-size:9px;opacity:.35;pointer-events:none">V30.2 GAME UI LIVE TYCOON</div>
+<div class="offlineReport" id="offlineReport"><div class="offlineCard"><h2>Tekrar Hoş Geldin</h2><div class="muted" id="offlineTime">Çevrimdışı ilerleme</div><div class="offlineGrid" id="offlineGrid"></div><button class="btn gold" style="width:100%" onclick="document.getElementById('offlineReport').classList.remove('open')">Devam Et</button></div></div>
+
+<script>
+function renderV302GameHUD(){
+ const el=id=>document.getElementById(id); if(!el('v302Worth')) return;
+ const all=S.companies||[], c=C();
+ el('v302Worth').textContent=M(totalWorth()); el('v302Holding').textContent=M(S.cash);
+ el('v302Revenue').textContent=M(all.reduce((a,x)=>a+(x.balance?.revenue||0),0)); el('v302Net').textContent=M(all.reduce((a,x)=>a+(x.balance?.net||0),0));
+ el('v302Company').innerHTML=c?`<div class="v302stat"><span>${c.name}</span><b>${M(c.cash)}</b></div><div class="v302stat"><span>Mağaza</span><b>${c.shops.length}</b></div><div class="v302stat"><span>Stok</span><b>${stock(c)}</b></div><div class="v302stat"><span>Seviye</span><b>${c.level}</b></div>`:'<div class="v302event">İlk şirketini kurarak başla.</div>';
+ const sl=(S.salesLogs||[]).slice(0,4).map(x=>`<div class="v302event"><b>+${M(x.revenue)}</b> • ${x.company} • ${x.product} × ${x.qty}</div>`);
+ const ml=all.flatMap(x=>(x.managerLogs||[]).slice(0,2).map(m=>({m,c:x.name}))).slice(0,3).map(x=>`<div class="v302event"><b>MÜDÜR</b> • ${x.c} • ${(x.m.type||'işlem').toUpperCase()} ${x.m.product||''}</div>`);
+ el('v302Events').innerHTML=[...sl,...ml].slice(0,6).join('')||'<div class="v302event">Satış ve müdür hareketleri burada canlı görünecek.</div>';
+}
+const _v302render=render; render=function(){_v302render();renderV302GameHUD()};
+setInterval(renderV302GameHUD,4000);
+document.title='ZAZO TYCOON V30.2 GAME UI';
+</script>
+</body>
+</html><style id="v30LandscapeGame">
+@media (orientation:landscape) and (min-width:700px){
+html,body{overflow-x:hidden}.app{max-width:none!important;width:100%!important;padding:10px 260px 78px 108px!important;min-height:100vh;background:#03101a}
+.topbar{position:sticky;top:0;z-index:15;display:grid!important;grid-template-columns:1.3fr repeat(3,1fr);gap:8px;background:rgba(3,12,20,.94);backdrop-filter:blur(14px);border:1px solid #8c6824;border-radius:14px;padding:8px}
+.heroPoster{height:52vh!important;min-height:360px!important;border-radius:18px!important;background-image:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.5)),url('v30_landscape_city.jpg')!important;background-size:cover!important;background-position:center!important;box-shadow:0 18px 50px #0008}
+.heroPoster .gameLuxLogo{transform:scale(1.25);transform-origin:left top}.heroPoster>div>div:last-child{font-size:13px!important}
+.hero{display:none!important}.featureGrid{grid-template-columns:repeat(3,1fr)!important}.featureBtn{min-height:64px!important}.quick{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:8px!important}.quick button{min-height:54px!important}
+.companyList{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:9px!important}.grid3{grid-template-columns:repeat(3,1fr)!important}.section{margin-top:10px!important}.liveStrip{font-size:13px!important}
+.bottom{left:8px!important;right:auto!important;top:96px!important;bottom:12px!important;width:92px!important;height:auto!important;flex-direction:column!important;border:1px solid #8c6824!important;border-radius:16px!important;padding:8px!important;gap:6px!important}.bottom button{flex:1!important;width:100%!important;min-height:58px!important;border-radius:10px!important}.bottom button span{font-size:22px!important}
+body:after{content:'V30.1 ENGINE FIX • LIVE TYCOON';position:fixed;right:12px;bottom:8px;z-index:99;font-size:9px;opacity:.45}
+body:before{content:'HOLDİNG FİNANS MERKEZİ\A\A Toplam Grup Varlığı\A Şirket kasaları canlı çalışır\A\A SATIŞ MERKEZİ\A Canlı satış • kâr • %20 pay\A\A ŞİRKETLER ÇALIŞIYOR';white-space:pre-wrap;position:fixed;right:8px;top:96px;width:238px;bottom:78px;z-index:8;padding:18px 14px;border:1px solid #8c6824;border-radius:16px;background:linear-gradient(180deg,rgba(7,25,39,.96),rgba(2,11,18,.98));color:#f2d17b;font-weight:800;line-height:1.7;box-shadow:0 16px 40px #0008;pointer-events:none}
+.overlay .sheet{max-width:1180px!important;width:calc(100vw - 130px)!important;max-height:92vh!important;margin:auto!important}.overlay{padding:3vh 20px 3vh 110px!important}.tabs{overflow-x:auto!important}.salesLogGrid{grid-template-columns:repeat(6,1fr)!important}
+}
+@media (orientation:portrait),(max-width:699px){.app{max-width:430px!important}.heroPoster{background-image:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.55)),url('hero_mobile.jpg')!important}}
+</style>
+<script>
+(()=>{const old=document.title;document.title='ZAZO TYCOON V30.2 GAME UI';})();
+</script>
