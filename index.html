@@ -873,19 +873,26 @@ function companyPremiumLogo(c){
 function difficultyProfile(c){let l=c?.level||1;if(l<=3)return{name:'Başlangıç • Çok Kolay',cost:.78,sales:1.55,wage:.8,rent:.8};if(l<=8)return{name:'Gelişme • Kolay',cost:.9,sales:1.28,wage:.9,rent:.9};if(l<=20)return{name:'Büyüme • Normal',cost:1,sales:1,wage:1,rent:1};if(l<=35)return{name:'Kurumsal • Zor',cost:1.12,sales:.9,wage:1.12,rent:1.1};return{name:'İmparatorluk • Çok Zor',cost:1.25,sales:.8,wage:1.25,rent:1.18}}
 
 const WORLD_SPOTS={
- textile:{x:58,y:57}, construction:{x:52,y:38}, food:{x:63,y:70}, auto:{x:41,y:65}, tech:{x:68,y:48}, logistics:{x:80,y:63}, space:{x:74,y:29}, energy:{x:34,y:78}, mining:{x:26,y:66}, tourism:{x:47,y:79}
+ logistics:{x:18,y:22,w:15,h:16}, auto:{x:35,y:22,w:15,h:16}, tech:{x:50,y:17,w:15,h:16}, space:{x:69,y:18,w:13,h:17}, mining:{x:88,y:18,w:15,h:17},
+ textile:{x:20,y:41,w:16,h:18}, food:{x:35,y:47,w:16,h:18}, construction:{x:68,y:42,w:17,h:19}, energy:{x:90,y:36,w:14,h:19}, tourism:{x:87,y:58,w:16,h:20}
 };
+const WORLD_COMMON={holding:{x:50,y:52,w:15,h:19,fn:'openReports'},bank:{x:64,y:58,w:13,h:16,fn:'openBank'},market:{x:46,y:65,w:15,h:15,fn:'openMarket'}};
 function openWorldSector(sector){
  let c=S.companies.find(x=>x.sector===sector);
- if(!c){toast(SECTORS[sector].name+' henüz kurulmadı. Şirket Kur bölümünden kurabilirsin.');return;}
+ if(!c){createDraft.sector=sector;openCreate();toast(SECTORS[sector].name+' henüz kurulmadı • Kurulum ekranı açıldı.');return;}
  S.active=c.id;save();render();openCompany();
 }
 function renderWorldMap(){
  let el=document.getElementById('worldMapNodes');if(!el)return;
- let sectors=Object.keys(WORLD_SPOTS).map(k=>{let p=WORLD_SPOTS[k],c=S.companies.find(x=>x.sector===k),active=!!c;return `<button class="worldHotspot ${active?'active':'locked'}" style="left:${p.x}%;top:${p.y}%" onclick="openWorldSector('${k}')">${active?'🏢':'🔒'} ${SECTORS[k].name}<small>${active?(c.name+' • Seviye '+(c.level||1)):'Henüz Kurulmadı'}</small></button>`}).join('');
- let common=`<button class="worldHotspot common" style="left:45%;top:48%" onclick="openReports()">👑 HOLDİNG<small>Finans Merkezi</small></button><button class="worldHotspot common" style="left:37%;top:43%" onclick="openBank()">🏦 BANKA<small>Tüm şirket hesapları</small></button><button class="worldHotspot common" style="left:31%;top:53%" onclick="openMarket()">🛒 PAZAR<small>Ortak ticaret merkezi</small></button><button class="worldHotspot common" style="left:55%;top:48%" onclick="openSalesCenter()">📊 SATIŞ<small>Tüm şirketler</small></button>`;
+ let sectors=Object.keys(WORLD_SPOTS).map(k=>{let p=WORLD_SPOTS[k],c=S.companies.find(x=>x.sector===k),active=!!c;return `<button aria-label="${SECTORS[k].name}" title="${active?c.name:SECTORS[k].name+' • Henüz kurulmadı'}" class="mapHit ${active?'active':'locked'}" style="left:${p.x-p.w/2}%;top:${p.y-p.h/2}%;width:${p.w}%;height:${p.h}%" onclick="openWorldSector('${k}')"><span>${active?'AKTİF':'KİLİTLİ'}</span></button>`}).join('');
+ let common=Object.entries(WORLD_COMMON).map(([k,p])=>`<button aria-label="${k}" title="${k.toUpperCase()}" class="mapHit common" style="left:${p.x-p.w/2}%;top:${p.y-p.h/2}%;width:${p.w}%;height:${p.h}%" onclick="${p.fn}()"><span>ORTAK</span></button>`).join('');
  el.innerHTML=sectors+common;
 }
+async function requestLandscape(){
+ try{if(document.documentElement.requestFullscreen&&!document.fullscreenElement)await document.documentElement.requestFullscreen();}catch(e){}
+ try{if(screen.orientation&&screen.orientation.lock)await screen.orientation.lock('landscape');}catch(e){}
+}
+window.addEventListener('load',()=>{setTimeout(()=>{try{requestLandscape()}catch(e){}},300)});
 function render(){
  renderWorldMap();
  runOfflineSales();
@@ -1190,6 +1197,29 @@ const _v302render=render; render=function(){_v302render();renderV302GameHUD()};
 setInterval(renderV302GameHUD,4000);
 document.title='ZAZO TYCOON V30.3 GAME UI';
 </script>
+
+<style id="v304MapInteractionFix">
+html,body{margin:0!important;background:#02070d!important}
+.worldMapLegend,.worldActions,.topbar,.bottom,#v302Right{display:none!important}
+.app{padding:0!important;margin:0!important;max-width:none!important;width:100vw!important;height:100vh!important;min-height:0!important;overflow:hidden!important}
+.worldHome{margin:0!important;width:100vw!important;height:100vh!important;display:block!important;overflow:hidden!important}
+.worldMap{position:relative!important;width:100vw!important;height:100vh!important;min-height:0!important;aspect-ratio:auto!important;border:0!important;border-radius:0!important;background:#02070d url('zazo_world_map.png') center center/contain no-repeat!important;box-shadow:none!important}
+#worldMapNodes{position:absolute;inset:0;left:50%;transform:translateX(-50%);width:min(100vw,177.777vh);height:min(100vh,56.25vw);top:50%;margin-top:calc(-1 * min(50vh,28.125vw));pointer-events:none}
+.mapHit{position:absolute!important;z-index:20!important;border:0!important;border-radius:14px!important;background:transparent!important;color:transparent!important;cursor:pointer!important;pointer-events:auto!important;padding:0!important;outline:none!important}
+.mapHit span{position:absolute;left:50%;bottom:4px;transform:translateX(-50%);opacity:0;padding:3px 7px;border-radius:10px;background:#07131ddd;color:#f6d16e;font:800 8px system-ui;white-space:nowrap;transition:.15s}
+.mapHit:hover,.mapHit:focus-visible{outline:2px solid #e7b64c!important;background:#e7b64c12!important}.mapHit:hover span,.mapHit:focus-visible span{opacity:1}.mapHit.locked:hover{outline-color:#8d99a6!important}
+#gameMenuBtn{position:fixed;z-index:110;left:12px;top:12px;width:48px;height:48px;border-radius:14px;border:1px solid #c79737;background:#07131ee8;color:#f5d274;font-size:22px;box-shadow:0 8px 24px #0008}
+#gameMenu{position:fixed;z-index:109;left:12px;top:68px;width:190px;padding:8px;border:1px solid #9a742d;border-radius:14px;background:#04101af2;box-shadow:0 18px 50px #000b;display:none}.menuOpen #gameMenu{display:grid;gap:6px}
+#gameMenu button{padding:10px;border:1px solid #29485d;border-radius:9px;background:#0a1c29;color:#dce6ee;text-align:left;font-weight:800}#gameMenu button:hover{border-color:#c79737;color:#f5d274}
+#portraitGate{display:none;position:fixed;z-index:9999;inset:0;background:#02070d;color:#f4d174;align-items:center;justify-content:center;text-align:center;padding:28px;font-family:system-ui}#portraitGate .gateCard{max-width:330px;border:1px solid #9b742d;border-radius:20px;padding:28px;background:#07131e;box-shadow:0 20px 60px #000}#portraitGate b{display:block;font-size:24px;margin:12px}#portraitGate button{margin-top:16px;padding:12px 18px;border:1px solid #d4a544;border-radius:10px;background:#7a5617;color:#fff;font-weight:900}
+@media (orientation:portrait){#portraitGate{display:flex!important}.app{visibility:hidden!important}}
+.overlay{z-index:500!important;padding:3vh 3vw!important}.overlay .sheet{width:min(1120px,94vw)!important;max-width:1120px!important;max-height:92vh!important;margin:auto!important;overflow:auto!important}
+</style>
+<button id="gameMenuBtn" onclick="document.body.classList.toggle('menuOpen')">☰</button>
+<div id="gameMenu"><button onclick="openCreate();document.body.classList.remove('menuOpen')">🏢 Şirket Kur</button><button onclick="showView('companies');document.body.classList.remove('menuOpen')">🏙️ Şirketlerim</button><button onclick="openSalesCenter();document.body.classList.remove('menuOpen')">📊 Satış Merkezi</button><button onclick="openBank();document.body.classList.remove('menuOpen')">🏦 Banka</button><button onclick="openMarket();document.body.classList.remove('menuOpen')">🛒 Pazar</button><button onclick="openReports();document.body.classList.remove('menuOpen')">👑 Holding / Raporlar</button><button onclick="openSettings();document.body.classList.remove('menuOpen')">⚙️ Ayarlar</button></div>
+<div id="portraitGate"><div class="gateCard"><div style="font-size:48px">↻</div><b>Telefonu Yatay Çevir</b><div>ZAZO TYCOON yatay ekran için tasarlandı.</div><button onclick="requestLandscape()">Yatay Modu Aç</button></div></div>
+<script>document.title='ZAZO TYCOON V30.4 MAP INTERACTION FIX';setTimeout(()=>{renderWorldMap()},80);</script>
+
 </body>
 </html><style id="v30LandscapeGame">
 @media (orientation:landscape) and (min-width:700px){
