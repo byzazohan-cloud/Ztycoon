@@ -467,6 +467,8 @@ body{overscroll-behavior:none}.app{position:fixed!important;inset:0!important;wi
 #gameMenu button{display:block!important;min-height:44px!important;padding:10px 12px!important;border:1px solid #29485d!important;border-radius:10px!important;background:#0a1c29!important;color:#eef4f7!important;text-align:left!important;font-weight:850!important;font-size:12px!important}
 .overlay{z-index:7000!important;padding:2vh 2vw!important;box-sizing:border-box!important}.overlay .sheet{width:min(1120px,96vw)!important;max-width:1120px!important;max-height:96vh!important;margin:auto!important;overflow:auto!important}
 #portraitGate{z-index:9000!important}@media (orientation:portrait){#portraitGate{display:flex!important}.app{visibility:hidden!important}}@media (orientation:landscape){#portraitGate{display:none!important}.app{visibility:visible!important}}
+</style><style id="zazoCleanStyle">
+.worldMap,.worldActions,#v302Right{display:none!important}.cleanHome{max-width:1180px;margin:0 auto;padding:18px 18px 96px}.cleanHero{min-height:190px;border:1px solid #8e6b2e;border-radius:22px;padding:28px;display:flex;justify-content:space-between;align-items:center;gap:20px;background:radial-gradient(circle at 75% 20%,#163d55 0,#0a2231 32%,#06131d 72%);box-shadow:0 18px 55px #0007}.cleanHero small{letter-spacing:3px;color:#e7bd5b;font-weight:900}.cleanHero h1{margin:5px 0;font-size:clamp(28px,5vw,54px);color:#f4d06f}.cleanHero p{max-width:620px;color:#a9bac6}.clockCard{min-width:190px;padding:18px;border:1px solid #49677a;border-radius:18px;background:#071722cc;text-align:center}.clockCard span,.clockCard small{display:block;color:#8fa4b4;font-size:10px}.clockCard b{display:block;font-size:30px;margin:6px;color:#f2ca68}.cleanStats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}.cleanStats button,.cleanActions button,.cleanLive{border:1px solid #29485e;background:linear-gradient(145deg,#0b2232,#07131d);color:#fff;border-radius:16px}.cleanStats button{padding:15px;text-align:left}.cleanStats span{display:block;font-size:9px;color:#8fa4b4}.cleanStats b{display:block;margin-top:5px;font-size:17px;color:#f0ca72}.cleanActions{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.cleanActions button{min-height:116px;padding:16px;text-align:left;transition:.15s}.cleanActions button:hover{transform:translateY(-2px);border-color:#d3a748}.cleanActions strong{font-size:28px;display:block}.cleanActions b{display:block;margin:7px 0 3px;font-size:14px}.cleanActions span{font-size:9px;color:#8fa4b4}.cleanLive{margin-top:10px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between}.cleanLive h3{margin:0;color:#f0ca72}.cleanLive p{margin:4px 0 0;color:#9eb0bd;font-size:10px}.cleanLive button{padding:10px 14px;border:1px solid #9a742d;border-radius:10px;background:#745016;color:#fff;font-weight:900}.compatHome{display:none!important}@media(max-width:760px){.cleanHome{padding:10px 10px 86px}.cleanHero{min-height:130px;padding:16px}.clockCard{min-width:135px;padding:10px}.clockCard b{font-size:22px}.cleanStats{grid-template-columns:repeat(2,1fr)}.cleanActions{grid-template-columns:repeat(2,1fr)}.cleanActions button{min-height:92px;padding:12px}.cleanActions strong{font-size:22px}}@media(orientation:portrait) and (max-width:760px){.cleanHero{display:block}.clockCard{margin-top:12px}.cleanActions{grid-template-columns:1fr 1fr}}
 </style></head>
 <body>
 <div class="app">
@@ -476,18 +478,27 @@ body{overscroll-behavior:none}.app{position:fixed!important;inset:0!important;wi
     <div class="kpi"><span>Aktif Şirket Kasası</span><b id="companyCash">₺0</b><small id="companyCashName">Şirket yok</small></div>
     <div class="kpi"><span>Holding Seviyesi</span><b id="holdingLevel">Seviye 1</b><small id="economyTxt">Normal</small></div>
   </header>
-  <main id="worldHome" class="worldHome">
-    <div class="worldMap" id="worldMap">
-      <div id="worldMapNodes"></div>
-      <div class="worldMapLegend">🏢 Kurulu şirket = aktif &nbsp; 🔒 Kurulmamış = kilitli &nbsp; ⭐ Ortak merkez = tüm şirketlere açık</div>
-    </div>
-    <div class="worldActions">
-      <button onclick="openCreate()">🏢 Şirket Kur</button>
-      <button onclick="openSalesCenter()">📊 Satış Merkezi</button>
-      <button onclick="openBank()">🏦 Banka</button>
-      <button onclick="openMarket()">🛒 Pazar</button>
-      <button onclick="openReports()">👑 Holding</button>
-    </div>
+  <main id="worldHome" class="cleanHome">
+    <section class="cleanHero">
+      <div><small>ZAZO TYCOON</small><h1>BUSINESS EMPIRE</h1><p>Şirketlerini kur, mağazalarını çalıştır, müdürünü yönet ve Holding'ini büyüt.</p></div>
+      <div class="clockCard"><span>OYUN SAATİ</span><b class="gameClock" id="cleanGameClock">08:00</b><small>1 gerçek dk = 15 oyun dk</small></div>
+    </section>
+    <section class="cleanStats">
+      <button onclick="openReports()"><span>TOPLAM GRUP VARLIĞI</span><b id="cleanWorth">₺0</b></button>
+      <button onclick="openReports()"><span>HOLDİNG SERMAYESİ</span><b id="cleanHolding">₺0</b></button>
+      <button onclick="openSalesCenter()"><span>TOPLAM CİRO</span><b id="cleanRevenue">₺0</b></button>
+      <button onclick="showView('companies')"><span>ŞİRKETLER</span><b id="cleanCompanies">0</b></button>
+    </section>
+    <section class="cleanActions">
+      <button onclick="openCreate()"><strong>🏢</strong><b>Şirket Kur</b><span>Yeni iş kolu oluştur</span></button>
+      <button onclick="showView('companies')"><strong>🏙️</strong><b>Şirketlerim</b><span>Operasyonları yönet</span></button>
+      <button onclick="openSalesCenter()"><strong>📊</strong><b>Satış Merkezi</b><span>Tüm canlı satışlar</span></button>
+      <button onclick="openBank()"><strong>🏦</strong><b>Banka</b><span>Tüm şirket hesapları</span></button>
+      <button onclick="openMarket()"><strong>🛒</strong><b>Pazar</b><span>Ürün ve tedarik</span></button>
+      <button onclick="openReports()"><strong>👑</strong><b>Holding Finans</b><span>Sermaye ve raporlar</span></button>
+    </section>
+    <section class="cleanLive"><div><h3>CANLI EKONOMİ</h3><p id="cleanEngineStatus">Motor hazırlanıyor…</p></div><button onclick="openSalesCenter()">Hareketleri Gör</button></section>
+    <div class="compatHome" aria-hidden="true"><span id="walletHolding"></span><span id="walletPersonal"></span><span id="walletDebt"></span><div id="activeCompanyBox"></div><span id="sumCompanies"></span><span id="sumEmployees"></span><span id="sumShops"></span><span id="sumStock"></span><span id="sumRevenue"></span><span id="sumNet"></span><div id="companyList"></div><div id="officeLevels"></div></div>
   </main>
 </div>
 
@@ -1219,63 +1230,7 @@ setInterval(renderV302GameHUD,4000);
 document.title='ZAZO TYCOON V30.3 GAME UI';
 </script>
 
-<style id="v304MapInteractionFix">
-html,body{margin:0!important;background:#02070d!important}
-.worldMapLegend,.worldActions,.topbar,.bottom,#v302Right{display:none!important}
-.app{padding:0!important;margin:0!important;max-width:none!important;width:100vw!important;height:100vh!important;min-height:0!important;overflow:hidden!important}
-.worldHome{margin:0!important;width:100vw!important;height:100vh!important;display:block!important;overflow:hidden!important}
-.worldMap{position:relative!important;width:100vw!important;height:100vh!important;min-height:0!important;aspect-ratio:auto!important;border:0!important;border-radius:0!important;background:#02070d url('zazo_world_map.png') center center/contain no-repeat!important;box-shadow:none!important}
-#worldMapNodes{position:absolute;inset:0;left:50%;transform:translateX(-50%);width:min(100vw,177.777vh);height:min(100vh,56.25vw);top:50%;margin-top:calc(-1 * min(50vh,28.125vw));pointer-events:none}
-.mapHit{position:absolute!important;z-index:20!important;border:0!important;border-radius:14px!important;background:transparent!important;color:transparent!important;cursor:pointer!important;pointer-events:auto!important;padding:0!important;outline:none!important}
-.mapHit span{position:absolute;left:50%;bottom:4px;transform:translateX(-50%);opacity:0;padding:3px 7px;border-radius:10px;background:#07131ddd;color:#f6d16e;font:800 8px system-ui;white-space:nowrap;transition:.15s}
-.mapHit:hover,.mapHit:focus-visible{outline:2px solid #e7b64c!important;background:#e7b64c12!important}.mapHit:hover span,.mapHit:focus-visible span{opacity:1}.mapHit.locked:hover{outline-color:#8d99a6!important}
-#gameMenuBtn{position:fixed;z-index:110;left:12px;top:12px;width:48px;height:48px;border-radius:14px;border:1px solid #c79737;background:#07131ee8;color:#f5d274;font-size:22px;box-shadow:0 8px 24px #0008}
-#gameMenu{position:fixed;z-index:109;left:12px;top:68px;width:190px;padding:8px;border:1px solid #9a742d;border-radius:14px;background:#04101af2;box-shadow:0 18px 50px #000b;display:none}.menuOpen #gameMenu{display:grid;gap:6px}
-#gameMenu button{padding:10px;border:1px solid #29485d;border-radius:9px;background:#0a1c29;color:#dce6ee;text-align:left;font-weight:800}#gameMenu button:hover{border-color:#c79737;color:#f5d274}
-#portraitGate{display:none;position:fixed;z-index:9999;inset:0;background:#02070d;color:#f4d174;align-items:center;justify-content:center;text-align:center;padding:28px;font-family:system-ui}#portraitGate .gateCard{max-width:330px;border:1px solid #9b742d;border-radius:20px;padding:28px;background:#07131e;box-shadow:0 20px 60px #000}#portraitGate b{display:block;font-size:24px;margin:12px}#portraitGate button{margin-top:16px;padding:12px 18px;border:1px solid #d4a544;border-radius:10px;background:#7a5617;color:#fff;font-weight:900}
-@media (orientation:portrait){#portraitGate{display:flex!important}.app{visibility:hidden!important}}
-.overlay{z-index:500!important;padding:3vh 3vw!important}.overlay .sheet{width:min(1120px,94vw)!important;max-width:1120px!important;max-height:92vh!important;margin:auto!important;overflow:auto!important}
-</style>
-<button id="gameMenuBtn" onclick="document.body.classList.toggle('menuOpen')">☰</button>
-<div id="gameMenu"><button onclick="openCreate();document.body.classList.remove('menuOpen')">🏢 Şirket Kur</button><button onclick="showView('companies');document.body.classList.remove('menuOpen')">🏙️ Şirketlerim</button><button onclick="openSalesCenter();document.body.classList.remove('menuOpen')">📊 Satış Merkezi</button><button onclick="openBank();document.body.classList.remove('menuOpen')">🏦 Banka</button><button onclick="openMarket();document.body.classList.remove('menuOpen')">🛒 Pazar</button><button onclick="openReports();document.body.classList.remove('menuOpen')">👑 Holding / Raporlar</button><button onclick="openSettings();document.body.classList.remove('menuOpen')">⚙️ Ayarlar</button></div>
-<div id="portraitGate"><div class="gateCard"><div style="font-size:48px">↻</div><b>Telefonu Yatay Çevir</b><div>ZAZO TYCOON yatay ekran için tasarlandı.</div><button onclick="requestLandscape()">Yatay Modu Aç</button></div></div>
-<script>document.title='ZAZO TYCOON V30.4 MAP INTERACTION FIX';setTimeout(()=>{renderWorldMap()},80);</script>
 
-<script id="v306CleanLogic">
-(function(){
- document.title='ZAZO TYCOON V30.7 WORKING MAP';
- // Exact hit zones for the approved 16:9 map. Bank area deliberately enlarged.
- Object.assign(WORLD_SPOTS,{logistics:{x:19,y:20,w:17,h:18},auto:{x:37,y:20,w:17,h:18},tech:{x:51,y:16,w:17,h:18},space:{x:70,y:17,w:15,h:19},mining:{x:89,y:17,w:17,h:19},textile:{x:21,y:40,w:18,h:19},food:{x:36,y:47,w:18,h:19},construction:{x:69,y:41,w:18,h:20},energy:{x:90,y:35,w:17,h:20},tourism:{x:88,y:58,w:18,h:21}});
- Object.assign(WORLD_COMMON,{holding:{x:51,y:50,w:18,h:20,fn:'openReports'},bank:{x:66,y:57,w:20,h:20,fn:'openBank'},market:{x:48,y:65,w:19,h:18,fn:'openMarket'}});
- function closeMenu(){document.body.classList.remove('menuOpen')}
- document.addEventListener('pointerdown',function(e){if(document.body.classList.contains('menuOpen')&&!e.target.closest('#gameMenu')&&!e.target.closest('#gameMenuBtn'))closeMenu()});
- document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
- window.addEventListener('orientationchange',()=>setTimeout(renderWorldMap,150));
- window.addEventListener('resize',()=>setTimeout(renderWorldMap,80));
- // Reliable map interaction for mouse + touch. Do not depend only on inline onclick.
- const map=document.getElementById('worldMapNodes');
- if(map){
-   map.style.pointerEvents='auto';
-   map.addEventListener('pointerup',function(e){
-     const b=e.target.closest('.mapHit'); if(!b)return;
-     e.preventDefault(); e.stopPropagation();
-     const sector=b.dataset.sector;
-     const common=b.dataset.common;
-     if(sector) openWorldSector(sector);
-     else if(common==='bank') openBank();
-     else if(common==='market') openMarket();
-     else if(common==='holding') openReports();
-   },true);
- }
- // Rebuild buttons with explicit data targets so taps remain reliable after scaling.
- const originalRenderWorldMap=renderWorldMap;
- renderWorldMap=function(){
-   const el=document.getElementById('worldMapNodes'); if(!el)return;
-   const sectors=Object.keys(WORLD_SPOTS).map(k=>{const p=WORLD_SPOTS[k],c=S.companies.find(x=>x.sector===k),active=!!c;return `<button type="button" data-sector="${k}" aria-label="${SECTORS[k].name}" class="mapHit ${active?'active':'locked'}" style="left:${p.x-p.w/2}%;top:${p.y-p.h/2}%;width:${p.w}%;height:${p.h}%"><span>${active?'AKTİF':'KUR'}</span></button>`}).join('');
-   const common=Object.entries(WORLD_COMMON).map(([k,p])=>`<button type="button" data-common="${k}" aria-label="${k}" class="mapHit common" style="left:${p.x-p.w/2}%;top:${p.y-p.h/2}%;width:${p.w}%;height:${p.h}%"><span>${k.toUpperCase()}</span></button>`).join('');
-   el.innerHTML=sectors+common;
- };
- setTimeout(()=>{renderWorldMap();try{requestLandscape()}catch(e){}},100);
-})();
-</script></body>
-</html>
+<script id="zazoCleanLogic">
+(function(){document.title='ZAZO TYCOON CLEAN';function u(){try{let all=S.companies||[],rev=all.reduce((a,c)=>a+(c.balance?.revenue||0),0);let set=(id,v)=>{let e=document.getElementById(id);if(e)e.textContent=v};set('cleanWorth',M(totalWorth()));set('cleanHolding',M(S.cash));set('cleanRevenue',M(rev));set('cleanCompanies',all.length);set('cleanGameClock',fmtGameMinute(S.gameMinutes||480));let sales=(S.salesLogs||[]).length,man=(S.managerLogs||[]).length;set('cleanEngineStatus',all.length?`Otomasyon aktif • ${sales} satış kaydı • ${man} müdür hareketi`:'İlk şirketini kurarak ekonomiyi başlat.');}catch(e){}}setInterval(u,1000);setTimeout(u,100);})();
+</script></body></html>
