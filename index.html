@@ -462,54 +462,19 @@ body:after{content:'V30.3 GAME UI  •  LIVE TYCOON ENGINE';position:fixed;right
     <div class="kpi"><span>Aktif Şirket Kasası</span><b id="companyCash">₺0</b><small id="companyCashName">Şirket yok</small></div>
     <div class="kpi"><span>Holding Seviyesi</span><b id="holdingLevel">Seviye 1</b><small id="economyTxt">Normal</small></div>
   </header>
-  <section class="heroPoster premiumTile"><div>
-<div class="gameLuxLogo"><div class="gameLuxMark"><img src="icon-512.png" alt="ZAZO TYCOON"></div><div class="gameLuxText"><b>ZAZO TYCOON</b><small>BUSINESS EMPIRE</small></div></div>
-<div style="margin-top:72px;color:#f4d37d;font-size:10px;font-weight:900">KÜÇÜK ADIMLAR, BÜYÜK İMPARATORLUKLAR</div>
-</div></section>
-  <section class="section"><div class="featureGrid">
-<button class="featureBtn" onclick="openMarket()"><b><span class="bigLuxIco">🛒</span>Pazar</b></button>
-<button class="featureBtn" onclick="openAchievements()"><b><span class="bigLuxIco">🏆</span>Başarılar</b></button>
-<button class="featureBtn" onclick="openOfficeLevels()"><b><span class="bigLuxIco">🏢</span>Ofisler</b></button>
-</div></section>
-
-  <section class="hero">
-    <div class="heroGrid">
-      <div>
-        <h1>Şirketini kur. Sistemi kur. Büyüt.</h1>
-        <p>Satış, stok, çalışan, mağaza, fabrika ve finans tek merkezden yönetilir.</p>
-        <div class="activeCompany" id="activeCompanyBox"></div>
-      </div>
-      <div class="wallets">
-        <div class="wallet"><span>Holding Nakit</span><b id="walletHolding">₺0</b></div>
-        <div class="wallet"><span>Kişisel Para</span><b id="walletPersonal">₺0</b></div>
-        <div class="wallet"><span>Toplam Borç</span><b id="walletDebt">₺0</b></div>
-      </div>
+  <main id="worldHome" class="worldHome">
+    <div class="worldMap" id="worldMap">
+      <div id="worldMapNodes"></div>
+      <div class="worldMapLegend">🏢 Kurulu şirket = aktif &nbsp; 🔒 Kurulmamış = kilitli &nbsp; ⭐ Ortak merkez = tüm şirketlere açık</div>
     </div>
-  </section>
-
-  <div class="quick">
-    <button class="q1" onclick="openCreate()"><span id="iq1"></span>Şirket Kur</button>
-    <button class="q2" onclick="openCompany()"><span id="iq2"></span>Şirket Yönet</button>
-    <button class="q3" onclick="openBank()"><span id="iq3"></span>Banka</button>
-    <button class="q4" onclick="endMonth()"><span id="iq4"></span>Ayı Bitir</button>
-  </div>
-<div class="liveStrip"><b>CANLI EKONOMİ</b> • Oyun Saati <span id="gameClock" class="gameClock">08:00</span> • <span id="liveStatus">Şirketler otomatik çalışıyor</span></div>
-
-  <section class="section">
-    <div class="sectionHead"><h3>Şirketlerim</h3><button class="btn ghost" onclick="showView('companies')">Tümünü Gör</button></div>
-    <div id="companyList" class="companyList"></div>
-  </section>
-
-  
-
-<section class="section">
-    <div class="sectionHead"><h3>Holding Özeti</h3><span class="muted">Para akışı artık ayrı kasalarda</span></div>
-    <div class="grid3">
-      <div class="card"><div class="row"><span>Şirket Sayısı</span><b id="sumCompanies">0</b></div><div class="row"><span>Toplam Çalışan</span><b id="sumEmployees">0</b></div></div>
-      <div class="card"><div class="row"><span>Toplam Mağaza</span><b id="sumShops">0</b></div><div class="row"><span>Toplam Stok</span><b id="sumStock">0</b></div></div>
-      <div class="card"><div class="row"><span>Aylık Ciro</span><b id="sumRevenue">₺0</b></div><div class="row"><span>Net Kâr</span><b id="sumNet">₺0</b></div></div>
+    <div class="worldActions">
+      <button onclick="openCreate()">🏢 Şirket Kur</button>
+      <button onclick="openSalesCenter()">📊 Satış Merkezi</button>
+      <button onclick="openBank()">🏦 Banka</button>
+      <button onclick="openMarket()">🛒 Pazar</button>
+      <button onclick="openReports()">👑 Holding</button>
     </div>
-  </section>
+  </main>
 </div>
 
 
@@ -597,10 +562,6 @@ body:after{content:'V30.3 GAME UI  •  LIVE TYCOON ENGINE';position:fixed;right
  <div id="marketPanel"></div>
 </div></div>
 
-<div class="worldMap" id="worldMap" style="margin-top:8px">
-  <div id="worldMapNodes"></div>
-  <div class="worldMapLegend">🏢 Kurulu şirket = aktif &nbsp; 🔒 Kurulmamış = kilitli &nbsp; ⭐ Ortak merkez = tüm şirketlere açık</div>
- </div>
 </div></div>
 
 <div class="overlay" id="achievementsO"><div class="sheet">
@@ -1248,3 +1209,20 @@ body:before{content:'HOLDİNG FİNANS MERKEZİ\A\A Toplam Grup Varlığı\A Şir
 <script>
 (()=>{const old=document.title;document.title='ZAZO TYCOON V30.3 GAME UI';})();
 </script>
+
+<style id="v303WorldOnlyFix">
+@media (orientation:landscape) and (min-width:700px){
+ html,body{height:100%;overflow:hidden!important}
+ .app{width:100%!important;max-width:none!important;height:100vh!important;min-height:0!important;padding:8px 8px 70px 104px!important;display:flex!important;flex-direction:column!important}
+ .topbar{flex:0 0 auto!important}
+ .worldHome{flex:1 1 auto!important;min-height:0!important;display:flex!important;flex-direction:column!important;gap:7px!important;margin-top:7px!important}
+ .worldMap{flex:1 1 auto!important;width:100%!important;aspect-ratio:auto!important;height:auto!important;min-height:0!important;border-radius:12px!important;background-position:center!important;background-size:cover!important}
+ .worldActions{display:grid!important;grid-template-columns:repeat(5,1fr)!important;gap:7px!important;flex:0 0 44px!important}
+ .worldActions button{border:1px solid #a77b28;border-radius:9px;background:linear-gradient(180deg,#142738,#07121d);color:#f4d37d;font-weight:900;font-size:10px}
+ #v302Right{display:none!important}
+ body:before,body:after{display:none!important;content:none!important}
+ .bottom{left:8px!important;right:auto!important;top:86px!important;bottom:8px!important;width:88px!important}
+}
+@media (orientation:portrait),(max-width:699px){.worldHome{margin-top:8px}.worldActions{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-top:6px}.worldActions button{padding:10px 5px;border:1px solid #8c6824;border-radius:9px;background:#0a1b27;color:#f2d17b;font-weight:900}}
+</style>
+<script>document.title='ZAZO TYCOON V30.3 WORLD MAP FIX';setTimeout(()=>{try{renderWorldMap()}catch(e){}},50);</script>
