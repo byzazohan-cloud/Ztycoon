@@ -1,12 +1,21 @@
-ZAZO TYCOON — PLAN EDITION
+ZAZO TYCOON — BUSINESS EMPIRE V6 REAL GAME
 
-Bu paket, onaylanan oyun planındaki yapıya göre hazırlanmıştır.
+GitHub Pages kök dizinine:
+1. index.html
+2. textile-campus.png
+dosyalarını birlikte yükleyin.
 
-GitHub Pages'e şu 3 dosyayı birlikte yükleyin:
-- index.html
-- textile-campus.png
-- game-plan.png
-
-Ana yapı:
-Ana şehir -> şirket dünyaları -> şirket kampüsü -> ofis/fabrika/depo/mağaza -> üretim/satış/rapor.
-ZAZO Tekstil için tam üretim zinciri aktiftir. Diğer 9 sektör ayrı şirket dünyaları olarak korunmuştur ve kendi operasyon merkezleri vardır.
+V6:
+- 10 sektörün tamamında satın alma -> üretim/hizmet -> depo -> sevkiyat -> satış ekonomisi çalışır.
+- Her şirketin ayrı kasa, değer, seviye, çalışan, müdür, araç, stok ve muhasebesi vardır.
+- Tekstil kampüs görseli yalnızca ZAZO TEKSTİL'e aittir.
+- Diğer sektörler kendi sektör dekoru ve operasyon dünyasına sahiptir.
+- Şahıs -> LTD -> AŞ seviye gelişimi.
+- Müdür otomasyonu.
+- Banka kredisi / borç ödeme / mevduat.
+- Holding ve %20 operasyon kâr payı.
+- Yatırım merkezi.
+- Grup raporları ve başarılar.
+- Gerçek işlem geçmişi.
+- Otomatik kayıt.
+- Çalışan Verileri Sıfırla.
