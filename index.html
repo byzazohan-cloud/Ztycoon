@@ -30,7 +30,7 @@ button{font:inherit;color:inherit}.game{max-width:1600px;margin:auto;min-height:
 </head>
 <body>
 <div class="game">
-<header class="top"><div class="logo">♛ ZAZO TYCOON<small>BUSINESS EMPIRE</small></div><div class="resources"><div class="pill">Holding <b id="holdingCash"></b></div><div class="pill">💎 1.250</div><div class="pill">♛ Seviye 28</div><div class="pill" id="gameDay">Gün 287</div></div></header>
+<header class="top"><div class="logo">♛ ZAZO TYCOON<small>BUSINESS EMPIRE</small></div><div class="resources"><div class="pill">Holding <b id="holdingCash"></b></div><div class="pill">💎 1.250</div><div class="pill">♛ Seviye 28</div><div class="pill" id="gameDay">Gün 287</div><button id="resetGame" class="pill" style="color:#ffb0b0;cursor:pointer">↻ Verileri Sıfırla</button></div></header>
 <div class="layout">
 <aside class="side"><div class="nav" id="nav">
 <button class="active" data-menu="Şirketlerim">🏢 Şirketlerim</button><button data-menu="Banka">🏦 Banka</button><button data-menu="Yatırım">📈 Yatırım</button><button data-menu="Pazar">🛒 Pazar</button><button data-menu="Araçlar">🚚 Araçlar</button><button data-menu="Gayrimenkul">🏠 Gayrimenkul</button><button data-menu="Holding">♛ Holding</button><button data-menu="Raporlar">📊 Raporlar</button>
@@ -93,6 +93,14 @@ document.querySelector('#close').onclick=()=>document.querySelector('#modal').cl
 document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');const c=companies[state.current],m=b.dataset.menu;if(m==='Şirketlerim'){toast('Şirket seçimi aşağıda');return}if(m==='Holding')modal('Holding Finans',[['Holding Sermayesi',money(state.holding)],['Toplam Şirket Kasası',money(companies.reduce((a,x)=>a+x.cash,0))],['Toplam Grup Değeri',money(companies.reduce((a,x)=>a+x.value,0))],['Kurulu Şirket',companies.length]]);else if(m==='Banka')modal('Banka',[['Vadesiz Hesap',money(c.cash)],['Kredi Limiti',money(c.value*.12)],['Kredi Kartı Limiti',money(c.value*.025)],['Esnek Hesap',money(c.value*.04)]]);else if(m==='Yatırım')modal('Yatırım',[['Altın','₺2.480'],['BIST 100','9.482'],['Bitcoin','$102.450'],['Yatırım Bakiyesi',money(state.holding*.08)]]);else if(m==='Raporlar')modal('Raporlar',[['Aylık Ciro',money(c.revenue)],['Aylık Net Kâr',money(c.profit)],['Kâr Marjı','%'+Math.round(c.profit/c.revenue*100)],['Holding Payı',money(c.profit*.2)]]);else modal(m,[['Seçili Şirket',c.name],['Durum','Aktif'],['Şirket Kasası',money(c.cash)],['Şirket Değeri',money(c.value)]])});
 function toast(t){const el=document.querySelector('#toast');el.textContent=t;el.style.display='block';clearTimeout(window.zz);window.zz=setTimeout(()=>el.style.display='none',2200)}
 setInterval(()=>{const c=companies[state.current];const sale=Math.round(15000+Math.random()*85000),cost=Math.round(sale*.62),profit=sale-cost,hold=Math.round(profit*.2);c.cash+=profit-hold;c.revenue+=sale;c.profit+=profit;state.holding+=hold;state.ledger.push({t:Date.now(),company:c.name,type:'Satış',amount:sale,profit,holding:hold});if(state.ledger.length>100)state.ledger.shift();save();render()},12000);
+
+document.querySelector('#resetGame').onclick=()=>{
+  const ok=confirm('ZAZO TYCOON verileri sıfırlansın mı?\n\nŞirket ilerlemeleri, kasa değişiklikleri, Holding sermayesi ve işlem geçmişi başlangıç değerlerine dönecek.');
+  if(!ok)return;
+  localStorage.removeItem('zazoTycoonV2');
+  localStorage.removeItem('zazoTycoonV3');
+  location.reload();
+};
 render();
 </script>
 </body></html>

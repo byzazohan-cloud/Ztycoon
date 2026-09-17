@@ -1,3 +1,4 @@
-ZAZO TYCOON Business Empire
-index.html dosyasını açın veya GitHub Pages kök dizinine yükleyin.
-Tarayıcı verileri localStorage ile saklanır.
+ZAZO TYCOON V3
+
+index.html ana oyun dosyasıdır.
+Üst çubuktaki 'Verileri Sıfırla' düğmesi kayıtlı oyun verilerini siler ve başlangıç değerlerini geri yükler.
