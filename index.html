@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>ZAZO TYCOON V8 — Sector Worlds</title>
+<title>ZAZO TYCOON V9 — Logic & Visual Fix</title>
 <style>
 *{box-sizing:border-box}
 :root{
@@ -13,168 +13,83 @@
 html,body{margin:0;background:var(--ink);color:var(--white);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;overflow-x:hidden}
 button,input,select{font:inherit;color:inherit} button{cursor:pointer}
 #app{min-height:100vh;background:#04111a}
-.top{
-  height:58px; display:flex; align-items:center; gap:8px; padding:7px 12px;
-  background:#04111af0; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:60; backdrop-filter:blur(10px)
-}
-.logo{font-size:19px; font-weight:950; color:var(--gold2)}
-.logo small{display:block; font-size:7px; letter-spacing:3px; color:var(--muted)}
-.hud{margin-left:auto; display:flex; gap:6px; flex-wrap:wrap}
-.chip{background:#0a202c; border:1px solid #405763; border-radius:9px; padding:7px 10px; font-size:11px}
-.chip b{color:var(--gold2)}
-.layout{display:grid; grid-template-columns:66px 1fr}
-.rail{background:#061722; border-right:1px solid var(--line); padding:7px; display:flex; flex-direction:column; gap:7px}
-.rail button{height:50px; border:1px solid #5f4d2b; background:#0a202c; border-radius:10px; font-size:20px}
-.rail button.on,.rail button:hover{background:#5b4117; border-color:var(--gold2)}
-.screen{min-width:0}
-.head{display:flex; align-items:center; gap:10px; padding:9px 12px}
-.back{display:none; border:1px solid #6d5930; background:#0b2431; border-radius:9px; padding:8px 10px}
-.back.show{display:block}
-.head h1{margin:0; color:var(--gold2); font-size:22px}
-.head p{margin:2px 0; color:var(--muted); font-size:11px}
-.stage{
-  height:calc(100vh - 176px); min-height:520px; margin:0 11px 8px; position:relative; overflow:hidden;
-  border:1px solid #927236; border-radius:16px; background:#18394a;
-}
-.stats{
-  display:grid; grid-template-columns:repeat(6,1fr); gap:6px; padding:0 12px 8px;
-}
-.stat{background:#091f2b; border:1px solid #294551; border-radius:9px; padding:8px}
-.stat small{display:block; color:var(--muted); font-size:10px}
-.stat b{display:block; color:var(--gold2); font-size:13px; margin-top:3px}
-.bottom{
-  height:50px; display:flex; gap:6px; overflow-x:auto; padding:4px 11px 6px;
-}
-.companyBtn{
-  min-width:140px; border:1px solid #5d4d2a; background:#0a202c; border-radius:9px; padding:5px 8px; text-align:left
-}
-.companyBtn.on{border-color:var(--gold2); background:#5a4118}
-.companyBtn b{display:block; font-size:10px}
-.companyBtn small{display:block; color:var(--muted); font-size:8px}
-.sceneHud{
-  position:absolute; left:14px; top:14px; z-index:15; padding:10px 11px; border-radius:10px;
-  background:#05131ddd; border:1px solid #8c6f36; max-width:270px; backdrop-filter:blur(8px)
-}
-.sceneHud b{color:var(--gold2)}
-.hot{
-  position:absolute; z-index:15; border:1px solid var(--gold); background:#06131ddd; border-radius:9px;
-  padding:8px 10px; font-weight:850; box-shadow:0 8px 22px #0007;
-}
-.hot small{display:block; font-size:8px; color:#b8c5ca; font-weight:400}
-.quickPanel{
-  position:absolute; right:14px; top:14px; width:min(360px,46%); z-index:18; background:#061722e8; border:1px solid #8c7036; border-radius:12px; padding:11px; backdrop-filter:blur(8px)
-}
-.quickPanel h3{margin:0 0 7px; color:var(--gold2)}
-.row{display:flex; justify-content:space-between; gap:8px; padding:6px; border-bottom:1px solid #1a3340; font-size:11px}
-.row:last-child{border-bottom:0}
-.actions{display:grid; grid-template-columns:1fr 84px; gap:6px; margin-top:8px}
-.actions input,.actions select{
-  background:#04121a; border:1px solid #314b57; border-radius:8px; padding:8px 9px
-}
-.action{
-  margin-top:8px; width:100%; border:1px solid #735d31; background:linear-gradient(90deg,#6d4b14,#133040);
-  border-radius:9px; padding:9px 11px; font-weight:800
-}
+.top{height:58px;display:flex;align-items:center;gap:8px;padding:7px 12px;background:#04111af0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:60;backdrop-filter:blur(10px)}
+.logo{font-size:19px;font-weight:950;color:var(--gold2)} .logo small{display:block;font-size:7px;letter-spacing:3px;color:var(--muted)}
+.hud{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}.chip{background:#0a202c;border:1px solid #405763;border-radius:9px;padding:7px 10px;font-size:11px}.chip b{color:var(--gold2)}
+.layout{display:grid;grid-template-columns:66px 1fr}.rail{background:#061722;border-right:1px solid var(--line);padding:7px;display:flex;flex-direction:column;gap:7px}
+.rail button{height:50px;border:1px solid #5f4d2b;background:#0a202c;border-radius:10px;font-size:20px}.rail button.on,.rail button:hover{background:#5b4117;border-color:var(--gold2)}
+.screen{min-width:0}.head{display:flex;align-items:center;gap:10px;padding:9px 12px}.back{display:none;border:1px solid #6d5930;background:#0b2431;border-radius:9px;padding:8px 10px}.back.show{display:block}
+.head h1{margin:0;color:var(--gold2);font-size:22px}.head p{margin:2px 0;color:var(--muted);font-size:11px}
+.stats{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;padding:0 12px 8px}.stat{background:#091f2b;border:1px solid #294551;border-radius:9px;padding:8px}.stat small{display:block;color:var(--muted);font-size:10px}.stat b{display:block;color:var(--gold2);font-size:13px;margin-top:3px}
+.stage{height:calc(100vh - 176px);min-height:540px;margin:0 11px 8px;position:relative;overflow:hidden;border:1px solid #927236;border-radius:16px;background:#18394a}
+.bottom{height:50px;display:flex;gap:6px;overflow-x:auto;padding:4px 11px 6px}
+.companyBtn{min-width:145px;border:1px solid #5d4d2a;background:#0a202c;border-radius:9px;padding:5px 8px;text-align:left}
+.companyBtn.on{border-color:var(--gold2);background:#5a4118}.companyBtn b{display:block;font-size:10px}.companyBtn small{display:block;color:var(--muted);font-size:8px}
+.sceneHud{position:absolute;left:14px;top:14px;z-index:15;padding:10px 11px;border-radius:10px;background:#05131ddd;border:1px solid #8c6f36;max-width:300px;backdrop-filter:blur(8px)}
+.sceneHud b{color:var(--gold2)} .sceneHud small{display:block;color:#c2cdd1}
+.hot{position:absolute;z-index:15;border:1px solid var(--gold);background:#06131ddd;border-radius:9px;padding:8px 10px;font-weight:850;box-shadow:0 8px 22px #0007}
+.hot small{display:block;font-size:8px;color:#b8c5ca;font-weight:400}
+.quickPanel{position:absolute;right:14px;top:14px;width:min(390px,48%);z-index:18;background:#061722e8;border:1px solid #8c7036;border-radius:12px;padding:11px;backdrop-filter:blur(8px)}
+.quickPanel h3{margin:0 0 7px;color:var(--gold2)}
+.row{display:flex;justify-content:space-between;gap:8px;padding:6px;border-bottom:1px solid #1a3340;font-size:11px}.row:last-child{border-bottom:0}
+.actions{display:grid;grid-template-columns:1fr 84px;gap:6px;margin-top:8px}
+.actions input,.actions select,.loanInput{background:#04121a;border:1px solid #314b57;border-radius:8px;padding:8px 9px;color:var(--white)}
+.action{margin-top:8px;width:100%;border:1px solid #735d31;background:linear-gradient(90deg,#6d4b14,#133040);border-radius:9px;padding:9px 11px;font-weight:800}
 .action.secondary{background:#112532}
-.toast{
-  display:none; position:fixed; right:12px; bottom:12px; z-index:120;
-  background:#0c2735; border:1px solid #997a36; border-radius:9px; padding:10px 12px
-}
-.overlay{
-  display:none; position:fixed; inset:0; background:#000c; z-index:100; align-items:center; justify-content:center; padding:14px
-}
-.overlay.open{display:flex}
-.card{
-  width:min(860px,100%); max-height:88vh; overflow:auto; background:#081e2a; border:1px solid #927236;
-  border-radius:14px; padding:14px
-}
-.card h2{margin:0; color:var(--gold2)}
-.card p{color:var(--muted); font-size:11px}
-.close{
-  float:right; border:1px solid #546b76; background:#112b38; border-radius:8px; padding:7px 10px
-}
-.grid2{display:grid; grid-template-columns:1fr 1fr; gap:9px}
-.box{border:1px solid #2a4651; background:#0b2230; border-radius:10px; padding:10px}
-.log{max-height:250px; overflow:auto; background:#04131b; border:1px solid #284551; border-radius:9px; padding:7px; font-size:11px}
-.log div{padding:4px 0; border-bottom:1px solid #122734}
-.log div:last-child{border-bottom:0}
-.badge{
-  position:absolute; z-index:12; left:14px; bottom:14px; border:1px solid #8b6f36; background:#06131ddd;
-  border-radius:10px; padding:9px 10px; font-size:11px
-}
+.toast{display:none;position:fixed;right:12px;bottom:12px;z-index:120;background:#0c2735;border:1px solid #997a36;border-radius:9px;padding:10px 12px}
+.overlay{display:none;position:fixed;inset:0;background:#000c;z-index:100;align-items:center;justify-content:center;padding:14px}.overlay.open{display:flex}
+.card{width:min(900px,100%);max-height:88vh;overflow:auto;background:#081e2a;border:1px solid #927236;border-radius:14px;padding:14px}
+.card h2{margin:0;color:var(--gold2)} .card p{color:var(--muted);font-size:11px}
+.close{float:right;border:1px solid #546b76;background:#112b38;border-radius:8px;padding:7px 10px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:9px}.box{border:1px solid #2a4651;background:#0b2230;border-radius:10px;padding:10px}.log{max-height:250px;overflow:auto;background:#04131b;border:1px solid #284551;border-radius:9px;padding:7px;font-size:11px}
+.log div{padding:4px 0;border-bottom:1px solid #122734}.log div:last-child{border-bottom:0}
+.badge{position:absolute;z-index:12;left:14px;bottom:14px;border:1px solid #8b6f36;background:#06131ddd;border-radius:10px;padding:9px 10px;font-size:11px}
 
-/* city */
-.cityBg{position:absolute; inset:0; background:linear-gradient(#547f99 0,#aab9bc 45%,#586d64 46%,#1d2927 100%)}
-.cityRoad{position:absolute; left:-5%; right:-5%; bottom:0; height:37%; background:linear-gradient(165deg,#314047 0 43%,#222c31 44% 63%,#3a474c 64%); clip-path:polygon(0 18%,100% 0,100% 100%,0 100%)}
-.cityRoad:after{content:""; position:absolute; left:0; right:0; top:48%; border-top:3px dashed #d6cb92aa}
-.tower{
-  position:absolute; bottom:25%; border:2px solid #83969d; background:linear-gradient(90deg,#152d39,#536d78,#18333f);
-  box-shadow:0 20px 35px #0007
-}
-.tower:before{
-  content:""; position:absolute; inset:8px; background-image:linear-gradient(#f3ca6045 1px,transparent 1px),linear-gradient(90deg,#f3ca6045 1px,transparent 1px); background-size:18px 17px
-}
-.tower b{position:absolute; left:0; right:0; top:40%; text-align:center; z-index:2; color:var(--gold2); font-size:10px}
-.t1{left:7%; width:12%; height:34%}.t2{left:22%; width:12%; height:43%}.t3{left:41%; width:18%; height:57%}.t4{right:22%; width:12%; height:38%}.t5{right:7%; width:13%; height:46%}
-.landmark{
-  position:absolute; z-index:13; border:1px solid var(--gold); background:#06131ddd; border-radius:10px; padding:8px 10px; font-weight:850
-}
-.landmark small{display:block; color:#b8c5ca; font-size:8px; font-weight:400}
-.lm1{left:10%; top:50%}.lm2{left:27%; top:40%}.lm3{left:46%; top:26%}.lm4{right:24%; top:47%}.lm5{right:9%; top:37%}
+/* City */
+.cityBg{position:absolute;inset:0;background:linear-gradient(#547f99 0,#aab9bc 45%,#586d64 46%,#1d2927 100%)}
+.cityRoad{position:absolute;left:-5%;right:-5%;bottom:0;height:37%;background:linear-gradient(165deg,#314047 0 43%,#222c31 44% 63%,#3a474c 64%);clip-path:polygon(0 18%,100% 0,100% 100%,0 100%)}
+.cityRoad:after{content:"";position:absolute;left:0;right:0;top:48%;border-top:3px dashed #d6cb92aa}
+.tower{position:absolute;bottom:25%;border:2px solid #83969d;background:linear-gradient(90deg,#152d39,#536d78,#18333f);box-shadow:0 20px 35px #0007}
+.tower:before{content:"";position:absolute;inset:8px;background-image:linear-gradient(#f3ca6045 1px,transparent 1px),linear-gradient(90deg,#f3ca6045 1px,transparent 1px);background-size:18px 17px}
+.tower b{position:absolute;left:0;right:0;top:40%;text-align:center;z-index:2;color:var(--gold2);font-size:10px}
+.t1{left:7%;width:12%;height:34%}.t2{left:22%;width:12%;height:43%}.t3{left:41%;width:18%;height:57%}.t4{right:22%;width:12%;height:38%}.t5{right:7%;width:13%;height:46%}
+.landmark{position:absolute;z-index:13;border:1px solid var(--gold);background:#06131ddd;border-radius:10px;padding:8px 10px;font-weight:850}
+.landmark small{display:block;color:#b8c5ca;font-size:8px;font-weight:400}.lm1{left:10%;top:50%}.lm2{left:27%;top:40%}.lm3{left:46%;top:26%}.lm4{right:24%;top:47%}.lm5{right:9%;top:37%}
 
-/* company world */
-.worldBase{position:absolute; inset:0}
-.worldOverlay{position:absolute; inset:0; background:linear-gradient(0deg,#020b12d9 0,transparent 30%),linear-gradient(90deg,#020b1275,transparent 25%,transparent 75%,#020b1260)}
-.theme-textile{background:url('textile-campus.png') center/cover no-repeat}
-.theme-generic{background:linear-gradient(#587b8f 0,#b4c0c2 46%,#4a5b4f 47%,#16211e 100%)}
-.building{
-  position:absolute; left:23%; bottom:24%; width:54%; height:49%; border:2px solid #84979e;
-  background:linear-gradient(90deg,#132c38,#58717b,#17323d); border-radius:9px 9px 0 0; box-shadow:0 25px 45px #0008
-}
-.building:before{
-  content:""; position:absolute; inset:14px;
-  background-image:linear-gradient(#ffd66a55 1px,transparent 1px),linear-gradient(90deg,#ffd66a44 1px,transparent 1px); background-size:31px 24px
-}
-.building b{position:absolute; z-index:2; left:0; right:0; top:42%; text-align:center; color:var(--gold2); font-size:24px; text-shadow:0 2px 10px #000; line-height:1.05}
-.lv1 .building{width:36%; height:27%; left:32%; bottom:24%}
-.lv2 .building{width:44%; height:34%; left:28%; bottom:24%}
-.lv3 .building{width:50%; height:40%; left:25%; bottom:24%}
-.lv4 .building{width:54%; height:46%; left:23%; bottom:24%}
-.lv5 .building,.lv6 .building{width:58%; height:54%; left:21%; bottom:24%}
-.decor{position:absolute; z-index:4; font-size:58px; filter:drop-shadow(0 8px 6px #0007)}
-.decor.a{left:10%; bottom:25%}.decor.b{right:10%; bottom:24%}.decor.c{right:29%; bottom:12%; font-size:42px}
+/* Company Worlds */
+.worldBase{position:absolute;inset:0;background:center/cover no-repeat}
+.worldOverlay{position:absolute;inset:0;background:linear-gradient(0deg,#020b12d9 0,transparent 30%),linear-gradient(90deg,#020b1275,transparent 25%,transparent 75%,#020b1260)}
+.building{position:absolute;left:23%;bottom:24%;width:54%;height:49%;border:2px solid #84979e;background:linear-gradient(90deg,#132c38,#58717b,#17323d);border-radius:9px 9px 0 0;box-shadow:0 25px 45px #0008}
+.building:before{content:"";position:absolute;inset:14px;background-image:linear-gradient(#ffd66a55 1px,transparent 1px),linear-gradient(90deg,#ffd66a44 1px,transparent 1px);background-size:31px 24px}
+.building b{position:absolute;z-index:2;left:0;right:0;top:42%;text-align:center;color:var(--gold2);font-size:24px;text-shadow:0 2px 10px #000;line-height:1.05}
+.lv1 .building{width:36%;height:27%;left:32%;bottom:24%}.lv2 .building{width:44%;height:34%;left:28%;bottom:24%}.lv3 .building{width:50%;height:40%;left:25%;bottom:24%}.lv4 .building{width:54%;height:46%;left:23%;bottom:24%}.lv5 .building,.lv6 .building{width:58%;height:54%;left:21%;bottom:24%}
+.decor{position:absolute;z-index:4;font-size:58px;filter:drop-shadow(0 8px 6px #0007)} .decor.a{left:10%;bottom:25%}.decor.b{right:10%;bottom:24%}.decor.c{right:29%;bottom:12%;font-size:42px}
+.ho{left:28%;top:48%}.hp{right:25%;top:45%}.hw{right:11%;top:65%}.hs{left:47%;top:70%}
 
-/* facility interiors */
-.interior{position:absolute; inset:0; background:linear-gradient(#273b46,#101c22)}
-.wall{position:absolute; left:5%; right:5%; top:7%; bottom:27%; background:linear-gradient(90deg,#152934,#3c5058,#142833); border:2px solid #61727a; clip-path:polygon(4% 0,96% 0,100% 100%,0 100%)}
-.floor{position:absolute; left:0; right:0; bottom:0; height:34%; background:linear-gradient(#404847,#1b2325)}
-.machine,.crate,.desk,.counter,.vehiclePad{
-  position:absolute; border:2px solid #79898f; background:#213943; box-shadow:0 10px 20px #0005
-}
-.machine{bottom:25%; width:17%; height:25%; border-radius:6px}
-.m1{left:10%}.m2{left:31%}.m3{left:52%}.m4{left:73%}
-.crate{bottom:25%; width:16%; height:20%; background:#6a4f2f; border-color:#a1815a}.c1{left:12%}.c2{left:34%}.c3{left:56%}.c4{left:78%}
-.desk{left:14%; bottom:24%; width:35%; height:18%; border-radius:8px}.chair{position:absolute; left:42%; bottom:20%; font-size:48px}
-.counter{left:12%; right:12%; bottom:25%; height:19%; border-radius:8px}
-.vehiclePad{left:10%; right:10%; bottom:22%; height:23%; border-radius:10px}
-.facArt{position:absolute; left:7%; top:14%; font-size:96px; filter:drop-shadow(0 8px 10px #0007)}
+/* Facility Scenes */
+.interior{position:absolute;inset:0;background:linear-gradient(#273b46,#101c22)}
+.wall{position:absolute;left:5%;right:5%;top:7%;bottom:27%;background:linear-gradient(90deg,#152934,#3c5058,#142833);border:2px solid #61727a;clip-path:polygon(4% 0,96% 0,100% 100%,0 100%)}
+.floor{position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(#404847,#1b2325)}
+.machine,.crate,.desk,.counter,.vehiclePad{position:absolute;border:2px solid #79898f;background:#213943;box-shadow:0 10px 20px #0005}
+.machine{bottom:25%;width:17%;height:25%;border-radius:6px}.m1{left:10%}.m2{left:31%}.m3{left:52%}.m4{left:73%}
+.crate{bottom:25%;width:16%;height:20%;background:#6a4f2f;border-color:#a1815a}.c1{left:12%}.c2{left:34%}.c3{left:56%}.c4{left:78%}
+.desk{left:14%;bottom:24%;width:35%;height:18%;border-radius:8px}.chair{position:absolute;left:42%;bottom:20%;font-size:48px}
+.counter{left:12%;right:12%;bottom:25%;height:19%;border-radius:8px}
+.vehiclePad{left:10%;right:10%;bottom:22%;height:23%;border-radius:10px}
+.facArt{position:absolute;left:7%;top:14%;font-size:96px;filter:drop-shadow(0 8px 10px #0007)}
 
 @media(max-width:900px){
-  .layout{grid-template-columns:1fr}
-  .rail{display:grid; grid-template-columns:repeat(5,1fr); border-right:0; border-bottom:1px solid var(--line)}
-  .rail button{height:38px; font-size:16px}
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .stage{height:calc(100vh - 226px); min-height:500px}
-  .quickPanel{left:10px; right:10px; top:auto; bottom:10px; width:auto; max-height:45%; overflow:auto}
-  .grid2{grid-template-columns:1fr}
-  .facArt{font-size:68px}
+  .layout{grid-template-columns:1fr}.rail{display:grid;grid-template-columns:repeat(5,1fr);border-right:0;border-bottom:1px solid var(--line)}.rail button{height:38px;font-size:16px}
+  .stats{grid-template-columns:repeat(2,1fr)} .stage{height:calc(100vh - 226px);min-height:500px}
+  .quickPanel{left:10px;right:10px;top:auto;bottom:10px;width:auto;max-height:48%;overflow:auto}
+  .grid2{grid-template-columns:1fr} .facArt{font-size:68px}
 }
 </style>
 </head>
 <body>
 <div id="app">
   <header class="top">
-    <div class="logo">♛ ZAZO TYCOON<small>BUSINESS EMPIRE — V8 SECTOR WORLDS</small></div>
+    <div class="logo">♛ ZAZO TYCOON<small>BUSINESS EMPIRE — V9 LOGIC FIX</small></div>
     <div class="hud">
       <div class="chip">Holding <b id="holding"></b></div>
       <div class="chip">Grup <b id="group"></b></div>
@@ -194,6 +109,7 @@ button,input,select{font:inherit;color:inherit} button{cursor:pointer}
     </section>
   </div>
 </div>
+
 <div id="overlay" class="overlay">
   <div class="card">
     <button id="close" class="close">✕</button>
@@ -205,59 +121,162 @@ button,input,select{font:inherit;color:inherit} button{cursor:pointer}
 <div id="toast" class="toast"></div>
 
 <script>
-const STORAGE_KEY='zazoV8SectorWorlds';
+const STORAGE_KEY='zazoV9LogicFix';
 const SECTORS=[
-  {name:'ZAZO TEKSTİL', sector:'Tekstil', icon:'🧵', dec:['🧵','🚚','🏭'], raw:'Pamuk & Kumaş', product:'Tekstil Ürünü', buy:350, make:190, sell:950, prodName:'Fabrika', salesName:'Mağaza', art:'🧵'},
-  {name:'ZAZO İNŞAAT', sector:'İnşaat', icon:'🏗️', dec:['🏗️','🚜','🏢'], raw:'İnşaat Malzemesi', product:'Konut Projesi', buy:2200000, make:1800000, sell:6500000, prodName:'Şantiye', salesName:'Proje Satışı', art:'🏗️'},
-  {name:'ZAZO GIDA', sector:'Gıda', icon:'🥫', dec:['🌾','🚚','🥫'], raw:'Gıda Hammaddesi', product:'Gıda Kolisi', buy:80, make:45, sell:260, prodName:'Üretim Tesisi', salesName:'Market Satışı', art:'🥫'},
-  {name:'ZAZO OTOMOTİV', sector:'Otomotiv', icon:'🚗', dec:['🚗','🚛','🏭'], raw:'Parça Seti', product:'Otomobil', buy:480000, make:220000, sell:1150000, prodName:'Montaj Fabrikası', salesName:'Showroom', art:'🚗'},
-  {name:'ZAZO TEKNOLOJİ', sector:'Teknoloji', icon:'💻', dec:['💻','📱','🤖'], raw:'Elektronik Parça', product:'Akıllı Cihaz', buy:4200, make:2600, sell:12900, prodName:'Ar-Ge & Üretim', salesName:'Tekno Mağaza', art:'💻'},
-  {name:'ZAZO LOJİSTİK', sector:'Lojistik', icon:'🚚', dec:['🚚','🚛','📦'], raw:'Yakıt & Operasyon', product:'Taşıma Seferi', buy:6200, make:2400, sell:14500, prodName:'Dağıtım Merkezi', salesName:'Hizmet Satışı', art:'🚚'},
-  {name:'ZAZO HAVACILIK', sector:'Havacılık', icon:'✈️', dec:['✈️','🛫','🏢'], raw:'Uçuş Operasyonu', product:'Yolcu Uçuşu', buy:185000, make:95000, sell:520000, prodName:'Hangar', salesName:'Bilet Satışı', art:'✈️'},
-  {name:'ZAZO UZAY', sector:'Uzay', icon:'🚀', dec:['🚀','🛰️','🌌'], raw:'Roket Bileşeni', product:'Uydu Görevi', buy:4800000, make:3200000, sell:13500000, prodName:'Fırlatma Tesisi', salesName:'Görev Satışı', art:'🚀'},
-  {name:'ZAZO ENERJİ', sector:'Enerji', icon:'⚡', dec:['⚡','🔋','🏭'], raw:'Enerji Kaynağı', product:'Enerji Paketi', buy:950, make:450, sell:2600, prodName:'Enerji Santrali', salesName:'Enerji Satışı', art:'⚡'},
-  {name:'ZAZO MADENCİLİK', sector:'Madencilik', icon:'⛏️', dec:['⛏️','🚜','🪨'], raw:'Saha Operasyonu', product:'İşlenmiş Maden', buy:1450, make:900, sell:4200, prodName:'Maden Sahası', salesName:'Maden Satışı', art:'⛏️'}
+  {name:'ZAZO TEKSTİL', sector:'Tekstil', icon:'🧵', dec:['🧵','🚚','🏭'], raw:'Pamuk & Kumaş', product:'Tekstil Ürünü', buy:350, make:190, sell:950, prodName:'Fabrika', salesName:'Mağaza', art:'🧵', world:'textile-campus.png', special:true},
+  {name:'ZAZO İNŞAAT', sector:'İnşaat', icon:'🏗️', dec:['🏗️','🚜','🏢'], raw:'İnşaat Malzemesi', product:'Konut Projesi', buy:2200000, make:1800000, sell:6500000, prodName:'Şantiye', salesName:'Proje Satışı', art:'🏗️', world:'construction-world.svg'},
+  {name:'ZAZO GIDA', sector:'Gıda', icon:'🥫', dec:['🌾','🚚','🥫'], raw:'Gıda Hammaddesi', product:'Gıda Kolisi', buy:80, make:45, sell:260, prodName:'Üretim Tesisi', salesName:'Market Satışı', art:'🥫', world:'food-world.svg'},
+  {name:'ZAZO OTOMOTİV', sector:'Otomotiv', icon:'🚗', dec:['🚗','🚛','🏭'], raw:'Parça Seti', product:'Otomobil', buy:480000, make:220000, sell:1150000, prodName:'Montaj Fabrikası', salesName:'Showroom', art:'🚗', world:'auto-world.svg'},
+  {name:'ZAZO TEKNOLOJİ', sector:'Teknoloji', icon:'💻', dec:['💻','📱','🤖'], raw:'Elektronik Parça', product:'Akıllı Cihaz', buy:4200, make:2600, sell:12900, prodName:'Ar-Ge & Üretim', salesName:'Tekno Mağaza', art:'💻', world:'tech-world.svg'},
+  {name:'ZAZO LOJİSTİK', sector:'Lojistik', icon:'🚚', dec:['🚚','🚛','📦'], raw:'Yakıt & Operasyon', product:'Taşıma Seferi', buy:6200, make:2400, sell:14500, prodName:'Dağıtım Merkezi', salesName:'Hizmet Satışı', art:'🚚', world:'logistics-world.svg'},
+  {name:'ZAZO HAVACILIK', sector:'Havacılık', icon:'✈️', dec:['✈️','🛫','🏢'], raw:'Uçuş Operasyonu', product:'Yolcu Uçuşu', buy:185000, make:95000, sell:520000, prodName:'Hangar', salesName:'Bilet Satışı', art:'✈️', world:'aviation-world.svg'},
+  {name:'ZAZO UZAY', sector:'Uzay', icon:'🚀', dec:['🚀','🛰️','🌌'], raw:'Roket Bileşeni', product:'Uydu Görevi', buy:4800000, make:3200000, sell:13500000, prodName:'Fırlatma Tesisi', salesName:'Görev Satışı', art:'🚀', world:'space-world.svg'},
+  {name:'ZAZO ENERJİ', sector:'Enerji', icon:'⚡', dec:['⚡','🔋','🏭'], raw:'Enerji Kaynağı', product:'Enerji Paketi', buy:950, make:450, sell:2600, prodName:'Enerji Santrali', salesName:'Enerji Satışı', art:'⚡', world:'energy-world.svg'},
+  {name:'ZAZO MADENCİLİK', sector:'Madencilik', icon:'⛏️', dec:['⛏️','🚜','🪨'], raw:'Saha Operasyonu', product:'İşlenmiş Maden', buy:1450, make:900, sell:4200, prodName:'Maden Sahası', salesName:'Maden Satışı', art:'⛏️', world:'mining-world.svg'}
 ];
+
+function initialCompany(s){
+  const startCash=Math.max(3000000, Math.round((s.buy*8 + s.make*4 + 500000)));
+  const startValue=Math.round(startCash*2.8);
+  return {
+    cash:startCash,
+    value:startValue,
+    level:1,
+    staff:8,
+    manager:false,
+    vehicles:1,
+    debt:0,
+    rawQty:0,
+    rawValue:0,
+    whQty:0,
+    whValue:0,
+    storeQty:0,
+    storeValue:0,
+    revenue:0,
+    cogs:0,
+    opex:0,
+    capex:0,
+    interest:0,
+    holdingPaid:0,
+    logs:[]
+  };
+}
 function freshState(){
   return {
-    view:'city', current:0, facility:null, day:1, holding:25000000, debt:0, deposit:0,
+    view:'city', current:0, facility:null, day:1,
+    holding:25000000,
+    holdingDeposit:0,
     portfolio:{gold:0,stock:0,crypto:0},
-    companies: SECTORS.map((s,i)=>({
-      cash: i===0 ? 3000000 : 1500000,
-      value: 5000000 + i*650000,
-      level: 1,
-      staff: 8,
-      manager: false,
-      vehicles: 1,
-      raw: 0,
-      warehouse: 0,
-      store: 0,
-      sales: 0,
-      costs: 0,
-      holdingPaid: 0,
-      logs: []
-    }))
+    companies: SECTORS.map(initialCompany)
   };
 }
 let S;
-try{ S=JSON.parse(localStorage.getItem(STORAGE_KEY)) || freshState(); }catch(e){ S=freshState(); }
+try{ S=JSON.parse(localStorage.getItem(STORAGE_KEY)) || freshState(); } catch(e){ S=freshState(); }
 
-const $ = s => document.querySelector(s);
-const stage = $('#stage'), stats = $('#stats'), bottom = $('#bottom');
+const $=s=>document.querySelector(s);
+const stage=$('#stage'), stats=$('#stats'), bottom=$('#bottom');
 const holdingEl=$('#holding'), groupEl=$('#group'), dayEl=$('#day');
 const titleEl=$('#title'), subtitleEl=$('#subtitle'), backBtn=$('#back');
 const overlay=$('#overlay'), ot=$('#ot'), od=$('#od'), ob=$('#ob');
+
 function company(){ return S.companies[S.current]; }
 function sector(){ return SECTORS[S.current]; }
 function money(n){ return '₺'+Math.round(Number(n)||0).toLocaleString('tr-TR'); }
 function save(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(S)); }
-function toast(t){ const e=$('#toast'); e.textContent=t; e.style.display='block'; clearTimeout(window._t); window._t=setTimeout(()=>e.style.display='none',1800); }
+function toast(t){ const e=$('#toast'); e.textContent=t; e.style.display='block'; clearTimeout(window._to); window._to=setTimeout(()=>e.style.display='none',1800); }
 function rows(arr){ return arr.map(r=>`<div class="row"><span>${r[0]}</span><b>${r[1]}</b></div>`).join(''); }
-function net(c){ return c.sales - c.costs; }
+function openOverlay(title,desc,body){ ot.textContent=title; od.textContent=desc||''; ob.innerHTML=body; overlay.classList.add('open'); }
+function closeOverlay(){ overlay.classList.remove('open'); }
+function avgCost(qty,val){ return qty>0 ? val/qty : 0; }
+function netProfit(c){ return c.revenue - c.cogs - c.opex - c.interest; }
 function companyType(level){ return level>=5 ? 'AŞ' : level>=3 ? 'LTD' : 'Başlangıç Şirketi'; }
 function lvClass(level){ return 'lv'+Math.min(6,Math.max(1,level)); }
+function pushLog(c,msg){ c.logs.push(`Gün ${S.day} • ${msg}`); if(c.logs.length>120) c.logs.shift(); }
+function recalcValue(c){ 
+  const inventoryValue = c.rawValue + c.whValue + c.storeValue;
+  c.value = Math.max(1000000, Math.round((c.cash + inventoryValue + c.capex*0.85 + Math.max(0, netProfit(c))*1.2 + (c.level*500000) + (c.vehicles*250000))));
+}
 
-const nav = [
+function buyRaw(c,s,qty){
+  qty=Math.max(1,Math.floor(qty||0));
+  const cost = s.buy*qty;
+  if(c.cash<cost){ toast('Kasa yetersiz'); return false; }
+  c.cash-=cost; c.rawQty+=qty; c.rawValue+=cost;
+  pushLog(c, `${qty} birim ${s.raw} alındı • ${money(cost)}`);
+  recalcValue(c); return true;
+}
+function produceGoods(c,s,qty){
+  qty=Math.max(1,Math.floor(qty||0));
+  if(c.rawQty<qty){ toast('Hammadde yetersiz'); return false; }
+  const conversion = s.make*qty;
+  if(c.cash<conversion){ toast('Üretim için kasa yetersiz'); return false; }
+  const rawUnit=avgCost(c.rawQty,c.rawValue);
+  const rawTaken=rawUnit*qty;
+  c.rawQty-=qty; c.rawValue-=rawTaken;
+  c.cash-=conversion;
+  c.whQty+=qty; c.whValue += rawTaken + conversion;
+  pushLog(c, `${qty} birim ${s.product} üretildi • dönüşüm ${money(conversion)}`);
+  recalcValue(c); return true;
+}
+function shipGoods(c,s,qty){
+  qty=Math.max(1,Math.floor(qty||0));
+  if(c.whQty<qty){ toast('Depoda yeterli ürün yok'); return false; }
+  const shipCost = qty * Math.max(100, s.sell*0.01);
+  if(c.cash<shipCost){ toast('Sevkiyat için kasa yetersiz'); return false; }
+  const unit=avgCost(c.whQty,c.whValue), val=unit*qty;
+  c.whQty-=qty; c.whValue-=val;
+  c.storeQty+=qty; c.storeValue+=val;
+  c.cash-=shipCost; c.opex += shipCost;
+  pushLog(c, `${qty} birim satış noktasına sevk edildi • lojistik ${money(shipCost)}`);
+  recalcValue(c); return true;
+}
+function sellGoods(c,s,qty){
+  qty=Math.max(1,Math.floor(qty||0));
+  if(c.storeQty<qty){ toast('Satış stoğu yetersiz'); return false; }
+  const unit=avgCost(c.storeQty,c.storeValue), costOut=unit*qty, revenue=s.sell*qty;
+  c.storeQty-=qty; c.storeValue-=costOut;
+  c.cash+=revenue; c.revenue += revenue; c.cogs += costOut;
+  let realizedProfit = revenue - costOut;
+  const holdingShare = Math.round(Math.max(0, realizedProfit) * 0.20);
+  if(c.cash>=holdingShare){ c.cash-=holdingShare; S.holding += holdingShare; c.holdingPaid += holdingShare; realizedProfit -= holdingShare; }
+  c.value += Math.max(0, realizedProfit*0.30);
+  pushLog(c, `${qty} birim ${s.product} satıldı • gelir ${money(revenue)} • gerçekleşen kâr ${money(realizedProfit)}`);
+  recalcValue(c); return true;
+}
+function hireStaff(c,n=5){
+  const cost=75000*Math.max(1,n/5);
+  if(c.cash<cost){ toast('Kasa yetersiz'); return false; }
+  c.cash-=cost; c.opex += cost; c.staff += n;
+  pushLog(c, `${n} çalışan alındı • ${money(cost)}`);
+  recalcValue(c); return true;
+}
+function toggleManager(c){
+  if(!c.manager){
+    if(c.cash<150000){ toast('Kasa yetersiz'); return false; }
+    c.cash-=150000; c.opex += 150000; c.manager=true;
+    pushLog(c,'Müdür işe alındı');
+  }else{
+    c.manager=false;
+    pushLog(c,'Müdür görevden alındı');
+  }
+  recalcValue(c); return true;
+}
+function buyVehicle(c){
+  const cost=650000;
+  if(c.cash<cost){ toast('Kasa yetersiz'); return false; }
+  c.cash-=cost; c.capex += cost; c.vehicles += 1;
+  pushLog(c,`Yeni araç alındı • ${money(cost)}`);
+  recalcValue(c); return true;
+}
+function upgradeCompany(c){
+  const cost=c.level*1200000;
+  if(c.cash<cost){ toast('Kasa yetersiz'); return false; }
+  c.cash-=cost; c.capex += cost; c.level += 1;
+  pushLog(c,`Şirket seviye ${c.level} oldu • yatırım ${money(cost)}`);
+  recalcValue(c); return true;
+}
+
+const nav=[
   ['🏙️','Şehir'],['🏢','Şirket'],['🏦','Banka'],['📈','Yatırım'],['♛','Holding'],['📊','Rapor'],['🏆','Başarı'],['⚙️','Ayar'],['↻','Sıfırla']
 ];
 $('#rail').innerHTML = nav.map((n,i)=>`<button data-nav="${i}">${n[0]}</button>`).join('');
@@ -273,7 +292,7 @@ function navClick(i){
   if(i===6){ achievementPanel(); return; }
   if(i===7){ settingsPanel(); return; }
   if(i===8){
-    if(confirm('Tüm oyun verileri silinsin mi?')){
+    if(confirm('Tüm ZAZO TYCOON verileri silinsin mi?')){
       localStorage.removeItem(STORAGE_KEY);
       S=freshState(); save(); render(); toast('Yeni oyun başladı');
     }
@@ -287,13 +306,14 @@ function renderTop(){
 }
 function renderStats(){
   const c=company(), s=sector();
+  const invTotal = c.rawValue + c.whValue + c.storeValue;
   const list=[
     ['Şirket Değeri',money(c.value)],
     ['Şirket Kasası',money(c.cash)],
-    [s.raw,c.raw+' birim'],
-    ['Depo',c.warehouse+' birim'],
-    ['Satış Stoku',c.store+' birim'],
-    ['Gerçek Net',money(net(c))]
+    ['Envanter Değeri',money(invTotal)],
+    ['Borç',money(c.debt)],
+    ['Gerçek Net',money(netProfit(c))],
+    ['Holding Payı',money(c.holdingPaid)]
   ];
   stats.innerHTML = list.map(x=>`<div class="stat"><small>${x[0]}</small><b>${x[1]}</b></div>`).join('');
 }
@@ -303,8 +323,8 @@ function renderBottom(){
       <b>${SECTORS[i].icon} ${SECTORS[i].name}</b>
       <small>Sv.${c.level} • ${money(c.cash)}</small>
     </button>`).join('');
-  document.querySelectorAll('[data-company]').forEach(b=>{
-    b.onclick=()=>{ S.current=+b.dataset.company; if(S.view==='city') S.view='company'; save(); render(); toast(sector().name+' kampüsüne girdin'); };
+  document.querySelectorAll('[data-company]').forEach(b=>b.onclick=()=>{
+    S.current=+b.dataset.company; if(S.view==='city') S.view='company'; save(); render(); toast(sector().name+' kampüsüne girdin');
   });
 }
 function renderHeader(){
@@ -318,7 +338,7 @@ function renderHeader(){
     subtitleEl.textContent=`${s.sector} kampüsü • Seviye ${c.level} • ${companyType(c.level)}`;
   }else{
     const s=sector();
-    const labels={office:'Merkez Ofis',production:s.prodName,warehouse:'Depo & Sevkiyat',sales:s.salesName};
+    const labels={office:'Merkez Ofis',production:s.prodName,warehouse:'Depo & Sevkiyat',sales:s.salesName,fleet:'Araç & Filo'};
     titleEl.textContent=`${s.name} — ${labels[S.facility]||'Tesis'}`;
     subtitleEl.textContent='İşlemleri sahnenin içinde yap.';
   }
@@ -345,23 +365,21 @@ function renderCity(){
     <button class="landmark lm5" data-city="companies">🏢 ŞİRKETLER<small>Kampüslere giriş</small></button>
     <div class="badge">10 sektör • ${S.companies.length} şirket • Grup değeri ${money(S.companies.reduce((a,b)=>a+b.value,0))}</div>
   `;
-  document.querySelectorAll('[data-city]').forEach(b=>{
-    b.onclick=()=>{
-      const k=b.dataset.city;
-      if(k==='bank') bankPanel();
-      if(k==='invest') investmentPanel();
-      if(k==='holding') holdingPanel();
-      if(k==='market') marketPanel();
-      if(k==='companies'){ S.view='company'; save(); render(); }
-    };
+  document.querySelectorAll('[data-city]').forEach(b=>b.onclick=()=>{
+    const k=b.dataset.city;
+    if(k==='bank') bankPanel();
+    if(k==='invest') investmentPanel();
+    if(k==='holding') holdingPanel();
+    if(k==='market') marketPanel();
+    if(k==='companies'){ S.view='company'; save(); render(); }
   });
 }
 function renderCompany(){
   const c=company(), s=sector();
-  const textile = S.current===0;
+  const building = s.special ? '' : `<div class="building"><b>${s.name}</b></div>`;
   stage.innerHTML = `
-    <div class="worldBase ${textile?'theme-textile':'theme-generic'} ${lvClass(c.level)}">
-      ${textile ? '' : `<div class="building"><b>${s.name}</b></div>`}
+    <div class="worldBase ${lvClass(c.level)}" style="background-image:url('${s.world}')">
+      ${building}
       <div class="decor a">${s.dec[0]}</div>
       <div class="decor b">${s.dec[1]}</div>
       <div class="decor c">${s.dec[2]}</div>
@@ -380,241 +398,224 @@ function renderCompany(){
         ['Çalışan',c.staff],
         ['Araç',c.vehicles],
         ['Müdür',c.manager?'Aktif':'Yok'],
-        ['Net',money(net(c))]
+        ['Gerçek Net',money(netProfit(c))]
       ])}
       <button class="action" id="goOffice">Ofise Gir</button>
       <button class="action secondary" id="goProd">${s.prodName} içine gir</button>
+      <button class="action secondary" id="goFleet">Filo merkezine gir</button>
     </div>
-    <div class="badge">${s.raw}: ${c.raw} • Depo: ${c.warehouse} • Satış: ${c.store}</div>
+    <div class="badge">${s.raw}: ${c.rawQty} • Depo: ${c.whQty} • Satış: ${c.storeQty}</div>
   `;
   document.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{ S.view='facility'; S.facility=b.dataset.f; save(); render(); });
   $('#goOffice').onclick=()=>{ S.view='facility'; S.facility='office'; save(); render(); };
   $('#goProd').onclick=()=>{ S.view='facility'; S.facility='production'; save(); render(); };
+  $('#goFleet').onclick=()=>{ S.view='facility'; S.facility='fleet'; save(); render(); };
 }
 function renderFacility(){
   const c=company(), s=sector();
   let art='', panel='';
   if(S.facility==='office'){
-    art = `
-      <div class="interior"></div><div class="wall"></div><div class="floor"></div>
-      <div class="desk"></div><div class="chair">🪑</div><div class="facArt">${s.icon}</div>`;
-    panel = `
-      <h3>CEO OFİSİ</h3>
+    art = `<div class="interior"></div><div class="wall"></div><div class="floor"></div><div class="desk"></div><div class="chair">🪑</div><div class="facArt">${s.icon}</div>`;
+    panel = `<h3>CEO OFİSİ</h3>
       ${rows([
-        ['Şirket Seviyesi',c.level],
-        ['Şirket Tipi',companyType(c.level)],
-        ['Çalışan',c.staff],
-        ['Müdür',c.manager?'Aktif':'Yok'],
-        ['Kasa',money(c.cash)]
+        ['Şirket Seviyesi',c.level],['Şirket Tipi',companyType(c.level)],['Çalışan',c.staff],['Müdür',c.manager?'Aktif':'Yok'],['Kasa',money(c.cash)]
       ])}
       <button class="action" id="hire">+5 Çalışan Al • ${money(75000)}</button>
       <button class="action secondary" id="mgr">${c.manager?'Müdürü Kapat':'Müdür İşe Al • '+money(150000)}</button>
       <button class="action" id="upgrade">Şirketi Yükselt • ${money(c.level*1200000)}</button>`;
   } else if(S.facility==='production'){
-    art = `
-      <div class="interior"></div><div class="wall"></div><div class="floor"></div>
-      <div class="machine m1"></div><div class="machine m2"></div><div class="machine m3"></div><div class="machine m4"></div>
-      <div class="facArt">${s.art}</div>`;
-    panel = `
-      <h3>${s.prodName.toUpperCase()}</h3>
+    art = `<div class="interior"></div><div class="wall"></div><div class="floor"></div><div class="machine m1"></div><div class="machine m2"></div><div class="machine m3"></div><div class="machine m4"></div><div class="facArt">${s.art}</div>`;
+    panel = `<h3>${s.prodName.toUpperCase()}</h3>
       ${rows([
-        [s.raw,c.raw+' birim'],
-        [s.product+' (depoda)',c.warehouse+' birim'],
+        [s.raw,`${c.rawQty} birim (${money(c.rawValue)})`],
+        [s.product+` (depoda)`,`${c.whQty} birim (${money(c.whValue)})`],
         ['Satın Alma',money(s.buy)+'/birim'],
-        ['Üretim',money(s.make)+'/birim']
+        ['Üretim Maliyeti',money(s.make)+'/birim']
       ])}
       <div class="actions"><input id="qty" type="number" min="1" value="10"><span></span><button class="action" id="buy">Hammadde Al</button></div>
       <div class="actions"><input id="qty2" type="number" min="1" value="5"><span></span><button class="action secondary" id="make">Üret</button></div>`;
   } else if(S.facility==='warehouse'){
-    art = `
-      <div class="interior"></div><div class="wall"></div><div class="floor"></div>
-      <div class="crate c1"></div><div class="crate c2"></div><div class="crate c3"></div><div class="crate c4"></div>
-      <div class="facArt">📦</div>`;
-    panel = `
-      <h3>DEPO & SEVKİYAT</h3>
+    art = `<div class="interior"></div><div class="wall"></div><div class="floor"></div><div class="crate c1"></div><div class="crate c2"></div><div class="crate c3"></div><div class="crate c4"></div><div class="facArt">📦</div>`;
+    panel = `<h3>DEPO & SEVKİYAT</h3>
       ${rows([
-        ['Depo Stoku',c.warehouse+' birim'],
-        ['Satış Stoku',c.store+' birim'],
+        ['Depo Stoku',`${c.whQty} birim (${money(c.whValue)})`],
+        ['Satış Stoku',`${c.storeQty} birim (${money(c.storeValue)})`],
         ['Araç',c.vehicles],
         ['Sevk Maliyeti',money(Math.max(100,s.sell*0.01))+'/birim']
       ])}
       <div class="actions"><input id="qty" type="number" min="1" value="5"><span></span><button class="action" id="ship">Sevk Et</button></div>`;
   } else if(S.facility==='sales'){
-    art = `
-      <div class="interior"></div><div class="wall"></div><div class="floor"></div>
-      <div class="counter"></div><div class="facArt">🏪</div>`;
-    panel = `
-      <h3>${s.salesName.toUpperCase()}</h3>
+    art = `<div class="interior"></div><div class="wall"></div><div class="floor"></div><div class="counter"></div><div class="facArt">🏪</div>`;
+    panel = `<h3>${s.salesName.toUpperCase()}</h3>
       ${rows([
-        [s.product,c.store+' birim'],
+        [s.product,`${c.storeQty} birim (${money(c.storeValue)})`],
         ['Birim Fiyat',money(s.sell)],
-        ['Toplam Satış',money(c.sales)],
+        ['Toplam Satış',money(c.revenue)],
         ['Holding Payı',money(c.holdingPaid)]
       ])}
       <div class="actions"><input id="qty" type="number" min="1" value="3"><span></span><button class="action" id="sell">Müşteriye Sat</button></div>`;
+  } else if(S.facility==='fleet'){
+    art = `<div class="interior"></div><div class="wall"></div><div class="floor"></div><div class="vehiclePad"></div><div class="facArt">${s.dec[1]}</div>`;
+    panel = `<h3>FİLO MERKEZİ</h3>
+      ${rows([
+        ['Araç Sayısı',c.vehicles],
+        ['Filo Değeri',money(c.vehicles*650000)],
+        ['Şirket',s.name]
+      ])}
+      <button class="action" id="vehicle">Yeni Araç Al • ${money(650000)}</button>`;
   }
-  stage.innerHTML = `
-    ${art}
-    <div class="sceneTitle"><b>${s.name}</b><small>${titleEl.textContent}</small></div>
-    <div class="quickPanel">${panel}</div>
-    <div class="badge">${s.sector} • ${companyType(c.level)} • Kasa ${money(c.cash)}</div>
-  `;
+  stage.innerHTML = `${art}<div class="sceneHud"><b>${s.name}</b><small>${titleEl.textContent}</small></div><div class="quickPanel">${panel}</div><div class="badge">${s.sector} • ${companyType(c.level)} • Kasa ${money(c.cash)}</div>`;
   bindFacility();
 }
 function bindFacility(){
   const c=company(), s=sector();
-  const byId=id=>document.getElementById(id);
+  const id=x=>document.getElementById(x);
   if(S.facility==='office'){
-    byId('hire').onclick=()=>{
-      if(c.cash<75000) return toast('Kasa yetersiz');
-      c.cash-=75000; c.costs+=75000; c.staff+=5; c.value+=100000; c.logs.push(`Gün ${S.day} • 5 çalışan alındı`);
-      save(); render();
-    };
-    byId('mgr').onclick=()=>{
-      if(!c.manager && c.cash<150000) return toast('Kasa yetersiz');
-      if(!c.manager){ c.cash-=150000; c.costs+=150000; }
-      c.manager=!c.manager; c.logs.push(`Gün ${S.day} • Müdür ${c.manager?'aktif':'kapalı'}`);
-      save(); render();
-    };
-    byId('upgrade').onclick=()=>{
-      const cost=c.level*1200000;
-      if(c.cash<cost) return toast('Kasa yetersiz');
-      c.cash-=cost; c.costs+=cost; c.level++; c.value+=cost*1.4; c.logs.push(`Gün ${S.day} • Şirket seviye ${c.level} oldu`);
-      save(); render();
-    };
+    id('hire').onclick=()=>{ if(hireStaff(c)){ save(); render(); } };
+    id('mgr').onclick=()=>{ if(toggleManager(c)){ save(); render(); } };
+    id('upgrade').onclick=()=>{ if(upgradeCompany(c)){ save(); render(); } };
   }
   if(S.facility==='production'){
-    byId('buy').onclick=()=>{
-      const q=Math.max(1,Math.floor(+byId('qty').value||0)), cost=q*s.buy;
-      if(c.cash<cost) return toast('Kasa yetersiz');
-      c.cash-=cost; c.raw+=q; c.costs+=cost; c.logs.push(`Gün ${S.day} • ${q} ${s.raw} alındı`);
-      save(); render();
-    };
-    byId('make').onclick=()=>{
-      const q=Math.max(1,Math.floor(+byId('qty2').value||0)), cost=q*s.make;
-      if(c.raw<q) return toast('Hammadde yetersiz');
-      if(c.cash<cost) return toast('Kasa yetersiz');
-      c.raw-=q; c.cash-=cost; c.warehouse+=q; c.costs+=cost; c.logs.push(`Gün ${S.day} • ${q} ${s.product} üretildi`);
-      save(); render();
-    };
+    id('buy').onclick=()=>{ if(buyRaw(c,s,+id('qty').value)){ save(); render(); } };
+    id('make').onclick=()=>{ if(produceGoods(c,s,+id('qty2').value)){ save(); render(); } };
   }
   if(S.facility==='warehouse'){
-    byId('ship').onclick=()=>{
-      const q=Math.max(1,Math.floor(+byId('qty').value||0)), cost=q*Math.max(100,s.sell*0.01);
-      if(c.warehouse<q) return toast('Depoda yeterli ürün yok');
-      if(c.cash<cost) return toast('Kasa yetersiz');
-      c.warehouse-=q; c.store+=q; c.cash-=cost; c.costs+=cost; c.logs.push(`Gün ${S.day} • ${q} ürün sevk edildi`);
-      save(); render();
-    };
+    id('ship').onclick=()=>{ if(shipGoods(c,s,+id('qty').value)){ save(); render(); } };
   }
   if(S.facility==='sales'){
-    byId('sell').onclick=()=>{
-      const q=Math.max(1,Math.floor(+byId('qty').value||0));
-      if(c.store<q) return toast('Satış stoğu yetersiz');
-      const revenue=q*s.sell;
-      c.store-=q; c.cash+=revenue; c.sales+=revenue;
-      const holdingShare=Math.round((q*s.make*0.2));
-      if(c.cash>=holdingShare){ c.cash-=holdingShare; S.holding+=holdingShare; c.holdingPaid+=holdingShare; }
-      c.logs.push(`Gün ${S.day} • ${q} ${s.product} satıldı`);
-      save(); render();
-    };
+    id('sell').onclick=()=>{ if(sellGoods(c,s,+id('qty').value)){ save(); render(); } };
+  }
+  if(S.facility==='fleet'){
+    id('vehicle').onclick=()=>{ if(buyVehicle(c)){ save(); render(); } };
   }
 }
 
 function bankPanel(){
-  const c=company();
-  const limit=Math.round(c.value*0.3);
-  openOverlay('🏦 ZAZO BANK','Şirket kredisi, borç ödeme ve Holding mevduatı.',`
-    ${rows([['Kredi Limiti',money(limit)],['Mevcut Borç',money(S.debt)],['Holding Mevduatı',money(S.deposit)]])}
-    <button class="action" id="loan">₺1.000.000 Kredi Çek</button>
-    <button class="action secondary" id="pay">₺500.000 Borç Öde</button>`);
+  const c=company(), s=sector();
+  const limit=Math.round(c.value*0.35);
+  const defaultLoan=Math.min(Math.max(500000, Math.round((s.buy+s.make)*2)), Math.max(500000, limit-c.debt));
+  openOverlay('🏦 ZAZO BANK','Borç artık şirket bazlı tutulur. Yüksek maliyetli sektörler için kredi tutarı da daha mantıklı.',`
+    ${rows([['Şirket',sector().name],['Kredi Limiti',money(limit)],['Mevcut Borç',money(c.debt)],['Holding Mevduatı',money(S.holdingDeposit)]])}
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px">
+      <input id="loanAmt" class="loanInput" type="number" min="500000" step="500000" value="${Math.max(500000, Math.floor(defaultLoan/500000)*500000)}">
+      <input id="depAmt" class="loanInput" type="number" min="500000" step="500000" value="1000000">
+    </div>
+    <button class="action" id="loan">Kredi Çek</button>
+    <button class="action secondary" id="pay">Borç Öde</button>
+    <button class="action" id="depIn">Holding Mevduata Para Yatır</button>
+    <button class="action secondary" id="depOut">Holding Mevduattan Para Çek</button>
+  `);
   setTimeout(()=>{
-    $('#loan').onclick=()=>{ if(S.debt+1000000>limit) return toast('Limit yetersiz'); S.debt+=1000000; c.cash+=1000000; save(); render(); bankPanel(); };
-    $('#pay').onclick=()=>{ if(c.cash<500000 || S.debt<500000) return toast('Ödeme yapılamıyor'); c.cash-=500000; S.debt-=500000; save(); render(); bankPanel(); };
+    $('#loan').onclick=()=>{
+      const amt=Math.max(500000, Math.floor((+$('#loanAmt').value||0)/500000)*500000);
+      if(c.debt+amt>limit) return toast('Kredi limiti yetersiz');
+      c.debt += amt; c.cash += amt; pushLog(c, `Kredi çekildi • ${money(amt)}`); recalcValue(c); save(); render(); bankPanel();
+    };
+    $('#pay').onclick=()=>{
+      const amt=Math.max(500000, Math.floor((+$('#loanAmt').value||0)/500000)*500000);
+      if(c.cash<amt || c.debt<amt) return toast('Borç ödemesi yapılamıyor');
+      c.cash -= amt; c.debt -= amt; pushLog(c, `Borç ödendi • ${money(amt)}`); recalcValue(c); save(); render(); bankPanel();
+    };
+    $('#depIn').onclick=()=>{
+      const amt=Math.max(500000, Math.floor((+$('#depAmt').value||0)/500000)*500000);
+      if(S.holding<amt) return toast('Holding sermayesi yetersiz');
+      S.holding -= amt; S.holdingDeposit += amt; save(); render(); bankPanel();
+    };
+    $('#depOut').onclick=()=>{
+      const amt=Math.max(500000, Math.floor((+$('#depAmt').value||0)/500000)*500000);
+      if(S.holdingDeposit<amt) return toast('Mevduat yetersiz');
+      S.holdingDeposit -= amt; S.holding += amt; save(); render(); bankPanel();
+    };
   },0);
 }
 function investmentPanel(){
-  openOverlay('📈 YATIRIM MERKEZİ','Holding sermayesiyle yatırım yap.',`
-    ${rows([['Altın',S.portfolio.gold+' birim'],['Hisse',S.portfolio.stock+' lot'],['Kripto',S.portfolio.crypto+' birim']])}
-    <button class="action" id="goldBuy">10 Altın Al • ${money(25000)}</button>`);
-  setTimeout(()=>$('#goldBuy').onclick=()=>{ if(S.holding<25000) return toast('Holding sermayesi yetersiz'); S.holding-=25000; S.portfolio.gold+=10; save(); render(); investmentPanel(); },0);
+  openOverlay('📈 YATIRIM MERKEZİ','Altın, hisse ve kripto al-sat işlemleri.',`
+    ${rows([['Altın',S.portfolio.gold+' birim'],['Hisse',S.portfolio.stock+' lot'],['Kripto',S.portfolio.crypto+' birim'],['Holding',money(S.holding)]])}
+    <button class="action" id="buyGold">10 Altın Al • ${money(25000)}</button>
+    <button class="action secondary" id="sellGold">10 Altın Sat • ${money(24000)}</button>
+    <button class="action" id="buyStock">10 Hisse Al • ${money(18000)}</button>
+    <button class="action secondary" id="sellStock">10 Hisse Sat • ${money(17000)}</button>
+    <button class="action" id="buyCrypto">10 Kripto Al • ${money(32000)}</button>
+    <button class="action secondary" id="sellCrypto">10 Kripto Sat • ${money(30000)}</button>
+  `);
+  setTimeout(()=>{
+    $('#buyGold').onclick=()=>{ if(S.holding<25000) return toast('Holding yetersiz'); S.holding-=25000; S.portfolio.gold+=10; save(); render(); investmentPanel(); };
+    $('#sellGold').onclick=()=>{ if(S.portfolio.gold<10) return toast('Altın yetersiz'); S.portfolio.gold-=10; S.holding+=24000; save(); render(); investmentPanel(); };
+    $('#buyStock').onclick=()=>{ if(S.holding<18000) return toast('Holding yetersiz'); S.holding-=18000; S.portfolio.stock+=10; save(); render(); investmentPanel(); };
+    $('#sellStock').onclick=()=>{ if(S.portfolio.stock<10) return toast('Hisse yetersiz'); S.portfolio.stock-=10; S.holding+=17000; save(); render(); investmentPanel(); };
+    $('#buyCrypto').onclick=()=>{ if(S.holding<32000) return toast('Holding yetersiz'); S.holding-=32000; S.portfolio.crypto+=10; save(); render(); investmentPanel(); };
+    $('#sellCrypto').onclick=()=>{ if(S.portfolio.crypto<10) return toast('Kripto yetersiz'); S.portfolio.crypto-=10; S.holding+=30000; save(); render(); investmentPanel(); };
+  },0);
 }
 function holdingPanel(){
-  openOverlay('♛ ZAZO HOLDİNG','Tüm grubun finans merkezi.',`
+  openOverlay('♛ ZAZO HOLDİNG','Grubun finans merkezi.',`
     <div class="grid2">
       <div class="box"><h3>Holding</h3>${rows([
         ['Holding Sermayesi',money(S.holding)],
+        ['Mevduat',money(S.holdingDeposit)],
         ['Grup Değeri',money(S.companies.reduce((a,b)=>a+b.value,0))],
-        ['Şirket Kasaları',money(S.companies.reduce((a,b)=>a+b.cash,0))],
-        ['Borç',money(S.debt)]
+        ['Şirket Kasaları',money(S.companies.reduce((a,b)=>a+b.cash,0))]
       ])}</div>
-      <div class="box"><h3>Şirketler</h3>${rows(S.companies.map((c,i)=>[SECTORS[i].name,money(c.cash)]))}</div>
+      <div class="box"><h3>Şirketler</h3>${rows(S.companies.map((c,i)=>[SECTORS[i].name, money(c.cash)]))}</div>
     </div>`);
 }
 function reportPanel(){
-  const logs = S.companies.flatMap((c,i)=>c.logs.slice(-4).map(l=>`${SECTORS[i].icon} ${l}`)).slice(-35).reverse().map(l=>`<div>${l}</div>`).join('');
-  openOverlay('📊 GRUP RAPORU','Tüm şirketlerin gerçek işlem kayıtları.',`
+  const allLogs=S.companies.flatMap((c,i)=>c.logs.slice(-4).map(l=>`${SECTORS[i].icon} ${l}`)).slice(-35).reverse();
+  openOverlay('📊 GRUP RAPORU','Muhasebe, envanter ve net sonuçlar gerçek işlem mantığıyla hesaplanır.',`
     <div class="grid2">
-      <div class="box"><h3>Net Sonuç</h3>${rows(S.companies.map((c,i)=>[SECTORS[i].name,money(net(c))]))}</div>
-      <div class="box"><h3>Son Hareketler</h3><div class="log">${logs || '<div>Henüz hareket yok</div>'}</div></div>
+      <div class="box"><h3>Net Sonuç</h3>${rows(S.companies.map((c,i)=>[SECTORS[i].name,money(netProfit(c))]))}</div>
+      <div class="box"><h3>Son Hareketler</h3><div class="log">${allLogs.length?allLogs.map(l=>`<div>${l}</div>`).join(''):'<div>Henüz hareket yok</div>'}</div></div>
     </div>`);
 }
 function achievementPanel(){
-  const totalSales=S.companies.reduce((a,b)=>a+b.sales,0), maxLevel=Math.max(...S.companies.map(c=>c.level));
-  openOverlay('🏆 BAŞARILAR','Şirketler büyüdükçe açılır.',`
-    ${rows([
-      ['İlk Şirket','✓'],
-      ['₺1M Gerçek Satış', totalSales>=1_000_000 ? '✓' : '—'],
-      ['LTD Şirket', maxLevel>=3 ? '✓' : '—'],
-      ['AŞ Şirket', maxLevel>=5 ? '✓' : '—'],
-      ['10 Şirket','✓']
-    ])}`);
+  const totalSales=S.companies.reduce((a,b)=>a+b.revenue,0), maxLevel=Math.max(...S.companies.map(c=>c.level));
+  openOverlay('🏆 BAŞARILAR','Büyüdükçe açılır.',`${rows([
+    ['İlk şirket','✓'],
+    ['₺1M gerçek satış', totalSales>=1_000_000 ? '✓':'—'],
+    ['LTD şirket', maxLevel>=3 ? '✓':'—'],
+    ['AŞ şirket', maxLevel>=5 ? '✓':'—'],
+    ['10 şirket','✓']
+  ])}`);
 }
 function settingsPanel(){
-  openOverlay('⚙️ AYARLAR','Oyun bu cihazda otomatik kaydedilir.',`
-    ${rows([
-      ['Otomatik Kayıt','Açık'],
-      ['Oyun Günü',S.day],
-      ['Sürüm','V8 Sector Worlds'],
-      ['Veri Sıfırlama','Sol menü ↻']
-    ])}`);
+  openOverlay('⚙️ AYARLAR','Oyun bu cihazda otomatik kaydedilir.',`${rows([
+    ['Otomatik Kayıt','Açık'],
+    ['Oyun Günü',S.day],
+    ['Sürüm','V9 Logic & Visual Fix'],
+    ['Veri Sıfırlama','Sol menü ↻']
+  ])}`);
 }
 function marketPanel(){
-  openOverlay('🛒 PAZAR','Sektör bazlı hammadde ve ürün fiyatları.',`
-    <div class="box">${rows(SECTORS.map(s=>[s.name, `${money(s.buy)} / ${s.raw} → ${money(s.sell)} / ${s.product}`]))}</div>`);
+  openOverlay('🛒 PAZAR','Sektör bazlı fiyatlar.',`<div class="box">${rows(SECTORS.map(s=>[s.name, `${money(s.buy)} ${s.raw} • ${money(s.sell)} ${s.product}`]))}</div>`);
 }
-function openOverlay(title,desc,body){ ot.textContent=title; od.textContent=desc; ob.innerHTML=body; overlay.classList.add('open'); }
 
-$('#close').onclick=()=>overlay.classList.remove('open');
-overlay.onclick=(e)=>{ if(e.target===overlay) overlay.classList.remove('open'); };
+$('#close').onclick=()=>closeOverlay();
+overlay.onclick=e=>{ if(e.target===overlay) closeOverlay(); };
 
-function tick(){
+function dailyTick(){
   S.day++;
   S.companies.forEach((c,i)=>{
     const s=SECTORS[i];
+    // salary
     const salary=c.staff*850;
-    if(c.cash>salary){ c.cash-=salary; c.costs+=salary; }
-    if(c.manager){
-      if(c.raw<8 && c.cash>s.buy*10){ c.cash-=s.buy*10; c.costs+=s.buy*10; c.raw+=10; }
-      const makeQty=Math.min(3,c.raw);
-      if(makeQty && c.cash>s.make*makeQty){ c.raw-=makeQty; c.cash-=s.make*makeQty; c.costs+=s.make*makeQty; c.warehouse+=makeQty; }
-      const shipQty=Math.min(3,c.warehouse);
-      if(shipQty){
-        const shipCost=shipQty*Math.max(100,s.sell*0.01);
-        if(c.cash>shipCost){ c.warehouse-=shipQty; c.store+=shipQty; c.cash-=shipCost; c.costs+=shipCost; }
-      }
-      const sellQty=Math.min(2,c.store);
-      if(sellQty){
-        const rev=sellQty*s.sell;
-        c.store-=sellQty; c.cash+=rev; c.sales+=rev;
-        const hold=Math.round((sellQty*s.make)*0.2);
-        if(c.cash>=hold){ c.cash-=hold; c.holdingPaid+=hold; S.holding+=hold; }
-      }
+    if(c.cash>salary){ c.cash-=salary; c.opex += salary; }
+    // debt interest
+    if(c.debt>0){
+      const intCost=Math.round(c.debt*0.002);
+      if(c.cash>intCost){ c.cash-=intCost; c.interest += intCost; }
     }
+    // manager automation
+    if(c.manager){
+      if(c.rawQty<8 && c.cash > s.buy*10) buyRaw(c,s,10);
+      if(c.rawQty>=3 && c.cash > s.make*3) produceGoods(c,s,3);
+      if(c.whQty>=3) shipGoods(c,s,Math.min(3,c.whQty));
+      if(c.storeQty>=2) sellGoods(c,s,Math.min(2,c.storeQty));
+    }
+    recalcValue(c);
   });
   save(); render();
 }
-setInterval(tick, 24000);
+setInterval(dailyTick, 24000);
 
 function render(){
   renderTop(); renderHeader(); renderStats(); renderBottom();
