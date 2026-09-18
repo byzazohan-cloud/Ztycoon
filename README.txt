@@ -1,39 +1,25 @@
 
-ZAZO TYCOON V15 — REALTIME OPERATIONS
+ZAZO TYCOON V17 — VISUAL MOBILE EDITION
 
-V14 üzerine eklenen ana sistemler:
-- Mağaza siparişleri
-- Üretim planı ve üretim kuyruğu
-- Tedarik siparişleri (2 oyun günü teslim süresi)
-- Depo -> mağaza sevkiyatında gerçek transit süresi
-- Ürün artık mağazaya anında ışınlanmaz
-- Otomatik müdür kuralları:
-  minimum mağaza stoğu
-  hedef depo stoğu
-  otomatik üretim
-  otomatik sevkiyat
-  otomatik tedarik
-- Personel sistemi:
-  vardiya
-  maaş politikası
-  yorgunluk
-  moral
-  aday işe alımı
-  yetenek
-  seviye / XP
-- Filo sistemi:
-  Kamyonet
-  Kamyon
-  Çekici
-  kapasite
-  yakıt
-  sağlık
-  km
-  bakım
-- Teslimat başarı puanı
-- Geciken siparişlerin müşteri memnuniyetine etkisi
-- V14 dünya haritası, tesis ağı, prestij, global genişleme korunur
-- V13 rekabet, kredi puanı, satın alma/birleşme korunur
-- V12 sektör özel oyun döngüleri korunur
+Bu sürüm V15 oynanışını koruyup görsel ve mobil deneyimi yeniler.
+
+V17 yenilikleri:
+- Yeni sinematik açılış ekranı
+- Devam Et / Yeni Oyun / Kısa Öğretici
+- 5 adımlı oyun öğreticisi
+- Şirket kampüslerinde daha güçlü görsel derinlik, ışık ve HUD
+- Kampüs seviyesi etiketi
+- Ofis / Üretim / Depo / Mağaza için farklı görsel sahne düzeni
+- Dünya haritasında hareketli lojistik rota göstergeleri
+- iPhone / küçük ekran için altta sabit mobil navigasyon
+- Mobil HUD ve istatistik alanları sıkıştırıldı
+- Dokunmatik buton boyutları iyileştirildi
+- prefers-reduced-motion desteği
+- Pil tüketimini azaltmak için animasyonlar CSS ve düşük frekanslıdır
+- V10–V15 kayıtlarını V17 anahtarına taşımayı deneyen kayıt geçiş sistemi
+- V15 operasyon, personel, sipariş, lojistik, vardiya ve otomatik müdür sistemi korunur
+- V14 dünya haritası, tesis ağı ve prestij korunur
+- V13 rekabet ve global ekonomi korunur
+- V12 sektör özel oynanışları korunur
 
 Tek dosyalıdır. GitHub Pages için sadece index.html yüklemek yeterlidir.
