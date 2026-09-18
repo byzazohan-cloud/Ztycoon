@@ -1,65 +1,25 @@
 
-ZAZO TYCOON V20 — DECISIONS, TENDERS & CRISIS
+ZAZO TYCOON V24 — SCENE PACK & BROWSER TEST
 
-V19 üzerine eklenen sistemler:
+Bu sürüm V23 üzerine gerçek dosya tabanlı görsel sahne paketi ekler.
 
-YÖNETİM KURULU
-- Güvenli Büyüme
-- Hızlı Büyüme
-- Premium Kalite
-- Maliyet Liderliği
-- Politikalara maliyet, satış ve risk etkisi
+Yeni görsel assetler:
+- assets/textile.jpg
+- assets/construction.jpg
+- assets/food.jpg
+- assets/auto.jpg
+- assets/tech.jpg
+- assets/logistics.jpg
+- assets/aviation.jpg
+- assets/space.jpg
+- assets/energy.jpg
+- assets/mining.jpg
 
-İHALE / SÖZLEŞME
-- Ulusal Dağıtım Sözleşmesi
-- Premium Kurumsal Tedarik
-- Mega Proje İhalesi
-- Global Ana Tedarikçi
-- Teklif fiyatı girme
-- Rakip teklif skoru
-- Kazanma / kaybetme
-- Teslim süresi
-- Proje ilerlemesi
-- Erken teslim bonusu
-- Gecikme cezası
-- İhale geçmişi
+Her sektör kendi raster arka planını kullanır. V23'teki bina katmanları bunun üstünde çalışır.
+Asset yüklenemezse koyu premium fallback görünüm korunur.
 
-KRİZ
-- Fabrika arızası
-- Tedarik kesintisi
-- Yakıt fiyat şoku
-- Personel krizi
-- Büyük müşteri şikâyeti
-- Sipariş iptali
-- Politika seçimine göre risk katsayısı
-- Kriz geçmişi
+GitHub Pages:
+- index.html ile birlikte assets klasörünü de aynı dizine yükle.
+- ZIP içindeki klasör yapısını bozma.
 
-SİGORTA
-- Fabrika
-- Filo
-- Proje
-- Havacılık
-- Günlük prim
-- Kriz zararını azaltma
-
-SEZON EKONOMİSİ
-- Normal piyasa
-- Yüksek talep
-- Maliyet baskısı
-- Ekonomik daralma
-- Büyüme dönemi
-- 14 oyun gününde bir dönem değişimi
-
-HEDEFLER
-- Haftalık ciro
-- Teslimat
-- Marka hedefi
-- Holding ödülü
-
-SERMAYE KARARLARI
-- Holding sermaye artırımı
-- %10 hisse satışı
-- Azami %40 dış ortak
-
-V19 içerik, V18 denge, V17 mobil/görsel ve önceki bütün temel sistemler korunur.
-Tek dosyalıdır. GitHub Pages için index.html yeterlidir.
+V23/V22/V21 ve önceki tüm ana sistemler korunur.
