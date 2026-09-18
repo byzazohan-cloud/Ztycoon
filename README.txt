@@ -1,25 +1,65 @@
 
-ZAZO TYCOON V17 — VISUAL MOBILE EDITION
+ZAZO TYCOON V20 — DECISIONS, TENDERS & CRISIS
 
-Bu sürüm V15 oynanışını koruyup görsel ve mobil deneyimi yeniler.
+V19 üzerine eklenen sistemler:
 
-V17 yenilikleri:
-- Yeni sinematik açılış ekranı
-- Devam Et / Yeni Oyun / Kısa Öğretici
-- 5 adımlı oyun öğreticisi
-- Şirket kampüslerinde daha güçlü görsel derinlik, ışık ve HUD
-- Kampüs seviyesi etiketi
-- Ofis / Üretim / Depo / Mağaza için farklı görsel sahne düzeni
-- Dünya haritasında hareketli lojistik rota göstergeleri
-- iPhone / küçük ekran için altta sabit mobil navigasyon
-- Mobil HUD ve istatistik alanları sıkıştırıldı
-- Dokunmatik buton boyutları iyileştirildi
-- prefers-reduced-motion desteği
-- Pil tüketimini azaltmak için animasyonlar CSS ve düşük frekanslıdır
-- V10–V15 kayıtlarını V17 anahtarına taşımayı deneyen kayıt geçiş sistemi
-- V15 operasyon, personel, sipariş, lojistik, vardiya ve otomatik müdür sistemi korunur
-- V14 dünya haritası, tesis ağı ve prestij korunur
-- V13 rekabet ve global ekonomi korunur
-- V12 sektör özel oynanışları korunur
+YÖNETİM KURULU
+- Güvenli Büyüme
+- Hızlı Büyüme
+- Premium Kalite
+- Maliyet Liderliği
+- Politikalara maliyet, satış ve risk etkisi
 
-Tek dosyalıdır. GitHub Pages için sadece index.html yüklemek yeterlidir.
+İHALE / SÖZLEŞME
+- Ulusal Dağıtım Sözleşmesi
+- Premium Kurumsal Tedarik
+- Mega Proje İhalesi
+- Global Ana Tedarikçi
+- Teklif fiyatı girme
+- Rakip teklif skoru
+- Kazanma / kaybetme
+- Teslim süresi
+- Proje ilerlemesi
+- Erken teslim bonusu
+- Gecikme cezası
+- İhale geçmişi
+
+KRİZ
+- Fabrika arızası
+- Tedarik kesintisi
+- Yakıt fiyat şoku
+- Personel krizi
+- Büyük müşteri şikâyeti
+- Sipariş iptali
+- Politika seçimine göre risk katsayısı
+- Kriz geçmişi
+
+SİGORTA
+- Fabrika
+- Filo
+- Proje
+- Havacılık
+- Günlük prim
+- Kriz zararını azaltma
+
+SEZON EKONOMİSİ
+- Normal piyasa
+- Yüksek talep
+- Maliyet baskısı
+- Ekonomik daralma
+- Büyüme dönemi
+- 14 oyun gününde bir dönem değişimi
+
+HEDEFLER
+- Haftalık ciro
+- Teslimat
+- Marka hedefi
+- Holding ödülü
+
+SERMAYE KARARLARI
+- Holding sermaye artırımı
+- %10 hisse satışı
+- Azami %40 dış ortak
+
+V19 içerik, V18 denge, V17 mobil/görsel ve önceki bütün temel sistemler korunur.
+Tek dosyalıdır. GitHub Pages için index.html yeterlidir.
