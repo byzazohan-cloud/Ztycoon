@@ -1,10 +1,16 @@
-ZAZO TYCOON V10 — EMPIRE START
+ZAZO TYCOON V11 — TYCOON DEPTH
 
-Önemli:
-- Tek dosya: sadece index.html yüklenir.
-- Görseller HTML içine gömülüdür.
-- Oyuncu tek şirketle başlar.
-- Yeni sektörler grup değeri + Holding sermayesiyle açılır.
-- Ürün çeşidi, fiyat, talep, çalışan rolleri, makineler, kapasite, offline ilerleme ve şirket büyümesi vardır.
+V10 üzerine eklenenler:
+- Şube ve şehir sistemi: Bursa, İstanbul, Ankara, İzmir
+- Mağaza/şube açma ve kira gideri
+- Makine sağlığı, bakım ve üretim verimliliği
+- Araç sağlığı, filo bakımı ve sevkiyat etkisi
+- Holding seviyesi, itibar ve tedarik indirimi
+- Pazar payı ve rakip baskısı
+- 30 günlük dönem vergisi
+- 7 günlük rastgele olaylar
+- Yakıt zammı, talep patlaması, sözleşme, makine arızası
+- Şehir ve pazar payının talebe etkisi
+- V10'daki offline ilerleme, ürün, fiyat, talep, çalışan, makine, banka ve şirket kurma sistemi korunur
 
-GitHub Pages için eski index.html üzerine bu index.html dosyasını yükleyin.
+Tek dosyadır. GitHub Pages'e sadece index.html yüklemek yeterlidir.
