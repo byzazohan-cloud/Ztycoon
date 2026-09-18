@@ -1,16 +1,18 @@
-ZAZO TYCOON V11 — TYCOON DEPTH
 
-V10 üzerine eklenenler:
-- Şube ve şehir sistemi: Bursa, İstanbul, Ankara, İzmir
-- Mağaza/şube açma ve kira gideri
-- Makine sağlığı, bakım ve üretim verimliliği
-- Araç sağlığı, filo bakımı ve sevkiyat etkisi
-- Holding seviyesi, itibar ve tedarik indirimi
-- Pazar payı ve rakip baskısı
-- 30 günlük dönem vergisi
-- 7 günlük rastgele olaylar
-- Yakıt zammı, talep patlaması, sözleşme, makine arızası
-- Şehir ve pazar payının talebe etkisi
-- V10'daki offline ilerleme, ürün, fiyat, talep, çalışan, makine, banka ve şirket kurma sistemi korunur
+ZAZO TYCOON V13 — MARKET WARS
 
-Tek dosyadır. GitHub Pages'e sadece index.html yüklemek yeterlidir.
+V12 üzerine:
+- Rakip şirketler ve pazar payı savaşı
+- Dinamik piyasa ve rakip fiyat baskısı
+- Ekonomik / Standart / Premium tedarikçi seçimi
+- Kredi puanı, değişken faiz, kredi limiti
+- Marka değeri ve müşteri memnuniyeti
+- Çalışan morali
+- Yönetici profilleri
+- Global pazarlar: Almanya, BAE, İngiltere, ABD, Japonya
+- Detaylı bilanço ve gelir tablosu
+- Şirket satın alma / birleşme
+- Holding seviyesine göre vergi avantajı
+- V12 sektör özel oynanışları, üretim kuyruğu, sözleşme, ikinci el araç, offline ilerleme korunur
+
+Tek dosya: GitHub Pages için sadece index.html yükleyin.
