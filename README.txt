@@ -1,19 +1,17 @@
-ZAZO TYCOON — WORLD EDITION V7
+ZAZO TYCOON V8 — SECTOR WORLDS
 
-Bu sürüm önceki dashboard yapısından farklı olarak sahne tabanlıdır:
+Bu sürümde 10 sektörün her biri ayrı dünya mantığıyla tasarlandı.
+Akış:
+Şehir -> Şirket Kampüsü -> Ofis / Üretim / Depo / Satış tesisi
 
-ANA ŞEHİR
-  -> şirket kampüsü
-      -> Ofis içi
-      -> Fabrika / operasyon içi
-      -> Depo içi
-      -> Satış merkezi içi
-      -> Filo merkezi
+Öne çıkanlar:
+- Tekstil kampüs görseli yalnızca ZAZO Tekstil’de kullanılır.
+- 10 sektörün tamamında ayrı görsel dünya, ayrı dekor, ayrı üretim ve satış adı vardır.
+- Her şirketin ayrı kasa, seviye, çalışan, müdür, araç, hammadde, depo, satış stoğu ve muhasebesi vardır.
+- Satın alma -> üretim -> sevkiyat -> satış -> Holding payı döngüsü her sektörde çalışır.
+- Müdür otomasyonu pasif/aktif yapılabilir.
+- Banka, yatırım, Holding ve rapor ekranları vardır.
+- Sol menüdeki ↻ ile tüm kayıtlı veri sıfırlanır.
 
-10 sektörün her birinde gerçek ekonomi döngüsü:
-satın alma -> üretim/operasyon -> depo -> sevkiyat -> satış -> Holding payı.
-
-GitHub Pages için ZIP içindeki index.html ve textile-campus.png dosyalarını
-repository köküne birlikte yükleyin.
-
-Not: textile-campus.png yalnızca ZAZO TEKSTİL kampüsünde kullanılır.
+GitHub Pages:
+ZIP içindeki index.html ve textile-campus.png dosyalarını repository köküne birlikte yükleyin.
