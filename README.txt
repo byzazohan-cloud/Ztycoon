@@ -1,10 +1,10 @@
-ZAZO TYCOON V9.1 — SINGLE FILE VISUAL FIX
+ZAZO TYCOON V10 — EMPIRE START
 
-Bu sürümde görseller HTML dosyasının içine gömüldü.
-Yani:
-- svg dosyası yüklemene gerek yok
-- textile-campus.png yüklemene gerek yok
-- sadece index.html yeterli
+Önemli:
+- Tek dosya: sadece index.html yüklenir.
+- Görseller HTML içine gömülüdür.
+- Oyuncu tek şirketle başlar.
+- Yeni sektörler grup değeri + Holding sermayesiyle açılır.
+- Ürün çeşidi, fiyat, talep, çalışan rolleri, makineler, kapasite, offline ilerleme ve şirket büyümesi vardır.
 
-GitHub'a sadece index.html yükle.
-Eski index.html üzerine yaz.
+GitHub Pages için eski index.html üzerine bu index.html dosyasını yükleyin.
