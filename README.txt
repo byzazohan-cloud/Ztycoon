@@ -1,25 +1,16 @@
 
-ZAZO TYCOON V24 — SCENE PACK & BROWSER TEST
+ZAZO TYCOON V24.1 — REAL SCENES FIX
 
-Bu sürüm V23 üzerine gerçek dosya tabanlı görsel sahne paketi ekler.
+Bu düzeltme V24'teki basit çizgili/şematik raster görselleri kaldırır.
 
-Yeni görsel assetler:
-- assets/textile.jpg
-- assets/construction.jpg
-- assets/food.jpg
-- assets/auto.jpg
-- assets/tech.jpg
-- assets/logistics.jpg
-- assets/aviation.jpg
-- assets/space.jpg
-- assets/energy.jpg
-- assets/mining.jpg
-
-Her sektör kendi raster arka planını kullanır. V23'teki bina katmanları bunun üstünde çalışır.
-Asset yüklenemezse koyu premium fallback görünüm korunur.
+Düzeltmeler:
+- Tekstil için yüksek çözünürlüklü onaylı ZAZO TEKSTİL kampüs görseli kullanıldı.
+- Diğer 9 sektör için mevcut yüksek kaliteli oyun-planı görselindeki gerçek sektör sahneleri ayrıştırıldı.
+- 10 ayrı JPG sahne dosyası var.
+- CSS bina çizimleri gerçek görselin önünü kapatmasın diye kapatıldı.
+- Kampüs ekranı artık esas olarak raster sektör görselini gösteriyor.
+- Ofis/üretim/depo/mağaza ekranlarında da sektör görseli arka plan olarak kullanılıyor.
+- V23/V22/V21/V20 oynanış sistemleri korunuyor.
 
 GitHub Pages:
-- index.html ile birlikte assets klasörünü de aynı dizine yükle.
-- ZIP içindeki klasör yapısını bozma.
-
-V23/V22/V21 ve önceki tüm ana sistemler korunur.
+index.html ve assets klasörünü birlikte yükleyin.

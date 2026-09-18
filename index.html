@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>ZAZO TYCOON V24 — Scene Pack & Browser Test</title>
+<title>ZAZO TYCOON V24.1 — Scene Pack & Browser Test</title>
 <style>
 *{box-sizing:border-box}
 :root{--gold:#e8be59;--gold2:#ffe8a8;--ink:#030a10;--line:#81662f;--panel:#081d29;--muted:#9fb2ba;--white:#f4f8fa;--danger:#ff8383;--ok:#68dfa1}
@@ -267,6 +267,16 @@ repeating-linear-gradient(0deg,#d9a94f 0 12px,#243139 12px 26px)}
 .v23RoadVehicle.rv1{left:18%}.v23RoadVehicle.rv2{right:20%;transform:scale(.85)}
 .v23LevelBadge{position:absolute;left:50%;bottom:6%;transform:translateX(-50%);z-index:10;padding:8px 14px;border-radius:999px;background:#06171fe6;border:1px solid #a07e3a;color:#ffe5a7;font-size:10px;font-weight:900;letter-spacing:.8px;box-shadow:0 14px 28px #0008}
 
+
+/* V24.1 real-scene correction */
+.v22CampusWrap{background:linear-gradient(180deg,#0000 0%,#00000010 55%,#00000055 100%)}
+.v23SectorSet{display:none!important}
+.v22Terrain,.v22CampusGlow,.v22Lot{display:none!important}
+.v22FacilityShell{background-image:var(--facility-bg)!important;background-size:cover!important;background-position:center!important;filter:saturate(1.05) brightness(.55)!important}
+.v22FacilityShell:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#06141a33,#06141a77 58%,#03090bcc);pointer-events:none}
+.v22OfficeWall,.v22ProductionCore,.v22WarehouseSet,.v22RetailSet{opacity:.92}
+.world{background-size:cover!important;background-position:center!important}
+
 </style>
 </head>
 <body>
@@ -312,7 +322,7 @@ repeating-linear-gradient(0deg,#d9a94f 0 12px,#243139 12px 26px)}
 
 <script>
 const SECTORS=[{"id": "textile", "name": "ZAZO TEKSTİL", "label": "Tekstil", "icon": "🧵", "unlock": 0, "startCash": 2500000, "world": "assets/textile.jpg", "products": [{"name": "Tişört", "raw": "Pamuk + İplik", "rawCost": 70, "makeCost": 22, "basePrice": 220, "baseDemand": 82}, {"name": "Gömlek", "raw": "Kumaş + İplik", "rawCost": 105, "makeCost": 34, "basePrice": 360, "baseDemand": 68}, {"name": "Pantolon", "raw": "Kumaş", "rawCost": 135, "makeCost": 45, "basePrice": 480, "baseDemand": 60}, {"name": "Mont", "raw": "Kumaş + Dolgu", "rawCost": 260, "makeCost": 85, "basePrice": 950, "baseDemand": 44}, {"name": "Premium Takım", "raw": "Premium Kumaş", "rawCost": 420, "makeCost": 160, "basePrice": 1650, "baseDemand": 31}, {"name": "Spor Giyim Seti", "raw": "Teknik Kumaş", "rawCost": 210, "makeCost": 74, "basePrice": 780, "baseDemand": 52}]}, {"id": "construction", "name": "ZAZO İNŞAAT", "label": "İnşaat", "icon": "🏗️", "unlock": 18000000, "startCash": 7000000, "world": "assets/construction.jpg", "products": [{"name": "Daire Projesi", "raw": "Demir + Beton", "rawCost": 1700000, "makeCost": 950000, "basePrice": 4200000, "baseDemand": 55}, {"name": "Villa Projesi", "raw": "Yapı Paketi", "rawCost": 2600000, "makeCost": 1400000, "basePrice": 6500000, "baseDemand": 38}, {"name": "Ofis Projesi", "raw": "Demir + Cam + Beton", "rawCost": 3300000, "makeCost": 1750000, "basePrice": 8200000, "baseDemand": 33}, {"name": "Ticari Plaza", "raw": "Yapı + Mekanik Paket", "rawCost": 6400000, "makeCost": 3900000, "basePrice": 15500000, "baseDemand": 20}]}, {"id": "food", "name": "ZAZO GIDA", "label": "Gıda", "icon": "🥫", "unlock": 5000000, "startCash": 2200000, "world": "assets/food.jpg", "products": [{"name": "Hazır Gıda Kolisi", "raw": "Gıda Hammaddesi", "rawCost": 90, "makeCost": 40, "basePrice": 285, "baseDemand": 88}, {"name": "Premium Paket", "raw": "Kaliteli Hammadde", "rawCost": 145, "makeCost": 55, "basePrice": 430, "baseDemand": 63}, {"name": "Dondurulmuş Ürün", "raw": "Gıda + Soğuk Zincir", "rawCost": 175, "makeCost": 75, "basePrice": 520, "baseDemand": 59}, {"name": "İçecek Paketi", "raw": "İçecek Hammaddesi", "rawCost": 120, "makeCost": 42, "basePrice": 360, "baseDemand": 72}, {"name": "Organik Seri", "raw": "Organik Hammadde", "rawCost": 230, "makeCost": 90, "basePrice": 690, "baseDemand": 47}]}, {"id": "auto", "name": "ZAZO OTOMOTİV", "label": "Otomotiv", "icon": "🚗", "unlock": 35000000, "startCash": 12000000, "world": "assets/auto.jpg", "products": [{"name": "Şehir Otomobili", "raw": "Parça Seti", "rawCost": 420000, "makeCost": 170000, "basePrice": 980000, "baseDemand": 58}, {"name": "SUV", "raw": "SUV Parça Seti", "rawCost": 620000, "makeCost": 240000, "basePrice": 1450000, "baseDemand": 46}, {"name": "Elektrikli Sedan", "raw": "EV Parça Seti", "rawCost": 880000, "makeCost": 360000, "basePrice": 1980000, "baseDemand": 40}, {"name": "Premium SUV", "raw": "Premium SUV Parça Seti", "rawCost": 1150000, "makeCost": 450000, "basePrice": 2600000, "baseDemand": 28}, {"name": "Hafif Ticari", "raw": "Ticari Parça Seti", "rawCost": 590000, "makeCost": 220000, "basePrice": 1320000, "baseDemand": 46}]}, {"id": "tech", "name": "ZAZO TEKNOLOJİ", "label": "Teknoloji", "icon": "💻", "unlock": 18000000, "startCash": 4200000, "world": "assets/tech.jpg", "products": [{"name": "Akıllı Telefon", "raw": "Elektronik Parça", "rawCost": 5200, "makeCost": 2300, "basePrice": 14800, "baseDemand": 75}, {"name": "Dizüstü Bilgisayar", "raw": "Bilgisayar Parçası", "rawCost": 12800, "makeCost": 5100, "basePrice": 32900, "baseDemand": 54}, {"name": "Tablet", "raw": "Elektronik Parça", "rawCost": 7300, "makeCost": 2900, "basePrice": 19800, "baseDemand": 60}, {"name": "Akıllı Saat", "raw": "Mikro Elektronik", "rawCost": 2500, "makeCost": 1100, "basePrice": 8200, "baseDemand": 69}, {"name": "Oyun Bilgisayarı", "raw": "Yüksek Performans Parçası", "rawCost": 25500, "makeCost": 8200, "basePrice": 59900, "baseDemand": 35}]}, {"id": "logistics", "name": "ZAZO LOJİSTİK", "label": "Lojistik", "icon": "🚚", "unlock": 8500000, "startCash": 3000000, "world": "assets/logistics.jpg", "products": [{"name": "Şehir İçi Sefer", "raw": "Yakıt + Operasyon", "rawCost": 5200, "makeCost": 1800, "basePrice": 12800, "baseDemand": 84}, {"name": "Uzun Yol Seferi", "raw": "Yakıt + Otoyol", "rawCost": 12000, "makeCost": 4200, "basePrice": 28500, "baseDemand": 62}, {"name": "Soğuk Zincir Seferi", "raw": "Yakıt + Soğutma", "rawCost": 15500, "makeCost": 5800, "basePrice": 36500, "baseDemand": 54}, {"name": "Express Teslimat", "raw": "Yakıt + Öncelikli Operasyon", "rawCost": 8700, "makeCost": 4200, "basePrice": 22800, "baseDemand": 71}, {"name": "Ağır Yük Operasyonu", "raw": "Yakıt + Ağır Nakliye", "rawCost": 24500, "makeCost": 9600, "basePrice": 56500, "baseDemand": 39}]}, {"id": "aviation", "name": "ZAZO HAVACILIK", "label": "Havacılık", "icon": "✈️", "unlock": 90000000, "startCash": 25000000, "world": "assets/aviation.jpg", "products": [{"name": "İç Hat Uçuşu", "raw": "Yakıt + Operasyon", "rawCost": 155000, "makeCost": 72000, "basePrice": 390000, "baseDemand": 57}, {"name": "Dış Hat Uçuşu", "raw": "Yakıt + Operasyon", "rawCost": 280000, "makeCost": 125000, "basePrice": 680000, "baseDemand": 43}, {"name": "Premium Yolcu Uçuşu", "raw": "Yakıt + Premium Servis", "rawCost": 420000, "makeCost": 180000, "basePrice": 980000, "baseDemand": 34}, {"name": "Kargo Uçuşu", "raw": "Yakıt + Kargo Operasyonu", "rawCost": 320000, "makeCost": 145000, "basePrice": 790000, "baseDemand": 49}]}, {"id": "space", "name": "ZAZO UZAY", "label": "Uzay", "icon": "🚀", "unlock": 180000000, "startCash": 70000000, "world": "assets/space.jpg", "products": [{"name": "Uydu Fırlatma", "raw": "Roket Bileşeni", "rawCost": 4200000, "makeCost": 2800000, "basePrice": 11800000, "baseDemand": 32}, {"name": "Yörünge Görevi", "raw": "Görev Paketi", "rawCost": 6800000, "makeCost": 4500000, "basePrice": 18500000, "baseDemand": 22}, {"name": "Ay Görevi", "raw": "Derin Uzay Paketi", "rawCost": 14500000, "makeCost": 8500000, "basePrice": 38000000, "baseDemand": 10}, {"name": "Uydu Takımyıldızı", "raw": "Uydu Platformu", "rawCost": 9200000, "makeCost": 5200000, "basePrice": 24500000, "baseDemand": 18}]}, {"id": "energy", "name": "ZAZO ENERJİ", "label": "Enerji", "icon": "⚡", "unlock": 65000000, "startCash": 18000000, "world": "assets/energy.jpg", "products": [{"name": "Şebeke Enerjisi", "raw": "Enerji Kaynağı", "rawCost": 820, "makeCost": 390, "basePrice": 2400, "baseDemand": 80}, {"name": "Yeşil Enerji Paketi", "raw": "Yenilenebilir Kaynak", "rawCost": 1150, "makeCost": 470, "basePrice": 3300, "baseDemand": 66}, {"name": "Güneş Enerjisi Paketi", "raw": "Panel + İnverter", "rawCost": 1650, "makeCost": 710, "basePrice": 4800, "baseDemand": 61}, {"name": "Rüzgar Enerjisi Paketi", "raw": "Türbin Bileşeni", "rawCost": 2800, "makeCost": 1250, "basePrice": 7600, "baseDemand": 49}, {"name": "Endüstriyel Enerji Sözleşmesi", "raw": "Şebeke Operasyonu", "rawCost": 5200, "makeCost": 2200, "basePrice": 13500, "baseDemand": 38}]}, {"id": "mining", "name": "ZAZO MADENCİLİK", "label": "Madencilik", "icon": "⛏️", "unlock": 65000000, "startCash": 14000000, "world": "assets/mining.jpg", "products": [{"name": "Demir Cevheri", "raw": "Saha Operasyonu", "rawCost": 1450, "makeCost": 850, "basePrice": 3900, "baseDemand": 70}, {"name": "Bakır Konsantresi", "raw": "Bakır Sahası", "rawCost": 2600, "makeCost": 1350, "basePrice": 6900, "baseDemand": 52}, {"name": "Altın Konsantresi", "raw": "Altın Sahası", "rawCost": 7200, "makeCost": 3500, "basePrice": 18200, "baseDemand": 29}, {"name": "Lityum Cevheri", "raw": "Lityum Sahası", "rawCost": 4800, "makeCost": 2250, "basePrice": 12500, "baseDemand": 45}, {"name": "Nikel Konsantresi", "raw": "Nikel Sahası", "rawCost": 3600, "makeCost": 1700, "basePrice": 9400, "baseDemand": 52}]}];
-const KEY='zazoTycoonV24';
+const KEY='zazoTycoonV24_1';
 
 const CONTENT={
   vehicleCatalog:[
@@ -632,10 +642,7 @@ function v22Cityline(){
 }
 function v22CampusArt(co,sec){
   const theme=v22SectorTheme(sec.id),accent=co.brandColor||theme.accent,tier=v22CampusTier(co.level);
-  return `<div class="v22Sky"></div><div class="v22Sun"></div><div class="v22Cloud c1"></div><div class="v22Cloud c2"></div><div class="v22Cloud c3"></div>
-  <div class="v22Terrain"></div><div class="v22CampusGlow"></div><div class="v22SectorStrip" style="border-color:${accent};box-shadow:0 14px 35px ${accent}33">${theme.name} • ${tier}</div>
-  ${v23SectorBuildings(co,sec)}
-  <div class="v22Lot l1"></div><div class="v22Lot l2"></div><div class="v22Lot l3"></div><div class="v22Lot l4"></div>
+  return `<div class="v22SectorStrip" style="border-color:${accent};box-shadow:0 14px 35px ${accent}33">${theme.name} • ${tier}</div>
   <div class="v22ThemeLabel"><b style="color:${accent}">${theme.name}</b><br>${theme.mood}<br>Kampüs seviyesi: ${co.level}</div>`;
 }
 function v22FacilityArt(type,co,sec){
@@ -685,7 +692,7 @@ function productCards(mode){
   }).join('');
 }
 function renderFacility(){
-  const co=c(),sec=s(),theme=v22SectorTheme(sec.id),accent=co.brandColor||theme.accent;let body='';
+  const co=c(),sec=s(),theme=v22SectorTheme(sec.id),accent=co.brandColor||theme.accent;$('#stage')[0].style.setProperty('--facility-bg',`url('${sec.world}')`);let body='';
   if(state.facility==='office'){
     body=`${v22FacilityArt('office',co,sec)}<div class="fxGlow"></div><div class="quick" style="border-color:${accent}33"><h3>CEO OFİSİ</h3>${rows([['Şirket',co.name],['Tip',companyType(co.level)],['İşçi',co.staff.worker],['Satış',co.staff.sales],['Mühendis',co.staff.engineer],['Müdür',co.staff.manager]])}<button class="action" id="worker">+5 İşçi • ${money(90000)}</button><button class="action secondary" id="salesStaff">+2 Satış Personeli • ${money(70000)}</button><button class="action secondary" id="engineer">+1 Mühendis • ${money(120000)}</button><button class="action" id="upgrade">Şirketi Yükselt • ${money(co.level*1400000)}</button><button class="action secondary" id="managerProfile">Yönetici Profilini Değiştir</button><button class="action secondary" id="supplierBtn">Tedarikçi Seç</button></div>`;
   }else if(state.facility==='production'){
@@ -1417,7 +1424,7 @@ setInterval(()=>simulateTick(true),60000);
 
 
 function migrateLegacySave(){
-  const legacyKeys=['zazoTycoonV23','zazoTycoonV22','zazoTycoonV21','zazoTycoonV20','zazoTycoonV19','zazoTycoonV18','zazoTycoonV17','zazoTycoonV15','zazoTycoonV14','zazoTycoonV13','zazoTycoonV12','zazoTycoonV11','zazoTycoonV10'];
+  const legacyKeys=['zazoTycoonV24','zazoTycoonV23','zazoTycoonV22','zazoTycoonV21','zazoTycoonV20','zazoTycoonV19','zazoTycoonV18','zazoTycoonV17','zazoTycoonV15','zazoTycoonV14','zazoTycoonV13','zazoTycoonV12','zazoTycoonV11','zazoTycoonV10'];
   if(localStorage.getItem(KEY))return;
   for(const k of legacyKeys){
     const raw=localStorage.getItem(k);
