@@ -1,5 +1,5 @@
 {
-  "name": "ZAZO TYCOON — Business Empire",
+  "name": "ZAZO TYCOON Business Empire",
   "short_name": "ZAZO TYCOON",
   "start_url": "./",
   "scope": "./",
@@ -18,5 +18,6 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ]
+  ],
+  "version": "2.3.2"
 }

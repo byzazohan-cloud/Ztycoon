@@ -1,0 +1,7 @@
+ZAZO TYCOON 2.3.2 — CLEAN CITY FINAL AUDIT
+
+- JS syntax: OK
+- legacy cityWorld CSS removed: OK
+- legacy conceptCity CSS removed: OK
+- old cinematic city CSS removed: OK
+- real city CSS present: OK

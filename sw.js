@@ -1,8 +1,5 @@
-const CACHE='zazo-tycoon-2.2.1';
-const ASSETS=['./','./index.html','./manifest.webmanifest',
-'./assets/textile.jpg','./assets/construction.jpg','./assets/food.jpg','./assets/auto.jpg','./assets/tech.jpg',
-'./assets/logistics.jpg','./assets/aviation.jpg','./assets/space.jpg','./assets/energy.jpg','./assets/mining.jpg',
-'./assets/icon-192.png','./assets/icon-512.png','./assets/apple-touch-icon.png'];
+const CACHE='zazo-tycoon-2.3.2';
+const ASSETS=['./','./index.html','./manifest.json','./assets/city/holding.png','./assets/city/bank.png','./assets/city/airport.png','./assets/city/logistics.png','./assets/city/store.png','./assets/city/depot.png','./assets/city/factory.png','./assets/city/port.png','./assets/city/technology.png','./assets/city/construction.png'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{
