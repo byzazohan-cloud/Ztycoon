@@ -1,0 +1,2 @@
+JS syntax: OK
+10 true sprite assets: OK
