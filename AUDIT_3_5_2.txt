@@ -1,0 +1,21 @@
+ZAZO TYCOON 3.5.2 — ACCOUNTING & LOGISTICS FIX
+
+- JS syntax: OK
+- SW syntax: OK
+- typed input compatibility: OK
+- incompatible stock blocked: OK
+- cancel restores seller output: OK
+- cash tax after seller receives money: OK
+- credit tax after collection: OK
+- no Math.max tax masking: OK
+- logistics has operating cost: OK
+- logistics has tax: OK
+- logistics has holding 20%: OK
+- all-sector daily market history: OK
+- legacy holding share guard: OK
+- holding share audit log: OK
+- 3.5.1 migration: OK
+
+3.5.1 taramasındaki muhasebe, vergi zamanlaması, lojistik kârlılığı, girdi uyumluluğu, sevkiyat iadesi ve piyasa geçmişi açıkları kapatıldı.
+Eski V12–V20 ayrıntılı sektör ekranlarının tamamını 3.x çekirdeğe taşıma işi özellik geliştirmesi olarak devam ediyor; hata düzeltmesi değildir.
+Gerçek tarayıcı/headless testi yapılmadı.
