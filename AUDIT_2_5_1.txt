@@ -1,0 +1,14 @@
+ZAZO TYCOON 2.5.1 — STABILITY FIX
+
+- JS syntax: OK
+- SW syntax: OK
+- new save key: OK
+- 2.5.0 migration: OK
+- manifest path fixed: OK
+- navigation fallback fixed: OK
+- old city sprites removed: OK
+- stable 16:9 map: OK
+- sector missing notice: OK
+- facility missing notice: OK
+- old health name removed: OK
+- stale audits removed: OK

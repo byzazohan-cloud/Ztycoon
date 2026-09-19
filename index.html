@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>ZAZO TYCOON 2.4.0 — True Sprite City</title>
+<title>ZAZO TYCOON 2.5.1 — Stability Fix</title>
 <style>
 *{box-sizing:border-box}
 :root{--gold:#e8be59;--gold2:#ffe8a8;--ink:#030a10;--line:#81662f;--panel:#081d29;--muted:#9fb2ba;--white:#f4f8fa;--danger:#ff8383;--ok:#68dfa1}
@@ -283,7 +283,7 @@ html{background:#02070b}
 body{-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none}
 button{touch-action:manipulation}
 .finalVersion{display:inline-flex;align-items:center;gap:6px;padding:5px 8px;border-radius:999px;border:1px solid #8a6b32;background:#061821d9;color:#ffe2a0;font-size:9px;font-weight:900;letter-spacing:.8px}
-.introTitle:after{content:"2.4.0";display:inline-block;margin-left:10px;font-size:9px;letter-spacing:2px;padding:5px 7px;border-radius:999px;border:1px solid #8d6f34;vertical-align:middle;color:#ffe6a6}
+.introTitle:after{content:"2.5.1";display:inline-block;margin-left:10px;font-size:9px;letter-spacing:2px;padding:5px 7px;border-radius:999px;border:1px solid #8d6f34;vertical-align:middle;color:#ffe6a6}
 .startBrand small{color:#d9c58f}
 @media(max-width:900px){
   .introTitle:after{display:block;width:max-content;margin:10px 0 0}
@@ -419,7 +419,7 @@ button{touch-action:manipulation}
 }
 
 
-/* 2.3.2 CLEAN CITY — no pasted city background */
+/* 2.5.1 STABILITY FIX — no pasted city background */
 
 .cityWorld:before{content:"";position:absolute;left:-8%;right:-8%;top:20%;height:18%;
  background:linear-gradient(165deg,#16343c 0 18%,#426171 18% 25%,#24434e 25% 36%,#5b735b 36% 100%);
@@ -524,7 +524,7 @@ button{touch-action:manipulation}
 @media(max-width:900px){.bottomModules{grid-template-columns:1fr 1fr}.moduleCard{height:90px}.dailyBox{display:none}.cityTopGame{overflow:auto}.playerCard{min-width:145px}.cbHold{left:42%}.cbLog{right:0}.cbAirport{right:-2%}.cB{transform:scale(.8)}}
 
 
-/* 2.3.2 CLEAN CITY — full concept image is never used as background */
+/* 2.5.1 STABILITY FIX — full concept image is never used as background */
 .realCity{position:absolute;inset:0;overflow:hidden;background:
  radial-gradient(circle at 50% 0,#b7e1ee 0 10%,transparent 38%),
  linear-gradient(180deg,#73b6d2 0 25%,#496d58 25% 43%,#244938 43% 100%)}
@@ -564,8 +564,81 @@ button{touch-action:manipulation}
 }
 
 
-/* 2.4 TRUE SPRITES */
-.assetBuilding{border:0!important;background:transparent!important;box-shadow:none!important;overflow:visible!important;border-radius:0!important}.assetBuilding img{width:100%!important;height:100%!important;object-fit:contain!important;filter:drop-shadow(0 16px 9px #0009) saturate(1.06)!important}.assetBuilding:after{display:none!important}.assetLabel{bottom:-12px!important}.aHolding{left:44%;top:25%;width:12%;height:38%}.aBank{left:59%;top:38%;width:12%;height:24%}.aAirport{right:1%;top:27%;width:23%;height:26%}.aLogistics{right:3%;top:53%;width:20%;height:21%}.aStore{right:24%;top:64%;width:16%;height:19%}.aDepot{left:47%;top:64%;width:17%;height:19%}.aFactory{left:25%;top:55%;width:21%;height:29%}.aPort{left:2%;top:43%;width:22%;height:33%}.aTech{left:30%;top:31%;width:13%;height:25%}.aConstruction{left:10%;top:29%;width:18%;height:25%}
+/* 2.5.1 STABILITY FIX */
+.assetBuilding{
+  border:0!important;background:transparent!important;box-shadow:none!important;
+  overflow:visible!important;border-radius:0!important;
+}
+.assetBuilding img{
+  width:100%!important;height:100%!important;object-fit:contain!important;
+  filter:drop-shadow(0 16px 9px #0009) saturate(1.06)!important;
+}
+.assetBuilding:hover{box-shadow:none!important;filter:brightness(1.08)}
+.assetBuilding:after{display:none!important}
+.assetLabel{bottom:-12px!important;background:#06151ef2!important}
+.aHolding{left:44%;top:25%;width:12%;height:38%}
+.aBank{left:59%;top:38%;width:12%;height:24%}
+.aAirport{right:1%;top:27%;width:23%;height:26%}
+.aLogistics{right:3%;top:53%;width:20%;height:21%}
+.aStore{right:24%;top:64%;width:16%;height:19%}
+.aDepot{left:47%;top:64%;width:17%;height:19%}
+.aFactory{left:25%;top:55%;width:21%;height:29%}
+.aPort{left:2%;top:43%;width:22%;height:33%}
+.aTech{left:30%;top:31%;width:13%;height:25%}
+.aConstruction{left:10%;top:29%;width:18%;height:25%}
+.realLand{
+ background:
+ radial-gradient(circle at 15% 25%,#6f8d59 0 2px,transparent 3px),
+ radial-gradient(circle at 65% 55%,#6b8956 0 2px,transparent 3px),
+ linear-gradient(145deg,#557a50,#315c42)!important;
+}
+.realRoad{border-color:#a9a38f!important}
+@media(max-width:900px){
+ .aHolding{left:42%;width:15%}.aBank{left:57%;width:15%}
+ .aTech{left:25%;width:17%}.aConstruction{left:2%;width:22%}
+ .aFactory{left:20%;width:25%}.aDepot{left:44%;width:22%}
+ .aStore{right:15%;width:21%}.aLogistics{right:0;width:21%}
+}
+
+
+/* 2.5.1 STABILITY FIX */
+.gameWorld25{position:absolute;inset:0;overflow:hidden;background:#06131a}
+.gameWorld25 .worldArt{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(1.02) contrast(1.02)}
+.gameWorld25:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,#00101855 0,#00101800 16%,#00101800 77%,#001018aa 100%)}
+.g25hud{position:absolute;z-index:30;left:12px;right:12px;top:10px;display:flex;gap:8px;align-items:center;pointer-events:none}
+.g25pill{pointer-events:auto;background:#06151eea;border:1px solid #99752e;border-radius:13px;padding:9px 12px;color:#e7eef0;box-shadow:0 9px 25px #0008;backdrop-filter:blur(8px)}
+.g25pill b{color:#ffe09a}.g25brand{margin-left:auto;font-weight:900;color:#ffe09a}
+.g25hot{position:absolute;z-index:20;border:1px solid transparent;background:transparent;border-radius:18px;cursor:pointer;transition:.15s}
+.g25hot:hover{border-color:#ffd66c;background:#ffd66c12;box-shadow:0 0 0 3px #ffd66c20,0 0 28px #ffd66c55}
+.g25hot span{position:absolute;left:50%;bottom:-7px;transform:translateX(-50%);white-space:nowrap;padding:6px 9px;border:1px solid #a77d2e;border-radius:11px;background:#06151eea;color:#ffe3a1;font-size:10px;font-weight:900;opacity:0;transition:.15s}
+.g25hot:hover span{opacity:1}
+.hConstruction{left:13%;top:18%;width:17%;height:23%}.hTech{left:31%;top:14%;width:15%;height:23%}
+.hHolding{left:44%;top:11%;width:14%;height:35%}.hBank{left:58%;top:19%;width:15%;height:23%}
+.hAirport{right:1%;top:9%;width:26%;height:28%}.hPort{left:3%;top:35%;width:26%;height:39%}
+.hFactory{left:29%;top:45%;width:20%;height:31%}.hDepot{left:53%;top:48%;width:15%;height:24%}
+.hStore{left:68%;top:57%;width:14%;height:20%}.hLogistics{right:4%;top:38%;width:18%;height:25%}
+.g25tasks{position:absolute;z-index:31;right:12px;top:62px;width:220px;padding:11px;border:1px solid #98742e;border-radius:15px;background:#06151eea;color:#dce6e9}
+.g25tasks b{color:#ffe09a}.g25tasks div{font-size:10px;margin-top:5px}
+.g25bottom{position:absolute;z-index:32;left:10px;right:10px;bottom:8px;display:flex;gap:7px;overflow:auto}
+.g25quick{flex:1 0 120px;min-height:52px;border:1px solid #98742e;border-radius:12px;background:#06151ef0;color:#e9eff1;padding:7px 9px;text-align:left;cursor:pointer}
+.g25quick b{display:block;color:#ffe09a}.g25quick small{color:#aebdc2}
+.g25quick:hover{background:#0b2430}
+@media(max-width:900px){
+ .g25tasks{display:none}.g25hud{overflow:auto}.g25pill{flex:0 0 auto;font-size:10px;padding:7px 9px}
+ .g25bottom{bottom:max(6px,env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom)}
+ .g25quick{flex-basis:105px;min-height:46px}.g25hot span{display:none}
+}
+
+
+/* 2.5.1 stable world coordinate system */
+.gameWorld25{background:#041018!important;display:flex;align-items:center;justify-content:center}
+.g25map{position:relative;width:min(100%,calc(100vh * 1.7777778));aspect-ratio:16/9;max-height:100%;overflow:hidden}
+.gameWorld25 .worldArt{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:fill!important;object-position:center!important}
+.g25hud{left:max(12px,calc((100% - min(100%,calc(100vh * 1.7777778)))/2 + 12px))!important;right:max(12px,calc((100% - min(100%,calc(100vh * 1.7777778)))/2 + 12px))!important}
+.g25bottom{left:max(10px,calc((100% - min(100%,calc(100vh * 1.7777778)))/2 + 10px))!important;right:max(10px,calc((100% - min(100%,calc(100vh * 1.7777778)))/2 + 10px))!important}
+.g25notice{position:absolute;z-index:40;left:50%;top:18%;transform:translateX(-50%);max-width:360px;padding:12px 14px;border:1px solid #a77d2e;border-radius:14px;background:#06151ef2;color:#e7eef0;box-shadow:0 18px 50px #000a;text-align:center}
+.g25notice b{display:block;color:#ffe09a;margin-bottom:5px}
+
 </style>
 </head>
 <body>
@@ -587,7 +660,7 @@ button{touch-action:manipulation}
 
 <div id="start" class="start hidden">
   <div class="startCard">
-    <div class="startBrand">ZAZO TYCOON<small>BUSINESS EMPIRE — 2.4.0</small></div>
+    <div class="startBrand">ZAZO TYCOON<small>BUSINESS EMPIRE — 2.5.1</small></div>
     <div class="startGrid">
       <div class="panel"><h3>İlk şirketini seç</h3><div id="starterSectors" class="sectorPick"></div></div>
       <div class="panel">
@@ -602,7 +675,7 @@ button{touch-action:manipulation}
 </div>
 
 <div id="game" class="game hidden">
-<header class="top"><div class="logo">♛ ZAZO TYCOON<small>BUSINESS EMPIRE — 2.4.0</small></div><div class="hud"><div class="chip">Holding <b id="holding"></b></div><div class="chip">Grup <b id="group"></b></div><div class="chip">Gün <b id="day"></b></div></div></header>
+<header class="top"><div class="logo">♛ ZAZO TYCOON<small>BUSINESS EMPIRE — 2.5.1</small></div><div class="hud"><div class="chip">Holding <b id="holding"></b></div><div class="chip">Grup <b id="group"></b></div><div class="chip">Gün <b id="day"></b></div></div></header>
 <div class="layout"><aside id="rail" class="rail"></aside><main><div class="head"><button id="back" class="back">← Geri</button><div><h1 id="title"></h1><p id="subtitle"></p></div></div><div id="stats" class="stats"></div><div id="stage" class="stage"></div><div id="bottom" class="bottom"></div></main></div>
 </div>
 
@@ -611,9 +684,9 @@ button{touch-action:manipulation}
 
 <script>
 const SECTORS=[{"id": "textile", "name": "ZAZO TEKSTİL", "label": "Tekstil", "icon": "🧵", "unlock": 0, "startCash": 2500000, "world": "assets/textile.jpg", "products": [{"name": "Tişört", "raw": "Pamuk + İplik", "rawCost": 70, "makeCost": 22, "basePrice": 220, "baseDemand": 82}, {"name": "Gömlek", "raw": "Kumaş + İplik", "rawCost": 105, "makeCost": 34, "basePrice": 360, "baseDemand": 68}, {"name": "Pantolon", "raw": "Kumaş", "rawCost": 135, "makeCost": 45, "basePrice": 480, "baseDemand": 60}, {"name": "Mont", "raw": "Kumaş + Dolgu", "rawCost": 260, "makeCost": 85, "basePrice": 950, "baseDemand": 44}, {"name": "Premium Takım", "raw": "Premium Kumaş", "rawCost": 420, "makeCost": 160, "basePrice": 1650, "baseDemand": 31}, {"name": "Spor Giyim Seti", "raw": "Teknik Kumaş", "rawCost": 210, "makeCost": 74, "basePrice": 780, "baseDemand": 52}]}, {"id": "construction", "name": "ZAZO İNŞAAT", "label": "İnşaat", "icon": "🏗️", "unlock": 18000000, "startCash": 7000000, "world": "assets/construction.jpg", "products": [{"name": "Daire Projesi", "raw": "Demir + Beton", "rawCost": 1700000, "makeCost": 950000, "basePrice": 4200000, "baseDemand": 55}, {"name": "Villa Projesi", "raw": "Yapı Paketi", "rawCost": 2600000, "makeCost": 1400000, "basePrice": 6500000, "baseDemand": 38}, {"name": "Ofis Projesi", "raw": "Demir + Cam + Beton", "rawCost": 3300000, "makeCost": 1750000, "basePrice": 8200000, "baseDemand": 33}, {"name": "Ticari Plaza", "raw": "Yapı + Mekanik Paket", "rawCost": 6400000, "makeCost": 3900000, "basePrice": 15500000, "baseDemand": 20}]}, {"id": "food", "name": "ZAZO GIDA", "label": "Gıda", "icon": "🥫", "unlock": 5000000, "startCash": 2200000, "world": "assets/food.jpg", "products": [{"name": "Hazır Gıda Kolisi", "raw": "Gıda Hammaddesi", "rawCost": 90, "makeCost": 40, "basePrice": 285, "baseDemand": 88}, {"name": "Premium Paket", "raw": "Kaliteli Hammadde", "rawCost": 145, "makeCost": 55, "basePrice": 430, "baseDemand": 63}, {"name": "Dondurulmuş Ürün", "raw": "Gıda + Soğuk Zincir", "rawCost": 175, "makeCost": 75, "basePrice": 520, "baseDemand": 59}, {"name": "İçecek Paketi", "raw": "İçecek Hammaddesi", "rawCost": 120, "makeCost": 42, "basePrice": 360, "baseDemand": 72}, {"name": "Organik Seri", "raw": "Organik Hammadde", "rawCost": 230, "makeCost": 90, "basePrice": 690, "baseDemand": 47}]}, {"id": "auto", "name": "ZAZO OTOMOTİV", "label": "Otomotiv", "icon": "🚗", "unlock": 35000000, "startCash": 12000000, "world": "assets/auto.jpg", "products": [{"name": "Şehir Otomobili", "raw": "Parça Seti", "rawCost": 420000, "makeCost": 170000, "basePrice": 980000, "baseDemand": 58}, {"name": "SUV", "raw": "SUV Parça Seti", "rawCost": 620000, "makeCost": 240000, "basePrice": 1450000, "baseDemand": 46}, {"name": "Elektrikli Sedan", "raw": "EV Parça Seti", "rawCost": 880000, "makeCost": 360000, "basePrice": 1980000, "baseDemand": 40}, {"name": "Premium SUV", "raw": "Premium SUV Parça Seti", "rawCost": 1150000, "makeCost": 450000, "basePrice": 2600000, "baseDemand": 28}, {"name": "Hafif Ticari", "raw": "Ticari Parça Seti", "rawCost": 590000, "makeCost": 220000, "basePrice": 1320000, "baseDemand": 46}]}, {"id": "tech", "name": "ZAZO TEKNOLOJİ", "label": "Teknoloji", "icon": "💻", "unlock": 18000000, "startCash": 4200000, "world": "assets/tech.jpg", "products": [{"name": "Akıllı Telefon", "raw": "Elektronik Parça", "rawCost": 5200, "makeCost": 2300, "basePrice": 14800, "baseDemand": 75}, {"name": "Dizüstü Bilgisayar", "raw": "Bilgisayar Parçası", "rawCost": 12800, "makeCost": 5100, "basePrice": 32900, "baseDemand": 54}, {"name": "Tablet", "raw": "Elektronik Parça", "rawCost": 7300, "makeCost": 2900, "basePrice": 19800, "baseDemand": 60}, {"name": "Akıllı Saat", "raw": "Mikro Elektronik", "rawCost": 2500, "makeCost": 1100, "basePrice": 8200, "baseDemand": 69}, {"name": "Oyun Bilgisayarı", "raw": "Yüksek Performans Parçası", "rawCost": 25500, "makeCost": 8200, "basePrice": 59900, "baseDemand": 35}]}, {"id": "logistics", "name": "ZAZO LOJİSTİK", "label": "Lojistik", "icon": "🚚", "unlock": 8500000, "startCash": 3000000, "world": "assets/logistics.jpg", "products": [{"name": "Şehir İçi Sefer", "raw": "Yakıt + Operasyon", "rawCost": 5200, "makeCost": 1800, "basePrice": 12800, "baseDemand": 84}, {"name": "Uzun Yol Seferi", "raw": "Yakıt + Otoyol", "rawCost": 12000, "makeCost": 4200, "basePrice": 28500, "baseDemand": 62}, {"name": "Soğuk Zincir Seferi", "raw": "Yakıt + Soğutma", "rawCost": 15500, "makeCost": 5800, "basePrice": 36500, "baseDemand": 54}, {"name": "Express Teslimat", "raw": "Yakıt + Öncelikli Operasyon", "rawCost": 8700, "makeCost": 4200, "basePrice": 22800, "baseDemand": 71}, {"name": "Ağır Yük Operasyonu", "raw": "Yakıt + Ağır Nakliye", "rawCost": 24500, "makeCost": 9600, "basePrice": 56500, "baseDemand": 39}]}, {"id": "aviation", "name": "ZAZO HAVACILIK", "label": "Havacılık", "icon": "✈️", "unlock": 90000000, "startCash": 25000000, "world": "assets/aviation.jpg", "products": [{"name": "İç Hat Uçuşu", "raw": "Yakıt + Operasyon", "rawCost": 155000, "makeCost": 72000, "basePrice": 390000, "baseDemand": 57}, {"name": "Dış Hat Uçuşu", "raw": "Yakıt + Operasyon", "rawCost": 280000, "makeCost": 125000, "basePrice": 680000, "baseDemand": 43}, {"name": "Premium Yolcu Uçuşu", "raw": "Yakıt + Premium Servis", "rawCost": 420000, "makeCost": 180000, "basePrice": 980000, "baseDemand": 34}, {"name": "Kargo Uçuşu", "raw": "Yakıt + Kargo Operasyonu", "rawCost": 320000, "makeCost": 145000, "basePrice": 790000, "baseDemand": 49}]}, {"id": "space", "name": "ZAZO UZAY", "label": "Uzay", "icon": "🚀", "unlock": 180000000, "startCash": 70000000, "world": "assets/space.jpg", "products": [{"name": "Uydu Fırlatma", "raw": "Roket Bileşeni", "rawCost": 4200000, "makeCost": 2800000, "basePrice": 11800000, "baseDemand": 32}, {"name": "Yörünge Görevi", "raw": "Görev Paketi", "rawCost": 6800000, "makeCost": 4500000, "basePrice": 18500000, "baseDemand": 22}, {"name": "Ay Görevi", "raw": "Derin Uzay Paketi", "rawCost": 14500000, "makeCost": 8500000, "basePrice": 38000000, "baseDemand": 10}, {"name": "Uydu Takımyıldızı", "raw": "Uydu Platformu", "rawCost": 9200000, "makeCost": 5200000, "basePrice": 24500000, "baseDemand": 18}]}, {"id": "energy", "name": "ZAZO ENERJİ", "label": "Enerji", "icon": "⚡", "unlock": 65000000, "startCash": 18000000, "world": "assets/energy.jpg", "products": [{"name": "Şebeke Enerjisi", "raw": "Enerji Kaynağı", "rawCost": 820, "makeCost": 390, "basePrice": 2400, "baseDemand": 80}, {"name": "Yeşil Enerji Paketi", "raw": "Yenilenebilir Kaynak", "rawCost": 1150, "makeCost": 470, "basePrice": 3300, "baseDemand": 66}, {"name": "Güneş Enerjisi Paketi", "raw": "Panel + İnverter", "rawCost": 1650, "makeCost": 710, "basePrice": 4800, "baseDemand": 61}, {"name": "Rüzgar Enerjisi Paketi", "raw": "Türbin Bileşeni", "rawCost": 2800, "makeCost": 1250, "basePrice": 7600, "baseDemand": 49}, {"name": "Endüstriyel Enerji Sözleşmesi", "raw": "Şebeke Operasyonu", "rawCost": 5200, "makeCost": 2200, "basePrice": 13500, "baseDemand": 38}]}, {"id": "mining", "name": "ZAZO MADENCİLİK", "label": "Madencilik", "icon": "⛏️", "unlock": 65000000, "startCash": 14000000, "world": "assets/mining.jpg", "products": [{"name": "Demir Cevheri", "raw": "Saha Operasyonu", "rawCost": 1450, "makeCost": 850, "basePrice": 3900, "baseDemand": 70}, {"name": "Bakır Konsantresi", "raw": "Bakır Sahası", "rawCost": 2600, "makeCost": 1350, "basePrice": 6900, "baseDemand": 52}, {"name": "Altın Konsantresi", "raw": "Altın Sahası", "rawCost": 7200, "makeCost": 3500, "basePrice": 18200, "baseDemand": 29}, {"name": "Lityum Cevheri", "raw": "Lityum Sahası", "rawCost": 4800, "makeCost": 2250, "basePrice": 12500, "baseDemand": 45}, {"name": "Nikel Konsantresi", "raw": "Nikel Sahası", "rawCost": 3600, "makeCost": 1700, "basePrice": 9400, "baseDemand": 52}]}];
-const KEY='zazoTycoon_1_0_6';
+const KEY='zazoTycoon_2_5_1';
 
-const RELEASE={name:'ZAZO TYCOON — Business Empire',version:'2.4.0',channel:'stable',build:'2026-09-19'};
+const RELEASE={name:'ZAZO TYCOON — Business Empire',version:'2.5.1',channel:'stable',build:'2026-09-19'};
 
 
 const CONTENT={
@@ -738,7 +811,7 @@ function save(){
   if(window.__offlineBatch)return;
   try{
     normalizeState();
-    state.lastSaved=Date.now();state._version='2.4.0';
+    state.lastSaved=Date.now();state._version='2.5.1';
     const raw=JSON.stringify(state),prev=localStorage.getItem(KEY);
     if(prev && prev!==raw)localStorage.setItem(KEY+'_backup',prev);
     localStorage.setItem(KEY,raw);localStorage.removeItem(KEY+'_skipLegacy');
@@ -781,7 +854,7 @@ function normalizeCompany(co){
   if(!Array.isArray(co.facilities))co.facilities=[];if(!Array.isArray(co.routes))co.routes=[];if(!Array.isArray(co.vehicleFleet))co.vehicleFleet=[];co.vehicles=co.vehicleFleet.length;
 }
 function normalizeState(){if(!state||!Array.isArray(state.companies)||!state.companies.length)return false;state.current=Math.max(0,Math.min(state.companies.length-1,Number(state.current)||0));state.holding=Number(state.holding)||0;state.day=Math.max(1,Math.floor(Number(state.day)||1));state.companies.forEach(normalizeCompany);return true}
-function v25HealthCheck(){const issues=[];if(!state||!state.companies?.length)issues.push('Şirket kaydı yok');else state.companies.forEach(co=>{const sec=SECTORS.find(s=>s.id===co.sectorId);if(!sec)issues.push(co.name+': sektör kaydı bozuk');else if(co.raw.length!==sec.products.length)issues.push(co.name+': ürün dizileri uyumsuz');if(!Number.isFinite(co.cash)||!Number.isFinite(co.value))issues.push(co.name+': sayısal veri hatası')});return issues}
+function gameHealthCheck(){const issues=[];if(!state||!state.companies?.length)issues.push('Şirket kaydı yok');else state.companies.forEach(co=>{const sec=SECTORS.find(s=>s.id===co.sectorId);if(!sec)issues.push(co.name+': sektör kaydı bozuk');else if(co.raw.length!==sec.products.length)issues.push(co.name+': ürün dizileri uyumsuz');if(!Number.isFinite(co.cash)||!Number.isFinite(co.value))issues.push(co.name+': sayısal veri hatası')});return issues}
 function netProfit(x){return realizedNetProfit(x)}
 
 function ensureAccountingLedger(co){
@@ -1082,78 +1155,81 @@ function v22FacilityArt(type,co,sec){
 function renderCity(){
  const goals=(state.weeklyGoals||[]).slice(0,4);
  $('#stage').innerHTML=`
- <div class="realCity">
-  <div class="realSea"></div><div class="realLand"></div>
-  <div class="realRoad rr1"></div><div class="realRoad rr2"></div>
-  <div class="realCar c1"></div><div class="realCar c2"></div>
-
-  <div class="realTop">
-   <div class="realPill"><b>👑 ZAZO HOLDİNG</b> • ${state.empireTitle}</div>
-   <div class="realPill">💵 <b>${money(state.holding)}</b></div>
-   <div class="realPill">🏢 <b>${money(totalGroup())}</b></div>
-   <div class="realPill">📅 Gün <b>${state.day}</b></div>
-   <div class="realPill realBrand">ZAZO TYCOON</div>
+ <div class="gameWorld25">
+  <div class="g25map">
+  <img class="worldArt" src="assets/zazo_city_world.webp" alt="">
+  <div class="g25hud">
+   <div class="g25pill"><b>👑 ZAZO HOLDİNG</b> • ${state.empireTitle}</div>
+   <div class="g25pill">💵 <b>${money(state.holding)}</b></div>
+   <div class="g25pill">🏢 Grup <b>${money(totalGroup())}</b></div>
+   <div class="g25pill">📅 Gün <b>${state.day}</b></div>
+   <div class="g25pill g25brand">ZAZO TYCOON</div>
   </div>
+  <div class="g25tasks"><b>🏆 AKTİF HEDEFLER</b>${goals.length?goals.map(g=>`<div>${g.done?'☑':'☐'} ${g.label||g.type} • ${Math.min(100,Math.round(((g.progress||0)/Math.max(1,g.target||1))*100))}%</div>`).join(''):'<div>☐ Yeni hedefler hazırlanıyor</div>'}</div>
 
-  <div class="realTasks"><b>🏆 AKTİF HEDEFLER</b>${goals.length?goals.map(g=>`<div>${g.done?'☑':'☐'} ${g.label||g.type} • ${Math.min(100,Math.round(((g.progress||0)/Math.max(1,g.target||1))*100))}%</div>`).join(''):'<div>☐ Yeni hedefler hazırlanıyor</div>'}</div>
+  <button class="g25hot hConstruction" data-go="construction" aria-label="İnşaat"><span>🏗️ İNŞAAT</span></button>
+  <button class="g25hot hTech" data-go="tech" aria-label="Teknoloji"><span>💻 TEKNOLOJİ</span></button>
+  <button class="g25hot hHolding" data-go="holding" aria-label="Holding"><span>👑 HOLDİNG</span></button>
+  <button class="g25hot hBank" data-go="bank" aria-label="Banka"><span>🏦 BANKA</span></button>
+  <button class="g25hot hAirport" data-go="aviation" aria-label="Havaalanı"><span>✈️ HAVAALANI</span></button>
+  <button class="g25hot hPort" data-go="port" aria-label="Liman"><span>⚓ LİMAN</span></button>
+  <button class="g25hot hFactory" data-go="factory" aria-label="Fabrika"><span>🏭 FABRİKA</span></button>
+  <button class="g25hot hDepot" data-go="depot" aria-label="Depo"><span>📦 DEPO</span></button>
+  <button class="g25hot hStore" data-go="store" aria-label="Mağaza"><span>🏪 MAĞAZA</span></button>
+  <button class="g25hot hLogistics" data-go="logistics" aria-label="Lojistik"><span>🚚 LOJİSTİK</span></button>
 
-  <button class="assetBuilding aConstruction" data-go="construction"><img src="assets/city/construction.png"><span class="assetLabel">🏗️ İNŞAAT</span></button>
-  <button class="assetBuilding aTech" data-go="tech"><img src="assets/city/technology.png"><span class="assetLabel">💻 TEKNOLOJİ</span></button>
-  <button class="assetBuilding aHolding" data-go="holding"><img src="assets/city/holding.png"><span class="assetLabel">👑 HOLDİNG</span></button>
-  <button class="assetBuilding aBank" data-go="bank"><img src="assets/city/bank.png"><span class="assetLabel">🏦 BANKA</span></button>
-  <button class="assetBuilding aAirport" data-go="aviation"><img src="assets/city/airport.png"><span class="assetLabel">✈️ HAVAALANI</span></button>
-  <button class="assetBuilding aPort" data-go="port"><img src="assets/city/port.png"><span class="assetLabel">⚓ LİMAN</span></button>
-  <button class="assetBuilding aFactory" data-go="factory"><img src="assets/city/factory.png"><span class="assetLabel">🏭 FABRİKA</span></button>
-  <button class="assetBuilding aDepot" data-go="depot"><img src="assets/city/depot.png"><span class="assetLabel">📦 DEPO</span></button>
-  <button class="assetBuilding aStore" data-go="store"><img src="assets/city/store.png"><span class="assetLabel">🏪 MAĞAZA</span></button>
-  <button class="assetBuilding aLogistics" data-go="logistics"><img src="assets/city/logistics.png"><span class="assetLabel">🚚 LOJİSTİK</span></button>
-
-  <div class="realBottom">
-   <button class="realQuick" data-go="bank"><b>🏦 BANKA</b><small>Finans işlemleri</small></button>
-   <button class="realQuick" data-go="factory"><b>🏭 FABRİKA</b><small>Üretim yönetimi</small></button>
-   <button class="realQuick" data-go="store"><b>🏪 MAĞAZA</b><small>Perakende satış</small></button>
-   <button class="realQuick" data-go="logistics"><b>🚚 LOJİSTİK</b><small>Taşıma ve dağıtım</small></button>
-   <button class="realQuick" data-go="invest"><b>📈 YATIRIM</b><small>Piyasalar</small></button>
-   <button class="realQuick" data-go="companies"><b>🏢 ŞİRKETLER</b><small>Şirket yönetimi</small></button>
+  </div>
+  <div class="g25bottom">
+   <button class="g25quick" data-go="bank"><b>🏦 BANKA</b><small>Finans</small></button>
+   <button class="g25quick" data-go="factory"><b>🏭 FABRİKA</b><small>Üretim</small></button>
+   <button class="g25quick" data-go="store"><b>🏪 MAĞAZA</b><small>Satış</small></button>
+   <button class="g25quick" data-go="logistics"><b>🚚 LOJİSTİK</b><small>Dağıtım</small></button>
+   <button class="g25quick" data-go="invest"><b>📈 YATIRIM</b><small>Piyasalar</small></button>
+   <button class="g25quick" data-go="companies"><b>🏢 ŞİRKETLER</b><small>Yönetim</small></button>
+   <button class="g25quick" data-go="vehicles"><b>🚛 ARAÇLAR</b><small>Filo</small></button>
+   <button class="g25quick" data-go="aviation"><b>✈️ HAVAALANI</b><small>Ulaşım</small></button>
   </div>
  </div>`;
 
+ const cityNotice=(title,msg,next)=>{
+   const host=document.querySelector('.gameWorld25');
+   if(!host)return;
+   const old=host.querySelector('.g25notice');if(old)old.remove();
+   const n=document.createElement('div');n.className='g25notice';
+   n.innerHTML=`<b>${title}</b><div>${msg}</div><button class="btn primary" style="margin-top:9px">ŞİRKETLERİ AÇ</button>`;
+   host.appendChild(n);n.querySelector('button').onclick=()=>{n.remove();if(next)next()};
+ };
+ const enterSector=(sid,label)=>{
+   const idx=state.companies.findIndex(x=>x.sectorId===sid);
+   if(idx<0)return cityNotice('🏢 '+label,`${label} sektöründe henüz şirketin yok. Önce bu sektörde şirket kur.`,()=>{state.view='company';state.facility=null;save();render()});
+   state.current=idx;state.view='company';state.facility=null;save();render()
+ };
+ const enterFacility=(type,view)=>{
+   let idx=state.current;
+   const names={production:'Fabrika',warehouse:'Depo',sales:'Mağaza'};
+   if(!state.companies[idx]||!(state.companies[idx].facilities||[]).some(f=>f.type===names[type]))
+      idx=state.companies.findIndex(x=>(x.facilities||[]).some(f=>f.type===names[type]));
+   if(idx<0){
+     const labels={production:'FABRİKA',warehouse:'DEPO',sales:'MAĞAZA'};
+     return cityNotice('🏗️ '+labels[type],`${labels[type]} tesisi henüz kurulmamış. Önce şirket kampüsünden bu tesisi kur.`,()=>{state.view='company';state.facility=null;save();render()})
+   }
+   state.current=idx;state.view='facility';state.facility=type;save();render()
+ };
  document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{
-  const k=b.dataset.go;
-  const enterSector=(sid,fallback)=>{
-    const idx=state.companies.findIndex(x=>x.sectorId===sid);
-    if(idx<0){ if(fallback)return fallback(); return contentHubPanel(); }
-    state.current=idx;state.view='company';state.facility=null;save();render();
-  };
-  if(k==='holding')return holdingPanel();
-  if(k==='bank')return bankPanel();
-  if(k==='invest')return investmentPanel();
-  if(k==='logistics')return logisticsPanel();
-  if(k==='port')return enterSector('logistics',logisticsPanel);
-  if(k==='aviation')return enterSector('aviation',worldMapPanel);
-  if(k==='construction')return enterSector('construction',contentHubPanel);
-  if(k==='world')return worldMapPanel();
-  if(k==='tech'){
-    const ti=state.companies.findIndex(x=>x.sectorId==='tech');
-    if(ti<0)return contentHubPanel();
-    state.current=ti;state.view='company';state.facility=null;save();return render()
-  }
-  if(k==='companies'){state.view='company';state.facility=null;save();return render()}
-  if(k==='factory'){
-    let idx=state.current;
-    if(!state.companies[idx]||!(state.companies[idx].facilities||[]).some(f=>f.type==='Fabrika')) idx=state.companies.findIndex(x=>(x.facilities||[]).some(f=>f.type==='Fabrika'));
-    if(idx<0)return contentHubPanel();state.current=idx;state.view='facility';state.facility='production';save();return render()
-  }
-  if(k==='depot'){
-    let idx=state.current;
-    if(!state.companies[idx]||!(state.companies[idx].facilities||[]).some(f=>f.type==='Depo')) idx=state.companies.findIndex(x=>(x.facilities||[]).some(f=>f.type==='Depo'));
-    if(idx<0)return contentHubPanel();state.current=idx;state.view='facility';state.facility='warehouse';save();return render()
-  }
-  if(k==='store'){
-    let idx=state.current;
-    if(!state.companies[idx]||!(state.companies[idx].facilities||[]).some(f=>f.type==='Mağaza')) idx=state.companies.findIndex(x=>(x.facilities||[]).some(f=>f.type==='Mağaza'));
-    if(idx<0){state.view='company';state.facility=null;save();render();setTimeout(()=>facilityPanel(),0);return}state.current=idx;state.view='facility';state.facility='sales';save();return render()
-  }
+   const k=b.dataset.go;
+   if(k==='holding')return holdingPanel();
+   if(k==='bank')return bankPanel();
+   if(k==='invest')return investmentPanel();
+   if(k==='logistics')return logisticsPanel();
+   if(k==='vehicles')return vehicleCatalogPanel();
+   if(k==='port')return enterSector('logistics','LOJİSTİK');
+   if(k==='aviation')return enterSector('aviation','HAVACILIK');
+   if(k==='construction')return enterSector('construction','İNŞAAT');
+   if(k==='tech')return enterSector('tech','TEKNOLOJİ');
+   if(k==='companies'){state.view='company';state.facility=null;save();return render()}
+   if(k==='factory')return enterFacility('production');
+   if(k==='depot')return enterFacility('warehouse');
+   if(k==='store')return enterFacility('sales');
  });
 }
 function renderCompany(){
@@ -1965,16 +2041,16 @@ function reportPanel(){
 }
 
 function releaseTestPanel(){
-  normalizeState();const issues=v25HealthCheck();
+  normalizeState();const issues=gameHealthCheck();
   const tests=[['Kayıt verisi',!!state],['Şirket kayıtları',state.companies.length>0],['Holding %20 net pay',typeof processHoldingShare==='function'],['Tesis senkronu',typeof syncFacilityNetwork==='function'],['Offline sınırı',BALANCE.offlineMaxMinutes===360],['Save slotları',typeof saveCenterPanel==='function'],['İhale',typeof tenderPanel==='function'],['Kriz',typeof crisisPanel==='function'],['10 sektör',SECTORS.length===10]];
   openOverlay('🧪 V25 RELEASE CANDIDATE TEST','Ana sistemlerin yayın öncesi bütünlük kontrolü.',`<div class="box">${tests.map(t=>`<div class="row"><b>${t[0]}</b><span>${t[1]?'✓ OK':'⚠ HATA'}</span></div>`).join('')}</div><div class="productCard"><h4>Veri Sağlığı</h4><div class="log">${issues.length?issues.join('<br>'):'Kritik veri tutarsızlığı bulunmadı.'}</div></div><button class="action" id="repairRC">Veriyi Normalize Et</button><button class="action secondary" id="backupRC">RC Yedeği Oluştur</button>`);
   setTimeout(()=>{$('#repairRC').onclick=()=>{normalizeState();state.companies.forEach(syncFacilityNetwork);save();render();releaseTestPanel()};$('#backupRC').onclick=()=>{localStorage.setItem(KEY+'_release_backup',JSON.stringify(state));toast('RC yedeği oluşturuldu')}},0)
 }
 function achievementPanel(){openOverlay('🏆 BAŞARILAR','İmparatorluk kilometre taşları.',rows([['İlk şirket','✓'],['3 şirket',state.companies.length>=3?'✓':'—'],['LTD şirket',Math.max(...state.companies.map(x=>x.level))>=3?'✓':'—'],['₺50M grup değeri',totalGroup()>=50000000?'✓':'—'],['%25 Pazar Payı',Math.max(...state.companies.map(x=>x.marketShare||0))>=25?'✓':'—'],['Holding Seviye 3',state.holdingLevel>=3?'✓':'—'],['750+ Kredi Puanı',Math.max(...state.companies.map(x=>x.creditScore||0))>=750?'✓':'—'],['Global Pazar',(state.globalMarkets||[]).length>1?'✓':'—'],['Şirket Satın Alma',(state.acquisitions||[]).length>0?'✓':'—'],['5+ Tesis',Math.max(...state.companies.map(x=>(x.facilities||[]).length))>=5?'✓':'—'],['3+ Lojistik Rota',Math.max(...state.companies.map(x=>(x.routes||[]).length))>=3?'✓':'—'],['Business Empire',state.empireTitle==='BUSINESS EMPIRE'?'✓':'—'],['AŞ Seviyesi',Math.max(...state.companies.map(x=>x.level))>=4?'✓':'—'],['₺10M Yaşam Boyu Kâr',Math.max(...state.companies.map(x=>x.lifetimeProfit||0))>=10000000?'✓':'—'],['Otomatik Müdür',state.companies.some(x=>x.autoManager&&x.autoManager.enabled)?'✓':'—'],['5 Araçlık Filo',Math.max(...state.companies.map(x=>(x.vehicleFleet||[]).length))>=5?'✓':'—'],['%95 Teslimat',Math.max(...state.companies.map(x=>x.deliveryScore||0))>=95?'✓':'—']]))}
 function settingsPanel(){
-  const co=c(),issues=v25HealthCheck();
-  openOverlay('⚙️ AYARLAR','ZAZO TYCOON Business Empire 2.4.0',
-    rows([['Sürüm','2.3.2 CLEAN CITY'],['Otomatik kayıt','Açık'],['3 kayıt slotu','Aktif'],['Otomatik yedek','Aktif'],['Offline ilerleme',BALANCE.offlineMaxMinutes+' dk sınır'],['10 sektör','Aktif'],['Gerçek sektör sahneleri','Aktif'],['Yönetim kurulu','Aktif'],['İhale & kriz','Aktif'],['Sigorta','Aktif'],['365 günlük istatistik','Aktif'],['New Game+','Aktif'],['Veri sağlık durumu',issues.length?issues.length+' uyarı':'OK'],['Zorluk',co.difficulty],['Oyun günü',state.day]])+
+  const co=c(),issues=gameHealthCheck();
+  openOverlay('⚙️ AYARLAR','ZAZO TYCOON Business Empire 2.5.1',
+    rows([['Sürüm','2.5.1 STABILITY FIX'],['Otomatik kayıt','Açık'],['3 kayıt slotu','Aktif'],['Otomatik yedek','Aktif'],['Offline ilerleme',BALANCE.offlineMaxMinutes+' dk sınır'],['10 sektör','Aktif'],['Gerçek sektör sahneleri','Aktif'],['Yönetim kurulu','Aktif'],['İhale & kriz','Aktif'],['Sigorta','Aktif'],['365 günlük istatistik','Aktif'],['New Game+','Aktif'],['Veri sağlık durumu',issues.length?issues.length+' uyarı':'OK'],['Zorluk',co.difficulty],['Oyun günü',state.day]])+
     `<div class="field"><label>Zorluk</label><select id="difficulty"><option>Kolay</option><option>Normal</option><option>Zor</option></select></div>
      <button class="primary" id="saveDifficulty">Kaydet</button>
      <button class="action secondary" id="healthCheckFinal">Veri Sağlık Kontrolü</button>
@@ -1982,7 +2058,7 @@ function settingsPanel(){
   setTimeout(()=>{
     $('#difficulty').value=co.difficulty;
     $('#saveDifficulty').onclick=()=>{co.difficulty=$('#difficulty').value;save();render();settingsPanel()};
-    $('#healthCheckFinal').onclick=()=>{normalizeState();state.companies.forEach(syncFacilityNetwork);save();const a=v25HealthCheck();toast(a.length?`${a.length} veri uyarısı var`:'Veri sağlığı OK');settingsPanel()};
+    $('#healthCheckFinal').onclick=()=>{normalizeState();state.companies.forEach(syncFacilityNetwork);save();const a=gameHealthCheck();toast(a.length?`${a.length} veri uyarısı var`:'Veri sağlığı OK');settingsPanel()};
   },0)
 }
 function offlinePanel(){const r=state.offlineReport;state.offlineReport=null;openOverlay('🌙 OFFLINE RAPORU',`${r.minutes} dakikalık ilerleme işlendi.`,rows(state.companies.map((x,i)=>[x.name,(r.gains[i]>=0?'+':'')+money(r.gains[i]||0)])));save()}
@@ -2159,7 +2235,7 @@ document.addEventListener('visibilitychange',()=>{
 
 function migrateLegacySave(){
   if(localStorage.getItem(KEY+'_skipLegacy'))return;
-  const legacyKeys=['zazoTycoon_2_3_2','zazoTycoon_2_3_1','zazoTycoon_2_3_0','zazoTycoon_2_2_0','zazoTycoon_2_1_0','zazoTycoon_2_0_0','zazoTycoon_1_0_6','zazoTycoon_1_0_5','zazoTycoon_1_0_4','zazoTycoon_1_0_3','zazoTycoon_1_0_2','zazoTycoon_1_0_1','zazoTycoon_1_0_0','zazoTycoonV25_RC1','zazoTycoonV24_1','zazoTycoonV24','zazoTycoonV23','zazoTycoonV22','zazoTycoonV21','zazoTycoonV20','zazoTycoonV19','zazoTycoonV18','zazoTycoonV17','zazoTycoonV15','zazoTycoonV14','zazoTycoonV13','zazoTycoonV12','zazoTycoonV11','zazoTycoonV10'];
+  const legacyKeys=['zazoTycoon_2_5_0','zazoTycoon_2_4_0','zazoTycoon_2_3_2','zazoTycoon_2_3_1','zazoTycoon_2_3_0','zazoTycoon_2_2_0','zazoTycoon_2_1_0','zazoTycoon_2_0_0','zazoTycoon_1_0_6','zazoTycoon_1_0_5','zazoTycoon_1_0_4','zazoTycoon_1_0_3','zazoTycoon_1_0_2','zazoTycoon_1_0_1','zazoTycoon_1_0_0','zazoTycoonV25_RC1','zazoTycoonV24_1','zazoTycoonV24','zazoTycoonV23','zazoTycoonV22','zazoTycoonV21','zazoTycoonV20','zazoTycoonV19','zazoTycoonV18','zazoTycoonV17','zazoTycoonV15','zazoTycoonV14','zazoTycoonV13','zazoTycoonV12','zazoTycoonV11','zazoTycoonV10'];
   if(localStorage.getItem(KEY))return;
   for(const k of legacyKeys){
     const raw=localStorage.getItem(k);
