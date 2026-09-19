@@ -1,4 +1,4 @@
-const CACHE='zazo-tycoon-1.0.6';
+const CACHE='zazo-tycoon-2.2.1';
 const ASSETS=['./','./index.html','./manifest.webmanifest',
 './assets/textile.jpg','./assets/construction.jpg','./assets/food.jpg','./assets/auto.jpg','./assets/tech.jpg',
 './assets/logistics.jpg','./assets/aviation.jpg','./assets/space.jpg','./assets/energy.jpg','./assets/mining.jpg',

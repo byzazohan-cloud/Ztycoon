@@ -1,8 +1,7 @@
-ZAZO TYCOON 2.1.0 PLAYABLE CITY
-- Şehir ana ekranında hazır şehir resmi kullanılmıyor.
-- Holding, banka, yatırım, pazar, fabrika, lojistik, şirketler ve ulaşım ayrı HTML/CSS oyun nesneleri.
-- Nesneler tıklanabilir ve mevcut gerçek oyun panellerine/tesis ekranlarına bağlı.
-- Yol katmanları, deniz, arazi, liman vinci, gemi ve hareketli araçlar kodla oluşturuluyor.
-- Şirket kartları canlı state verisinden üretiliyor.
-- Mevcut ekonomi/save sistemi korunuyor.
-- JavaScript syntax: OK
+ZAZO TYCOON 2.2.0
+Target: approved concept composition.
+Main city is not the concept image pasted as a background.
+City/world/buildings/roads/water/vehicles are interactive HTML/CSS layers.
+Bottom management modules use existing separate game scene assets.
+All main hotspots are wired to existing gameplay systems.
+JavaScript syntax: OK
