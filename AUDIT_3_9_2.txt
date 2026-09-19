@@ -1,0 +1,24 @@
+ZAZO TYCOON 3.9.2 — PERIOD CLOSE ENGINE FIX
+
+- JS syntax: OK
+- SW syntax: OK
+- delivery not revenue: OK
+- intercompany revenue once: OK
+- operation not immediate OPEX: OK
+- COGS sale hooks: OK
+- period taxable profit: OK
+- period tax 20%: OK
+- net after period tax: OK
+- Holding after tax net: OK
+- tax payable tracked: OK
+- tax debt auto settle: OK
+- Holding debt auto settle: OK
+- second same-day settlement pass: OK
+- partial migration flag: OK
+- migration start day: OK
+- legacy payable baseline: OK
+- continuous zero periods: OK
+- period UI authoritative: OK
+- 3.9.1 migration: OK
+
+İkinci 3.9.1 taramasındaki 7 bulgu hedeflendi: teslimat çift gelir riski kaldırıldı; üretim operasyon maliyeti stok/COGS mantığına bırakıldı ve OPEX'ten çıkarıldı; vergi satış anından dönem kapanışına taşındı; vergi matrahı gelir-COGS-OPEX-faiz; vergi sonrası netin %20'si Holding payı; vergi/Holding borçları otomatik tahsil; aynı gün ikinci tahsilat geçişi; kısmi migration ve kesintisiz dönem geçmişi. Gerçek tarayıcı/headless testi yapılmadı.

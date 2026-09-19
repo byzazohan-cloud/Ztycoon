@@ -1,0 +1,29 @@
+ZAZO TYCOON 3.9.3 — FIX + RESCAN
+
+- JS syntax: OK
+- SW syntax: OK
+- SW exists: OK
+- manifest exists: OK
+- manifest linked: OK
+- SW registered: OK
+- hire no payroll suppression: OK
+- auto production precheck: OK
+- staff energy recovery: OK
+- facility condition capacity: OK
+- 20 sector text: OK
+- valuation receivables: OK
+- valuation liabilities: OK
+- save pure: OK
+- period net helper: OK
+- period tax engine: OK
+- Holding after tax: OK
+- no delivery revenue: OK
+- operation not OPEX: OK
+- 3.9.2 migration: OK
+
+Residual automatic risk scan: No targeted critical finding.
+sectorId find/some occurrences requiring semantic review: 2
+
+Gerçek tarayıcı/headless testi yapılmadı.
+Follow-up patch: facility condition now scales effective facility capacity (minimum 10%, maximum 100%).
+Follow-up JS syntax: OK

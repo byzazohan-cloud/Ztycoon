@@ -1,23 +1,10 @@
 {
-  "name": "ZAZO TYCOON Business Empire",
+  "name": "ZAZO TYCOON – Business Empire",
   "short_name": "ZAZO TYCOON",
   "start_url": "./",
-  "scope": "./",
   "display": "standalone",
-  "background_color": "#02070b",
-  "theme_color": "#04111a",
-  "description": "Build companies, manage production, logistics, finance and grow a global business empire.",
-  "icons": [
-    {
-      "src": "./assets/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "./assets/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ],
-  "version": "3.5.2"
+  "background_color": "#07111f",
+  "theme_color": "#07111f",
+  "version": "3.9.3",
+  "icons": []
 }
