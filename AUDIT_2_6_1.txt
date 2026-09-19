@@ -1,0 +1,17 @@
+ZAZO TYCOON 2.6.1 — UI AUDIT FIX
+
+- JS syntax: OK
+- SW syntax: OK
+- no undefined direct action functions: OK
+- staff aggregation fixed: OK
+- bottom company count live: OK
+- bottom factory count live: OK
+- bottom store count live: OK
+- bottom vehicle count live: OK
+- bottom staff count live: OK
+- bottom profit live: OK
+- profile uses empire data: OK
+- message icon uses inbox: OK
+- goals generated before open: OK
+- old V25 test title removed: OK
+- 2.6.0 migration: OK
