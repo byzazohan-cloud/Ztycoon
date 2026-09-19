@@ -1,16 +1,21 @@
 
-ZAZO TYCOON V24.1 — REAL SCENES FIX
+ZAZO TYCOON — BUSINESS EMPIRE 1.0.1 BUG FIX
 
-Bu düzeltme V24'teki basit çizgili/şematik raster görselleri kaldırır.
+Kapatılan ana hatalar:
+1) Verginin net kârdan iki kez düşmesi düzeltildi.
+2) Holding %20 payı günlük/dönemsel gerçekleşen net kâra bağlandı.
+3) İhale COO kapasite operatör önceliği düzeltildi.
+4) Krizler pending crisis üzerinden oyuncu karar ekranına bağlandı; offline'da otomatik çözülür.
+5) Haftalık teslimat hedefi gerçek teslimat sayacını kullanır.
+6) Tesis kapasite çift sayım/drift azaltıldı; kapasite tesis ağından senkronlanır.
+7) Offline simülasyonda save batch kontrolü aktif.
+8) Otomatik backup tekrar aktif.
+9) Bozuk ana kayıtta backup'tan açma aktif.
+10) Sektör operasyonlarında seçili giderlerin kasa/opex tutarlılığı düzeltildi.
+11) İstatistiklerde dönemsel günlük ciro/net kâr toplamları eklendi.
+12) Eski V24/RC/final etiketleri temizlendi.
 
-Düzeltmeler:
-- Tekstil için yüksek çözünürlüklü onaylı ZAZO TEKSTİL kampüs görseli kullanıldı.
-- Diğer 9 sektör için mevcut yüksek kaliteli oyun-planı görselindeki gerçek sektör sahneleri ayrıştırıldı.
-- 10 ayrı JPG sahne dosyası var.
-- CSS bina çizimleri gerçek görselin önünü kapatmasın diye kapatıldı.
-- Kampüs ekranı artık esas olarak raster sektör görselini gösteriyor.
-- Ofis/üretim/depo/mağaza ekranlarında da sektör görseli arka plan olarak kullanılıyor.
-- V23/V22/V21/V20 oynanış sistemleri korunuyor.
-
-GitHub Pages:
-index.html ve assets klasörünü birlikte yükleyin.
+Ayrıca:
+- 1.0.0 ve V25 dahil eski kayıtlardan geçiş korunur.
+- 10 sektör görseli korunur.
+- PWA manifest ve service worker 1.0.1'e güncellendi.

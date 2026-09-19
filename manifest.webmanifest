@@ -1,28 +1,22 @@
 {
-  "name": "ZAZO TYCOON V24 — Visual Rebuild",
+  "name": "ZAZO TYCOON — Business Empire",
   "short_name": "ZAZO TYCOON",
   "start_url": "./",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#050b12",
-  "theme_color": "#07131f",
+  "background_color": "#02070b",
+  "theme_color": "#04111a",
+  "description": "Build companies, manage production, logistics, finance and grow a global business empire.",
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "./assets/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     },
     {
-      "src": "icon-512.png",
+      "src": "./assets/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "icon-1024.png",
-      "sizes": "1024x1024",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     }
   ]
 }

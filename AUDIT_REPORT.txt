@@ -1,0 +1,41 @@
+ZAZO TYCOON 1.0.6 — DEEP AUDIT FIX
+
+Bu turda yeni hata/eksik taraması yapıldı, bulunanlar giderildi ve tekrar tarandı.
+
+Kapatılan başlıklar:
+- Yakıtsız aracın lojistik kapasitesi vermesi
+- Filo yakıt doldurma eksikliği
+- Eski save araç sayısının kaybolması
+- Kasa yetersizken maaş/kira/rota giderlerinin ücretsiz olması
+- Kredi/esnek faizinin ödeme yokken kaybolması
+- Şirket değerlemesi ve raporda kart/esnek/ödenecek gider borçlarının eksik sayılması
+- Fransa/İtalya/Çin/Güney Kore/Kanada açılıp dünya haritasında görünmemesi
+- Mağaza kapatma/kiralama çıkışı olmaması
+- Eski sürüm metinleri
+- Slot/import sonrası normalizasyon eksikliği
+
+Kontroller:
+- js_syntax: OK
+- fuel_blocks_capacity: OK
+- fuel_refill: OK
+- old_vehicle_migration: OK
+- unpaid_ops_payables: OK
+- loan_interest_accrues: OK
+- flex_interest_accrues: OK
+- valuation_all_debt: OK
+- report_all_debt: OK
+- global_5_new_nodes: OK
+- store_close: OK
+- settings_version: OK
+- slot_normalize: OK
+- headless_http_load: KONTROL GEREKİYOR
+
+Eski hata desenleri:
+- Bulunmadı.
+
+Headless Chromium HTTP yükleme: DOĞRULANAMADI
+Tarayıcı notu: bject_path= /org/freedesktop/DBus: unknown error type: 
+[3517:3558:0919/150138.575468:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[3517:3517:0919/150138.582462:ERROR:content/browser/gpu/gpu_process_host.cc:998] GPU process launch failed: error_code=1002
+[3517:3517:0919/150138.582568:FATAL:content/browser/gpu/gpu_data_manager_impl_private.cc:415] GPU process isn't usable. Goodbye.
+
