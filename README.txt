@@ -1,2 +1,3 @@
-ZAZOHAN YH-10 Meshy 6 Lite GLB ayrı test sahnesi.
-FIX 2: Meshy vertex color/material bilgisi koşulsuz kaldırılıp açık PBR test materyali atanır. Ana YÜK HATTI RECOVERY sürümüne dokunulmadı.
+ZAZOHAN YH-10 Meshy 6 Lite yakın inceleme sahnesi.
+Ana YÜK HATTI oyunundan tamamen ayrıdır.
+Not: Meshy çıktısı tek ana mesh olduğu için cam/lastik/ızgara gibi parçaları güvenilir biçimde ayrı renklendirmek mümkün değildir. Bu viewer geometriyi daha okunaklı gösterir ve tel görünümü sunar.
