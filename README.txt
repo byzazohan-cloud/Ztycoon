@@ -1,6 +1,6 @@
-YÜK HATTI V0.1.1
+YÜK HATTI V0.1.0 VISUAL FIX 3
 
-Mobil kamera yönlendirmesi ve dokunmatik kontrol ipuçları.
-
-Test: index.html dosyasını HTTP üzerinden açmak önerilir; Three.js CDN bağlantısı gerekir.
-Bu paket statik kaynak kontrolünden geçirilmiştir; gerçek iPhone/tarayıcı testi kullanıcı testinde yapılacaktır.
+Çalışan V0.1.0 oynanış döngüsü korunarak procedural low-poly 3D görünüm güçlendirildi.
+Kamyon, forklift, depo, ofis, saha, yük alanı ve çevre detayları artırıldı.
+Harici ağır 3D model kullanılmadı; mobil performans önceliklidir.
+Gerçek cihaz/browser testi yapılmadı.
