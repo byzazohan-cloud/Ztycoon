@@ -1,28 +1,183 @@
-<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><title>ZAZOHAN YH-10 Look V1</title><style>html,body{margin:0;height:100%;overflow:hidden;background:#1d2228;font-family:Arial}#info{position:fixed;left:12px;top:12px;z-index:5;background:#000c;color:#fff;padding:10px 12px;border-radius:10px;font-size:13px;line-height:1.45}b{color:#ffc400}canvas{display:block}</style><script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}</script></head><body><div id="info"><b>ZAZOHAN YH-10 • GAME LOOK V1</b><br>10K mobil model • geçici oyun renkleri<br>Sürükle: döndür • Teker/pinch: yakınlaştır</div><script type="module">
-import * as THREE from 'three';import{OrbitControls}from'three/addons/controls/OrbitControls.js';import{GLTFLoader}from'three/addons/loaders/GLTFLoader.js';
-const scene=new THREE.Scene();scene.background=new THREE.Color(0x9fa7af);const camera=new THREE.PerspectiveCamera(38,innerWidth/innerHeight,.01,100);const renderer=new THREE.WebGLRenderer({antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setSize(innerWidth,innerHeight);renderer.shadowMap.enabled=true;renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;document.body.appendChild(renderer.domElement);
-scene.add(new THREE.HemisphereLight(0xffffff,0x3d4650,2.0));const sun=new THREE.DirectionalLight(0xffffff,2.7);sun.position.set(-4,7,5);sun.castShadow=true;scene.add(sun);const rim=new THREE.DirectionalLight(0xd9e8ff,1.2);rim.position.set(5,4,-5);scene.add(rim);
-const ground=new THREE.Mesh(new THREE.PlaneGeometry(25,18),new THREE.MeshStandardMaterial({color:0x656c73,roughness:.95}));ground.rotation.x=-Math.PI/2;ground.receiveShadow=true;scene.add(ground);const grid=new THREE.GridHelper(25,25,0x33383d,0x51585f);grid.position.y=.003;scene.add(grid);
-const controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.target.set(0,1.05,0);camera.position.set(-5.5,3.1,6.2);
-function col(hex){const c=new THREE.Color(hex);return [c.r,c.g,c.b]}
-const WHITE=col(0xe8eaec), BLACK=col(0x101419), GLASS=col(0x182a38), TIRE=col(0x17191c), METAL=col(0x8d949b), YELLOW=col(0xffbd00);
-new GLTFLoader().load('./ZAZOHAN_YH10_10K.glb',g=>{const root=g.scene;root.traverse(o=>{if(!o.isMesh)return;const geo=o.geometry.toNonIndexed();geo.computeVertexNormals();const p=geo.attributes.position;const arr=new Float32Array(p.count*3);for(let i=0;i<p.count;i++){const x=p.getX(i),y=p.getY(i),z=p.getZ(i);let C=WHITE;
-// Model coordinates: X=length, Y=width, Z=height. Front is -X.
-// low running gear / tyres
-if(z<-0.15) C=TIRE;
-// chassis and underbody
-if(z>-0.17 && z<-0.04) C=BLACK;
-// front fascia / grille
-if(x<-0.63 && z>-0.16 && z<0.12) C=BLACK;
-// windshield band and side-window zone on cab
-if(x<-0.43 && z>0.10 && z<0.30) C=GLASS;
-// metallic wheel-center hint near ground
-if(z<-0.18 && Math.abs(y)>.20) C=METAL;
-// yellow identity accent around lower cab / side rail
-if(x<-0.30 && z>-0.06 && z<0.00) C=YELLOW;
-arr[i*3]=C[0];arr[i*3+1]=C[1];arr[i*3+2]=C[2];}
-geo.setAttribute('color',new THREE.BufferAttribute(arr,3));o.geometry=geo;o.material=new THREE.MeshStandardMaterial({vertexColors:true,roughness:.48,metalness:.08,side:THREE.DoubleSide});o.castShadow=o.receiveShadow=true;});
-let b=new THREE.Box3().setFromObject(root),s=new THREE.Vector3(),c=new THREE.Vector3();b.getSize(s);b.getCenter(c);root.position.sub(c);const k=4.7/s.x;root.scale.setScalar(k);b=new THREE.Box3().setFromObject(root);b.getSize(s);root.position.y+=s.y/2;scene.add(root);
-},undefined,e=>{document.getElementById('info').innerHTML+='<br>GLB yükleme hatası';console.error(e)});
+<!doctype html><html lang='tr'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no'><title>YÜK HATTI V0.1.0 ZAZOHAN 10K INTEGRATION FIX</title><style>*{box-sizing:border-box}body{margin:0;background:#101820;color:#fff;font-family:system-ui,-apple-system,Segoe UI,sans-serif;overflow:hidden}#game{position:fixed;inset:0}canvas{display:block}#hud{position:fixed;inset:0;pointer-events:none}.top{position:absolute;top:max(8px,env(safe-area-inset-top));left:8px;right:8px;display:flex;gap:6px;align-items:center}.pill,.panel,button{background:#122536e8;border:1px solid #466178;border-radius:10px;color:white;box-shadow:0 4px 14px #0003}.brand{font-weight:900;font-size:15px;padding:7px 10px;background:#122536dc;border-radius:10px}.brand b{color:#f39a26}.brand small{font-size:9px;opacity:.7}.pill{padding:7px 9px;font-size:11px;font-weight:800}.money{margin-left:auto;color:#7ef19a}.panel{position:absolute;left:8px;bottom:max(8px,env(safe-area-inset-bottom));width:min(285px,56vw);padding:9px;pointer-events:auto}.panel h3{margin:0 0 3px;font-size:15px}.panel p{margin:2px 0;color:#c8d6df;font-size:11px;line-height:1.25}.actions{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap}button{padding:8px 10px;font-size:11px;font-weight:800;pointer-events:auto;touch-action:manipulation}button.primary{background:#159a43;border-color:#27c85b}button.orange{background:#d87b14;border-color:#f39a26}button:disabled{opacity:.45}.toast{position:absolute;top:52px;left:50%;transform:translateX(-50%);background:#07131ddd;border:1px solid #587287;border-radius:9px;padding:7px 11px;font-size:11px;opacity:0;transition:.25s}.hint{position:absolute;right:8px;bottom:8px;background:#122536c8;border:1px solid #466178;border-radius:9px;padding:6px 8px;font-size:9px;color:#c8d6df}.progress{height:5px;background:#293a46;border-radius:8px;overflow:hidden;margin-top:5px}.bar{height:100%;width:0;background:#35d76b;transition:width .3s}@media(max-width:600px){.brand{font-size:12px;padding:6px 8px}.brand small{display:none}.pill{font-size:9px;padding:6px}.top .pill:nth-of-type(2){display:none}.panel{width:52vw;max-width:250px;padding:8px}.panel h3{font-size:13px}.panel p{font-size:10px}.hint{display:none}button{padding:7px 8px;font-size:10px}}</style></head><body><div id='game'></div><div id='hud'><div class='top'><div class='brand'>YÜK <b>HATTI</b> <small>V0.1.0 ZAZOHAN 10K INTEGRATION</small></div><div class='pill'>ZAZOHAN YH-10</div><div class='pill'>TEMEL TESIS</div><div class='pill money' id='money'>₺50.000</div></div><div class='toast' id='toast'></div><div class='panel'><h3 id='title'>İlk Sevkiyat</h3><p id='desc'>Mobilya paletlerini Bursa'ya göndermek için işi kabul et.</p><div class='progress'><div class='bar' id='bar'></div></div><div class='actions'><button class='primary' id='main'>İşi Kabul Et</button><button id='reset'>Yeni Oyun</button></div></div><div class='hint'>Sürükle: kamera • Sıkıştır: yakınlaştır • Tesis nesnelerine dokunabilirsin</div></div>
+<script type='importmap'>{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}</script><script type='module'>
+import * as THREE from 'three'; import {OrbitControls} from 'three/addons/controls/OrbitControls.js'; import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+const root=document.querySelector('#game'), scene=new THREE.Scene(); scene.background=new THREE.Color(0x91c8e5); scene.fog=new THREE.Fog(0x91c8e5,72,132);
+const camera=new THREE.PerspectiveCamera(42,innerWidth/innerHeight,.1,180); camera.position.set(25,16,31);
+const renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'}); renderer.setPixelRatio(Math.min(devicePixelRatio,1.5)); renderer.setSize(innerWidth,innerHeight); renderer.shadowMap.enabled=true; renderer.shadowMap.type=THREE.PCFSoftShadowMap; renderer.outputColorSpace=THREE.SRGBColorSpace; renderer.toneMapping=THREE.ACESFilmicToneMapping; renderer.toneMappingExposure=1.05; root.appendChild(renderer.domElement);
+scene.add(new THREE.HemisphereLight(0xdff2ff,0x586b42,2.2)); const sun=new THREE.DirectionalLight(0xffffff,2.5); sun.position.set(20,35,15); sun.castShadow=true; sun.shadow.mapSize.set(1024,1024); sun.shadow.camera.left=-35;sun.shadow.camera.right=35;sun.shadow.camera.top=35;sun.shadow.camera.bottom=-35;scene.add(sun);
+const mat=(c)=>new THREE.MeshStandardMaterial({color:c,roughness:.8}); const box=(x,y,z,c,px,py,pz)=>{const m=new THREE.Mesh(new THREE.BoxGeometry(x,y,z),mat(c));m.position.set(px,py,pz);m.castShadow=m.receiveShadow=true;scene.add(m);return m};
+const mesh=(geo,c)=>{const m=new THREE.Mesh(geo,mat(c));m.castShadow=m.receiveShadow=true;return m}; const add=(g,o,x,y,z)=>{o.position.set(x,y,z);g.add(o);return o};
+box(62,.5,48,0x777f7b,0,-.25,0); box(64,.25,5,0x303a3f,0,-.1,25); box(64,.15,7,0x596f45,0,-.3,-27); box(5,.08,38,0x3d4649,26,.02,2); box(10,.05,15,0x8a8f8b,-7,.03,4); for(let i=-28;i<30;i+=8) box(4,.03,.18,0xf2d14a,i,.04,24.8);
+// depot
+box(24,8,12,0x68757b,-7,4,-9); box(25,.65,13,0x2f424b,-7,8.35,-9); box(25,.35,.4,0xf29a23,-7,7.25,-2.82); box(6,5,.35,0x24353e,-13,2.5,-2.85); box(6,5,.35,0x24353e,-4,2.5,-2.85); for(const x of [-15.3,-13,-10.7,-6.3,-4,-1.7]) box(.12,4.5,.05,0x53656d,x,2.5,-2.62); box(8,.65,.2,0x15242d,-7,6.7,-2.58);
+box(10,5,8,0x87918d,13,2.5,-9); box(10,.5,8.5,0x485b61,13,5.2,-9);
+// fence posts
+for(let x=-30;x<=30;x+=3){box(.12,2,.12,0x263238,x,1,-23);box(.12,2,.12,0x263238,x,1,22)} for(let z=-20;z<=20;z+=3){box(.12,2,.12,0x263238,-30,1,z);box(.12,2,.12,0x263238,30,1,z)}
+// pallets
+const pallets=[]; function pallet(x,z){const g=new THREE.Group(); const base=box(2,.25,1.5,0x8a5a2b,x,.3,z); for(let a=0;a<2;a++)for(let b=0;b<2;b++){const p=box(.85,.85,.6,0xc88a45,x-.45+a*.9,.85,z-.32+b*.65);pallets.push(p)} return base} pallet(-16,-1);pallet(-11,-1);pallet(-6,-1);pallet(5,-13);
+// detailed ZAZOHAN YH-10 procedural low-poly truck
+const legacyTruck=new THREE.Group();
+const chassis=add(legacyTruck,mesh(new THREE.BoxGeometry(3.6,.35,10.8),0x20282c),0,.65,-.5);
+const cargo=add(legacyTruck,mesh(new THREE.BoxGeometry(4.05,4.25,6.8),0xf0f1ed),0,2.85,-2.25);
+add(legacyTruck,mesh(new THREE.BoxGeometry(4.12,.28,6.9),0xe39322),0,4.95,-2.25);
+const cab=add(legacyTruck,mesh(new THREE.BoxGeometry(3.65,3.2,3.25),0xf5f5f0),0,2.35,3.0);
+add(legacyTruck,mesh(new THREE.BoxGeometry(3.0,1.05,.08),0x263a44),0,2.9,4.64);
+add(legacyTruck,mesh(new THREE.BoxGeometry(2.45,.72,.16),0x12191d),0,1.5,4.69);
+add(legacyTruck,mesh(new THREE.BoxGeometry(.55,.38,.12),0xf6d96b),-1.18,2.0,4.72); add(legacyTruck,mesh(new THREE.BoxGeometry(.55,.38,.12),0xf6d96b),1.18,2.0,4.72);
+add(legacyTruck,mesh(new THREE.BoxGeometry(3.2,.16,.12),0xe39322),0,3.72,4.7);
+for(const sx of [-1,1]){add(legacyTruck,mesh(new THREE.BoxGeometry(.12,1.05,1.35),0x2c414b),sx*1.84,2.85,3.25); add(legacyTruck,mesh(new THREE.BoxGeometry(.38,.18,.65),0x20282c),sx*2.0,3.15,3.45)}
+for(const x of [-1.55,1.55])for(const z of [-3.8,2.85]){const w=mesh(new THREE.CylinderGeometry(.72,.72,.5,18),0x16191a);w.rotation.z=Math.PI/2;add(legacyTruck,w,x,.72,z);const hub=mesh(new THREE.CylinderGeometry(.28,.28,.52,14),0x8a9498);hub.rotation.z=Math.PI/2;add(legacyTruck,hub,x,.72,z)}
+const logo=document.createElement('canvas');logo.width=256;logo.height=64;const lc=logo.getContext('2d');lc.fillStyle='#18252c';lc.fillRect(0,0,256,64);lc.fillStyle='#f3a126';lc.font='bold 28px sans-serif';lc.textAlign='center';lc.fillText('ZAZOHAN',128,40);const tex=new THREE.CanvasTexture(logo);const lm=new THREE.MeshBasicMaterial({map:tex});const sign=new THREE.Mesh(new THREE.PlaneGeometry(3.1,.78),lm);sign.position.set(0,3.7,-5.68);sign.rotation.y=Math.PI;legacyTruck.add(sign);
+truck.position.set(-7,0,6);truck.rotation.y=0;scene.add(legacyTruck);
+// recognizable low-poly forklift
+const fork=new THREE.Group(); add(fork,mesh(new THREE.BoxGeometry(2.2,.85,2.5),0xe8a11b),0,.85,0); add(fork,mesh(new THREE.BoxGeometry(1.5,1.4,1.25),0xe8a11b),0,1.7,.35); add(fork,mesh(new THREE.BoxGeometry(1.65,.18,1.5),0x22292c),0,2.55,.15);
+for(const x of [-.82,.82]){add(fork,mesh(new THREE.BoxGeometry(.13,2.8,.15),0x252c2f),x,1.65,-1.25); add(fork,mesh(new THREE.BoxGeometry(.16,.16,2.1),0x30383b),x,.3,-2.15)}
+for(const x of [-.92,.92])for(const z of [-.7,.72]){const w=mesh(new THREE.CylinderGeometry(.45,.45,.34,14),0x151719);w.rotation.z=Math.PI/2;add(fork,w,x,.48,z)} fork.position.set(7,0,5);scene.add(fork);
+// stylized workers with helmet, torso, legs and arms
+for(const [x,z,r] of [[2,1,.2],[12,0,-.6]]){const g=new THREE.Group();add(g,mesh(new THREE.CylinderGeometry(.42,.52,1.25,10),0xf09d22),0,1.55,0);add(g,mesh(new THREE.SphereGeometry(.38,12,8),0xd7a070),0,2.45,0);add(g,mesh(new THREE.SphereGeometry(.43,12,6),0xf2b323),0,2.68,0);for(const sx of [-1,1]){const a=add(g,mesh(new THREE.CylinderGeometry(.12,.14,1.05,8),0xd7a070),sx*.55,1.55,0);a.rotation.z=sx*.18;add(g,mesh(new THREE.BoxGeometry(.28,.85,.35),0x33434a),sx*.24,.55,0)}g.position.set(x,0,z);g.rotation.y=r;scene.add(g)}
+// yard props: cones, lamps, trees and loading markings
+for(const [x,z] of [[18,7],[21,7],[18,11],[21,11]]){const c=mesh(new THREE.ConeGeometry(.28,.75,10),0xf07e20);c.position.set(x,.38,z);scene.add(c)}
+for(const [x,z] of [[-27,-18],[27,-18],[-27,18],[27,18]]){box(.18,5,.18,0x273238,x,2.5,z);const l=mesh(new THREE.BoxGeometry(.8,.22,.35),0xffe8a0);l.position.set(x,5,z);scene.add(l)}
+for(const [x,z] of [[-24,-26],[-17,-26],[17,-26],[24,-26]]){const t=mesh(new THREE.CylinderGeometry(.22,.3,2,8),0x705033);t.position.set(x,1,z);scene.add(t);const crown=mesh(new THREE.IcosahedronGeometry(1.4,0),0x4e7c3f);crown.position.set(x,2.7,z);scene.add(crown)}
+
+// VISUAL FIX 3: architectural depth, markings, loading bays, office glass, gate and vehicle detailing
+// warehouse facade ribs and canopy
+for(let x=-18.5;x<=4.5;x+=2.3) box(.16,7.4,.22,0x536169,x,3.8,-2.72);
+for(const x of [-13,-4]){box(6.7,.22,1.25,0x35464e,x,5.35,-2.15);box(.22,5.2,.8,0xf0a126,x-3.35,2.6,-2.35);box(.22,5.2,.8,0xf0a126,x+3.35,2.6,-2.35)}
+// office windows and door
+for(const x of [10.2,12.2,14.2,16.2]) box(1.45,1.7,.08,0x254b5b,x,3.0,-4.92); box(1.5,2.5,.1,0x27383f,13,1.3,-4.88);
+// bay bumpers + dock plates
+for(const x of [-13,-4]){box(.45,1.2,.5,0x1d2529,x-2.65,.6,-2.45);box(.45,1.2,.5,0x1d2529,x+2.65,.6,-2.45);box(5.3,.16,2.0,0x414b4f,x,.12,-1.7)}
+// painted parking/loading lines
+for(const x of [-18,-9,0,9,18]){box(.12,.025,10,0xf0c42b,x,.04,7);box(4,.025,.12,0xf0c42b,x+2,.04,2)}
+// gate house + barrier
+box(4,3.4,3.6,0x6e7b7e,22,1.7,17);box(3.3,1.3,.08,0x294955,22,2.25,15.15);box(.35,1.1,.35,0xd36b28,17.2,.55,18.4);box(9,.16,.16,0xf3f3ee,12.7,1.1,18.4);
+for(let i=0;i<5;i++)box(1.1,.18,.18,0xd64a36,16.5-i*2,1.1,18.4);
+// barrels, crates, wheel stops
+for(const [x,z] of [[7,-7],[8,-7],[9,-7]]){const b=mesh(new THREE.CylinderGeometry(.38,.38,1.1,12),0x285e8a);b.position.set(x,.55,z);scene.add(b)}
+// truck side livery panels and rear bumper
+add(legacyTruck,mesh(new THREE.BoxGeometry(.08,1.05,4.4),0xf0a126),-2.07,3.1,-2.25);add(legacyTruck,mesh(new THREE.BoxGeometry(.08,1.05,4.4),0xf0a126),2.07,3.1,-2.25);add(legacyTruck,mesh(new THREE.BoxGeometry(3.8,.25,.25),0x20282c),0,.75,-5.75);
+// forklift overhead guard and seat
+for(const x of [-.72,.72]){add(fork,mesh(new THREE.BoxGeometry(.1,1.8,.1),0x252c2f),x,1.75,.55);add(fork,mesh(new THREE.BoxGeometry(.1,1.8,.1),0x252c2f),x,1.75,-.35)}add(fork,mesh(new THREE.BoxGeometry(1.55,.1,1.0),0x252c2f),0,2.65,.1);add(fork,mesh(new THREE.BoxGeometry(.75,.7,.65),0x30383b),0,1.35,.65);
+
+
+// VISUAL FIX 3: stronger low-poly silhouettes without external heavy assets
+// yard concrete slab seams
+for(let x=-27;x<=27;x+=6) box(.045,.012,39,0x66716f,x,.018,0);
+for(let z=-18;z<=18;z+=6) box(55,.012,.045,0x66716f,0,.019,z);
+// warehouse roof sawtooth / vents / sign
+for(const x of [-16,-11,-6,-1]){box(2.8,.35,1.0,0x34474f,x,8.72,-9);box(1.8,.38,.8,0x253840,x,9.02,-9)}
+const signCanvas=document.createElement('canvas');signCanvas.width=512;signCanvas.height=128;const sc=signCanvas.getContext('2d');sc.fillStyle='#f4f1e8';sc.fillRect(0,0,512,128);sc.fillStyle='#173246';sc.font='900 55px sans-serif';sc.textAlign='center';sc.fillText('YÜK',190,78);sc.fillStyle='#e89120';sc.fillText('HATTI',350,78);const st=new THREE.CanvasTexture(signCanvas);st.colorSpace=THREE.SRGBColorSpace;const sm=new THREE.MeshBasicMaterial({map:st});const ws=new THREE.Mesh(new THREE.PlaneGeometry(8.4,2.1),sm);ws.position.set(-7,6.5,-2.48);scene.add(ws);
+// warehouse side utility boxes, dock lamps
+for(const x of [-16,-10,-1,3]){box(.55,.75,.35,0x394b51,x,4.9,-2.35);const lamp=mesh(new THREE.SphereGeometry(.12,8,6),0xffd36b);lamp.position.set(x,5.2,-2.08);scene.add(lamp)}
+// office entrance canopy, steps, AC unit
+box(3.2,.22,1.25,0x31464f,13,4.5,-4.25);box(2.2,.16,1.3,0x5d6766,13,.08,-4.2);box(1.5,.75,.55,0xd8dedc,16.6,3.4,-5.05);box(1.1,.42,.62,0x34454b,16.6,3.4,-4.72);
+// truck: sloped hood, bumper, windshield split, mirrors, steps, side rails, mudguards
+const hood=add(legacyTruck,mesh(new THREE.BoxGeometry(3.45,.72,1.15),0xf3f3ef),0,1.78,4.25);hood.rotation.x=-.08;
+add(legacyTruck,mesh(new THREE.BoxGeometry(3.55,.35,.35),0x263035),0,1.05,4.78);
+add(legacyTruck,mesh(new THREE.BoxGeometry(.08,1.0,.06),0xd6dde0),0,2.9,4.70);
+for(const sx of [-1,1]){add(legacyTruck,mesh(new THREE.BoxGeometry(.48,.16,.72),0x2b353a),sx*1.88,2.75,4.15);add(legacyTruck,mesh(new THREE.BoxGeometry(.52,.18,1.25),0x7f898b),sx*1.62,.62,2.8);add(legacyTruck,mesh(new THREE.BoxGeometry(.18,.55,4.8),0xd6d9d5),sx*2.08,2.6,-2.25)}
+for(const z of [-3.8,2.85]){for(const sx of [-1,1]){const arch=mesh(new THREE.TorusGeometry(.76,.10,8,18,Math.PI),0x353e42);arch.rotation.y=Math.PI/2;arch.rotation.z=sx>0?Math.PI/2:-Math.PI/2;add(legacyTruck,arch,sx*1.82,1.0,z)}}
+// rear doors / lights
+add(legacyTruck,mesh(new THREE.BoxGeometry(3.55,3.65,.08),0xe6e8e3),0,2.85,-5.68);add(legacyTruck,mesh(new THREE.BoxGeometry(.06,3.4,.1),0x7b8588),0,2.85,-5.75);for(const sx of [-1,1]){add(legacyTruck,mesh(new THREE.BoxGeometry(.3,.55,.12),0xc83c2e),sx*1.55,1.15,-5.82)}
+// forklift: mast rails, hydraulic cylinder, backrest, steering wheel, amber beacon
+for(const sx of [-.48,.48]) add(fork,mesh(new THREE.BoxGeometry(.12,3.0,.12),0x252c2f),sx,1.72,-1.38);
+add(fork,mesh(new THREE.BoxGeometry(1.25,1.45,.10),0x343c3f),0,1.75,-1.5);add(fork,mesh(new THREE.CylinderGeometry(.07,.07,2.4,8),0x9aa3a4),0,1.6,-1.58);
+const wheel=mesh(new THREE.TorusGeometry(.3,.055,8,14),0x1e2528);wheel.rotation.x=Math.PI/2;add(fork,wheel,.48,1.85,.55);const beacon=mesh(new THREE.CylinderGeometry(.12,.12,.18,10),0xf28c18);add(fork,beacon,0,2.82,.15);
+// pallet stacks and loading props
+for(const [x,z] of [[-18,-6],[-16,-6],[-18,-8],[5,-10],[7,-10]]){box(1.8,.16,1.3,0x82562d,x,.15,z);for(let y=.55;y<1.8;y+=.65)box(1.45,.55,1.05,0xb87939,x,y,z)}
+// worker visual upgrades: safety vests and caps via additional meshes around existing area
+for(const [x,z] of [[2,1],[12,0]]){box(.9,.12,.55,0xffd02a,x,2.7,z);box(.95,.18,.62,0x27363c,x,1.75,z+.18)}
+// road curb and gate markings
+box(64,.18,.28,0xc9d0cd,0,.08,22.35);box(64,.18,.28,0xc9d0cd,0,.08,27.65);
+for(let x=8;x<=20;x+=3){box(1.4,.025,.18,0xffffff,x,.04,15.8);box(1.4,.025,.18,0xffffff,x,.04,20.8)}
+// low-poly landscaping clusters
+for(const [x,z] of [[-26,-19],[-22,-19],[22,-19],[26,-19],[25,13]]){for(let k=0;k<3;k++){const bush=mesh(new THREE.IcosahedronGeometry(.55+k*.12,0),0x4f7845);bush.position.set(x+k*.55,.5,z+(k%2)*.4);scene.add(bush)}}
+
+
+// VISUAL MAX: handcrafted procedural asset pass, still lightweight/mobile friendly
+const grp=(x=0,y=0,z=0)=>{const g=new THREE.Group();g.position.set(x,y,z);scene.add(g);return g};
+const part=(g,x,y,z,sx,sy,sz,c,rx=0,ry=0,rz=0)=>{const m=mesh(new THREE.BoxGeometry(sx,sy,sz),c);m.position.set(x,y,z);m.rotation.set(rx,ry,rz);g.add(m);return m};
+// richer loading dock: concrete dock, bollards, lamps, signs and bay numbers
+for(const [bx,n] of [[-13,'1'],[-4,'2']]){
+  part(scene,bx,.32,-1.7,6.3,.55,2.3,0x4c5557);
+  for(const dx of [-2.7,2.7]){const boll=mesh(new THREE.CylinderGeometry(.13,.16,1.1,10),0xf0a126);boll.position.set(bx+dx,.55,-1.3);scene.add(boll)}
+  const cv=document.createElement('canvas');cv.width=128;cv.height=128;const cc=cv.getContext('2d');cc.fillStyle='#20333d';cc.fillRect(0,0,128,128);cc.fillStyle='white';cc.font='900 80px sans-serif';cc.textAlign='center';cc.fillText(n,64,91);const tx=new THREE.CanvasTexture(cv);const pm=new THREE.MeshBasicMaterial({map:tx});const pl=new THREE.Mesh(new THREE.PlaneGeometry(1.1,1.1),pm);pl.position.set(bx,5.65,-2.47);scene.add(pl)
+}
+// warehouse side cladding lines, roof parapet and downpipes
+for(let x=-18.5;x<5;x+=1.15) box(.045,6.8,.08,0x59676c,x,4,-15.02);
+for(const z of [-14.8,-3.2]) box(25,.35,.35,0x263941,-7,8.45,z);
+for(const x of [-18.7,4.7]){const pipe=mesh(new THREE.CylinderGeometry(.09,.09,6.8,8),0x263941);pipe.position.set(x,3.4,-14.8);scene.add(pipe)}
+// office glass frames, sign and rooftop HVAC
+for(const x of [10.2,12.2,14.2,16.2]){box(.08,1.9,.16,0xb9c9ce,x-.75,3,-4.82);box(.08,1.9,.16,0xb9c9ce,x+.75,3,-4.82)}
+for(const x of [10.8,15.2]){box(1.8,.7,1.2,0xc7cdca,x,5.65,-9);box(1.45,.18,.85,0x36474d,x,6.05,-9)}
+// detailed cargo stacks and wrapped pallets
+for(const [x,z] of [[-18,-6],[-16,-6],[7,-12],[9,-12],[19,-8]]){const g=grp(x,0,z);part(g,0,.12,0,1.8,.22,1.35,0x7d5129);for(let iy=0;iy<2;iy++)for(let ix=-1;ix<=1;ix+=2)part(g,ix*.43,.58+iy*.72,0,.78,.66,1.05,iy?0xc78943:0xb97837);}
+// parked blue cargo container with ribs and corner castings
+const cont=grp(20,0,-13);part(cont,0,1.45,0,5.7,2.9,2.5,0x315d72);for(let x=-2.5;x<=2.5;x+=.55)part(cont,x,1.45,1.27,.055,2.55,.05,0x244c60);for(const x of [-2.75,2.75])for(const y of [.18,2.72])part(cont,x,y,1.3,.22,.22,.12,0xd7a33c);
+// much richer truck cab: roof visor, side windows, doors, grille slats, lights, tank, exhaust
+part(legacyTruck,0,4.12,3.15,3.65,.18,2.8,0xe8ece9);part(legacyTruck,0,3.68,4.45,3.25,.18,.55,0xe39a22);
+for(const sx of [-1,1]){part(legacyTruck,sx*1.83,2.75,3.15,.08,1.65,2.25,0xdfe5e3);part(legacyTruck,sx*1.87,2.95,3.55,.06,.85,1.15,0x274652);part(legacyTruck,sx*1.86,1.55,2.7,.08,.48,1.25,0x354147);part(legacyTruck,sx*1.85,.72,-.1,.18,.72,1.8,0x69777a)}
+for(let x=-1.15;x<=1.15;x+=.46) part(legacyTruck,x,1.48,4.89,.28,.08,.08,0xaeb8b9);
+for(const x of [-1.3,1.3]){part(legacyTruck,x,1.12,4.93,.7,.28,.12,0xdfe6db);part(legacyTruck,x,1.12,4.95,.38,.15,.13,0xffd15b)}
+const exhaust=mesh(new THREE.CylinderGeometry(.11,.13,2.5,10),0x6c777a);exhaust.position.set(1.9,2.4,-.1);legacyTruck.add(exhaust);
+// cargo body seams, reflectors and under-run rail
+for(let z=-5.1;z<=.4;z+=1.1){part(legacyTruck,-2.075,2.75,z,.04,3.55,.035,0xcbd0cd);part(legacyTruck,2.075,2.75,z,.04,3.55,.035,0xcbd0cd)}
+for(const sx of [-1,1])for(let z=-4.7;z<=.2;z+=1.6)part(legacyTruck,sx*2.12,1.05,z,.07,.22,.38,0xe89c22);
+
+// RECOVERY FIX: visible ZAZOHAN front + third axle; keep MAX scene stable
+for(const sx of [-1.55,1.55]){const w=mesh(new THREE.CylinderGeometry(.72,.72,.5,18),0x141719);w.rotation.z=Math.PI/2;add(legacyTruck,w,sx,.72,-1.75);const h=mesh(new THREE.CylinderGeometry(.28,.28,.52,14),0xa2aaac);h.rotation.z=Math.PI/2;add(legacyTruck,h,sx,.72,-1.75)}
+// front fascia layers make the cab readable from gameplay camera
+part(legacyTruck,0,2.88,4.73,3.02,.92,.08,0x284955); // windshield
+part(legacyTruck,0,2.88,4.79,.09,.92,.035,0xdde4e4); // center pillar
+part(legacyTruck,0,1.58,4.91,2.62,.62,.10,0x182126); // grille
+for(let gx=-1.05;gx<=1.05;gx+=.35) part(legacyTruck,gx,1.58,4.98,.20,.055,.04,0xb7c0c0);
+part(legacyTruck,0,1.03,5.02,3.42,.28,.18,0x30393d); // bumper
+for(const sx of [-1,1]){part(legacyTruck,sx*1.28,1.90,4.99,.62,.38,.10,0xf4df9b);part(legacyTruck,sx*1.28,1.90,5.05,.26,.14,.05,0xffa321)}
+part(legacyTruck,0,1.12,5.13,1.22,.28,.035,0xf3f3ed); // plate
+// roof marker lights
+for(const x of [-1.25,-.62,0,.62,1.25]){const ml=mesh(new THREE.SphereGeometry(.075,8,6),0xffb126);ml.position.set(x,4.17,4.15);legacyTruck.add(ml)}
+// stronger side door/windows and handles
+for(const sx of [-1,1]){part(legacyTruck,sx*1.87,3.02,3.42,.055,.92,1.18,0x294c5b);part(legacyTruck,sx*1.90,2.05,3.30,.045,.08,.38,0x222a2d)}
+
+// forklift steering wheel, backrest, mast rails, hydraulic crossbars and amber beacon
+const sw=mesh(new THREE.TorusGeometry(.28,.055,8,16),0x1d2427);sw.rotation.x=Math.PI/2;sw.position.set(0,2.05,.72);fork.add(sw);
+for(const x of [-.62,.62])part(fork,x,1.7,-1.28,.12,2.7,.14,0x1e272b);for(let y=.65;y<=2.55;y+=.48)part(fork,0,y,-1.28,1.35,.08,.12,0x303b3f);
+const forkBeaconMax=mesh(new THREE.CylinderGeometry(.11,.13,.24,10),0xffa514);forkBeaconMax.position.set(.58,2.88,.25);fork.add(forkBeaconMax);
+// worker safety vests and simple facial direction
+for(const [x,z] of [[2,1],[12,0]]){box(.58,.5,.56,0xffc12d,x,1.75,z-.02);box(.12,.5,.58,0xd8e4df,x,1.75,z-.31)}
+// safety islands, fire cabinet, hydrant, waste bins
+for(const [x,z] of [[-19,3],[4,-5]]){box(.8,1.5,.35,0xc83d2e,x,.75,z);box(.55,.55,.04,0xf1e7d7,x,1,z-.2)}
+for(const [x,z,c] of [[18,-3,0x245f43],[20,-3,0x315c78],[22,-3,0x5e5550]]){box(1.1,1.4,1, c,x,.7,z);box(1.2,.12,1.1,0x252d30,x,1.45,z)}
+// road details: curb stones, crosswalk and directional arrow
+for(let x=-28;x<28;x+=2.4)box(1.15,.1,.42,(Math.round(x/2.4)%2?0xd8dbd5:0x747e7c),x,.08,22.4);
+for(let x=9;x<20;x+=1.7)box(.8,.025,3.2,0xe9ece8,x,.04,18.3);
+// landscaped entrance planters
+for(const [x,z] of [[25,10],[25,13],[-25,-18]]){const g=grp(x,0,z);part(g,0,.25,0,2.1,.5,1.1,0x59634e);for(const dx of [-.55,0,.55]){const b=mesh(new THREE.IcosahedronGeometry(.62,1),0x3f7544);b.position.set(dx,.85,0);g.add(b)}}
+
+
+// ZAZOHAN YH-10 10K GLB integration — RECOVERY copy only
+legacyTruck.visible=false;
+const truck=new THREE.Group();
+truck.position.set(-7,0,6); scene.add(truck);
+const truckLoader=new GLTFLoader();
+truckLoader.load('./ZAZOHAN_YH10_10K.glb',(gltf)=>{
+  const model=gltf.scene;
+  model.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;const pos=o.geometry?.attributes?.position;if(pos && !o.geometry.attributes.normal)o.geometry.computeVertexNormals();o.material=new THREE.MeshStandardMaterial({color:0xe7e8e5,roughness:.62,metalness:.06});}});
+  // Normalize AI asset to the same gameplay footprint as the old truck.
+  let b=new THREE.Box3().setFromObject(model), sz=new THREE.Vector3(); b.getSize(sz);
+  if(sz.x>sz.z) model.rotation.y=Math.PI/2;
+  b=new THREE.Box3().setFromObject(model); b.getSize(sz);
+  const k=10.8/Math.max(sz.x,sz.z); model.scale.setScalar(k);
+  b=new THREE.Box3().setFromObject(model);
+  const c=new THREE.Vector3(); b.getCenter(c);
+  model.position.x-=c.x; model.position.z-=c.z; model.position.y-=b.min.y;
+  truck.add(model);
+},undefined,(err)=>{console.error('ZAZOHAN GLB yüklenemedi',err); legacyTruck.visible=true;});
+const controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.target.set(-5,2,-3);controls.minDistance=18;controls.maxDistance=52;controls.maxPolarAngle=1.35;controls.enablePan=true;
+let state={step:0,money:50000,loaded:0}; const main=document.querySelector('#main'),title=document.querySelector('#title'),desc=document.querySelector('#desc'),bar=document.querySelector('#bar'),money=document.querySelector('#money'),toast=document.querySelector('#toast');
+function say(s){toast.textContent=s;toast.style.opacity=1;setTimeout(()=>toast.style.opacity=0,1700)} function ui(){money.textContent='₺'+state.money.toLocaleString('tr-TR'); const d=[['İlk Sevkiyat',"Mobilya paletlerini Bursa'ya göndermek için işi kabul et.",'İşi Kabul Et'],['Yükleme','Forklift 8 paleti ZAZOHAN YH-10 aracına yükleyecek.','Yüklemeyi Başlat'],['Yük Hazır','Araç yüklendi. Bursa seferini başlat.','Sefere Çık'],['Seferde','ZAZOHAN YH-10 teslimata gidiyor…','Sefer Sürüyor'],['Teslimat Tamamlandı','₺8.500 gelir, ₺2.000 gider. Net kazanç ₺6.500.','Ödemeyi Al'],['V0.1 Hedefi','İlk teslimat tamamlandı. Yeni iş alarak şirketini büyütebilirsin.','Yeni İş']][state.step];title.textContent=d[0];desc.textContent=d[1];main.textContent=d[2];main.disabled=state.step===3;bar.style.width=state.step===0?'0%':state.step===1?(state.loaded/8*100)+'%':state.step<4?'100%':'100%'}
+main.onclick=()=>{if(state.step===0){state.step=1;say('İş kabul edildi: İstanbul → Bursa');ui()}else if(state.step===1){main.disabled=true;let n=0;const iv=setInterval(()=>{n++;state.loaded=n;fork.position.x-=.25;bar.style.width=(n/8*100)+'%';desc.textContent=`Yükleniyor: ${n}/8 palet`;if(n===8){clearInterval(iv);state.step=2;main.disabled=false;say('Yükleme tamamlandı');ui()}},350)}else if(state.step===2){state.step=3;ui();let t=0;const iv=setInterval(()=>{t++;truck.position.x+=1.05;truck.position.z+=.35;if(t>22){clearInterval(iv);truck.visible=false;setTimeout(()=>{state.step=4;ui();say('Teslimat başarıyla tamamlandı')},1200)}},80)}else if(state.step===4){state.money+=6500;state.step=5;ui();say('Net ₺6.500 hesabına eklendi')}else{state.step=0;state.loaded=0;truck.visible=true;truck.position.set(-7,0,6);truck.rotation.y=0;ui()}};
+document.querySelector('#reset').onclick=()=>{state={step:0,money:50000,loaded:0};truck.visible=true;truck.position.set(-7,0,6);truck.rotation.y=0;ui();say('Yeni oyun başlatıldı')};ui();
 addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)});renderer.setAnimationLoop(()=>{controls.update();renderer.render(scene,camera)});
 </script></body></html>
