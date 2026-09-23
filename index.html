@@ -1,4 +1,4 @@
-<!doctype html><html lang='tr'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no'><title>YÜK HATTI V0.1.0 MOVE FIX ZAZOHAN SAFE FIX</title><style>*{box-sizing:border-box}body{margin:0;background:#101820;color:#fff;font-family:system-ui,-apple-system,Segoe UI,sans-serif;overflow:hidden}#game{position:fixed;inset:0}canvas{display:block}#hud{position:fixed;inset:0;pointer-events:none}.top{position:absolute;top:max(8px,env(safe-area-inset-top));left:8px;right:8px;display:flex;gap:6px;align-items:center}.pill,.panel,button{background:#122536e8;border:1px solid #466178;border-radius:10px;color:white;box-shadow:0 4px 14px #0003}.brand{font-weight:900;font-size:15px;padding:7px 10px;background:#122536dc;border-radius:10px}.brand b{color:#f39a26}.brand small{font-size:9px;opacity:.7}.pill{padding:7px 9px;font-size:11px;font-weight:800}.money{margin-left:auto;color:#7ef19a}.panel{position:absolute;left:8px;bottom:max(8px,env(safe-area-inset-bottom));width:min(285px,56vw);padding:9px;pointer-events:auto}.panel h3{margin:0 0 3px;font-size:15px}.panel p{margin:2px 0;color:#c8d6df;font-size:11px;line-height:1.25}.actions{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap}button{padding:8px 10px;font-size:11px;font-weight:800;pointer-events:auto;touch-action:manipulation}button.primary{background:#159a43;border-color:#27c85b}button.orange{background:#d87b14;border-color:#f39a26}button:disabled{opacity:.45}.toast{position:absolute;top:52px;left:50%;transform:translateX(-50%);background:#07131ddd;border:1px solid #587287;border-radius:9px;padding:7px 11px;font-size:11px;opacity:0;transition:.25s}.hint{position:absolute;right:8px;bottom:8px;background:#122536c8;border:1px solid #466178;border-radius:9px;padding:6px 8px;font-size:9px;color:#c8d6df}.progress{height:5px;background:#293a46;border-radius:8px;overflow:hidden;margin-top:5px}.bar{height:100%;width:0;background:#35d76b;transition:width .3s}@media(max-width:600px){.brand{font-size:12px;padding:6px 8px}.brand small{display:none}.pill{font-size:9px;padding:6px}.top .pill:nth-of-type(2){display:none}.panel{width:52vw;max-width:250px;padding:8px}.panel h3{font-size:13px}.panel p{font-size:10px}.hint{display:none}button{padding:7px 8px;font-size:10px}}</style></head><body><div id='game'></div><div id='hud'><div class='top'><div class='brand'>YÜK <b>HATTI</b> <small>V0.1.0 LOAD FIX</small></div><div class='pill'>ZAZOHAN YH-10</div><div class='pill'>TEMEL TESIS</div><div class='pill money' id='money'>₺50.000</div></div><div class='toast' id='toast'></div><div class='panel'><h3 id='title'>İlk Sevkiyat</h3><p id='desc'>Mobilya paletlerini Bursa'ya göndermek için işi kabul et.</p><div class='progress'><div class='bar' id='bar'></div></div><div class='actions'><button class='primary' id='main'>İşi Kabul Et</button><button id='reset'>Yeni Oyun</button></div></div><div class='hint'>Sürükle: kamera • Sıkıştır: yakınlaştır • Tesis nesnelerine dokunabilirsin</div></div>
+<!doctype html><html lang='tr'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no'><title>YÜK HATTI V0.1.0 MOVE FIX ZAZOHAN SAFE FIX</title><style>*{box-sizing:border-box}body{margin:0;background:#101820;color:#fff;font-family:system-ui,-apple-system,Segoe UI,sans-serif;overflow:hidden}#game{position:fixed;inset:0}canvas{display:block}#hud{position:fixed;inset:0;pointer-events:none}.top{position:absolute;top:max(8px,env(safe-area-inset-top));left:8px;right:8px;display:flex;gap:6px;align-items:center}.pill,.panel,button{background:#122536e8;border:1px solid #466178;border-radius:10px;color:white;box-shadow:0 4px 14px #0003}.brand{font-weight:900;font-size:15px;padding:7px 10px;background:#122536dc;border-radius:10px}.brand b{color:#f39a26}.brand small{font-size:9px;opacity:.7}.pill{padding:7px 9px;font-size:11px;font-weight:800}.money{margin-left:auto;color:#7ef19a}.panel{position:absolute;left:8px;bottom:max(8px,env(safe-area-inset-bottom));width:min(285px,56vw);padding:9px;pointer-events:auto}.panel h3{margin:0 0 3px;font-size:15px}.panel p{margin:2px 0;color:#c8d6df;font-size:11px;line-height:1.25}.actions{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap}button{padding:8px 10px;font-size:11px;font-weight:800;pointer-events:auto;touch-action:manipulation}button.primary{background:#159a43;border-color:#27c85b}button.orange{background:#d87b14;border-color:#f39a26}button:disabled{opacity:.45}.toast{position:absolute;top:52px;left:50%;transform:translateX(-50%);background:#07131ddd;border:1px solid #587287;border-radius:9px;padding:7px 11px;font-size:11px;opacity:0;transition:.25s}.hint{position:absolute;right:8px;bottom:8px;background:#122536c8;border:1px solid #466178;border-radius:9px;padding:6px 8px;font-size:9px;color:#c8d6df}.progress{height:5px;background:#293a46;border-radius:8px;overflow:hidden;margin-top:5px}.bar{height:100%;width:0;background:#35d76b;transition:width .3s}@media(max-width:600px){.brand{font-size:12px;padding:6px 8px}.brand small{display:none}.pill{font-size:9px;padding:6px}.top .pill:nth-of-type(2){display:none}.panel{width:52vw;max-width:250px;padding:8px}.panel h3{font-size:13px}.panel p{font-size:10px}.hint{display:none}button{padding:7px 8px;font-size:10px}}</style></head><body><div id='game'></div><div id='hud'><div class='top'><div class='brand'>YÜK <b>HATTI</b> <small>V0.1.0 MOVE FIX 2</small></div><div class='pill'>ZAZOHAN YH-10</div><div class='pill'>TEMEL TESIS</div><div class='pill money' id='money'>₺50.000</div></div><div class='toast' id='toast'></div><div class='panel'><h3 id='title'>İlk Sevkiyat</h3><p id='desc'>Mobilya paletlerini Bursa'ya göndermek için işi kabul et.</p><div class='progress'><div class='bar' id='bar'></div></div><div class='actions'><button class='primary' id='main'>İşi Kabul Et</button><button id='reset'>Yeni Oyun</button></div></div><div class='hint'>Sürükle: kamera • Sıkıştır: yakınlaştır • Tesis nesnelerine dokunabilirsin</div></div>
 <script type='importmap'>{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}</script><script type='module'>
 import * as THREE from 'three'; import {OrbitControls} from 'three/addons/controls/OrbitControls.js'; import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 const root=document.querySelector('#game'), scene=new THREE.Scene(); scene.background=new THREE.Color(0x91c8e5); scene.fog=new THREE.Fog(0x91c8e5,72,132);
@@ -200,46 +200,73 @@ const palletBase=mesh(new THREE.BoxGeometry(1.45,.16,1.05),0x8a5a2b);palletBase.
 for(const x of [-.36,.36])for(const z of [-.25,.25]){const b=mesh(new THREE.BoxGeometry(.62,.58,.42),0xc88a45);b.position.set(x,.46,z);carriedPallet.add(b)}
 carriedPallet.visible=false;scene.add(carriedPallet);
 const deposited=[];
-const forkHome=new THREE.Vector3(7,0,5);
-// Forklift uses orthogonal warehouse lanes instead of cutting diagonally across the yard.
-const pickupStage=new THREE.Vector3(7,0,-8.6), pickupPoint=new THREE.Vector3(4.8,0,-10.5);
-const truckStage=new THREE.Vector3(1.0,0,-8.6), truckApproach=new THREE.Vector3(1.0,0,3.0), truckLoadPoint=new THREE.Vector3(-5.2,0,3.0);
-function faceMove(obj,from,to){const dx=to.x-from.x,dz=to.z-from.z;if(Math.hypot(dx,dz)>.001)obj.rotation.y=Math.atan2(dx,dz);}
-function tweenPos(obj,to,dur=500){return new Promise(resolve=>{const from=obj.position.clone(),start=performance.now();faceMove(obj,from,to);function tick(now){const t=Math.min(1,(now-start)/dur),q=t*t*(3-2*t);obj.position.lerpVectors(from,to,q);if(t<1)requestAnimationFrame(tick);else resolve()}requestAnimationFrame(tick)})}
+const GROUND_Y=0;
+const forkHome=new THREE.Vector3(7,GROUND_Y,5);
+const truckStart=new THREE.Vector3(-7,GROUND_Y,6);
+
+// MOVE FIX 2: every vehicle is locked to the X-Z ground plane.
+// Routes stay in the open yard; no waypoint is allowed inside the depot volume.
+function flat(v){return new THREE.Vector3(v.x,GROUND_Y,v.z)}
+function heading(from,to){return Math.atan2(to.x-from.x,to.z-from.z)}
+function angleDelta(a,b){return Math.atan2(Math.sin(b-a),Math.cos(b-a))}
 function wait(ms){return new Promise(r=>setTimeout(r,ms))}
-async function driveFork(points,loaded=false){for(const [pt,dur] of points){if(loaded)await tweenForkWithPallet(pt,dur);else await tweenPos(fork,pt,dur)}}
-async function loadOnePallet(n){
-  // Home -> straight aisle -> turn -> pallet. No triangular shortcut.
-  await driveFork([[pickupStage,430],[pickupPoint,260]]);
-  carriedPallet.visible=true;
-  carriedPallet.position.copy(fork.position).add(new THREE.Vector3(0,.45,-1.8).applyAxisAngle(new THREE.Vector3(0,1,0),fork.rotation.y));
-  await wait(120);
-  // Back out to aisle, travel parallel to depot, then line up with truck.
-  await driveFork([[pickupStage,260],[truckStage,380],[truckApproach,430],[truckLoadPoint,300]],true);
-  carriedPallet.visible=false;
-  const d=carriedPallet.clone(true);d.visible=true;d.position.set(-6.0+(n%2)*1.25,1.05,1.2-Math.floor(n/2)*.75);scene.add(d);deposited.push(d);
-  await wait(100);
-  // Reverse out of loading bay, use the same aisle and return home.
-  await driveFork([[truckApproach,300],[truckStage,430],[pickupStage,380],[forkHome,430]]);
+function turnTo(obj,to,dur=180){return new Promise(resolve=>{
+  const target=heading(obj.position,to), from=obj.rotation.y, delta=angleDelta(from,target), start=performance.now();
+  function tick(now){const t=Math.min(1,(now-start)/dur);obj.rotation.y=from+delta*(t*t*(3-2*t));obj.position.y=GROUND_Y;if(t<1)requestAnimationFrame(tick);else{obj.rotation.y=target;resolve()}}
+  requestAnimationFrame(tick)
+})}
+function driveStraight(obj,to,speed=12,onFrame=null){return new Promise(resolve=>{
+  const from=flat(obj.position), dest=flat(to), dist=from.distanceTo(dest);
+  if(dist<.01){obj.position.copy(dest);resolve();return}
+  const duration=Math.max(120,dist/speed*1000), start=performance.now();
+  function tick(now){const t=Math.min(1,(now-start)/duration);obj.position.lerpVectors(from,dest,t);obj.position.y=GROUND_Y;if(onFrame)onFrame();if(t<1)requestAnimationFrame(tick);else{obj.position.copy(dest);resolve()}}
+  requestAnimationFrame(tick)
+})}
+async function driveVehicle(obj,points,speed,onFrame=null){for(const pt of points){const dest=flat(pt);await turnTo(obj,dest);await driveStraight(obj,dest,speed,onFrame)}}
+function syncPallet(){
+  const off=new THREE.Vector3(0,.48,-1.65).applyAxisAngle(new THREE.Vector3(0,1,0),fork.rotation.y);
+  carriedPallet.position.set(fork.position.x+off.x,.48,fork.position.z+off.z);
 }
-function tweenForkWithPallet(to,dur){return new Promise(resolve=>{const from=fork.position.clone(),start=performance.now();faceMove(fork,from,to);function tick(now){const t=Math.min(1,(now-start)/dur),q=t*t*(3-2*t);fork.position.lerpVectors(from,to,q);carriedPallet.position.copy(fork.position).add(new THREE.Vector3(0,.45,-1.8).applyAxisAngle(new THREE.Vector3(0,1,0),fork.rotation.y));if(t<1)requestAnimationFrame(tick);else resolve()}requestAnimationFrame(tick)})}
+
+// Open-yard forklift lanes. The old route used z=-8.6, which was physically inside the depot.
+const pickupLane=new THREE.Vector3(7,0,1.0);
+const pickupPoint=new THREE.Vector3(-5.8,0,1.0);
+const truckRearLane=new THREE.Vector3(-2.0,0,1.0);
+const truckLoadPoint=new THREE.Vector3(-7.0,0,.15);
+
+async function loadOnePallet(n){
+  // Home -> open lane -> pallet. Vehicle remains at ground height at all times.
+  await driveVehicle(fork,[pickupLane,pickupPoint],7.5);
+  carriedPallet.visible=true;syncPallet();await wait(100);
+  // Pull back into the open lane, then approach the rear of the parked truck.
+  await driveVehicle(fork,[truckRearLane,truckLoadPoint],6.2,syncPallet);
+  carriedPallet.visible=false;
+  const d=carriedPallet.clone(true);d.visible=true;
+  d.position.set(-6.35+(n%2)*1.15,1.05,1.25-Math.floor(n/2)*.68);scene.add(d);deposited.push(d);
+  await wait(90);
+  // Leave the truck rear and return using the same clear yard corridor.
+  await driveVehicle(fork,[truckRearLane,pickupLane,forkHome],7.8);
+}
 async function runLoading(){main.disabled=true;for(let n=1;n<=8;n++){await loadOnePallet(n);state.loaded=n;bar.style.width=(n/8*100)+'%';desc.textContent=`Yükleniyor: ${n}/8 palet`;}state.step=2;main.disabled=false;say('8 palet yüklendi');ui()}
-const truckStart=new THREE.Vector3(-7,0,6);
+
 async function runTruckDeparture(){
   state.step=3;ui();
-  // Faster yard departure: short alignment manoeuvre, gate, then acceleration on road.
+  // Constant-speed movement: turn first, then drive straight. No repeated ease-in/ease-out "crawling".
   const path=[
-    [new THREE.Vector3(-7,0,10),420],
-    [new THREE.Vector3(-2,0,13),430],
-    [new THREE.Vector3(6,0,16),470],
-    [new THREE.Vector3(15,0,19),430],
-    [new THREE.Vector3(27,0,20),360]
+    new THREE.Vector3(-7,0,12),
+    new THREE.Vector3(7,0,12),
+    new THREE.Vector3(13,0,18),
+    new THREE.Vector3(27,0,20)
   ];
-  for(const [pt,dur] of path)await tweenPos(truck,pt,dur);
+  await driveVehicle(truck,path,13.5);
   truck.visible=false;
-  setTimeout(()=>{state.step=4;ui();say('Teslimat başarıyla tamamlandı')},450)
+  setTimeout(()=>{state.step=4;ui();say('Teslimat başarıyla tamamlandı')},350)
 }
-function resetVehicles(){fork.position.copy(forkHome);fork.rotation.y=0;truck.visible=true;truck.position.copy(truckStart);truck.rotation.y=0;carriedPallet.visible=false;deposited.splice(0).forEach(o=>scene.remove(o));}
+function resetVehicles(){
+  fork.position.copy(forkHome);fork.position.y=GROUND_Y;fork.rotation.y=0;
+  truck.visible=true;truck.position.copy(truckStart);truck.position.y=GROUND_Y;truck.rotation.y=0;
+  carriedPallet.visible=false;deposited.splice(0).forEach(o=>scene.remove(o));
+}
 
 const controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.target.set(-5,2,-3);controls.minDistance=18;controls.maxDistance=52;controls.maxPolarAngle=1.35;controls.enablePan=true;
 let state={step:0,money:50000,loaded:0}; const main=document.querySelector('#main'),title=document.querySelector('#title'),desc=document.querySelector('#desc'),bar=document.querySelector('#bar'),money=document.querySelector('#money'),toast=document.querySelector('#toast');
