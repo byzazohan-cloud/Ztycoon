@@ -204,67 +204,63 @@ const GROUND_Y=0;
 const forkHome=new THREE.Vector3(7,GROUND_Y,5);
 const truckStart=new THREE.Vector3(-7,GROUND_Y,6);
 
-// MOVE FIX 2: every vehicle is locked to the X-Z ground plane.
-// Routes stay in the open yard; no waypoint is allowed inside the depot volume.
-function flat(v){return new THREE.Vector3(v.x,GROUND_Y,v.z)}
+// MOVE FIX 3: simple, fast, deterministic vehicle motion.
+// No easing and no Y-axis movement. Each vehicle stays flat on the yard.
+const GROUND_Y=0;
+const forkHome=new THREE.Vector3(7,0,5);
+const truckStart=new THREE.Vector3(-7,0,6);
+function flat(v){return new THREE.Vector3(v.x,0,v.z)}
 function heading(from,to){return Math.atan2(to.x-from.x,to.z-from.z)}
-function angleDelta(a,b){return Math.atan2(Math.sin(b-a),Math.cos(b-a))}
 function wait(ms){return new Promise(r=>setTimeout(r,ms))}
-function turnTo(obj,to,dur=180){return new Promise(resolve=>{
-  const target=heading(obj.position,to), from=obj.rotation.y, delta=angleDelta(from,target), start=performance.now();
-  function tick(now){const t=Math.min(1,(now-start)/dur);obj.rotation.y=from+delta*(t*t*(3-2*t));obj.position.y=GROUND_Y;if(t<1)requestAnimationFrame(tick);else{obj.rotation.y=target;resolve()}}
-  requestAnimationFrame(tick)
+function snapFace(obj,to){obj.rotation.x=0;obj.rotation.z=0;obj.rotation.y=heading(obj.position,to);obj.position.y=0}
+function moveFlat(obj,to,speed=20,onFrame=null){return new Promise(resolve=>{
+  const a=flat(obj.position), b=flat(to), d=a.distanceTo(b);
+  if(d<.02){obj.position.copy(b);if(onFrame)onFrame();resolve();return}
+  snapFace(obj,b);
+  const ms=Math.max(80,d/speed*1000), st=performance.now();
+  function frame(now){const t=Math.min(1,(now-st)/ms);obj.position.set(a.x+(b.x-a.x)*t,0,a.z+(b.z-a.z)*t);if(onFrame)onFrame();if(t<1)requestAnimationFrame(frame);else{obj.position.copy(b);obj.position.y=0;resolve()}}
+  requestAnimationFrame(frame)
 })}
-function driveStraight(obj,to,speed=12,onFrame=null){return new Promise(resolve=>{
-  const from=flat(obj.position), dest=flat(to), dist=from.distanceTo(dest);
-  if(dist<.01){obj.position.copy(dest);resolve();return}
-  const duration=Math.max(120,dist/speed*1000), start=performance.now();
-  function tick(now){const t=Math.min(1,(now-start)/duration);obj.position.lerpVectors(from,dest,t);obj.position.y=GROUND_Y;if(onFrame)onFrame();if(t<1)requestAnimationFrame(tick);else{obj.position.copy(dest);resolve()}}
-  requestAnimationFrame(tick)
-})}
-async function driveVehicle(obj,points,speed,onFrame=null){for(const pt of points){const dest=flat(pt);await turnTo(obj,dest);await driveStraight(obj,dest,speed,onFrame)}}
+async function follow(obj,points,speed,onFrame=null){for(const p of points)await moveFlat(obj,p,speed,onFrame)}
 function syncPallet(){
-  const off=new THREE.Vector3(0,.48,-1.65).applyAxisAngle(new THREE.Vector3(0,1,0),fork.rotation.y);
+  const off=new THREE.Vector3(0,.48,-1.55).applyAxisAngle(new THREE.Vector3(0,1,0),fork.rotation.y);
   carriedPallet.position.set(fork.position.x+off.x,.48,fork.position.z+off.z);
 }
-
-// Open-yard forklift lanes. The old route used z=-8.6, which was physically inside the depot.
-const pickupLane=new THREE.Vector3(7,0,1.0);
-const pickupPoint=new THREE.Vector3(-5.8,0,1.0);
-const truckRearLane=new THREE.Vector3(-2.0,0,1.0);
-const truckLoadPoint=new THREE.Vector3(-7.0,0,.15);
-
+// Short open-yard route. No point enters the depot footprint.
+const pickupPoint=new THREE.Vector3(-5.8,0,1.2);
+const centerLane=new THREE.Vector3(1.0,0,3.0);
+const truckLoadPoint=new THREE.Vector3(-6.9,0,1.3);
 async function loadOnePallet(n){
-  // Home -> open lane -> pallet. Vehicle remains at ground height at all times.
-  await driveVehicle(fork,[pickupLane,pickupPoint],7.5);
-  carriedPallet.visible=true;syncPallet();await wait(100);
-  // Pull back into the open lane, then approach the rear of the parked truck.
-  await driveVehicle(fork,[truckRearLane,truckLoadPoint],6.2,syncPallet);
+  // Fast visible cycle: pickup -> truck -> home. No long pauses.
+  await follow(fork,[centerLane,pickupPoint],18);
+  carriedPallet.visible=true;syncPallet();
+  await follow(fork,[centerLane,truckLoadPoint],16,syncPallet);
   carriedPallet.visible=false;
   const d=carriedPallet.clone(true);d.visible=true;
-  d.position.set(-6.35+(n%2)*1.15,1.05,1.25-Math.floor(n/2)*.68);scene.add(d);deposited.push(d);
-  await wait(90);
-  // Leave the truck rear and return using the same clear yard corridor.
-  await driveVehicle(fork,[truckRearLane,pickupLane,forkHome],7.8);
+  d.position.set(-6.25+(n%2)*1.05,1.05,1.15-Math.floor(n/2)*.55);scene.add(d);deposited.push(d);
+  await follow(fork,[centerLane,forkHome],20);
 }
-async function runLoading(){main.disabled=true;for(let n=1;n<=8;n++){await loadOnePallet(n);state.loaded=n;bar.style.width=(n/8*100)+'%';desc.textContent=`Yükleniyor: ${n}/8 palet`;}state.step=2;main.disabled=false;say('8 palet yüklendi');ui()}
-
+async function runLoading(){
+  main.disabled=true;
+  // Four quick forklift trips; each trip represents two compact cargo pallets.
+  for(let trip=1;trip<=4;trip++){
+    await loadOnePallet(trip-1);
+    state.loaded=Math.min(8,trip*2);
+    bar.style.width=(state.loaded/8*100)+'%';desc.textContent=`Yükleniyor: ${state.loaded}/8 palet`;
+  }
+  state.step=2;main.disabled=false;say('8 palet yüklendi');ui()
+}
 async function runTruckDeparture(){
   state.step=3;ui();
-  // Constant-speed movement: turn first, then drive straight. No repeated ease-in/ease-out "crawling".
-  const path=[
-    new THREE.Vector3(-7,0,12),
-    new THREE.Vector3(7,0,12),
-    new THREE.Vector3(13,0,18),
-    new THREE.Vector3(27,0,20)
-  ];
-  await driveVehicle(truck,path,13.5);
+  // Simple ground route: face once per segment, then move at a clearly visible constant speed.
+  const path=[new THREE.Vector3(-7,0,12),new THREE.Vector3(5,0,12),new THREE.Vector3(13,0,18),new THREE.Vector3(30,0,20)];
+  for(const p of path)await moveFlat(truck,p,22);
   truck.visible=false;
-  setTimeout(()=>{state.step=4;ui();say('Teslimat başarıyla tamamlandı')},350)
+  setTimeout(()=>{state.step=4;ui();say('Teslimat başarıyla tamamlandı')},180)
 }
 function resetVehicles(){
-  fork.position.copy(forkHome);fork.position.y=GROUND_Y;fork.rotation.y=0;
-  truck.visible=true;truck.position.copy(truckStart);truck.position.y=GROUND_Y;truck.rotation.y=0;
+  fork.position.copy(forkHome);fork.rotation.set(0,0,0);
+  truck.visible=true;truck.position.copy(truckStart);truck.rotation.set(0,0,0);
   carriedPallet.visible=false;deposited.splice(0).forEach(o=>scene.remove(o));
 }
 
