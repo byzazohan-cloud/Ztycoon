@@ -1,6 +1,11 @@
-YÜK HATTI V0.1.0 MODEL UPGRADE 2
+YÜK HATTI V0.1.0 RECOVERY FIX
 
-- ZAZOHAN YH-10 rebuilt as a more detailed optimized GLB model.
-- Forklift GLB upgraded.
-- Existing gameplay loop preserved.
-- Upload index.html AND the assets folder to GitHub Pages.
+MODEL 1/2/3 hattı bırakıldı. Bu sürüm çalışan VISUAL MAX FIX tabanından üretildi.
+Ana düzeltmeler:
+- Kamyonun yanlış yönü düzeltildi; kabin artık oyun kamerasına bakıyor.
+- Kamera dengeli MAX kadrajına geri alındı ve biraz yaklaştırıldı.
+- ZAZOHAN YH-10 üçüncü aks, ön cam, ızgara, far, tampon, plaka, marker ışıkları ve yan cam/kapı detayları aldı.
+- Sevkiyat animasyonu yeni kamyon yönüne göre çıkış yönüne uyarlandı.
+- İş/yükleme/teslimat/ödeme döngüsü korunmuştur.
+
+Gerçek cihaz/tarayıcı testi yapılmadı.
