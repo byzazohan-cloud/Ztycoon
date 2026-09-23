@@ -1,1 +1,1 @@
-Bu paket gerçek ZAZOHAN_YH10.glb asset dosyasını içerir. Ana YÜK HATTI oyununa dokunulmadı. Viewer sadece GLB dosyasını yükler.
+Konsept görselindeki ZAZOHAN YH-10 oranları ve ön yüz dili hedef alınarak hazırlanmış bağımsız GLB asset testidir. Ana oyuna dokunulmadı.
