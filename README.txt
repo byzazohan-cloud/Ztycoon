@@ -1,9 +1,11 @@
-YÜK HATTI V0.1.0 — SCENE FIX
+YÜK HATTI V0.1.4 — İŞLER + EKONOMİ
 
-Düzeltme:
-- MOVE FIX 3 içinde aynı scope'ta iki kez tanımlanan GROUND_Y, forkHome ve truckStart sabitleri kaldırıldı.
-- Bu JavaScript SyntaxError nedeniyle Three.js modülü hiç başlamıyor ve yalnız HTML HUD görünüyordu.
-- Sürüm etiketi SCENE FIX olarak güncellendi.
-- Kamyon ve forklift GLB dosyaları pakette korunmuştur.
+Yeni:
+- 3 gerçek iş teklifi: şehir içi, bölgesel, uzun hat
+- Her işte rota, mesafe, palet, brüt gelir, yakıt, yol gideri ve net kazanç
+- Seçilen işe göre yük miktarı ve teslimat hesabı
+- Teslimat sonunda net kazanç şirket kasasına işlenir
+- Tamamlanan iş, toplam gelir ve toplam gider takibi
+- Mevcut ZAZOHAN YH-10 ve forklift GLB modelleri korunmuştur
 
-GitHub Pages'a index.html ile iki GLB dosyasını aynı klasöre yükleyin.
+Not: Araç sürüş fiziği sonraki sürüş iyileştirme aşamasına bırakılmıştır.
