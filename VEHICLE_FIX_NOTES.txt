@@ -1,0 +1,8 @@
+YÜK HATTI V0.1 FINAL ARAÇ FIX
+- Forklift Meshy modelinin uzun ekseni X olarak doğrulandı; oyun ileri ekseni +Z ile -90 derece kalibre edildi.
+- Forklift kök hareketi X/Z zeminde kaldı; model yönü kökten ayrıldı.
+- Kamyon tek-mesh GLB olduğundan cam/teker/ızgarayı bozan koordinat bazlı toplu boyama kullanılmadı.
+- Kamyona beyaz yan gövde kaplaması, turuncu şerit ve YÜK HATTI / ZAZOHAN yan logoları ayrı livery katmanı olarak eklendi.
+- Palet kodunda yinelenmiş const/dekor bloğu temizlendi (olası JavaScript başlatma hatası kapatıldı).
+- Statik JavaScript sözdizimi kontrolü: başarılı.
+- Gerçek telefon/browser sürüş testi yapılmadı.
