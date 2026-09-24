@@ -1,4 +1,4 @@
-<!doctype html><html lang='tr'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no'><title>YÜK HATTI V0.1.5 TESİS GENİŞLETME</title><style>*{box-sizing:border-box}body{margin:0;background:#101820;color:#fff;font-family:system-ui,-apple-system,Segoe UI,sans-serif;overflow:hidden}#game{position:fixed;inset:0}canvas{display:block}#hud{position:fixed;inset:0;pointer-events:none}.top{position:absolute;top:max(8px,env(safe-area-inset-top));left:8px;right:8px;display:flex;gap:6px;align-items:center}.pill,.panel,button{background:#122536e8;border:1px solid #466178;border-radius:10px;color:white;box-shadow:0 4px 14px #0003}.brand{font-weight:900;font-size:15px;padding:7px 10px;background:#122536dc;border-radius:10px}.brand b{color:#f39a26}.brand small{font-size:9px;opacity:.7}.pill{padding:7px 9px;font-size:11px;font-weight:800}.money{margin-left:auto;color:#7ef19a}.panel{position:absolute;left:8px;bottom:max(8px,env(safe-area-inset-bottom));width:min(285px,56vw);padding:9px;pointer-events:auto}.panel h3{margin:0 0 3px;font-size:15px}.panel p{margin:2px 0;color:#c8d6df;font-size:11px;line-height:1.25}.actions{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap}button{padding:8px 10px;font-size:11px;font-weight:800;pointer-events:auto;touch-action:manipulation}button.primary{background:#159a43;border-color:#27c85b}button.orange{background:#d87b14;border-color:#f39a26}button:disabled{opacity:.45}.toast{position:absolute;top:52px;left:50%;transform:translateX(-50%);background:#07131ddd;border:1px solid #587287;border-radius:9px;padding:7px 11px;font-size:11px;opacity:0;transition:.25s}.hint{position:absolute;right:8px;bottom:8px;background:#122536c8;border:1px solid #466178;border-radius:9px;padding:6px 8px;font-size:9px;color:#c8d6df}.progress{height:5px;background:#293a46;border-radius:8px;overflow:hidden;margin-top:5px}.bar{height:100%;width:0;background:#35d76b;transition:width .3s}@media(max-width:600px){.brand{font-size:12px;padding:6px 8px}.brand small{display:none}.pill{font-size:9px;padding:6px}.top .pill:nth-of-type(2){display:none}.panel{width:52vw;max-width:250px;padding:8px}.panel h3{font-size:13px}.panel p{font-size:10px}.hint{display:none}button{padding:7px 8px;font-size:10px}}.jobs{display:grid;gap:5px;margin-top:7px}.job{display:grid;grid-template-columns:1fr auto;gap:2px 8px;padding:7px;border:1px solid #466178;border-radius:8px;background:#0c1b27cc;cursor:pointer}.job strong{font-size:11px}.job span{font-size:9px;color:#b9cad4}.job em{font-style:normal;font-weight:900;color:#7ef19a;font-size:10px;align-self:center}.job.selected{border-color:#f39a26;background:#26313a}.econ{display:flex;gap:5px;margin-top:6px;flex-wrap:wrap}.econ span{font-size:9px;background:#0b1923;border:1px solid #344d60;border-radius:6px;padding:4px 6px}.hidden{display:none!important}@media(max-width:600px){.jobs{gap:3px}.job{padding:5px}.job strong{font-size:10px}.job span,.job em,.econ span{font-size:8px}}</style></head><body><div id='game'></div><div id='hud'><div class='top'><div class='brand'>YÜK <b>HATTI</b> <small>V0.1.5 TESİS GENİŞLETME</small></div><div class='pill'>ZAZOHAN YH-10</div><div class='pill' id='facilityPill'>TEMEL TESİS</div><div class='pill money' id='money'>₺50.000</div></div><div class='toast' id='toast'></div><div class='panel'><h3 id='title'>İş Merkezi</h3><p id='desc'>Bir sevkiyat seç. Gelir ve masrafları karşılaştır.</p><div id='jobs' class='jobs'></div><div id='econ' class='econ'></div><div class='progress'><div class='bar' id='bar'></div></div><div class='actions'><button class='primary' id='main'>İşi Kabul Et</button><button class='orange' id='upgrade'>Tesisi Genişlet</button><button id='reset'>Yeni Oyun</button></div></div><div class='hint'>Sürükle: kamera • Sıkıştır: yakınlaştır • Tesis nesnelerine dokunabilirsin</div></div>
+<!doctype html><html lang='tr'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no'><title>YÜK HATTI V0.1.5 AUDIT FIX</title><style>*{box-sizing:border-box}body{margin:0;background:#101820;color:#fff;font-family:system-ui,-apple-system,Segoe UI,sans-serif;overflow:hidden}#game{position:fixed;inset:0}canvas{display:block}#hud{position:fixed;inset:0;pointer-events:none}.top{position:absolute;top:max(8px,env(safe-area-inset-top));left:8px;right:8px;display:flex;gap:6px;align-items:center}.pill,.panel,button{background:#122536e8;border:1px solid #466178;border-radius:10px;color:white;box-shadow:0 4px 14px #0003}.brand{font-weight:900;font-size:15px;padding:7px 10px;background:#122536dc;border-radius:10px}.brand b{color:#f39a26}.brand small{font-size:9px;opacity:.7}.pill{padding:7px 9px;font-size:11px;font-weight:800}.money{margin-left:auto;color:#7ef19a}.panel{position:absolute;left:8px;bottom:max(8px,env(safe-area-inset-bottom));width:min(285px,56vw);padding:9px;pointer-events:auto}.panel h3{margin:0 0 3px;font-size:15px}.panel p{margin:2px 0;color:#c8d6df;font-size:11px;line-height:1.25}.actions{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap}button{padding:8px 10px;font-size:11px;font-weight:800;pointer-events:auto;touch-action:manipulation}button.primary{background:#159a43;border-color:#27c85b}button.orange{background:#d87b14;border-color:#f39a26}button:disabled{opacity:.45}.toast{position:absolute;top:52px;left:50%;transform:translateX(-50%);background:#07131ddd;border:1px solid #587287;border-radius:9px;padding:7px 11px;font-size:11px;opacity:0;transition:.25s}.hint{position:absolute;right:8px;bottom:8px;background:#122536c8;border:1px solid #466178;border-radius:9px;padding:6px 8px;font-size:9px;color:#c8d6df}.progress{height:5px;background:#293a46;border-radius:8px;overflow:hidden;margin-top:5px}.bar{height:100%;width:0;background:#35d76b;transition:width .3s}@media(max-width:600px){.brand{font-size:12px;padding:6px 8px}.brand small{display:none}.pill{font-size:9px;padding:6px}.top .pill:nth-of-type(2){display:none}.panel{width:52vw;max-width:250px;padding:8px}.panel h3{font-size:13px}.panel p{font-size:10px}.hint{display:none}button{padding:7px 8px;font-size:10px}}.jobs{display:grid;gap:5px;margin-top:7px}.job{display:grid;grid-template-columns:1fr auto;gap:2px 8px;padding:7px;border:1px solid #466178;border-radius:8px;background:#0c1b27cc;cursor:pointer}.job strong{font-size:11px}.job span{font-size:9px;color:#b9cad4}.job em{font-style:normal;font-weight:900;color:#7ef19a;font-size:10px;align-self:center}.job.selected{border-color:#f39a26;background:#26313a}.econ{display:flex;gap:5px;margin-top:6px;flex-wrap:wrap}.econ span{font-size:9px;background:#0b1923;border:1px solid #344d60;border-radius:6px;padding:4px 6px}.hidden{display:none!important}@media(max-width:600px){.jobs{gap:3px}.job{padding:5px}.job strong{font-size:10px}.job span,.job em,.econ span{font-size:8px}}</style></head><body><div id='game'></div><div id='hud'><div class='top'><div class='brand'>YÜK <b>HATTI</b> <small>V0.1.5 AUDIT FIX</small></div><div class='pill'>ZAZOHAN YH-10</div><div class='pill' id='facilityPill'>TEMEL TESİS</div><div class='pill money' id='money'>₺50.000</div></div><div class='toast' id='toast'></div><div class='panel'><h3 id='title'>İş Merkezi</h3><p id='desc'>Bir sevkiyat seç. Gelir ve masrafları karşılaştır.</p><div id='jobs' class='jobs'></div><div id='econ' class='econ'></div><div class='progress'><div class='bar' id='bar'></div></div><div class='actions'><button class='primary' id='main'>İşi Kabul Et</button><button class='orange' id='upgrade'>Tesisi Genişlet</button><button id='reset'>Yeni Oyun</button></div></div><div class='hint'>Sürükle: kamera • Sıkıştır: yakınlaştır • Tesis nesnelerine dokunabilirsin</div></div>
 <script type='importmap'>{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}</script><script type='module'>
 import * as THREE from 'three'; import {OrbitControls} from 'three/addons/controls/OrbitControls.js'; import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 const root=document.querySelector('#game'), scene=new THREE.Scene(); scene.background=new THREE.Color(0x91c8e5); scene.fog=new THREE.Fog(0x91c8e5,72,132);
@@ -14,9 +14,16 @@ box(10,5,8,0x87918d,13,2.5,-9); box(10,.5,8.5,0x485b61,13,5.2,-9);
 // V0.1.5 physical depot expansion - hidden until purchased
 const expansion=new THREE.Group(); expansion.visible=false; scene.add(expansion);
 const exbox=(x,y,z,c,px,py,pz)=>{const m=new THREE.Mesh(new THREE.BoxGeometry(x,y,z),mat(c));m.position.set(px,py,pz);m.castShadow=m.receiveShadow=true;expansion.add(m);return m};
-exbox(13,6.5,10,0x65747a,18,3.25,-1); exbox(13.5,.55,10.5,0x30434c,18,6.7,-1); exbox(4.7,4.4,.3,0x24353e,16,2.2,4.05); exbox(4.7,4.4,.3,0x24353e,21,2.2,4.05); exbox(12,.25,.25,0xf29a23,18,5.7,4.25);
-for(const x of [13.8,16,18.2,20.4,22.6]) exbox(.1,4,.06,0x53656d,x,2.1,4.23);
-exbox(9,.08,8,0x969b97,18,.05,7);
+// Expansion is attached BEHIND the main depot so the office frontage and vehicle yard stay clear.
+exbox(20,6.5,7,0x65747a,-7,3.25,-18.5);
+exbox(20.5,.55,7.5,0x30434c,-7,6.7,-18.5);
+// rear service/loading doors
+exbox(5.2,4.4,.3,0x24353e,-11,2.2,-22.05);
+exbox(5.2,4.4,.3,0x24353e,-3,2.2,-22.05);
+exbox(19,.25,.25,0xf29a23,-7,5.7,-22.25);
+for(const x of [-15,-12,-9,-6,-3,0]) exbox(.1,4,.06,0x53656d,x,2.1,-22.23);
+// service apron stays behind the depot, away from the office at x=13,z=-9
+exbox(19,.08,2.5,0x969b97,-7,.05,-21.5);
 // fence posts
 for(let x=-30;x<=30;x+=3){box(.12,2,.12,0x263238,x,1,-23);box(.12,2,.12,0x263238,x,1,22)} for(let z=-20;z<=20;z+=3){box(.12,2,.12,0x263238,-30,1,z);box(.12,2,.12,0x263238,30,1,z)}
 // pallets
@@ -256,27 +263,9 @@ async function loadOnePallet(n){
   await drivePath(fork,[loadApproach,truckLoadPoint],12,syncPallet);
   carriedPallet.visible=false;
   const d=carriedPallet.clone(true);d.visible=true;
-  d.position.set(-6.15+(n%2)*1.0,1.05,2.15-Math.floor(n/2)*.55);scene.add(d);deposited.push(d);
+  d.position.set(-7.55+(n%2)*1.05,1.05,4.9-Math.floor(n/2)*.75);scene.add(d);deposited.push(d);
   await driveSegment(fork,loadApproach,14,null,true);
   await driveSegment(fork,forkHome,15);
-}
-async function runLoading(){
-  main.disabled=true;
-  // Three quick visible trips; progress represents the full shipment without making the player wait.
-  const progress=[3,6,8];
-  for(let trip=0;trip<3;trip++){
-    await loadOnePallet(trip);
-    state.loaded=progress[trip];bar.style.width=(state.loaded/8*100)+'%';desc.textContent=`Yükleniyor: ${state.loaded}/8 palet`;
-  }
-  state.step=2;main.disabled=false;say('8 palet yüklendi');ui()
-}
-async function runTruckDeparture(){
-  state.step=3;ui();
-  // Truck turns first, then rolls continuously on the yard/road. No teleport/easing pull effect.
-  const path=[new THREE.Vector3(-7,0,11),new THREE.Vector3(1,0,13),new THREE.Vector3(12,0,17),new THREE.Vector3(30,0,20)];
-  await drivePath(truck,path,15);
-  truck.visible=false;
-  setTimeout(()=>{state.step=4;ui();say('Teslimat başarıyla tamamlandı')},180)
 }
 function resetVehicles(){
   fork.position.copy(forkHome);fork.rotation.set(0,0,0);
@@ -292,6 +281,7 @@ const JOBS=[
 ];
 JOBS.forEach(j=>j.net=j.revenue-j.fuel-j.road);
 let state={step:0,money:50000,loaded:0,selected:0,activeJob:null,completed:0,totalRevenue:0,totalExpense:0,depotLevel:1};
+let operationBusy=false;
 const upgrade=document.querySelector('#upgrade'),facilityPill=document.querySelector('#facilityPill');
 const main=document.querySelector('#main'),title=document.querySelector('#title'),desc=document.querySelector('#desc'),bar=document.querySelector('#bar'),money=document.querySelector('#money'),toast=document.querySelector('#toast'),jobsEl=document.querySelector('#jobs'),econ=document.querySelector('#econ');
 function tl(n){return '₺'+Math.round(n).toLocaleString('tr-TR')}
@@ -309,18 +299,19 @@ function ui(){
  else if(state.step===4){title.textContent='Teslimat Tamamlandı';desc.textContent=`${tl(j.revenue)} gelir − ${tl(j.fuel+j.road)} gider = ${tl(j.net)} net kazanç.`;main.textContent='Hesabı Kapat';main.disabled=false;bar.style.width='100%'}
 }
 async function runLoadingEconomy(){
- main.disabled=true; const j=state.activeJob; const trips=Math.min(3,j.pallets); let shown=0;
+ if(operationBusy)return; operationBusy=true; main.disabled=true; const j=state.activeJob; const trips=Math.min(3,j.pallets); let shown=0;
  for(let trip=0;trip<trips;trip++){await loadOnePallet(trip);shown=Math.round((trip+1)/trips*j.pallets);state.loaded=Math.min(j.pallets,shown);bar.style.width=(state.loaded/j.pallets*100)+'%';desc.textContent=`${j.cargo} yükleniyor: ${state.loaded}/${j.pallets} palet`}
- state.step=2;main.disabled=false;say(`${j.pallets} palet hazır`);ui()
+ state.step=2;operationBusy=false;main.disabled=false;say(`${j.pallets} palet hazır`);ui()
 }
-async function runTruckDepartureEconomy(){state.step=3;ui();const path=[new THREE.Vector3(-7,0,11),new THREE.Vector3(1,0,13),new THREE.Vector3(12,0,17),new THREE.Vector3(30,0,20)];await drivePath(truck,path,15);truck.visible=false;setTimeout(()=>{state.step=4;ui();say('Teslimat tamamlandı')},180)}
+async function runTruckDepartureEconomy(){if(operationBusy)return;operationBusy=true;state.step=3;ui();const path=[new THREE.Vector3(-7,0,11),new THREE.Vector3(1,0,13),new THREE.Vector3(12,0,17),new THREE.Vector3(30,0,20)];await drivePath(truck,path,15);truck.visible=false;setTimeout(()=>{operationBusy=false;state.step=4;ui();say('Teslimat tamamlandı')},180)}
 main.onclick=()=>{
- if(state.step===0){state.activeJob={...JOBS[state.selected]};state.loaded=0;state.step=1;say(`İş kabul edildi: ${state.activeJob.route}`);ui()}
+ if(operationBusy)return;
+ if(state.step===0){state.activeJob={...JOBS[state.selected]};state.loaded=0;bar.style.width='0%';state.step=1;say(`İş kabul edildi: ${state.activeJob.route}`);ui()}
  else if(state.step===1)runLoadingEconomy();
  else if(state.step===2)runTruckDepartureEconomy();
  else if(state.step===4){const j=state.activeJob;state.money+=j.net;state.completed++;state.totalRevenue+=j.revenue;state.totalExpense+=j.fuel+j.road;state.activeJob=null;state.step=0;state.loaded=0;resetVehicles();say(`${tl(j.net)} net kazanç kasaya işlendi`);ui()}
 };
-upgrade.onclick=()=>{if(state.step!==0||state.depotLevel>=2)return;if(state.money<18000){say('Tesis genişletme için yeterli bakiye yok');return}state.money-=18000;state.depotLevel=2;expansion.visible=true;say('Yeni yükleme kanadı hizmete açıldı');ui()};
-document.querySelector('#reset').onclick=()=>{state={step:0,money:50000,loaded:0,selected:0,activeJob:null,completed:0,totalRevenue:0,totalExpense:0,depotLevel:1};expansion.visible=false;resetVehicles();ui();say('Yeni şirket hesabı başlatıldı')};ui();
+upgrade.onclick=()=>{if(operationBusy||state.step!==0||state.depotLevel>=2)return;if(state.money<18000){say('Tesis genişletme için yeterli bakiye yok');return}state.money-=18000;state.depotLevel=2;expansion.visible=true;say('Yeni yükleme kanadı hizmete açıldı');ui()};
+document.querySelector('#reset').onclick=()=>{if(operationBusy){say('Aktif işlem bitmeden yeni oyun başlatılamaz');return}state={step:0,money:50000,loaded:0,selected:0,activeJob:null,completed:0,totalRevenue:0,totalExpense:0,depotLevel:1};expansion.visible=false;resetVehicles();ui();say('Yeni şirket hesabı başlatıldı')};ui();
 addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)});renderer.setAnimationLoop(()=>{controls.update();renderer.render(scene,camera)});
 </script></body></html>

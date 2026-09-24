@@ -1,0 +1,18 @@
+YÜK HATTI V0.1.5 AUDIT FIX — STATİK KAYNAK DENETİMİ
+
+Kontrol edilenler:
+- Paket bütünlüğü: index.html + iki GLB + README mevcut.
+- JavaScript sözdizimi: node --check ile geçti.
+- GLB yolları ve fallback modelleri mevcut.
+- İş/ekonomi akışı, tesis satın alma, sıfırlama ve mobil resize kodları kontrol edildi.
+
+Giderilenler:
+1. Önceki 8-palete sabitlenmiş eski demo yükleme/sefer fonksiyonları kaldırıldı; tek ekonomi akışı bırakıldı.
+2. Asenkron yükleme/sefer sırasında çift tıklama ve çakışan işlem başlatma engellendi.
+3. Aktif yükleme/sefer sırasında Yeni Oyun ve tesis genişletme engellendi.
+4. Kamyona bırakılan görsel paletlerin konumu kargo alanına yaklaştırıldı.
+5. Yeni iş kabulünde ilerleme çubuğu açıkça sıfırlanıyor.
+6. Sürüm etiketi AUDIT FIX olarak güncellendi.
+
+Not: Bu denetim statik kaynak/paket denetimidir; gerçek telefon/GitHub Pages cihaz testi yapılmadı.
+Sürüş fiziği bilerek yeniden yazılmadı; kullanıcı bunu sonraki aşamaya erteledi.

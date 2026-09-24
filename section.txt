@@ -1,0 +1,174 @@
+// worker safety vests and simple facial direction
+for(const [x,z] of [[2,1],[12,0]]){box(.58,.5,.56,0xffc12d,x,1.75,z-.02);box(.12,.5,.58,0xd8e4df,x,1.75,z-.31)}
+// safety islands, fire cabinet, hydrant, waste bins
+for(const [x,z] of [[-19,3],[4,-5]]){box(.8,1.5,.35,0xc83d2e,x,.75,z);box(.55,.55,.04,0xf1e7d7,x,1,z-.2)}
+for(const [x,z,c] of [[18,-3,0x245f43],[20,-3,0x315c78],[22,-3,0x5e5550]]){box(1.1,1.4,1, c,x,.7,z);box(1.2,.12,1.1,0x252d30,x,1.45,z)}
+// road details: curb stones, crosswalk and directional arrow
+for(let x=-28;x<28;x+=2.4)box(1.15,.1,.42,(Math.round(x/2.4)%2?0xd8dbd5:0x747e7c),x,.08,22.4);
+for(let x=9;x<20;x+=1.7)box(.8,.025,3.2,0xe9ece8,x,.04,18.3);
+// landscaped entrance planters
+for(const [x,z] of [[25,10],[25,13],[-25,-18]]){const g=grp(x,0,z);part(g,0,.25,0,2.1,.5,1.1,0x59634e);for(const dx of [-.55,0,.55]){const b=mesh(new THREE.IcosahedronGeometry(.62,1),0x3f7544);b.position.set(dx,.85,0);g.add(b)}}
+
+// ZAZOHAN YH-10 GLB: isolated integration. Legacy truck stays visible until GLB is fully ready.
+const legacyTruckChildren=[...truck.children];
+const yh10Loader=new GLTFLoader();
+yh10Loader.load('./ZAZOHAN_YH10_10K.glb',(gltf)=>{
+  try{
+    const yh10=gltf.scene;
+    yh10.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;}});
+    let box=new THREE.Box3().setFromObject(yh10), size=new THREE.Vector3(), center=new THREE.Vector3();
+    box.getSize(size); box.getCenter(center);
+    yh10.position.sub(center);
+    const scale=10.8/Math.max(size.x,0.001);
+    yh10.scale.setScalar(scale);
+    yh10.rotation.y=Math.PI/2; // model-local calibration only
+    box=new THREE.Box3().setFromObject(yh10); box.getSize(size); box.getCenter(center);
+    yh10.position.x-=center.x; yh10.position.z-=center.z; yh10.position.y-=box.min.y;
+    truck.add(yh10);
+    legacyTruckChildren.forEach(o=>o.visible=false);
+    say('ZAZOHAN YH-10 hazır');
+  }catch(err){console.error('YH-10 hazırlama hatası',err);say('YH-10 yüklenemedi; yedek araç aktif');}
+},undefined,(err)=>{console.error('YH-10 GLB yükleme hatası',err);say('YH-10 yüklenemedi; yedek araç aktif');});
+
+
+// ZAZOHAN forklift GLB: legacy forklift remains as fallback until asset is ready.
+const legacyForkChildren=[...fork.children];
+const forkliftLoader=new GLTFLoader();
+let gameForklift=null;
+forkliftLoader.load('./ZAZOHAN_FORKLIFT_10K.glb',(gltf)=>{
+  try{
+    const f=gltf.scene;
+    f.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;}});
+    let bb=new THREE.Box3().setFromObject(f), sz=new THREE.Vector3(), ct=new THREE.Vector3();
+    bb.getSize(sz); bb.getCenter(ct); f.position.sub(ct);
+    const sc=4.2/Math.max(sz.x,sz.z,0.001); f.scale.setScalar(sc);
+    bb=new THREE.Box3().setFromObject(f); bb.getCenter(ct); f.position.x-=ct.x;f.position.z-=ct.z;f.position.y-=bb.min.y;
+    f.rotation.y=Math.PI; // Meshy forklift front axis -> game forward (+Z)
+    fork.add(f); gameForklift=f; legacyForkChildren.forEach(o=>o.visible=false);
+    say('ZAZOHAN forklift hazır');
+  }catch(e){console.error(e);say('Forklift asseti yüklenemedi; yedek aktif');}
+},undefined,e=>{console.error(e);say('Forklift asseti yüklenemedi; yedek aktif');});
+
+// Physical loading props: visible pallet follows forklift and is deposited at the truck.
+const carriedPallet=new THREE.Group();
+const palletBase=mesh(new THREE.BoxGeometry(1.45,.16,1.05),0x8a5a2b);palletBase.position.y=.08;carriedPallet.add(palletBase);
+for(const x of [-.36,.36])for(const z of [-.25,.25]){const b=mesh(new THREE.BoxGeometry(.62,.58,.42),0xc88a45);b.position.set(x,.46,z);carriedPallet.add(b)}
+carriedPallet.visible=false;scene.add(carriedPallet);
+const deposited=[];
+// DRIVE FIX: vehicle root motion and visual-model orientation are separated.
+// Root groups drive only on X/Z. Imported GLB orientation stays local to the root.
+const GROUND_Y=0;
+const forkHome=new THREE.Vector3(7,0,5);
+const truckStart=new THREE.Vector3(-7,0,6);
+const Y_AXIS=new THREE.Vector3(0,1,0);
+function flat(v){return new THREE.Vector3(v.x,GROUND_Y,v.z)}
+function heading(from,to){return Math.atan2(to.x-from.x,to.z-from.z)}
+function normalizeAngle(a){while(a>Math.PI)a-=Math.PI*2;while(a<-Math.PI)a+=Math.PI*2;return a}
+function rotateTo(obj,to,turnRate=4.8){return new Promise(resolve=>{
+  const target=heading(obj.position,to), start=obj.rotation.y, delta=normalizeAngle(target-start);
+  const duration=Math.max(70,Math.abs(delta)/turnRate*1000), t0=performance.now();
+  function frame(now){const t=Math.min(1,(now-t0)/duration);obj.rotation.set(0,start+delta*t,0);obj.position.y=GROUND_Y;if(t<1)requestAnimationFrame(frame);else{obj.rotation.set(0,target,0);resolve()}}
+  requestAnimationFrame(frame)
+})}
+async function driveSegment(obj,to,speed=12,onFrame=null,reverse=false){
+  const b=flat(to); if(flat(obj.position).distanceTo(b)<.03)return;
+  const faceTarget=reverse?new THREE.Vector3(obj.position.x-(b.x-obj.position.x),0,obj.position.z-(b.z-obj.position.z)):b;
+  await rotateTo(obj,faceTarget,5.5);
+  return new Promise(resolve=>{
+    let last=performance.now();
+    function frame(now){
+      const dt=Math.min(.04,(now-last)/1000);last=now;
+      const dx=b.x-obj.position.x,dz=b.z-obj.position.z,dist=Math.hypot(dx,dz);
+      if(dist<=.04){obj.position.set(b.x,GROUND_Y,b.z);if(onFrame)onFrame();resolve();return}
+      const step=Math.min(dist,speed*dt), inv=dist?1/dist:0;
+      obj.position.x+=dx*inv*step;obj.position.z+=dz*inv*step;obj.position.y=GROUND_Y;
+      if(onFrame)onFrame();requestAnimationFrame(frame)
+    }
+    requestAnimationFrame(frame)
+  })
+}
+async function drivePath(obj,points,speed,onFrame=null){for(const p of points)await driveSegment(obj,p,speed,onFrame)}
+function syncPallet(){
+  // Forks are at the root's forward side. Keep cargo flat and in front of the forklift.
+  const off=new THREE.Vector3(0,.48,1.45).applyAxisAngle(Y_AXIS,fork.rotation.y);
+  carriedPallet.position.set(fork.position.x+off.x,.48,fork.position.z+off.z);
+}
+// Compact loading lane entirely in the open yard.
+const pickupPoint=new THREE.Vector3(2.8,0,2.0);
+const loadApproach=new THREE.Vector3(-3.7,0,4.2);
+const truckLoadPoint=new THREE.Vector3(-5.3,0,4.2);
+async function loadOnePallet(n){
+  // One short physical cycle: approach pallet, pick up, drive to truck, drop, reverse clear.
+  await driveSegment(fork,pickupPoint,13);
+  carriedPallet.visible=true;syncPallet();
+  await drivePath(fork,[loadApproach,truckLoadPoint],12,syncPallet);
+  carriedPallet.visible=false;
+  const d=carriedPallet.clone(true);d.visible=true;
+  d.position.set(-6.15+(n%2)*1.0,1.05,2.15-Math.floor(n/2)*.55);scene.add(d);deposited.push(d);
+  await driveSegment(fork,loadApproach,14,null,true);
+  await driveSegment(fork,forkHome,15);
+}
+async function runLoading(){
+  main.disabled=true;
+  // Three quick visible trips; progress represents the full shipment without making the player wait.
+  const progress=[3,6,8];
+  for(let trip=0;trip<3;trip++){
+    await loadOnePallet(trip);
+    state.loaded=progress[trip];bar.style.width=(state.loaded/8*100)+'%';desc.textContent=`Yükleniyor: ${state.loaded}/8 palet`;
+  }
+  state.step=2;main.disabled=false;say('8 palet yüklendi');ui()
+}
+async function runTruckDeparture(){
+  state.step=3;ui();
+  // Truck turns first, then rolls continuously on the yard/road. No teleport/easing pull effect.
+  const path=[new THREE.Vector3(-7,0,11),new THREE.Vector3(1,0,13),new THREE.Vector3(12,0,17),new THREE.Vector3(30,0,20)];
+  await drivePath(truck,path,15);
+  truck.visible=false;
+  setTimeout(()=>{state.step=4;ui();say('Teslimat başarıyla tamamlandı')},180)
+}
+function resetVehicles(){
+  fork.position.copy(forkHome);fork.rotation.set(0,0,0);
+  truck.visible=true;truck.position.copy(truckStart);truck.rotation.set(0,0,0);
+  carriedPallet.visible=false;deposited.splice(0).forEach(o=>scene.remove(o));
+}
+
+const controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.target.set(-5,2,-3);controls.minDistance=18;controls.maxDistance=52;controls.maxPolarAngle=1.35;controls.enablePan=true;
+const JOBS=[
+ {id:'city',name:'Şehir İçi Dağıtım',route:'Nilüfer → Osmangazi',cargo:'Market kolileri',pallets:4,distance:18,revenue:4200,fuel:650,road:0},
+ {id:'regional',name:'Bölgesel Sevkiyat',route:'Bursa → Yalova',cargo:'Beyaz eşya',pallets:6,distance:72,revenue:7800,fuel:1450,road:350},
+ {id:'long',name:'Uzun Hat Taşıması',route:'Bursa → İstanbul',cargo:'Mobilya paletleri',pallets:8,distance:154,revenue:12800,fuel:2650,road:750}
+];
+JOBS.forEach(j=>j.net=j.revenue-j.fuel-j.road);
+let state={step:0,money:50000,loaded:0,selected:0,activeJob:null,completed:0,totalRevenue:0,totalExpense:0,depotLevel:1};
+const upgrade=document.querySelector('#upgrade'),facilityPill=document.querySelector('#facilityPill');
+const main=document.querySelector('#main'),title=document.querySelector('#title'),desc=document.querySelector('#desc'),bar=document.querySelector('#bar'),money=document.querySelector('#money'),toast=document.querySelector('#toast'),jobsEl=document.querySelector('#jobs'),econ=document.querySelector('#econ');
+function tl(n){return '₺'+Math.round(n).toLocaleString('tr-TR')}
+function say(s){toast.textContent=s;toast.style.opacity=1;setTimeout(()=>toast.style.opacity=0,1700)}
+function renderJobs(){jobsEl.innerHTML='';JOBS.forEach((j,i)=>{const e=document.createElement('div');e.className='job'+(state.selected===i?' selected':'');e.innerHTML=`<div><strong>${j.name}</strong><br><span>${j.route} • ${j.pallets} palet • ${j.distance} km</span></div><em>Net ${tl(j.net)}</em>`;e.onclick=()=>{if(state.step!==0)return;state.selected=i;ui()};jobsEl.appendChild(e)})}
+function economyLine(j){econ.innerHTML=j?`<span>Gelir ${tl(j.revenue)}</span><span>Yakıt −${tl(j.fuel)}</span><span>Yol −${tl(j.road)}</span><span>Net +${tl(j.net)}</span>`:`<span>Tamamlanan ${state.completed}</span><span>Toplam gelir ${tl(state.totalRevenue)}</span><span>Toplam gider ${tl(state.totalExpense)}</span>`}
+function ui(){
+ money.textContent=tl(state.money); expansion.visible=state.depotLevel>=2; facilityPill.textContent=state.depotLevel>=2?'GENİŞ TESİS':'TEMEL TESİS'; upgrade.textContent=state.depotLevel>=2?'Tesis Genişletildi':'Tesisi Genişlet · ₺18.000'; upgrade.disabled=state.depotLevel>=2||state.money<18000||state.step!==0; const j=state.activeJob||JOBS[state.selected];
+ jobsEl.classList.toggle('hidden',state.step!==0);
+ if(state.step===0){title.textContent='İş Merkezi';desc.textContent='Bir sevkiyat seç. Kazanç, yakıt ve yol giderlerini gör.';main.textContent='İşi Kabul Et';main.disabled=false;bar.style.width='0%';renderJobs();economyLine(null);return}
+ economyLine(j);
+ if(state.step===1){title.textContent=j.name;desc.textContent=`${j.cargo} yükleniyor: ${state.loaded}/${j.pallets} palet`;main.textContent='Yüklemeyi Başlat';main.disabled=false;bar.style.width=(state.loaded/j.pallets*100)+'%'}
+ else if(state.step===2){title.textContent='Yük Hazır';desc.textContent=`${j.route} • ${j.distance} km • Beklenen net ${tl(j.net)}`;main.textContent='Sefere Çık';main.disabled=false;bar.style.width='100%'}
+ else if(state.step===3){title.textContent='Seferde';desc.textContent=`ZAZOHAN YH-10 ${j.route} hattında ilerliyor…`;main.textContent='Sefer Sürüyor';main.disabled=true;bar.style.width='100%'}
+ else if(state.step===4){title.textContent='Teslimat Tamamlandı';desc.textContent=`${tl(j.revenue)} gelir − ${tl(j.fuel+j.road)} gider = ${tl(j.net)} net kazanç.`;main.textContent='Hesabı Kapat';main.disabled=false;bar.style.width='100%'}
+}
+async function runLoadingEconomy(){
+ main.disabled=true; const j=state.activeJob; const trips=Math.min(3,j.pallets); let shown=0;
+ for(let trip=0;trip<trips;trip++){await loadOnePallet(trip);shown=Math.round((trip+1)/trips*j.pallets);state.loaded=Math.min(j.pallets,shown);bar.style.width=(state.loaded/j.pallets*100)+'%';desc.textContent=`${j.cargo} yükleniyor: ${state.loaded}/${j.pallets} palet`}
+ state.step=2;main.disabled=false;say(`${j.pallets} palet hazır`);ui()
+}
+async function runTruckDepartureEconomy(){state.step=3;ui();const path=[new THREE.Vector3(-7,0,11),new THREE.Vector3(1,0,13),new THREE.Vector3(12,0,17),new THREE.Vector3(30,0,20)];await drivePath(truck,path,15);truck.visible=false;setTimeout(()=>{state.step=4;ui();say('Teslimat tamamlandı')},180)}
+main.onclick=()=>{
+ if(state.step===0){state.activeJob={...JOBS[state.selected]};state.loaded=0;state.step=1;say(`İş kabul edildi: ${state.activeJob.route}`);ui()}
+ else if(state.step===1)runLoadingEconomy();
+ else if(state.step===2)runTruckDepartureEconomy();
+ else if(state.step===4){const j=state.activeJob;state.money+=j.net;state.completed++;state.totalRevenue+=j.revenue;state.totalExpense+=j.fuel+j.road;state.activeJob=null;state.step=0;state.loaded=0;resetVehicles();say(`${tl(j.net)} net kazanç kasaya işlendi`);ui()}
+};
+upgrade.onclick=()=>{if(state.step!==0||state.depotLevel>=2)return;if(state.money<18000){say('Tesis genişletme için yeterli bakiye yok');return}state.money-=18000;state.depotLevel=2;expansion.visible=true;say('Yeni yükleme kanadı hizmete açıldı');ui()};
+document.querySelector('#reset').onclick=()=>{state={step:0,money:50000,loaded:0,selected:0,activeJob:null,completed:0,totalRevenue:0,totalExpense:0,depotLevel:1};expansion.visible=false;resetVehicles();ui();say('Yeni şirket hesabı başlatıldı')};ui();
+addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)});renderer.setAnimationLoop(()=>{controls.update();renderer.render(scene,camera)});
+</script></body></html>
