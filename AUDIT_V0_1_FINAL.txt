@@ -1,0 +1,24 @@
+YÜK HATTI V0.1 FINAL — STATİK KAYNAK DENETİMİ
+Tarih: 24.09.2026
+
+Kontrol edilenler:
+- Paket dosyaları ve GLB varlıkları
+- JavaScript sözdizimi (node --check: başarılı)
+- İş seçimi / kabul / yükleme / sefer / hesap kapatma akışı
+- Gelir, yakıt, yol ve çalışan maaşı hesaplarının ekrandaki sonuçla uyumu
+- Tesis genişletme ve çalışan satın alma kilitleri
+- Kayıt yükleme, bozuk kayıt güvenliği ve yeni oyun sıfırlaması
+- Grafik kalite seçiminin kalıcı kaydı
+- Danışman ilerlemesinin kalıcı kaydı
+- Mobil kamera / resize akışı
+
+Finalde kapatılanlar:
+- Beklenen net kazanç ile kasaya gerçekten eklenen tutar arasındaki maaş farkı giderildi.
+- Teslimat özeti artık çalışan maaşını da açıkça gösteriyor.
+- Danışman UI güncellemelerinde gereksiz sıfır-gecikmeli timer birikimi kaldırıldı.
+- Sürüm etiketi V0.1 FINAL yapıldı.
+
+Bilinçli olarak sonraya bırakılan:
+- Kamyon ve forklift için gerçekçi sürüş fiziği/teker/direksiyon sistemi. Mevcut sürüş çalışır prototip olarak korunmuştur.
+
+Not: Bu rapor statik kaynak/paket denetimidir; gerçek telefon performans testi yapılmamıştır.
