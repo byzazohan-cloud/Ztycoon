@@ -1,4 +1,4 @@
-<!doctype html><html lang='tr'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no'><title>YÜK HATTI V1 VISUAL OVERHAUL</title><style>*{box-sizing:border-box}body{margin:0;background:#101820;color:#fff;font-family:system-ui,-apple-system,Segoe UI,sans-serif;overflow:hidden}#game{position:fixed;inset:0}canvas{display:block}#hud{position:fixed;inset:0;pointer-events:none}.top{position:absolute;top:max(8px,env(safe-area-inset-top));left:8px;right:8px;display:flex;gap:6px;align-items:center}.pill,.panel,button{background:#122536e8;border:1px solid #466178;border-radius:10px;color:white;box-shadow:0 4px 14px #0003}.brand{font-weight:900;font-size:15px;padding:7px 10px;background:#122536dc;border-radius:10px}.brand b{color:#f39a26}.brand small{font-size:9px;opacity:.7}.pill{padding:7px 9px;font-size:11px;font-weight:800}.money{margin-left:auto;color:#7ef19a}.panel{position:absolute;left:8px;bottom:max(8px,env(safe-area-inset-bottom));width:min(285px,56vw);padding:9px;pointer-events:auto}.panel h3{margin:0 0 3px;font-size:15px}.panel p{margin:2px 0;color:#c8d6df;font-size:11px;line-height:1.25}.actions{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap}button{padding:8px 10px;font-size:11px;font-weight:800;pointer-events:auto;touch-action:manipulation}button.primary{background:#159a43;border-color:#27c85b}button.orange{background:#d87b14;border-color:#f39a26}button:disabled{opacity:.45}.toast{position:absolute;top:52px;left:50%;transform:translateX(-50%);background:#07131ddd;border:1px solid #587287;border-radius:9px;padding:7px 11px;font-size:11px;opacity:0;transition:.25s}.hint{position:absolute;right:8px;bottom:8px;background:#122536c8;border:1px solid #466178;border-radius:9px;padding:6px 8px;font-size:9px;color:#c8d6df}.progress{height:5px;background:#293a46;border-radius:8px;overflow:hidden;margin-top:5px}.bar{height:100%;width:0;background:#35d76b;transition:width .3s}@media(max-width:600px){.brand{font-size:12px;padding:6px 8px}.brand small{display:none}.pill{font-size:9px;padding:6px}.top .pill:nth-of-type(2){display:none}.panel{width:52vw;max-width:250px;padding:8px}.panel h3{font-size:13px}.panel p{font-size:10px}.hint{display:none}button{padding:7px 8px;font-size:10px}}.jobs{display:grid;gap:5px;margin-top:7px}.job{display:grid;grid-template-columns:1fr auto;gap:2px 8px;padding:7px;border:1px solid #466178;border-radius:8px;background:#0c1b27cc;cursor:pointer}.job strong{font-size:11px}.job span{font-size:9px;color:#b9cad4}.job em{font-style:normal;font-weight:900;color:#7ef19a;font-size:10px;align-self:center}.job.selected{border-color:#f39a26;background:#26313a}.econ{display:flex;gap:5px;margin-top:6px;flex-wrap:wrap}.econ span{font-size:9px;background:#0b1923;border:1px solid #344d60;border-radius:6px;padding:4px 6px}.hidden{display:none!important}@media(max-width:600px){.jobs{gap:3px}.job{padding:5px}.job strong{font-size:10px}.job span,.job em,.econ span{font-size:8px}}.gfx{position:absolute;right:8px;top:52px;display:flex;gap:4px;pointer-events:auto}.gfx button{padding:5px 7px;font-size:9px;background:#122536dd}.gfx button.active{border-color:#f39a26;background:#4a351d}@media(max-width:600px){.gfx{top:46px}.gfx button{padding:4px 6px;font-size:8px}}.advisor{position:absolute;right:8px;bottom:max(42px,calc(env(safe-area-inset-bottom) + 42px));width:min(300px,42vw);padding:10px 12px;background:#0b1c28ee;border:1px solid #f39a26;border-radius:12px;pointer-events:auto;box-shadow:0 5px 18px #0005}.advisor.hidden{display:none}.advisor strong{display:block;color:#f6b34f;font-size:12px;margin-bottom:3px}.advisor p{margin:0;color:#e2edf3;font-size:10px;line-height:1.35}.advisor .row{display:flex;justify-content:flex-end;margin-top:6px}.advisor button{padding:5px 8px;font-size:9px}@media(max-width:600px){.advisor{right:8px;bottom:8px;width:43vw;padding:8px}.advisor strong{font-size:10px}.advisor p{font-size:9px}}
+<!doctype html><html lang='tr'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no'><title>YÜK HATTI V1 ENVIRONMENT REBUILD</title><style>*{box-sizing:border-box}body{margin:0;background:#101820;color:#fff;font-family:system-ui,-apple-system,Segoe UI,sans-serif;overflow:hidden}#game{position:fixed;inset:0}canvas{display:block}#hud{position:fixed;inset:0;pointer-events:none}.top{position:absolute;top:max(8px,env(safe-area-inset-top));left:8px;right:8px;display:flex;gap:6px;align-items:center}.pill,.panel,button{background:#122536e8;border:1px solid #466178;border-radius:10px;color:white;box-shadow:0 4px 14px #0003}.brand{font-weight:900;font-size:15px;padding:7px 10px;background:#122536dc;border-radius:10px}.brand b{color:#f39a26}.brand small{font-size:9px;opacity:.7}.pill{padding:7px 9px;font-size:11px;font-weight:800}.money{margin-left:auto;color:#7ef19a}.panel{position:absolute;left:8px;bottom:max(8px,env(safe-area-inset-bottom));width:min(285px,56vw);padding:9px;pointer-events:auto}.panel h3{margin:0 0 3px;font-size:15px}.panel p{margin:2px 0;color:#c8d6df;font-size:11px;line-height:1.25}.actions{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap}button{padding:8px 10px;font-size:11px;font-weight:800;pointer-events:auto;touch-action:manipulation}button.primary{background:#159a43;border-color:#27c85b}button.orange{background:#d87b14;border-color:#f39a26}button:disabled{opacity:.45}.toast{position:absolute;top:52px;left:50%;transform:translateX(-50%);background:#07131ddd;border:1px solid #587287;border-radius:9px;padding:7px 11px;font-size:11px;opacity:0;transition:.25s}.hint{position:absolute;right:8px;bottom:8px;background:#122536c8;border:1px solid #466178;border-radius:9px;padding:6px 8px;font-size:9px;color:#c8d6df}.progress{height:5px;background:#293a46;border-radius:8px;overflow:hidden;margin-top:5px}.bar{height:100%;width:0;background:#35d76b;transition:width .3s}@media(max-width:600px){.brand{font-size:12px;padding:6px 8px}.brand small{display:none}.pill{font-size:9px;padding:6px}.top .pill:nth-of-type(2){display:none}.panel{width:52vw;max-width:250px;padding:8px}.panel h3{font-size:13px}.panel p{font-size:10px}.hint{display:none}button{padding:7px 8px;font-size:10px}}.jobs{display:grid;gap:5px;margin-top:7px}.job{display:grid;grid-template-columns:1fr auto;gap:2px 8px;padding:7px;border:1px solid #466178;border-radius:8px;background:#0c1b27cc;cursor:pointer}.job strong{font-size:11px}.job span{font-size:9px;color:#b9cad4}.job em{font-style:normal;font-weight:900;color:#7ef19a;font-size:10px;align-self:center}.job.selected{border-color:#f39a26;background:#26313a}.econ{display:flex;gap:5px;margin-top:6px;flex-wrap:wrap}.econ span{font-size:9px;background:#0b1923;border:1px solid #344d60;border-radius:6px;padding:4px 6px}.hidden{display:none!important}@media(max-width:600px){.jobs{gap:3px}.job{padding:5px}.job strong{font-size:10px}.job span,.job em,.econ span{font-size:8px}}.gfx{position:absolute;right:8px;top:52px;display:flex;gap:4px;pointer-events:auto}.gfx button{padding:5px 7px;font-size:9px;background:#122536dd}.gfx button.active{border-color:#f39a26;background:#4a351d}@media(max-width:600px){.gfx{top:46px}.gfx button{padding:4px 6px;font-size:8px}}.advisor{position:absolute;right:8px;bottom:max(42px,calc(env(safe-area-inset-bottom) + 42px));width:min(300px,42vw);padding:10px 12px;background:#0b1c28ee;border:1px solid #f39a26;border-radius:12px;pointer-events:auto;box-shadow:0 5px 18px #0005}.advisor.hidden{display:none}.advisor strong{display:block;color:#f6b34f;font-size:12px;margin-bottom:3px}.advisor p{margin:0;color:#e2edf3;font-size:10px;line-height:1.35}.advisor .row{display:flex;justify-content:flex-end;margin-top:6px}.advisor button{padding:5px 8px;font-size:9px}@media(max-width:600px){.advisor{right:8px;bottom:8px;width:43vw;padding:8px}.advisor strong{font-size:10px}.advisor p{font-size:9px}}
 
 /* V1 GORSEL 2 - compact game HUD */
 .top{background:linear-gradient(90deg,#091722cc,#102b3acc);padding:6px 7px;border:1px solid #36576b;border-radius:12px;backdrop-filter:blur(7px);right:auto;max-width:calc(100vw - 16px)}
@@ -10,10 +10,10 @@
 
 /* V1 AUDIT FIX — ilerleme, seviye, sözleşme ve günlük hedefler */
 .gameStats{position:absolute;top:92px;right:8px;width:205px;padding:9px;background:#0b1c28e8;border:1px solid #466178;border-radius:11px;pointer-events:auto;font-size:9px}.gameStats b{font-size:11px}.gameStats .rowx{display:flex;justify-content:space-between;gap:8px;margin:3px 0}.xpTrack{height:5px;background:#263946;border-radius:8px;overflow:hidden;margin:5px 0}.xpFill{height:100%;background:#f39a26}.goal{color:#bcd0dc}.badge{display:inline-block;padding:2px 5px;border:1px solid #526c7e;border-radius:5px;margin-top:3px;color:#f6b34f}@media(max-width:600px){.gameStats{top:84px;width:160px;font-size:8px;padding:7px}.gameStats b{font-size:9px}}
-</style></head><body><div id='game'></div><div id='hud'><div class='top'><div class='brand'>YÜK <b>HATTI</b> <small>V1 AUDIT FIX</small></div><div class='pill'>ZAZOHAN YH-10</div><div class='pill' id='facilityPill'>TEMEL TESİS</div><div class='pill money' id='money'>₺50.000</div></div><div class='toast' id='toast'></div><div class='gfx'><button data-q='performance'>Performans</button><button data-q='balanced'>Dengeli</button><button data-q='quality'>Kalite</button></div><div class='gameStats' id='gameStats'><b>Şirket İlerlemesi</b><div class='rowx'><span id='levelText'>Seviye 1</span><span id='repText'>İtibar 0</span></div><div class='xpTrack'><div class='xpFill' id='xpFill'></div></div><div class='goal' id='goalText'></div><div class='badge' id='rankText'>Yerel Nakliyeci</div></div><div class='panel' id='workPanel'><button class='panelToggle' id='panelToggle' aria-label='Paneli aç/kapat'>‹</button><h3 id='title'>İş Merkezi</h3><p id='desc'>Bir sevkiyat seç. Gelir ve masrafları karşılaştır.</p><div id='jobs' class='jobs'></div><div id='econ' class='econ'></div><div class='progress'><div class='bar' id='bar'></div></div><div class='actions'><button class='primary' id='main'>İşi Kabul Et</button><button class='orange' id='upgrade'>Tesisi Genişlet</button><button id='hire'>Çalışan İşe Al</button><button id='reset'>Yeni Oyun</button></div></div><div class='advisor hidden' id='advisor'><strong id='advisorTitle'>Danışman</strong><p id='advisorText'></p><div class='row'><button id='advisorOk'>Anladım</button></div></div><div class='hint'>Sürükle: kamera • Sıkıştır: yakınlaştır • Tesis nesnelerine dokunabilirsin</div></div>
+</style></head><body><div id='game'></div><div id='hud'><div class='top'><div class='brand'>YÜK <b>HATTI</b> <small>V1 ENVIRONMENT REBUILD</small></div><div class='pill'>ZAZOHAN YH-10</div><div class='pill' id='facilityPill'>TEMEL TESİS</div><div class='pill money' id='money'>₺50.000</div></div><div class='toast' id='toast'></div><div class='gfx'><button data-q='performance'>Performans</button><button data-q='balanced'>Dengeli</button><button data-q='quality'>Kalite</button></div><div class='gameStats' id='gameStats'><b>Şirket İlerlemesi</b><div class='rowx'><span id='levelText'>Seviye 1</span><span id='repText'>İtibar 0</span></div><div class='xpTrack'><div class='xpFill' id='xpFill'></div></div><div class='goal' id='goalText'></div><div class='badge' id='rankText'>Yerel Nakliyeci</div></div><div class='panel' id='workPanel'><button class='panelToggle' id='panelToggle' aria-label='Paneli aç/kapat'>‹</button><h3 id='title'>İş Merkezi</h3><p id='desc'>Bir sevkiyat seç. Gelir ve masrafları karşılaştır.</p><div id='jobs' class='jobs'></div><div id='econ' class='econ'></div><div class='progress'><div class='bar' id='bar'></div></div><div class='actions'><button class='primary' id='main'>İşi Kabul Et</button><button class='orange' id='upgrade'>Tesisi Genişlet</button><button id='hire'>Çalışan İşe Al</button><button id='reset'>Yeni Oyun</button></div></div><div class='advisor hidden' id='advisor'><strong id='advisorTitle'>Danışman</strong><p id='advisorText'></p><div class='row'><button id='advisorOk'>Anladım</button></div></div><div class='hint'>Sürükle: kamera • Sıkıştır: yakınlaştır • Tesis nesnelerine dokunabilirsin</div></div>
 <script type='importmap'>{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}</script><script type='module'>
 import * as THREE from 'three'; import {OrbitControls} from 'three/addons/controls/OrbitControls.js'; import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
-const root=document.querySelector('#game'), scene=new THREE.Scene(); scene.background=new THREE.Color(0x91c8e5); scene.fog=new THREE.Fog(0x91c8e5,72,132);
+const root=document.querySelector('#game'), scene=new THREE.Scene(); scene.background=new THREE.Color(0x9fcbe0); scene.fog=new THREE.Fog(0x9fcbe0,82,155);
 const camera=new THREE.PerspectiveCamera(42,innerWidth/innerHeight,.1,180); camera.position.set(25,16,31);
 const renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'}); renderer.setSize(innerWidth,innerHeight); renderer.outputColorSpace=THREE.SRGBColorSpace; renderer.toneMapping=THREE.ACESFilmicToneMapping; renderer.toneMappingExposure=1.05; root.appendChild(renderer.domElement);
 let gfxMode=localStorage.getItem('yuk_hatti_gfx')||'balanced';
@@ -24,9 +24,42 @@ applyGraphics(gfxMode);applyShadowQuality();document.querySelectorAll('.gfx butt
 const mat=(c)=>new THREE.MeshStandardMaterial({color:c,roughness:.8}); const box=(x,y,z,c,px,py,pz)=>{const m=new THREE.Mesh(new THREE.BoxGeometry(x,y,z),mat(c));m.position.set(px,py,pz);m.castShadow=m.receiveShadow=true;scene.add(m);return m};
 const mesh=(geo,c)=>{const m=new THREE.Mesh(geo,mat(c));m.castShadow=m.receiveShadow=true;return m}; const add=(g,o,x,y,z)=>{o.position.set(x,y,z);g.add(o);return o};
 box(62,.5,48,0x777f7b,0,-.25,0); box(64,.25,5,0x303a3f,0,-.1,25); box(64,.15,7,0x596f45,0,-.3,-27); box(5,.08,38,0x3d4649,26,.02,2); box(10,.05,15,0x8a8f8b,-7,.03,4); for(let i=-28;i<30;i+=8) box(4,.03,.18,0xf2d14a,i,.04,24.8);
-// depot
-box(24,8,12,0x68757b,-7,4,-9); box(25,.65,13,0x2f424b,-7,8.35,-9); box(25,.35,.4,0xf29a23,-7,7.25,-2.82); box(6,5,.35,0x24353e,-13,2.5,-2.85); box(6,5,.35,0x24353e,-4,2.5,-2.85); for(const x of [-15.3,-13,-10.7,-6.3,-4,-1.7]) box(.12,4.5,.05,0x53656d,x,2.5,-2.62); box(8,.65,.2,0x15242d,-7,6.7,-2.58);
-box(10,5,8,0x87918d,13,2.5,-9); box(10,.5,8.5,0x485b61,13,5.2,-9);
+// V1 ENVIRONMENT REBUILD — old prototype buildings replaced, not over-skinned
+// Main logistics hall: taller, wider, clean industrial proportions
+box(28,9.5,14,0xd9dee0,-7,4.75,-10);                 // hall body
+box(29,.65,15,0x172a35,-7,9.55,-10);                 // dark roof/parapet
+box(29,.28,.55,0xf0a126,-7,8.15,-2.75);              // brand accent
+// three recessed loading portals
+for(const x of [-15,-7,1]){
+  box(6.2,5.7,.48,0x13232d,x,3.0,-2.73);
+  box(5.25,4.85,.18,0x1b2930,x,2.7,-2.45);
+  for(let yy=.65;yy<5;yy+=.55) box(5.0,.055,.08,0x53656b,x,yy,-2.34);
+  box(6.7,.32,1.7,0x3e484b,x,.16,-1.75);
+  box(.28,1.15,.5,0xf0a126,x-2.72,.58,-2.28); box(.28,1.15,.5,0xf0a126,x+2.72,.58,-2.28);
+}
+// architectural columns and upper facade band
+for(const x of [-20.6,-18.3,-11.7,-9.4,-3.7,-1.4,4.6]) box(.22,7.8,.42,0x77858a,x,4.05,-2.83);
+box(15.5,1.35,.34,0x172a35,-7,7.0,-2.52);
+// Modern two-storey operations HQ — replaces the old small office box
+box(13,6.8,10,0xe4e7e5,13.5,3.4,-9);                 // HQ mass
+box(13.6,.55,10.6,0x172a35,13.5,7.05,-9);            // floating roof
+box(13.1,.32,.55,0xf0a126,13.5,5.95,-3.78);           // accent line
+// full glass front with dark mullions
+for(const x of [8.2,10.3,12.4,14.5,16.6,18.7]){
+  box(1.72,2.05,.12,0x285668,x,4.45,-3.93);
+  box(1.72,2.05,.12,0x214957,x,1.95,-3.93);
+}
+for(const x of [9.25,11.35,13.45,15.55,17.65]) box(.10,4.65,.18,0xb8c3c5,x,3.2,-3.82);
+box(2.1,2.7,.18,0x14242c,13.5,1.45,-3.78);             // entrance
+box(4.6,.28,1.7,0x172a35,13.5,5.75,-3.25);             // entrance canopy
+box(4.0,.16,1.7,0x6d7674,13.5,.08,-3.15);              // steps
+// landscaped HQ islands
+for(const [x,z] of [[8,-2],[19,-2],[8,-15],[19,-15]]){
+  box(3.0,.22,2.1,0x69756c,x,.10,z);
+  const tr=mesh(new THREE.CylinderGeometry(.16,.22,1.5,8),0x5b4431);tr.position.set(x,.85,z);scene.add(tr);
+  const cr=mesh(new THREE.IcosahedronGeometry(1.0,1),0x477748);cr.position.set(x,2.0,z);scene.add(cr);
+}
+
 // V0.1.5 physical depot expansion - hidden until purchased
 const expansion=new THREE.Group(); expansion.visible=false; scene.add(expansion);
 const exbox=(x,y,z,c,px,py,pz)=>{const m=new THREE.Mesh(new THREE.BoxGeometry(x,y,z),mat(c));m.position.set(px,py,pz);m.castShadow=m.receiveShadow=true;expansion.add(m);return m};
@@ -74,8 +107,7 @@ for(const [x,z] of [[-24,-26],[-17,-26],[17,-26],[24,-26]]){const t=mesh(new THR
 // warehouse facade ribs and canopy
 for(let x=-18.5;x<=4.5;x+=2.3) box(.16,7.4,.22,0x536169,x,3.8,-2.72);
 for(const x of [-13,-4]){box(6.7,.22,1.25,0x35464e,x,5.35,-2.15);box(.22,5.2,.8,0xf0a126,x-3.35,2.6,-2.35);box(.22,5.2,.8,0xf0a126,x+3.35,2.6,-2.35)}
-// office windows and door
-for(const x of [10.2,12.2,14.2,16.2]) box(1.45,1.7,.08,0x254b5b,x,3.0,-4.92); box(1.5,2.5,.1,0x27383f,13,1.3,-4.88);
+// old office overlay removed by ENVIRONMENT REBUILD
 // bay bumpers + dock plates
 for(const x of [-13,-4]){box(.45,1.2,.5,0x1d2529,x-2.65,.6,-2.45);box(.45,1.2,.5,0x1d2529,x+2.65,.6,-2.45);box(5.3,.16,2.0,0x414b4f,x,.12,-1.7)}
 // painted parking/loading lines
@@ -100,8 +132,7 @@ for(const x of [-16,-11,-6,-1]){box(2.8,.35,1.0,0x34474f,x,8.72,-9);box(1.8,.38,
 const signCanvas=document.createElement('canvas');signCanvas.width=512;signCanvas.height=128;const sc=signCanvas.getContext('2d');sc.fillStyle='#f4f1e8';sc.fillRect(0,0,512,128);sc.fillStyle='#173246';sc.font='900 55px sans-serif';sc.textAlign='center';sc.fillText('YÜK',190,78);sc.fillStyle='#e89120';sc.fillText('HATTI',350,78);const st=new THREE.CanvasTexture(signCanvas);st.colorSpace=THREE.SRGBColorSpace;const sm=new THREE.MeshBasicMaterial({map:st});const ws=new THREE.Mesh(new THREE.PlaneGeometry(8.4,2.1),sm);ws.position.set(-7,6.5,-2.48);scene.add(ws);
 // warehouse side utility boxes, dock lamps
 for(const x of [-16,-10,-1,3]){box(.55,.75,.35,0x394b51,x,4.9,-2.35);const lamp=mesh(new THREE.SphereGeometry(.12,8,6),0xffd36b);lamp.position.set(x,5.2,-2.08);scene.add(lamp)}
-// office entrance canopy, steps, AC unit
-box(3.2,.22,1.25,0x31464f,13,4.5,-4.25);box(2.2,.16,1.3,0x5d6766,13,.08,-4.2);box(1.5,.75,.55,0xd8dedc,16.6,3.4,-5.05);box(1.1,.42,.62,0x34454b,16.6,3.4,-4.72);
+// legacy office detail removed
 // truck: sloped hood, bumper, windshield split, mirrors, steps, side rails, mudguards
 const hood=add(truck,mesh(new THREE.BoxGeometry(3.45,.72,1.15),0xf3f3ef),0,1.78,4.25);hood.rotation.x=-.08;
 add(truck,mesh(new THREE.BoxGeometry(3.55,.35,.35),0x263035),0,1.05,4.78);
@@ -138,9 +169,7 @@ for(const [bx,n] of [[-13,'1'],[-4,'2']]){
 for(let x=-18.5;x<5;x+=1.15) box(.045,6.8,.08,0x59676c,x,4,-15.02);
 for(const z of [-14.8,-3.2]) box(25,.35,.35,0x263941,-7,8.45,z);
 for(const x of [-18.7,4.7]){const pipe=mesh(new THREE.CylinderGeometry(.09,.09,6.8,8),0x263941);pipe.position.set(x,3.4,-14.8);scene.add(pipe)}
-// office glass frames, sign and rooftop HVAC
-for(const x of [10.2,12.2,14.2,16.2]){box(.08,1.9,.16,0xb9c9ce,x-.75,3,-4.82);box(.08,1.9,.16,0xb9c9ce,x+.75,3,-4.82)}
-for(const x of [10.8,15.2]){box(1.8,.7,1.2,0xc7cdca,x,5.65,-9);box(1.45,.18,.85,0x36474d,x,6.05,-9)}
+// legacy office detail removed
 // detailed cargo stacks and wrapped pallets
 for(const [x,z] of [[-18,-6],[-16,-6],[7,-12],[9,-12],[19,-8]]){const g=grp(x,0,z);part(g,0,.12,0,1.8,.22,1.35,0x7d5129);for(let iy=0;iy<2;iy++)for(let ix=-1;ix<=1;ix+=2)part(g,ix*.43,.58+iy*.72,0,.78,.66,1.05,iy?0xc78943:0xb97837);}
 // parked blue cargo container with ribs and corner castings
@@ -409,60 +438,6 @@ async function cineLoading(){await cameraMove(new THREE.Vector3(12,7,12),new THR
 async function cineTruckReady(){await cameraMove(new THREE.Vector3(8,7,16),new THREE.Vector3(-7,1.7,6),480)}
 async function cineDepartureStart(){await cameraMove(new THREE.Vector3(7,7,19),truck.position.clone().add(new THREE.Vector3(0,1.7,0)),420)}
 function followTruckCamera(){if(!cinematicActive||!truck.visible)return;const off=new THREE.Vector3(-8,5,-10).applyAxisAngle(Y_AXIS,truck.rotation.y);camera.position.lerp(truck.position.clone().add(off),.075);controls.target.lerp(truck.position.clone().add(new THREE.Vector3(0,1.4,0)),.1);camera.lookAt(controls.target)}
-
-
-// V1 VISUAL OVERHAUL — modern logistics campus. Gameplay/economy untouched.
-scene.background=new THREE.Color(0x86b8cf); scene.fog.color.set(0xa6c6d2); scene.fog.near=78; scene.fog.far=150;
-// Premium warehouse facade skin: light insulated panels + dark blue frame.
-box(24.3,7.5,.28,0xd8dcda,-7,4.15,-2.55);
-for(let x=-18.4;x<=4.4;x+=2.0) box(.11,7.1,.08,0xb8c1c2,x,4.1,-2.35);
-box(25,.42,.55,0x173747,-7,7.72,-2.28);
-box(25,.24,.38,0xe9a126,-7,7.15,-2.25);
-// Rebuild two dock portals clearly on top of the facade.
-for(const [bx,n] of [[-13,'1'],[-4,'2']]){
-  box(6.3,4.75,.30,0x18313d,bx,2.55,-2.27);
-  box(5.35,4.05,.34,0x17252c,bx,2.25,-2.05);
-  for(let y=.45;y<4.15;y+=.48) box(5.0,.055,.07,0x3d5058,bx,y,-1.85);
-  box(.28,5.0,.55,0xe5a126,bx-3.18,2.5,-2.0);box(.28,5.0,.55,0xe5a126,bx+3.18,2.5,-2.0);
-}
-// Large illuminated brand fascia.
-const premiumCv=document.createElement('canvas');premiumCv.width=1024;premiumCv.height=220;const pc=premiumCv.getContext('2d');pc.fillStyle='#132d3b';pc.fillRect(0,0,1024,220);pc.fillStyle='#f5f7f5';pc.font='900 70px Arial';pc.textAlign='center';pc.fillText('ZAZOHAN',512,88);pc.fillStyle='#f0a126';pc.font='900 54px Arial';pc.fillText('YÜK HATTI',512,164);const ptx=new THREE.CanvasTexture(premiumCv);ptx.colorSpace=THREE.SRGBColorSpace;const pmat=new THREE.MeshBasicMaterial({map:ptx});const premiumSign=new THREE.Mesh(new THREE.PlaneGeometry(10.5,2.25),pmat);premiumSign.position.set(-7,6.35,-1.88);scene.add(premiumSign);
-// Completely new two-storey glass operations building in the rear-right safe zone.
-const officeNew=new THREE.Group();scene.add(officeNew);
-function opart(x,y,z,sx,sy,sz,c){const m=mesh(new THREE.BoxGeometry(sx,sy,sz),c);m.position.set(x,y,z);officeNew.add(m);return m}
-opart(17.0,2.0,-10.5,12.5,4.0,7.2,0xe4e2dc);opart(17.0,4.65,-10.5,12.5,1.3,7.2,0x263e49);
-// dark architectural frame + glass curtain wall facing yard
-opart(17.0,3.0,-6.82,12.9,5.8,.28,0x1a303a);
-for(let x=11.5;x<=22.5;x+=2.2){opart(x,3.0,-6.64,1.72,4.75,.08,0x315b69);opart(x+1.0,3.0,-6.61,.09,4.9,.12,0xaebfc3)}
-opart(17.0,5.92,-10.5,13.0,.34,7.5,0x152e3b);
-// warm entrance portal and canopy
-opart(17.0,1.55,-6.35,2.25,3.0,.25,0x101d23);opart(17.0,4.25,-5.95,5.5,.24,1.55,0xe6a12b);
-const glassMat=new THREE.MeshStandardMaterial({color:0x2c5968,roughness:.2,metalness:.15,emissive:0x16303a,emissiveIntensity:.45});
-const glassDoor=new THREE.Mesh(new THREE.BoxGeometry(1.65,2.65,.12),glassMat);glassDoor.position.set(17,1.55,-6.12);officeNew.add(glassDoor);
-// office sign
-const ocv=document.createElement('canvas');ocv.width=700;ocv.height=150;const occ=ocv.getContext('2d');occ.fillStyle='#132d3b';occ.fillRect(0,0,700,150);occ.fillStyle='white';occ.font='900 48px Arial';occ.textAlign='center';occ.fillText('ZAZOHAN OPERASYON',350,65);occ.fillStyle='#f0a126';occ.font='800 32px Arial';occ.fillText('LOJİSTİK MERKEZİ',350,112);const otx=new THREE.CanvasTexture(ocv);otx.colorSpace=THREE.SRGBColorSpace;const osm=new THREE.MeshBasicMaterial({map:otx});const officeSign=new THREE.Mesh(new THREE.PlaneGeometry(6.8,1.45),osm);officeSign.position.set(17,5.0,-6.43);officeNew.add(officeSign);
-// rooftop units
-for(const x of [13.5,20.5])opart(x,6.45,-10.5,2.2,.8,1.5,0xaab3b2);
-// Premium landscaped entrance islands and illuminated bollards.
-for(const [x,z] of [[12,-3.9],[22,-3.9],[12,-16.0],[22,-16.0]]){
- const soil=mesh(new THREE.CylinderGeometry(1.25,1.35,.22,20),0x4d603c);soil.position.set(x,.11,z);scene.add(soil);
- const trunk=mesh(new THREE.CylinderGeometry(.12,.18,1.7,8),0x72513b);trunk.position.set(x,.95,z);scene.add(trunk);
- const crown=mesh(new THREE.IcosahedronGeometry(1.05,1),0x3f7548);crown.position.set(x,2.2,z);scene.add(crown);
-}
-for(const [x,z] of [[10,-5.1],[24,-5.1],[10,-15],[24,-15]]){const b=mesh(new THREE.CylinderGeometry(.12,.16,.75,10),0x263b43);b.position.set(x,.38,z);scene.add(b);const glow=mesh(new THREE.SphereGeometry(.14,8,6),0xffd98a);glow.position.set(x,.8,z);scene.add(glow)}
-// Visitor parking with cars, safely behind office/right side.
-for(let i=0;i<3;i++){const x=9+i*3.4,z=-18.5;box(2.35,.65,4.4,[0x394c59,0xc5c8c6,0x30465d][i],x,.48,z);box(1.85,.72,2.0,0x253e49,x,1.02,z-.2);for(const sx of [-.92,.92])for(const dz of [-1.35,1.35]){const wh=mesh(new THREE.CylinderGeometry(.36,.36,.28,12),0x15191b);wh.rotation.z=Math.PI/2;wh.position.set(x+sx,.38,z+dz);scene.add(wh)}}
-// Proper perimeter wall accents and branded entry monument.
-box(9.0,1.25,.55,0x19323e,-23,.65,18.7);box(8.1,.12,.62,0xe6a126,-23,1.34,18.7);
-const gateCv=document.createElement('canvas');gateCv.width=640;gateCv.height=150;const gc=gateCv.getContext('2d');gc.fillStyle='#19323e';gc.fillRect(0,0,640,150);gc.fillStyle='white';gc.font='900 45px Arial';gc.textAlign='center';gc.fillText('ZAZOHAN',320,62);gc.fillStyle='#f0a126';gc.font='900 34px Arial';gc.fillText('YÜK HATTI',320,112);const gtx=new THREE.CanvasTexture(gateCv);gtx.colorSpace=THREE.SRGBColorSpace;const gsm=new THREE.MeshBasicMaterial({map:gtx});const gs=new THREE.Mesh(new THREE.PlaneGeometry(7.5,1.75),gsm);gs.position.set(-23,1.8,18.38);scene.add(gs);
-// Distant hills / tree belt to remove empty-sky toy look.
-for(let i=0;i<26;i++){const a=i/25*Math.PI*2;const r=52+(i%4)*3;const x=Math.cos(a)*r,z=Math.sin(a)*r;const tr=mesh(new THREE.CylinderGeometry(.16,.24,2.2,7),0x66503b);tr.position.set(x,1,z);scene.add(tr);const cr=mesh(new THREE.ConeGeometry(1.4+(i%3)*.25,3.8+(i%4)*.3,8),0x355f43);cr.position.set(x,3.4,z);scene.add(cr)}
-for(const [x,z,sx,sy] of [[-42,-48,26,10],[5,-55,35,13],[43,-42,24,9]]){const hill=mesh(new THREE.ConeGeometry(sx,sy,6),0x708579);hill.position.set(x,sy/2-1,z);hill.rotation.y=.35;scene.add(hill)}
-// Better road furniture: curbs, zebra entry and arrows.
-for(let x=7;x<=22;x+=2.4) box(1.3,.025,.35,0xf5f5ed,x,.06,18.1);
-for(const [x,z] of [[-25,14],[-20,14],[-15,14]]){const planter=mesh(new THREE.BoxGeometry(3,.35,1.0),0x4a5552);planter.position.set(x,.18,z);scene.add(planter);for(const dx of [-.8,0,.8]){const b=mesh(new THREE.IcosahedronGeometry(.48,1),0x467b49);b.position.set(x+dx,.65,z);scene.add(b)}}
-// richer tone mapping for a less flat look
-renderer.toneMappingExposure=1.0;
 
 const JOBS=[
  {id:'city',name:'Şehir İçi Dağıtım',route:'Nilüfer → Osmangazi',cargo:'Market kolileri',pallets:4,distance:18,revenue:4200,fuel:650,road:0},
