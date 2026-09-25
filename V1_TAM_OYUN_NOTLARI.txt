@@ -1,0 +1,10 @@
+YÜK HATTI V1 TAM OYUN
+- Mevcut iş-ekonomi-yükleme-sevkiyat döngüsü korundu.
+- Şirket seviye/XP ve itibar sistemi eklendi.
+- İşler kademeli açılır: şehir içi S1, bölgesel S2, uzun hat S3.
+- Tamamlanan iş XP + itibar kazandırır; iş serisi ve en iyi net kazanç kaydedilir.
+- Çalışan alımı ve tesis genişletme ilerlemeye XP kazandırır.
+- Şirket rütbeleri ve bir sonraki hedef HUD'a eklendi.
+- Kayıt sistemi yeni ilerleme alanlarını saklar.
+- Mevcut mobil grafik, danışman, canlı tesis, sinematik kamera ve ses sistemleri korundu.
+- Kamyon modelinin geometrisi ayrıca daha sonra değiştirilecek.
